@@ -14,7 +14,8 @@
                         <div class="hero-slide-content text-start">
                             <h5 class="sub-title">We keep pets for pleasure.</h5>
                             <h2 class="title m-0">Vitamins For all Pets</h2>
-                            <p class="ms-0">We know your concerns when you are looking for a chewing treat for your dog.</p>
+                            <p class="ms-0">We know your concerns when you are looking for a chewing treat for your dog.
+                            </p>
                             <a href="shop.html" class="btn btn-dark btn-hover-primary">Shop Now</a>
                         </div>
                     </div>
@@ -40,8 +41,10 @@
             <!-- Swiper Pagination End -->
 
             <!-- Swiper Navigation Start -->
-            <div class="home-slider-prev swiper-button-prev main-slider-nav d-lg-flex d-none"><i class="icon-arrow-left"></i></div>
-            <div class="home-slider-next swiper-button-next main-slider-nav d-lg-flex d-none"><i class="icon-arrow-right"></i></div>
+            <div class="home-slider-prev swiper-button-prev main-slider-nav d-lg-flex d-none"><i
+                    class="icon-arrow-left"></i></div>
+            <div class="home-slider-next swiper-button-next main-slider-nav d-lg-flex d-none"><i
+                    class="icon-arrow-right"></i></div>
             <!-- Swiper Navigation End -->
         </div>
     </div>
@@ -127,9 +130,12 @@
                 <!-- Tab Start -->
                 <div class="col-12">
                     <ul class="product-tab-nav nav justify-content-center m-b-n15 p-b-40 title-border-bottom">
-                        <li class="nav-item m-b-15"><a class="nav-link active" data-bs-toggle="tab" href="#tab-product-all">Bestseller</a></li>
-                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab" href="#tab-product-featured">Sales popup</a></li>
-                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab" href="#tab-product-all">Top collection</a></li>
+                        <li class="nav-item m-b-15"><a class="nav-link active" data-bs-toggle="tab"
+                                href="#tab-product-all">Bestseller</a></li>
+                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab"
+                                href="#tab-product-featured">Sales popup</a></li>
+                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab" href="#tab-product-all">Top
+                                collection</a></li>
                     </ul>
                 </div>
                 <!-- Tab End -->
@@ -150,15 +156,20 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/1.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/1.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-18%</span>
+                                                <span class="sale">-18%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view" title="Quickview"><i
+                                                        class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -167,15 +178,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">An Animal Album</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$80.50</span>
-                                            <span class="old">$85.80</span>
+                                                <span class="new">$80.50</span>
+                                                <span class="old">$85.80</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -189,15 +200,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/3.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/3.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="new">New</span>
+                                                <span class="new">New</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -206,14 +221,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Wait, You Need This</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$90.00</span>
+                                                <span class="new">$90.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -227,12 +242,16 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/4.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/4.png"
+                                                    alt="Product" />
                                             </a>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -241,14 +260,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Pet Food Corner</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$105.00</span>
+                                                <span class="new">$105.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -262,15 +281,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/5.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/5.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-18%</span>
+                                                <span class="sale">-18%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
 
                                             <div class="countdown-area">
@@ -283,15 +306,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Pet Leaving House</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$47.50</span>
-                                            <span class="old">$50.00</span>
+                                                <span class="new">$47.50</span>
+                                                <span class="old">$50.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -305,15 +328,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/6.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/6.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-20%</span>
+                                                <span class="sale">-20%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -322,15 +349,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Pet Leaving House</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$58.50</span>
-                                            <span class="old">$62.85</span>
+                                                <span class="new">$58.50</span>
+                                                <span class="old">$62.85</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -344,15 +371,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/7.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/7.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="new">New</span>
+                                                <span class="new">New</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -361,14 +392,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">This is the testing</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$78.50</span>
+                                                <span class="new">$78.50</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -382,12 +413,16 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/8.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/8.png"
+                                                    alt="Product" />
                                             </a>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -396,14 +431,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Basic Dog Trainning</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$55.00</span>
+                                                <span class="new">$55.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -417,15 +452,20 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/2.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/2.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-20%</span>
+                                                <span class="sale">-20%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" title="Quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" title="Quickview"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"><i
+                                                        class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -434,15 +474,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Animal For Life</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$75.50</span>
-                                            <span class="old">$82.85</span>
+                                                <span class="new">$75.50</span>
+                                                <span class="old">$82.85</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -462,15 +502,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/5.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/5.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-18%</span>
+                                                <span class="sale">-18%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -479,15 +523,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Pet Leaving House</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$47.50</span>
-                                            <span class="old">$50.00</span>
+                                                <span class="new">$47.50</span>
+                                                <span class="old">$50.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -501,15 +545,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/6.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/6.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-20%</span>
+                                                <span class="sale">-20%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -518,15 +566,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Pet Leaving House</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$58.50</span>
-                                            <span class="old">$62.85</span>
+                                                <span class="new">$58.50</span>
+                                                <span class="old">$62.85</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -540,15 +588,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/3.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/3.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="new">New</span>
+                                                <span class="new">New</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -557,14 +609,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Wait, You Need This</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$90.00</span>
+                                                <span class="new">$90.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -578,15 +630,19 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/7.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/7.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="new">New</span>
+                                                <span class="new">New</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -595,14 +651,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">This is the testing</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$78.50</span>
+                                                <span class="new">$78.50</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -616,12 +672,16 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/8.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/8.png"
+                                                    alt="Product" />
                                             </a>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -630,14 +690,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Basic Dog Trainning</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$55.00</span>
+                                                <span class="new">$55.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -651,15 +711,20 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/1.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/1.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-18%</span>
+                                                <span class="sale">-18%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view" title="Quickview"><i
+                                                        class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -668,15 +733,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">An Animal Album</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$80.50</span>
-                                            <span class="old">$85.80</span>
+                                                <span class="new">$80.50</span>
+                                                <span class="old">$85.80</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -690,15 +755,20 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/2.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/2.png"
+                                                    alt="Product" />
                                             </a>
                                             <span class="badges">
-                                            <span class="sale">-20%</span>
+                                                <span class="sale">-20%</span>
                                             </span>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" title="Quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" title="Quickview"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"><i
+                                                        class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -707,15 +777,15 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Animal For Life</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$75.50</span>
-                                            <span class="old">$82.85</span>
+                                                <span class="new">$75.50</span>
+                                                <span class="old">$82.85</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -729,12 +799,16 @@
                                         <!-- Thumb Start  -->
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img class="fit-image" src="assets/images/products/medium-product/4.png" alt="Product" />
+                                                <img class="fit-image" src="assets/images/products/medium-product/4.png"
+                                                    alt="Product" />
                                             </a>
                                             <div class="action-wrapper">
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                        class="ti-heart"></i></a>
+                                                <a href="cart.html" class="action cart" title="Cart"><i
+                                                        class="ti-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <!-- Thumb End  -->
@@ -743,14 +817,14 @@
                                         <div class="content">
                                             <h5 class="title"><a href="single-product.html">Pet Food Corner</a></h5>
                                             <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <span class="price">
-                                            <span class="new">$105.00</span>
+                                                <span class="new">$105.00</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -821,27 +895,33 @@
                                     <!-- Single Product Deal Start -->
                                     <div class="single-deal-product row m-b-n30">
                                         <!-- Deal Thumb Start -->
-                                        <div class="deal-thumb col-md-6 m-b-30" data-aos="fade-up" data-aos-duration="1200">
+                                        <div class="deal-thumb col-md-6 m-b-30" data-aos="fade-up"
+                                            data-aos-duration="1200">
                                             <a href="single-product.html">
-                                                <img class="fit-image" src="assets/images/products/large-product/9.png" alt="Product Image">
+                                                <img class="fit-image" src="assets/images/products/large-product/9.png"
+                                                    alt="Product Image">
                                             </a>
                                         </div>
                                         <!-- Deal Thumb End -->
                                         <!-- Deal Content Start -->
-                                        <div class="product-deal-content col-md-6 m-b-30" data-aos="fade-up" data-aos-duration="1400">
-                                            <h5 class="title m-b-15"><a href="single-product.html">An Animal Album</a></h5>
+                                        <div class="product-deal-content col-md-6 m-b-30" data-aos="fade-up"
+                                            data-aos-duration="1400">
+                                            <h5 class="title m-b-15"><a href="single-product.html">An Animal Album</a>
+                                            </h5>
                                             <span class="rating m-b-15">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                            <span class="price">
-													<span class="new">$80.50</span>
-                                            <span class="old">$85.80</span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </span>
-                                            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                                            <span class="price">
+                                                <span class="new">$80.50</span>
+                                                <span class="old">$85.80</span>
+                                            </span>
+                                            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+                                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda
+                                                est, omnis dolor repellendus.</p>
                                             <div class="countdown-area">
                                                 <div class="countdown-wrapper" data-countdown="2028/12/28"></div>
                                             </div>
@@ -858,25 +938,29 @@
                                         <!-- Deal Thumb Start -->
                                         <div class="deal-thumb col-md-6 m-b-30">
                                             <a href="single-product.html">
-                                                <img class="fit-image" src="assets/images/products/large-product/10.png" alt="Product Image">
+                                                <img class="fit-image" src="assets/images/products/large-product/10.png"
+                                                    alt="Product Image">
                                             </a>
                                         </div>
                                         <!-- Deal Thumb End -->
                                         <!-- Deal Content Start -->
                                         <div class="product-deal-content col-md-6 m-b-30">
-                                            <h5 class="title m-b-15"><a href="single-product.html">Animal For Life</a></h5>
+                                            <h5 class="title m-b-15"><a href="single-product.html">Animal For Life</a>
+                                            </h5>
                                             <span class="rating m-b-15">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</span>
-                                            <span class="price">
-													<span class="new">$60.00</span>
-                                            <span class="old">$66.00</span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </span>
-                                            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                                            <span class="price">
+                                                <span class="new">$60.00</span>
+                                                <span class="old">$66.00</span>
+                                            </span>
+                                            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+                                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda
+                                                est, omnis dolor repellendus.</p>
                                             <div class="countdown-area">
                                                 <div class="countdown-wrapper" data-countdown="2028/12/28"></div>
                                             </div>
@@ -894,8 +978,10 @@
                             <!-- Swiper Pagination End -->
 
                             <!-- Next Previous Button Start -->
-                            <div class="swiper-deal-button-next swiper-button-next swiper-nav-button"><i class="ti-angle-right"></i></div>
-                            <div class="swiper-deal-button-prev swiper-button-prev swiper-nav-button"><i class="ti-angle-left"></i></div>
+                            <div class="swiper-deal-button-next swiper-button-next swiper-nav-button"><i
+                                    class="ti-angle-right"></i></div>
+                            <div class="swiper-deal-button-prev swiper-button-prev swiper-nav-button"><i
+                                    class="ti-angle-left"></i></div>
                             <!-- Next Previous Button End -->
                         </div>
                     </div>
@@ -917,7 +1003,8 @@
                     <div class="testimonial-carousel">
 
                         <!-- Testimonial Gallery Top Start -->
-                        <div class="swiper-container testimonial-gallery-top" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="swiper-container testimonial-gallery-top" data-aos="fade-up"
+                            data-aos-duration="1000">
                             <div class="swiper-wrapper">
 
                                 <!-- Single Swiper Slide Start -->
@@ -925,7 +1012,9 @@
 
                                     <!-- Testimonial Content Start -->
                                     <div class="testimonial-content text-center">
-                                        <p>Lorem ipsum dolor sit amet, co adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo</p>
+                                        <p>Lorem ipsum dolor sit amet, co adipisicing elit, sed do eiusmod tempor incididunt
+                                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita
+                                            ullamco laboris nisi ut aliquip ex ea commodo</p>
                                     </div>
                                     <!-- Testimonial Content End -->
 
@@ -937,7 +1026,9 @@
 
                                     <!-- Testimonial Content Start -->
                                     <div class="testimonial-content text-center">
-                                        <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
+                                        <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc
+                                            scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis
+                                            orci augue nec sapien. Cum sociis natoque</p>
                                     </div>
                                     <!-- Testimonial Content End -->
 
@@ -949,7 +1040,8 @@
                         <!-- Testimonial Gallery Top End -->
 
                         <!-- Testimonial Gallery Thumb Start -->
-                        <div class="swiper-container testimonial-gallery-thumbs" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="swiper-container testimonial-gallery-thumbs" data-aos="fade-up"
+                            data-aos-duration="1500">
                             <div class="swiper-wrapper">
 
                                 <!-- Single Swiper Slide Start -->
@@ -1027,7 +1119,8 @@
                                 </ul>
                             </div>
                             <h2 class="blog-title"><a href="blog-details.html">How to take care of your fish</a></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut...</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut...</p>
                             <a class="more-link" href="blog-details.html">Read More</a>
                         </div>
                         <!-- Blog Content End -->
@@ -1057,7 +1150,8 @@
                                 </ul>
                             </div>
                             <h2 class="blog-title"><a href="blog-details.html">Find the male and female fish</a></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut...</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut...</p>
                             <a class="more-link" href="blog-details.html">Read More</a>
                         </div>
                         <!-- Blog Content End -->
@@ -1087,7 +1181,8 @@
                                 </ul>
                             </div>
                             <h2 class="blog-title"><a href="blog-details.html">Tips for taking care of dogs</a></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut...</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut...</p>
                             <a class="more-link" href="blog-details.html">Read More</a>
                         </div>
                         <!-- Blog Content End -->

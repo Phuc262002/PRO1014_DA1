@@ -3,3 +3,5 @@
 @yield('content')
 
 @include('layouts.client.inc.footer')
+
+@yield('js')
