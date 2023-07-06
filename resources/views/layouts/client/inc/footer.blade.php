@@ -84,7 +84,7 @@
                  <div class="col-md-6 text-center text-md-end order-1 order-md-2 m-b-20">
                      <div class="payment">
                          <a href="#/">
-                             <img class="fit-image" src="assets/images/payment/payment_large.png" alt="Payment">
+                             <img class="fit-image" src="{{url('assets/images/payment/payment_large.png')}}" alt="Payment">
                          </a>
                      </div>
                  </div>
@@ -437,12 +437,12 @@
 
  <!-- Use the minified version files listed below for better performance and remove the files listed above -->
 
- <script src="assets/js/vendor.min.js"></script>
- <script src="assets/js/plugins.min.js"></script>
+ <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+ <script src="{{asset('assets/js/plugins.min.js')}}"></script>
 
  <!--Main JS-->
- <script src="assets/js/main.js"></script>
- <script src="assets/js/toast.js"></script>
+ <script src="{{asset('assets/js/main.js')}}"></script>
+ <script src="{{asset('assets/js/toast.js')}}"></script>
 
  <script>
      function Success(message) {

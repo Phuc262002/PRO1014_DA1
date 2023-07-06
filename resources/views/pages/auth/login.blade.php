@@ -31,19 +31,18 @@
                             <h2 class="title m-b-10">Login</h2>
                         </div>
                         <!-- Login Title & Content End -->
-
                         <!-- Form Action Start -->
-                        <form action="#" method="post">
-
+                        <form id="login_form" enctype="multipart/form-data">
+                            @csrf
                             <!-- Input Email Start -->
                             <div class="single-input-item m-b-10">
-                                <input type="email" placeholder="Email or Username">
+                                <input type="email" name="email" placeholder="Email or Username">
                             </div>
                             <!-- Input Email End -->
 
                             <!-- Input Password Start -->
                             <div class="single-input-item m-b-10">
-                                <input type="password" placeholder="Enter your Password">
+                                <input type="password" name="password" placeholder="Enter your Password">
                             </div>
                             <!-- Input Password End -->
 
@@ -60,11 +59,17 @@
 
                             <!-- Lost Password & Creat New Account Start -->
                             <div class="lost-password">
-                                <a href="{{route('register')}}">Creat Account</a>
+                                <a href="{{ route('register') }}">Creat Account</a>
                             </div>
                             <!-- Lost Password & Creat New Account End -->
                             <div class="lost-password">
-                                <a href="{{route('google.login')}}">Login google</a>
+                                <a href="{{ route('auth.google.login') }}">Login google</a>
+                            </div>
+                            <div class="lost-password">
+                                <a href="{{ route('auth.facebook.login') }}">Login facebook</a>
+                            </div>
+                            <div class="lost-password">
+                                <a href="{{ route('auth.github.login') }}">Login github</a>
                             </div>
                         </form>
                         <!-- Form Action End -->
@@ -75,4 +80,33 @@
         </div>
     </div>
     <!-- Login Section End -->
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#login_form').submit(function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: "{{ route('login') }}",
+                    type: 'POST',
+                    data: formData,
+                    success: function(data) {
+                        if (data.status == 'success') {
+                            Success(data.message);
+                            setTimeout(function() {
+                                window.location.href = "{{ route('home') }}";
+                            }, 1000);
+                        } else {
+                            Error(data.message);
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+        });
+    </script>
 @endsection

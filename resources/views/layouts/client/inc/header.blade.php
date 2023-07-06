@@ -35,10 +35,10 @@
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
 
 
-    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
-    <link rel="stylesheet" href="assets/css/toast.css">
+    <link rel="stylesheet" href="{{asset('assets/css/vendor/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/plugins/plugins.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/toast.css')}}">
 
 
 
@@ -93,7 +93,7 @@
                         <!-- Header Logo Start -->
                         <div class="col-lg-3 col-md-4 col-6">
                             <div class="header-logo">
-                                <a href="/"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                                <a href="/"><img src="{{url('assets/images/logo/logo.png')}}" alt="Site Logo" /></a>
                             </div>
                         </div>
                         <!-- Header Logo End -->
@@ -203,12 +203,6 @@
                                 </div>
                                 <!-- Header Action Search Button End -->
 
-                                <!-- Header My Account Button Start -->
-                                <a href="my-account.html" class="header-action-btn header-action-btn-wishlist">
-                                    <i class="icon-user icons"></i>
-                                </a>
-                                <!-- Header My Account Button End -->
-
                                 <!-- Header Action Button Start -->
                                 <div class="header-action-btn header-action-btn-cart d-none d-sm-flex">
                                     <a class="cart-visible" href="javascript:void(0)">
@@ -308,6 +302,19 @@
                                     </a>
                                 </div>
                                 <!-- Header Action Button End -->
+
+                                <!-- Header My Account Button Start -->
+                                @if (Auth::check())
+                                    <a href="{{route('logout')}}" class="header-action-btn header-action-btn-wishlist">
+                                        <i class="icon-user icons"></i>
+                                    </a>
+                                @else
+                                    <a href="{{route('login')}}" class="header-action-btn header-action-btn-wishlist">
+                                        <i class="icon-user icons"></i>
+                                    </a>
+                                @endif
+
+                                <!-- Header My Account Button End -->
 
                                 <!-- Mobile Menu Hambarger Action Button Start -->
                                 <a href="javascript:void(0)" class="header-action-btn header-action-btn-menu d-lg-none d-md-flex">

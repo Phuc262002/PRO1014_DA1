@@ -20,10 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'google_id',
         'password',
+        'google_id',
+        'facebook_id',
+        'github_id',
         'email_verified_at',
-        'remember_token',
         'status',
         'role_id',
         'image'
@@ -47,5 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+    ];
+
+    protected $attributes = [
+        'image' => 'https://anubis.gr/wp-content/uploads/2018/03/no-avatar.png'
     ];
 }
