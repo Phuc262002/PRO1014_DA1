@@ -13,6 +13,31 @@
 <body>
     <div id="editor"></div>
     <button id="ckfinder">CKFINder</button>
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+        
+    @endif
+
+    <form action="{{route('password.reset')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="text" id="elementId" name="email" value="">
+        <input type="submit" value="Submit">
+    </form>
+
+    @if(isset($email))
+
+    <form action="{{route('password.email')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="text" id="elementId" name="email" value="{{$email}}">
+        <input type="hidden" name="token" value="{{$token}}">
+        <input type="password" name="password">
+        <input type="password" name="password_confirmation">
+        <input type="submit" value="Submit">
+    </form>
+    @endif
     <script>
         ClassicEditor
 	.create( document.querySelector( '#editor' ), {

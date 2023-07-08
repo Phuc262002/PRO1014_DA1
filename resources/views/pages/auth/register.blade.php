@@ -92,7 +92,7 @@
                         if (data.status == 'success') {
                             Success(data.message);
                             setTimeout(function () {
-                                window.location.href = '{{ route('home') }}';
+                                window.location.href = data.link_authencation;
                             }, 1000);
                         } else {
                             Error(data.message);

@@ -18,11 +18,17 @@ class CreateUsersTable extends Migration
             $table->string('name', 50);
             $table->string('email', 50);
             $table->string('google_id', 100)->nullable();
+            $table->string('facebook_id', 100)->nullable();
+            $table->string('github_id', 100)->nullable();
             $table->string('password', 100);
             $table->date('email_verified_at')->nullable();
             $table->boolean('status')->default(true);
+            $table->boolean('confirm');
+            $table->string('confirmation_code')->default(NULL);
+            $table->dateTime('confirmation_code_expired_in')->default(NULL);
             $table->unsignedBigInteger('role_id')->default(1);
             $table->string('image', 200);
+            $table->string('remember_token')->nullable();
             $table->timestamps();
 
             $table->foreign('role_id')->references('id')->on('roles');

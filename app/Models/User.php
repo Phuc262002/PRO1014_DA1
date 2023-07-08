@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\ResetPasswordRequest;
 
 class User extends Authenticatable
 {
@@ -25,6 +26,9 @@ class User extends Authenticatable
         'facebook_id',
         'github_id',
         'email_verified_at',
+        'confirm',
+        'confirmation_code',
+        'confirmation_code_expired_in',
         'status',
         'role_id',
         'image'
@@ -51,6 +55,16 @@ class User extends Authenticatable
     ];
 
     protected $attributes = [
-        'image' => 'https://anubis.gr/wp-content/uploads/2018/03/no-avatar.png'
+        'image' => 'https://anubis.gr/wp-content/uploads/2018/03/no-avatar.png',
     ];
+
+    /**
+     * Send a password reset notification to the user.
+     *
+     * @param  string  $token
+     */
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new ResetPasswordRequest($token));
+    }
 }

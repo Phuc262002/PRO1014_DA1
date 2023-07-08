@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,10 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::get('register', [RegisterController::class, 'index'])->name('register');
     Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
+    Route::post('re_register', [RegisterController::class, 're_register'])->name('auth.re_register');
+    Route::get('email/verify/{email}',[VerificationController::class,'verify'])->name('verification.verify');
+    Route::post('email/verify_OTP',[VerificationController::class,'verify_OTP'])->name('verification.verify_OTP');
+    Route::post('email/logout_OTP',[VerificationController::class,'logout_OTP']);
 
     Route::get('google/login', [LoginController::class, 'googleLogin'])->name('auth.google.login');
     Route::get('google/callback', [LoginController::class, 'googleCallback']);
@@ -45,8 +52,14 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('github/callback', [LoginController::class, 'githubCallback']);
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('password/reset', [ForgotPasswordController::class, 'index'])->name('password.reset');
+    Route::post('password/reset', [ForgotPasswordController::class, 'sendResetLinkEmail']);
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'index'])->name('password.reset.token');
+    Route::post('password/email', [ResetPasswordController::class, 'reset'])->name('password.email');
+
 });
 
-Route::middleware('auth')-> get('test', function () {
+Route::get('test', function () {
     return view('test');
 });

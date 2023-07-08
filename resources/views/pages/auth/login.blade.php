@@ -51,7 +51,7 @@
                                 <div class="login-reg-form-meta m-b-n15">
 
                                     <button class="btn btn btn-gray-deep btn-hover-primary m-b-15">Sign In</button>
-                                    <a href="#" class="forget-pwd m-b-15">Forget Password?</a>
+                                    <a href="{{route('password.reset')}}" class="forget-pwd m-b-15">Forget Password?</a>
 
                                 </div>
                             </div>
@@ -100,6 +100,11 @@
                             }, 1000);
                         } else {
                             Error(data.message);
+                            if(data.link_authencation){
+                                setTimeout(function() {
+                                    window.location.href = data.link_authencation;
+                                }, 1000);
+                            }
                         }
                     },
                     cache: false,

@@ -42,10 +42,20 @@ class LoginController extends Controller
                 'message' => 'Sai email hoặc mật khẩu'
             ];
         } else {
-            return [
-                'status' => 'success',
-                'message' => 'Đăng nhập thành công'
-            ];
+            if(Auth::user()->confirm == false) {
+                $email = Auth::user()->email;
+                Auth::logout();
+                return [
+                    'status' => 'error',
+                    'message' => 'Tài khoản chưa được xác thực',
+                    'link_authencation' =>  route('verification.verify', ['email' => $email])
+                ];
+            } else {
+                return [
+                    'status' => 'success',
+                    'message' => 'Đăng nhập thành công'
+                ];
+            }
         }
     }
 
@@ -61,16 +71,22 @@ class LoginController extends Controller
         if(!$user_google) {
             return redirect()->route('login')->with('status', 'Something went wrong');
         } else {
-            $user = User::where('google_id', $user_google->id)->orWhere('email', $user_google->email)->first();
+            $user = User::where([
+                'google_id' => $user_google->id,
+                'email' => $user_google->email
+            ])->first();
 
             if(!$user) {
                 $user = User::create([
                     'name' => $user_google->name,
                     'email' => $user_google->email,
-                    'password' => bcrypt(Str::random(20)),
+                    'password' => Str::random(20),
                     'google_id' => $user_google->id,
                     'email_verified_at' => now(),
-                    'image' => $user_google->avatar
+                    'image' => $user_google->avatar,
+                    'confirm' => 1,
+                    'confirmation_code' => Str::random(6),
+                    'confirmation_code_expired_in' => now()
                 ]);
             }
         }
@@ -121,16 +137,22 @@ class LoginController extends Controller
         if(!$user_github) {
             return redirect()->route('login')->with('status', 'Something went wrong');
         } else {
-            $user = User::where('github_id', $user_github->id)->orWhere('email', $user_github->email)->first();
+            $user = User::where([
+                'github_id' => $user_github->id,
+                'email' => $user_github->email
+            ])->first();
 
             if(!$user) {
                 $user = User::create([
                     'name' => $user_github->nickname,
                     'email' => $user_github->email,
-                    'password' => bcrypt(Str::random(20)),
+                    'password' => Str::random(20),
                     'github_id' => $user_github->id,
                     'email_verified_at' => now(),
-                    'image' => $user_github->avatar
+                    'image' => $user_github->avatar,
+                    'confirm' => 1,
+                    'confirmation_code' => Str::random(6),
+                    'confirmation_code_expired_in' => now()
                 ]);
             }
         }
