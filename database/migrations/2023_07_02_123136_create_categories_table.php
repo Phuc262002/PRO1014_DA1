@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 200);
             $table->string('description', 200)->nullable();
             $table->enum('type_category', ['POST', 'PRODUCT']);
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

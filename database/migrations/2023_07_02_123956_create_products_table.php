@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->integer('rating_count')->default(0);
             $table->integer('average_rating')->default(0);
             $table->unsignedBigInteger('brand_id');
+            $table->string('slug')->unique();
             $table->boolean('status')->default(true);
             $table->timestamps();
 

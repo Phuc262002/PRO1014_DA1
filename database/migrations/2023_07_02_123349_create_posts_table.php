@@ -18,10 +18,11 @@ class CreatePostsTable extends Migration
             $table->string('title', 200);
             $table->text('description');
             $table->longText('content');
-            $table->string('img_post', 50);
+            $table->string('img_post', 200);
             $table->unsignedBigInteger('user_post_id');
             $table->unsignedBigInteger('category_id')->default(2);
             $table->integer('comment_count')->default(0);
+            $table->string('slug')->unique();
             $table->timestamps();
 
             $table->foreign('user_post_id')->references('id')->on('users');
