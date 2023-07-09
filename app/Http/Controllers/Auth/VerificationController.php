@@ -45,6 +45,7 @@ class VerificationController extends Controller
                 ];
             }
             $user->confirm = true;
+            $user->email_verified_at = Carbon::now();
             $user->save();
             Auth::login($user);
             return [

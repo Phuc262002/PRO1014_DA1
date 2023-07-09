@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id', 100)->nullable();
             $table->string('github_id', 100)->nullable();
             $table->string('password', 100);
-            $table->date('email_verified_at')->nullable();
+            $table->dateTime('email_verified_at')->nullable();
             $table->boolean('status')->default(true);
             $table->boolean('confirm');
             $table->string('confirmation_code')->default(NULL);
