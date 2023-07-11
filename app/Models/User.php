@@ -30,7 +30,7 @@ class User extends Authenticatable
         'confirmation_code',
         'confirmation_code_expired_in',
         'status',
-        'role_id',
+        'is_admin',
         'image'
     ];
 
