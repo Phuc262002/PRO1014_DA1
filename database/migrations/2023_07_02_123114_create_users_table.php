@@ -30,8 +30,6 @@ class CreateUsersTable extends Migration
             $table->string('image', 200);
             $table->string('remember_token')->nullable();
             $table->timestamps();
-
-          
         });
     }
 
