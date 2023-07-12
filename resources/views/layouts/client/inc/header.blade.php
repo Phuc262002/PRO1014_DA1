@@ -92,48 +92,7 @@
                                     </li>
                                     <li class="has-children position-static">
                                         <a href="#">Cửa hàng</a>
-                                        <ul class="mega-menu">
-                                            <li class="mega-menu-col">
-                                                <h4 class="mega-menu-title">Shop Layout</h4>
-                                                <ul class="m-b-n10">
-                                                    <li><a href="shop.html">Shop Grid</a></li>
-                                                    <li><a href="shop-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a href="shop-list-fullwidth.html">List Fullwidth</a></li>
-                                                    <li><a href="shop-list-left-sidebar.html">List Left Sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">List Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col">
-                                                <h4 class="mega-menu-title">Product Layout</h4>
-                                                <ul class="m-b-n10">
-                                                    <li><a href="single-product.html">Single Product</a></li>
-                                                    <li><a href="single-product-sale.html">Single Product Sale</a></li>
-                                                    <li><a href="single-product-variable.html">Single Product Variable</a></li>
-                                                    <li><a href="single-product-countdown.html">Single Product Countdown</a></li>
-                                                    <li><a href="single-product-affiliate.html">Single Product Affiliate</a></li>
-                                                    <li><a href="single-product-slider.html">Single Product Slider</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col">
-                                                <h4 class="mega-menu-title">Other Pages</h4>
-                                                <ul class="m-b-n10">
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="login.html">Login | Register</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col">
-                                                <div class="megamenu-image">
-                                                    <a href="shop.html">
-                                                        <img class="fit-image" src="assets/images/header/mega-menu.png" alt="Megamenu Image">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        
                                     </li>
                                     <li class="has-children">
                                         <a href="#">Dịch vụ</a>
