@@ -21,8 +21,8 @@
                     <div class="col-lg-12">
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
-                                <a href="index.html" class="d-inline-block auth-logo">
-                                    <img src="assets/images/logo.png" alt="" height="200">
+                                <a href="{{route('home')}}" class="d-inline-block auth-logo">
+                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="200">
                                 </a>
                             </div>
     
@@ -42,7 +42,7 @@
                                     <h5>Bạn đã đăng xuất</h5>
                                     <p class="text-muted">Cám ơn bạn đã tin tưởng <span class="fw-semibold">Pets Care</span></p>
                                     <div class="mt-4">
-                                        <a href="auth-signin-basic.html" class="btn btn-success w-100">Đăng nhập</a>
+                                        <a href="{{route('login')}}" class="btn btn-success w-100">Đăng nhập</a>
                                     </div>
                                 </div>
                             </div>

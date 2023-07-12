@@ -5,11 +5,11 @@
                 <script>
                     document.write(new Date().getFullYear());
                 </script>
-                © Velzon.
+                © PetsCare.
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Design & Develop by Themesbrand
+                    Thiết kế & Phát triền bởi PetsCare
                 </div>
             </div>
         </div>
@@ -847,7 +847,7 @@
         <div class="row">
             <div class="col-6">
                 <button type="button" class="btn btn-light w-100" id="reset-layout">
-                    Tải lại
+                    Đặt lại mặc định
                 </button>
             </div>
             {{-- <div class="col-6">

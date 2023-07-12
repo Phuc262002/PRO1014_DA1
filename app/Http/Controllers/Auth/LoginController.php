@@ -165,8 +165,11 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::logout();
-
-        return redirect()->route('login');
+        if (Auth::check()) {
+            Auth::logout();
+            return view('pages.auth.logout');
+        } else {
+            return redirect()->route('login');
+        }
     }
 }

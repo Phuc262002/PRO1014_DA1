@@ -21,8 +21,8 @@
                     <div class="col-lg-12">
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
-                                <a href="{{route('home')}}" class="d-inline-block auth-logo">
-                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="200">
+                                <a href="{{ route('home') }}" class="d-inline-block auth-logo">
+                                    <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="200">
                                 </a>
                             </div>
                         </div>
@@ -40,12 +40,12 @@
                                     <p class="text-muted">Tạo tài khoản Pets Care cho riêng bạn</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form id="register_form" enctype="multipart/form-data">
+                                    <form id="register_form" class="needs-validation" enctype="multipart/form-data" novalidate>
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="useremail" class="form-label">Họ và Tên <span
+                                            <label for="name" class="form-label">Họ và Tên <span
                                                     class="text-danger">*</span></label>
-                                            <input type="email" name="email" class="form-control" id="useremail"
+                                            <input type="text" name="name" class="form-control" id="name"
                                                 placeholder="Nhập họ và tên" required>
                                             <div class="invalid-feedback">
                                                 Hãy nhập tên của bạn.
@@ -61,19 +61,10 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Tên đăng nhập <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="username"
-                                                placeholder="Nhập tên đăng nhập" required>
-                                            <div class="invalid-feedback">
-                                                Hãy nhập tên đăng nhập của bạn.
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label" for="password-input">Mật khẩu</label>
+                                            <label class="form-label" for="password-input">Mật khẩu<span
+                                                class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup">
-                                                <input type="password" class="form-control pe-5 password-input"
+                                                <input type="password" name="password" class="form-control pe-5 password-input"
                                                     onpaste="return false" placeholder="Nhập mật khẩu" id="password-input"
                                                     aria-describedby="passwordInput"
                                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
@@ -83,6 +74,23 @@
                                                         class="ri-eye-fill align-middle"></i></button>
                                                 <div class="invalid-feedback">
                                                     Hãy nhập mật khẩu của bạn.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="password-input1">Nhập lại mật khẩu<span
+                                                class="text-danger">*</span></label>
+                                            <div class="position-relative auth-pass-inputgroup">
+                                                <input type="password" name="password_confirmation" class="form-control pe-5 password-input"
+                                                    onpaste="return false" placeholder="Nhập mật khẩu" id="password-input1"
+                                                    aria-describedby="passwordInput"
+                                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                <button
+                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none shadow-none text-muted password-addon"
+                                                    type="button" id="password-addon"><i
+                                                        class="ri-eye-fill align-middle"></i></button>
+                                                <div class="invalid-feedback">
+                                                    Hãy nhập lại mật khẩu của bạn.
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +142,7 @@
                         <!-- end card -->
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Đã có tài khoản ? <a href="{{route('login')}}"
+                            <p class="mb-0">Đã có tài khoản ? <a href="{{ route('login') }}"
                                     class="fw-semibold text-primary text-decoration-underline"> Đăng nhập </a> </p>
                         </div>
 
@@ -148,34 +156,31 @@
     @endsection
 
     @section('js')
-    <script>
-        $(document).ready(function () {
-            $('#register_form').submit(function(e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: '{{ route('register') }}',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        if (data.status == 'success') {
-                            Success(data.message);
-                            setTimeout(function () {
-                                window.location.href = data.link_authencation;
-                            }, 1000);
-                        } else {
-                            Error(data.message);
-                            $('#register_form')[0].classList.add('was-validated')
-                            $.each(data.errors, function (key, value) {
-                                $('.message_' + key).html(value);
-                            });
-                        }
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false
+        <script>
+            $(document).ready(function() {
+                $('#register_form').submit(function(e) {
+                    e.preventDefault();
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url: '{{ route('register') }}',
+                        type: 'POST',
+                        data: formData,
+                        success: function(data) {
+                            if (data.status == 'success') {
+                                Success(data.message);
+                                setTimeout(function() {
+                                    window.location.href = data.link_authencation;
+                                }, 1000);
+                            } else {
+                                Error(data.message);
+                                $('#register_form')[0].classList.add('was-validated')
+                            }
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
                 });
             });
-        });
-    </script>
-@endsection
+        </script>
+    @endsection

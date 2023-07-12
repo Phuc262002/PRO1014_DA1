@@ -97,7 +97,7 @@ Route::get('test', function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('dashboard', function () {
+    Route::get('/', function () {
         return view('pages.admin.dashboard');
     })->name('admin.dashboard');
     Route::get('quan-ly-tai-khoan', function () {
