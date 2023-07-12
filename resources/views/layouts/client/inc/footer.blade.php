@@ -1,99 +1,100 @@
  <!-- Footer Section Start -->
  <footer class="section footer-section">
-     <!-- Footer Top Start -->
-     <div class="footer-top bg-name-bright section-padding">
-         <div class="container">
-             <div class="row m-b-n40">
-                 <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1000">
-                     <div class="single-footer-widget">
-                         <h1 class="widget-title">About Us</h1>
-                         <p class="desc-content">Lorem ipsum dolor sit amet, co adipisi elit, sed eiusmod tempor
-                             incididunt ut labore et dolore</p>
-                         <!-- Soclial Link Start -->
-                         <div class="widget-social justify-content-start m-b-n10">
-                             <a title="Twitter" href="#/"><i class="icon-social-twitter"></i></a>
-                             <a title="Instagram" href="#/"><i class="icon-social-instagram"></i></a>
-                             <a title="Linkedin" href="#/"><i class="icon-social-linkedin"></i></a>
-                             <a title="Skype" href="#/"><i class="icon-social-skype"></i></a>
-                             <a title="Dribble" href="#/"><i class="icon-social-dribbble"></i></a>
-                         </div>
-                         <!-- Social Link End -->
-                     </div>
-                 </div>
-                 <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1200">
-                     <div class="single-footer-widget">
-                         <h2 class="widget-title">Useful Links</h2>
-                         <ul class="widget-list">
-                             <li><a href="wishlist.html">Help & Contact Us</a></li>
-                             <li><a href="contact.html">Returns & Refunds</a></li>
-                             <li><a href="contact.html">Online Stores</a></li>
-                             <li><a href="contact.html">Terms & Conditions</a></li>
-                         </ul>
-                     </div>
-                 </div>
-                 <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1400">
-                     <div class="single-footer-widget">
-                         <h2 class="widget-title">Help</h2>
-                         <ul class="widget-list">
-                             <li><a href="wishlist.html">Wishlist</a></li>
-                             <li><a href="contact.html">Pricing Plans</a></li>
-                             <li><a href="contact.html">Order Traking</a></li>
-                             <li><a href="contact.html">Returns</a></li>
-                         </ul>
-                     </div>
-                 </div>
-                 <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1600">
-                     <div class="single-footer-widget">
-                         <h2 class="widget-title">Send newsletter</h2>
-                         <div class="widget-body">
-                             <p class="desc-content m-b-20">Subscribe to our newsletter and get 10% off your first
-                                 purchase..</p>
-                             <!-- Newsletter Form Start -->
-                             <div class="newsletter-form-wrap p-t-5">
-                                 <form id="mc-form" class="mc-form">
-                                     <input type="email" id="mc-email" class="form-control email-box"
-                                         placeholder="demo@example.com" name="EMAIL">
-                                     <button id="mc-submit" class="newsletter-btn" type="submit">Send</button>
-                                 </form>
-                                 <!-- mailchimp-alerts Start -->
-                                 <div class="mailchimp-alerts text-centre">
-                                     <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                     <div class="mailchimp-success text-success"></div><!-- mailchimp-success end -->
-                                     <div class="mailchimp-error text-danger"></div><!-- mailchimp-error end -->
-                                 </div>
-                                 <!-- mailchimp-alerts end -->
-                             </div>
-                             <!-- Newsletter Form End -->
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-     <!-- Footer Top End -->
+        <!-- Footer Top Start -->
+        <div class="footer-top bg-name-bright section-padding">
+            <div class="container">
+                <div class="row m-b-n40">
+                    <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="single-footer-widget">
+                            <h1 class="widget-title">Về chúng tôi</h1>
+                            <p class="desc-content">PetCare cung cấp dịch vụ chăm sóc răng nhằm phòng và điều trị các bệnh về răng miệng cho vật nuôi. </p>
+                            <!-- Soclial Link Start -->
+                            <div class="widget-social justify-content-start m-b-n10">
+                                <a title="Twitter" href="#/"><i class="icon-social-twitter"></i></a>
+                                <a title="Instagram" href="#/"><i class="icon-social-instagram"></i></a>
+                                <a title="Linkedin" href="#/"><i class="icon-social-linkedin"></i></a>
+                                <a title="Skype" href="#/"><i class="icon-social-skype"></i></a>
+                                <a title="Dribble" href="#/"><i class="icon-social-dribbble"></i></a>
+                            </div>
+                            <!-- Social Link End -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1200">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Liên kết</h2>
+                            <ul class="widget-list">
+                                <li><a href="wishlist.html">Liên hệ chúng tôi</a></li>
+                                <li><a href="contact.html">Chính sách đổi trả</a></li>
+                                <li><a href="contact.html">Cửa hàng trực tuyến</a></li>
+                                <li><a href="contact.html">Điều khoản dịch vụ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1400">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Trợ giúp</h2>
+                            <ul class="widget-list">
+                                <li><a href="wishlist.html">Danh sách yêu thích</a></li>
+                                <li><a href="contact.html">Các gói giá</a></li>
+                                <li><a href="contact.html">Tra cứu đơn hàng</a></li>
+                                <li><a href="contact.html">Hỗ trợ hoàn tiền</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 m-b-40" data-aos="fade-up" data-aos-duration="1600">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">Nhận tin tức mới</h2>
+                            <div class="widget-body">
+                                <p class="desc-content m-b-20">Đăng ký nhận bản tin của chúng tôi và nhận 10% giảm giá mua hàng đầu tiên của bạn ..</p>
+                                <!-- Newsletter Form Start -->
+                                <div class="newsletter-form-wrap p-t-5">
+                                    <form id="mc-form" class="mc-form">
+                                        <input type="email" id="mc-email" class="form-control email-box" placeholder="demo@example.com" name="EMAIL">
+                                        <button id="mc-submit" class="newsletter-btn" type="submit">Gửi</button>
+                                    </form>
+                                    <!-- mailchimp-alerts Start -->
+                                    <div class="mailchimp-alerts text-centre">
+                                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                        <div class="mailchimp-success text-success"></div><!-- mailchimp-success end -->
+                                        <div class="mailchimp-error text-danger"></div><!-- mailchimp-error end -->
+                                    </div>
+                                    <!-- mailchimp-alerts end -->
+                                </div>
+                                <!-- Newsletter Form End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Top End -->
 
-     <!-- Footer Bottom Start -->
-     <div class="footer-bottom bg-name-light p-t-20 p-b-20">
-         <div class="container">
-             <div class="row align-items-center m-b-n20">
-                 <div class="col-md-6 text-center text-md-start order-2 order-md-1 m-b-20">
-                     <div class="copyright-content">
-                         <p class="mb-0">Copyright &copy; 2023. PetsCare All rights reserved.</p>
-                     </div>
-                 </div>
-                 <div class="col-md-6 text-center text-md-end order-1 order-md-2 m-b-20">
-                     <div class="payment">
-                         <a href="#/">
-                             <img class="fit-image" src="{{url('assets/images/payment/payment_large.png')}}" alt="Payment">
-                         </a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-     <!-- Footer Bottom End -->
- </footer>
- <!-- Footer Section End -->
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom bg-name-light p-t-20 p-b-20">
+            <div class="container">
+                <div class="row align-items-center m-b-n20">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <p class="mb-0 text-muted">&copy;
+                                    <script>document.write(new Date().getFullYear())</script> Pets Care <i class="mdi mdi-heart text-danger"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6 text-center text-md-end order-1 order-md-2 m-b-20">
+                        <div class="payment">
+                            <a href="#/">
+                                <img class="fit-image" src="assets/images/payment/payment_large.png" alt="Payment">
+                            </a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->
+    </footer>
+    <!-- Footer Section End -->
 
  <!-- Modal Start  -->
  <div class="modalquickview modal fade" id="quick-view" tabindex="-1" aria-labelledby="quick-view" role="dialog"
