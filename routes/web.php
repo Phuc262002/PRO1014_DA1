@@ -26,6 +26,21 @@ Route::get('/', function () {
 Route::get('shop', function () {
     return view('pages.client.shop');
 }) -> name('shop');
+Route::get('blog', function () {
+    return view('pages.client.blog');
+}) -> name('blog'); 
+Route::get('checkout', function () {
+    return view('pages.client.checkout');
+}) -> name('checkout');
+Route::get('services', function () {
+    return view('pages.client.services');
+}) -> name('services');
+
+
+
+
+
+
 
 Route::get('policy', function () {
     return view('pages.client.policy');
