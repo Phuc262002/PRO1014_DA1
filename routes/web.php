@@ -86,9 +86,7 @@ Route::get('test', function () {
     return view('test');
 });
 
-Route::get('cart', function () {
-    return view('pages.client.cart');
-});
+
 
 Route::get('404', function () {
     return view('errors.404');

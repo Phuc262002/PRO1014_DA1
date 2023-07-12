@@ -78,7 +78,7 @@
                         <!-- Header Logo Start -->
                         <div class="col-lg-2 col-md-4 col-6">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" style="height: 80px;width: 80px;"/></a>
+                                <a href="{{route('home')}}"><img src="assets/images/logo/logo.png" alt="Site Logo" style="height: 80px;width: 80px;"/></a>
                             </div>
                         </div>
                         <!-- Header Logo End -->
@@ -97,8 +97,7 @@
                                     <li class="has-children">
                                         <a href="{{route('services')}}">Dịch vụ</a>
                                         <ul class="sub-menu">
-                                            {{-- <li><a href="blog.html">Các dịch vụ</a></li>
-                                            <li><a href="blog-left-sidebar.html">Đặt lịch</a></li> --}}
+                                        
                                         </ul>
                                     </li>
                                     <li class="has-children">
@@ -107,7 +106,7 @@
                                     </li>
                                     
                                     <li><a href="about.html">Về chúng tôi</a></li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -215,8 +214,8 @@
 
                                         <!-- Cart Product Button Start -->
                                         <div class="cart-product-btn m-t-20">
-                                            <a href="cart.html" class="btn btn-outline-light btn-hover-primary w-100">View cart</a>
-                                            <a href="checkout.html" class="btn btn-outline-light btn-hover-primary w-100 m-t-20">Checkout</a>
+                                            <a href="{{route('cart')}}" class="btn btn-outline-light btn-hover-primary w-100">Xem giỏ hàng</a>
+                                            <a href="{{route('checkout')}}" class="btn btn-outline-light btn-hover-primary w-100 m-t-20">Thanh toán</a>
                                         </div>
                                         <!-- Cart Product Button End -->
 
@@ -225,7 +224,7 @@
 
                                 </div>
                                 <div class="header-action-btn header-action-btn-cart d-flex d-sm-none">
-                                    <a href="cart.html">
+                                    <a href="{{route('cart')}}">
                                         <i class="icon-handbag icons"></i>
                                         <span class="header-action-num">3</span>
                                     </a>
