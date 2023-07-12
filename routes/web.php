@@ -27,9 +27,41 @@ Route::get('shop', function () {
     return view('pages.client.shop');
 })->name('shop');
 
+Route::get('blog', function () {
+    return view('pages.client.blog');
+}) -> name('blog'); 
+
+Route::get('checkout', function () {
+    return view('pages.client.checkout');
+}) -> name('checkout');
+
+Route::get('services', function () {
+    return view('pages.client.services');
+}) -> name('services');
+Route::get('contact', function () {
+    return view('pages.client.contact');
+}) -> name('contact');
+Route::get('about', function () {
+    return view('pages.client.about');
+}) -> name('about');
+
+Route::get('account', function () {
+    return view('pages.client.account');
+}) -> name('account');
+
+
+
+
+
+
+
 Route::get('policy', function () {
     return view('pages.client.policy');
 })->name('policy');
+
+Route::get('cart', function () {
+    return view('pages.client.cart');
+}) -> name('cart');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -64,6 +96,7 @@ Route::get('test', function () {
     return view('test');
 });
 
+<<<<<<< HEAD
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', function () {
         return view('pages.admin.dashboard');
@@ -130,3 +163,19 @@ Route::group(['prefix' => 'admin'], function () {
     })->name('admin.admin_manager');
 
 });
+=======
+Route::get('cart', function () {
+    return view('pages.client.cart');
+});
+
+Route::get('account', function () {
+    return view('pages.client.account');
+});
+
+Route::get('404', function () {
+    return view('errors.404');
+});
+Route::get('500', function () {
+    return view('errors.500');
+});
+>>>>>>> 2ef8b06e7402c026b004fc87b427d75e05cc1ad0
