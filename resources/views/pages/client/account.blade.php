@@ -151,7 +151,8 @@
                         <div class="col-lg-3 col-md-4">
                             <div class="myaccount-tab-menu nav" role="tablist">
                                 <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Tài khoản</a>
-                                <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Đặt hàng</a>
+                                <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
+                                <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Dịch vụ</a>
                                 <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> Địa chỉ</a>
                                 <a href="login.html"><i class="fa fa-sign-out"></i> Đăng xuất</a>
                             </div>
@@ -227,6 +228,7 @@
                                         <a href="#" class="btn btn btn-dark btn-hover-primary rounded-0"><i class="fa fa-edit m-r-10"></i>Chỉnh sửa địa chỉ</a>
                                     </div>
                                 </div>
+                                
                                 <!-- Single Tab Content End -->
 
                                 <!-- Single Tab Content Start -->
