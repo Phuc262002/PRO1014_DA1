@@ -25,11 +25,11 @@ Route::get('/', function () {
 
 Route::get('shop', function () {
     return view('pages.client.shop');
-}) -> name('shop');
+})->name('shop');
 
 Route::get('policy', function () {
     return view('pages.client.policy');
-}) -> name('policy');
+})->name('policy');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -38,9 +38,9 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('register', [RegisterController::class, 'index'])->name('register');
     Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
     Route::post('re_register', [RegisterController::class, 're_register'])->name('auth.re_register');
-    Route::get('email/verify/{email}',[VerificationController::class,'verify'])->name('verification.verify');
-    Route::post('email/verify_OTP',[VerificationController::class,'verify_OTP'])->name('verification.verify_OTP');
-    Route::post('email/logout_OTP',[VerificationController::class,'logout_OTP']);
+    Route::get('email/verify/{email}', [VerificationController::class, 'verify'])->name('verification.verify');
+    Route::post('email/verify_OTP', [VerificationController::class, 'verify_OTP'])->name('verification.verify_OTP');
+    Route::post('email/logout_OTP', [VerificationController::class, 'logout_OTP']);
 
     Route::get('google/login', [LoginController::class, 'googleLogin'])->name('auth.google.login');
     Route::get('google/callback', [LoginController::class, 'googleCallback']);
@@ -62,4 +62,71 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::get('test', function () {
     return view('test');
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('dashboard', function () {
+        return view('pages.admin.dashboard');
+    })->name('admin.dashboard');
+    Route::get('quan-ly-tai-khoan', function () {
+        return view('pages.admin.product_manager');
+    })->name('admin.product_manager');
+    Route::get('san-pham-da-xoa', function () {
+        return view('pages.admin.restore_product');
+    })->name('admin.restore_product');
+    Route::get('quan-ly-nguoi-dung', function () {
+        return view('pages.admin.user_manager');
+    })->name('admin.user_manager');
+    Route::get('don-hang-da-huy', function () {
+        return view('pages.admin.order_canceled');
+    })->name('admin.order_canceled');
+    Route::get('don-hang-dang-xu-ly', function () {
+        return view('pages.admin.order_pending');
+    })->name('admin.order_pending');
+    Route::get('don-hang-giu-lai', function () {
+        return view('pages.admin.order_holding');
+    })->name('admin.order_holding');
+    Route::get('don-hang-hoan-thanh', function () {
+        return view('pages.admin.order_completed');
+    })->name('admin.order_completed');
+    Route::get('tat-ca-don-hang', function () {
+        return view('pages.admin.order_all');
+    })->name('admin.order_all');
+    Route::get('don-hang-da-chap-nhan', function () {
+        return view('pages.admin.order_accepted');
+    })->name('admin.order_accepted');
+    Route::get('quan-ly-nguoi-dung1', function () {
+        return view('pages.admin.form_add_user');
+    })->name('admin.form_add_user');
+    Route::get('quan-ly-nguoi-dung2', function () {
+        return view('pages.admin.form_add_service');
+    })->name('admin.form_add_service');
+    Route::get('quan-ly-nguoi-dung3', function () {
+        return view('pages.admin.form_add_product');
+    })->name('admin.form_add_product');
+    Route::get('quan-ly-nguoi-dung4', function () {
+        return view('pages.admin.form_add_brand');
+    })->name('admin.form_add_brand');
+    Route::get('quan-ly-nguoi-dung5', function () {
+        return view('pages.admin.form_add_list');
+    })->name('admin.form_add_list');
+    Route::get('quan-ly-nguoi-dung6', function () {
+        return view('pages.admin.form_add_blog');
+    })->name('admin.form_add_blog');
+    Route::get('quan-ly-nguoi-dung7', function () {
+        return view('pages.admin.form_add_banner');
+    })->name('admin.form_add_banner');
+    Route::get('quan-ly-nguoi-dung8', function () {
+        return view('pages.admin.category_manager');
+    })->name('admin.category_manager');
+    Route::get('quan-ly-nguoi-dung9', function () {
+        return view('pages.admin.brand_manager');
+    })->name('admin.brand_manager');
+    Route::get('quan-ly-nguoi-dung10', function () {
+        return view('pages.admin.blog_manager');
+    })->name('admin.blog_manager');
+    Route::get('quan-ly-nguoi-dung11', function () {
+        return view('pages.admin.admin_manager');
+    })->name('admin.admin_manager');
+
 });
