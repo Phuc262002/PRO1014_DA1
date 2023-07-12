@@ -88,28 +88,22 @@
                             <div class="main-menu">
                                 <ul>
                                     <li class="has-children">
-                                        <a href="#">Trang chủ</a>
+                                        <a href="{{route('home')}}">Trang chủ</a>
                                     </li>
                                     <li class="has-children position-static">
-                                        <a href="#">Cửa hàng</a>
+                                        <a href="{{route('shop')}}">Cửa hàng</a>
                                         
                                     </li>
                                     <li class="has-children">
-                                        <a href="#">Dịch vụ</a>
+                                        <a href="{{route('services')}}">Dịch vụ</a>
                                         <ul class="sub-menu">
-                                            <li><a href="blog.html">Các dịch vụ</a></li>
-                                            <li><a href="blog-left-sidebar.html">Đặt lịch</a></li>
+                                            {{-- <li><a href="blog.html">Các dịch vụ</a></li>
+                                            <li><a href="blog-left-sidebar.html">Đặt lịch</a></li> --}}
                                         </ul>
                                     </li>
                                     <li class="has-children">
-                                        <a href="#">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a></li>
-                                        </ul>
+                                        <a href="{{route('blog')}}">Blog</a>
+                                        
                                     </li>
                                     
                                     <li><a href="about.html">Về chúng tôi</a></li>
