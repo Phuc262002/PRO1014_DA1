@@ -43,9 +43,18 @@
                                     <form id="register_form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
+                                            <label for="useremail" class="form-label">Họ và Tên <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="email" name="email" class="form-control" id="useremail"
+                                                placeholder="Nhập họ và tên" required>
+                                            <div class="invalid-feedback">
+                                                Hãy nhập tên của bạn.
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="useremail" class="form-label">Email <span
                                                     class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" id="useremail"
+                                            <input type="email" name="email" class="form-control" id="useremail"
                                                 placeholder="Nhập Email" required>
                                             <div class="invalid-feedback">
                                                 Hãy nhập Email của bạn.
