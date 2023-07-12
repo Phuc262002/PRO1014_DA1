@@ -105,7 +105,7 @@
                                         
                                     </li>
                                     
-                                    <li><a href="about.html">Về chúng tôi</a></li>
+                                    <li><a href="{{route('about')}}">Về chúng tôi</a></li>
                                     <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                 </ul>
                             </div>

@@ -21,7 +21,7 @@
                     <div class="col-lg-12">
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
-                                <a href="index.html" class="d-inline-block auth-logo">
+                                <a href="{{route('home')}}" class="d-inline-block auth-logo">
                                     <img src="assets/images/logo.png" alt="" height="200">
                                 </a>
                             </div>
@@ -40,8 +40,8 @@
                                     <p class="text-muted">Tạo tài khoản Pets Care cho riêng bạn</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form class="needs-validation" novalidate
-                                        action="https://themesbrand.com/velzon/html/material/index.html">
+                                    <form id="register_form" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                        @csrf
 
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email <span
@@ -126,7 +126,7 @@
                         <!-- end card -->
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Đã có tài khoản ? <a href="auth-signin-basic.html"
+                            <p class="mb-0">Đã có tài khoản ? <a href="{{route('login')}}"
                                     class="fw-semibold text-primary text-decoration-underline"> Đăng nhập </a> </p>
                         </div>
 
@@ -138,3 +138,36 @@
         </div>
         <!-- end auth page content -->
     @endsection
+
+    @section('js')
+    <script>
+        $(document).ready(function () {
+            $('#register_form').submit(function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: '{{ route('register') }}',
+                    type: 'POST',
+                    data: formData,
+                    success: function (data) {
+                        if (data.status == 'success') {
+                            Success(data.message);
+                            setTimeout(function () {
+                                window.location.href = data.link_authencation;
+                            }, 1000);
+                        } else {
+                            Error(data.message);
+                            $('#register_form')[0].classList.add('was-validated')
+                            $.each(data.errors, function (key, value) {
+                                $('.message_' + key).html(value);
+                            });
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+        });
+    </script>
+@endsection

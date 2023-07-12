@@ -23,7 +23,7 @@ class ResetPasswordController extends Controller
             if ($now->diffInMinutes($resetToken->created_at) > 60) {
                 dd('Token đã hết hạn.');
             } else {
-                return view('test', [
+                return view('pages.auth.pass_change', [
                     'token' => $token,
                     'email' => $request->email
                 ]);

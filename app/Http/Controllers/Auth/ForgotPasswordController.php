@@ -11,7 +11,7 @@ class ForgotPasswordController extends Controller
 {
     public function index()
     {
-        return view('test');
+        return view('pages.auth.pass_reset');
     }
 
     public function sendResetLinkEmail(Request $request)

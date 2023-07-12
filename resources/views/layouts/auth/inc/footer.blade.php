@@ -29,6 +29,41 @@
 
     <!-- particles app js -->
     <script src="{{asset('assets/admin/js/pages/particles.app.js')}}"></script>
+    <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+ <script src="{{asset('assets/js/plugins.min.js')}}"></script>
+
+ <!--Main JS-->
+ <script src="{{asset('assets/js/main.js')}}"></script>
+ <script src="{{asset('assets/js/toast.js')}}"></script>
+
+ <script>
+     function Success(message) {
+         toastNotif({
+             text: message,
+             color: '#5bc83f',
+             timeout: 5000,
+             icon: 'valid'
+         });
+     }
+
+     function Warning(message) {
+         toastNotif({
+             text: message,
+             color: '#ebb73f',
+             timeout: 5000,
+             icon: 'warring'
+         });
+     }
+
+     function Error(message) {
+         toastNotif({
+             text: message,
+             color: '#da4848',
+             timeout: 5000,
+             icon: 'error'
+         });
+     }
+ </script>
 </body>
 
 </html>

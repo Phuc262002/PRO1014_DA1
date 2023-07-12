@@ -65,7 +65,7 @@
                         <!-- end card -->
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Chờ đã, tôi vẫn còn nhớ mật khẩu... <a href="auth-signin-basic.html" class="fw-semibold text-primary text-decoration-underline"> Bấm vào đây </a> </p>
+                            <p class="mb-0">Chờ đã, tôi vẫn còn nhớ mật khẩu... <a href="{{route('login')}}" class="fw-semibold text-primary text-decoration-underline"> Bấm vào đây </a> </p>
                         </div>
 
                     </div>

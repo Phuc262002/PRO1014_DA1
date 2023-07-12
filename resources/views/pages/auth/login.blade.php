@@ -22,7 +22,7 @@
                     <div class="col-lg-12">
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
-                                <a href="index.html" class="d-inline-block auth-logo">
+                                <a href="{{route('home')}}" class="d-inline-block auth-logo">
                                     <img src="assets/images/logo.png" alt="" height="200">
                                 </a>
                             </div>
@@ -41,20 +41,20 @@
                                     <p class="text-muted">Đăng nhập để tiếp tục với Pets Care.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="https://themesbrand.com/velzon/html/material/index.html">
-
+                                    <form id="login_form" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Tên đăng nhập</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập">
+                                            <input  type="email" name="email" class="form-control" id="username" placeholder="Nhập tên đăng nhập">
                                         </div>
 
                                         <div class="mb-3">
                                             <div class="float-end">
-                                                <a href="auth-pass-reset-basic.html" class="text-muted">Quên mật khẩu?</a>
+                                                <a href="{{route('password.reset')}}" class="text-muted">Quên mật khẩu?</a>
                                             </div>
                                             <label class="form-label" for="password-input">Mật khẩu</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input type="password" class="form-control pe-5 password-input" placeholder="Nhập mật khẩu" id="password-input">
+                                                <input type="password" name="password" class="form-control pe-5 password-input" placeholder="Nhập mật khẩu" id="password-input">
                                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="submit">Đăng nhập</button>
+                                            <button class="btn btn-success w-100">Đăng nhập</button>
                                         </div>
 
                                         <div class="mt-4 text-center">
@@ -73,9 +73,9 @@
                                                 <h5 class="fs-13 mb-4 title">Đăng nhập với</h5>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
-                                                <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
-                                                <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
+                                                <a href="{{ route('auth.facebook.login') }}" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></a>
+                                                <a href="{{ route('auth.google.login') }}" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></a>
+                                                <a href="{{ route('auth.github.login') }}" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></a>
                                     
                                             </div>
                                         </div>
@@ -87,7 +87,7 @@
                         <!-- end card -->
 
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Chưa có tài khoản ? <a href="auth-signup-basic.html" class="fw-semibold text-primary text-decoration-underline"> Đăng ký </a> </p>
+                            <p class="mb-0">Chưa có tài khoản ? <a href="{{route('register')}}" class="fw-semibold text-primary text-decoration-underline"> Đăng ký </a> </p>
                         </div>
 
                     </div>
@@ -98,4 +98,38 @@
         </div>
         <!-- end auth page content -->
 
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#login_form').submit(function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: "{{ route('login') }}",
+                    type: 'POST',
+                    data: formData,
+                    success: function(data) {
+                        if (data.status == 'success') {
+                            Success(data.message);
+                            setTimeout(function() {
+                                window.location.href = "{{ route('home') }}";
+                            }, 1000);
+                        } else {
+                            Error(data.message);
+                            if(data.link_authencation){
+                                setTimeout(function() {
+                                    window.location.href = data.link_authencation;
+                                }, 1000);
+                            }
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+        });
+    </script>
 @endsection
