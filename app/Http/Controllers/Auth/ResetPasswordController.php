@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +17,8 @@ class ResetPasswordController extends Controller
         $resetToken = DB::table('password_reset_tokens')
             ->where('email', $request->email)
             ->first();
-        
-        if ($resetToken &&  Hash::check($token, $resetToken->token)) {
+
+        if ($resetToken && Hash::check($token, $resetToken->token)) {
             $now = Carbon::now();
             if ($now->diffInMinutes($resetToken->created_at) > 60) {
                 dd('Token đã hết hạn.');
@@ -45,13 +46,13 @@ class ResetPasswordController extends Controller
         $resetToken = DB::table('password_reset_tokens')
             ->where('email', $request->email)
             ->first();
-        
-        if ($resetToken &&  Hash::check($request->token, $resetToken->token)) {
+
+        if ($resetToken && Hash::check($request->token, $resetToken->token)) {
             $now = Carbon::now();
             if ($now->diffInMinutes($resetToken->created_at) > 60) {
                 dd('Token đã hết hạn.');
             } else {
-                
+
                 $user = User::where([
                     'email' => $request->email,
                     'google_id' => null,
@@ -72,7 +73,7 @@ class ResetPasswordController extends Controller
                 } else {
                     return back()->withErrors(['email' => 'Email này đã được đăng ký bằng tài khoản mạng xã hội']);
                 }
-                
+
             }
         } else {
             dd('Token không hợp lệ hoặc đã hết hạn.');

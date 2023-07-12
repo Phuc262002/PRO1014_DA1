@@ -58,26 +58,10 @@
                     <!-- Header Top Message Start -->
                     <div class="col-12 col-lg-6">
                         <div class="header-top-msg-wrapper">
-                            <p class="header-top-message">Welcome To our shop !</p>
+                            <p class="header-top-message">Chào mừng đến với Pets Care !</p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="header-top-settings">
-                            <ul class="nav">
-                                <li class="curreny-wrap">
-                                    <a href="#">USD</a>
-                                    <i class="fa fa-angle-down"></i>
-                                    <ul class="dropdown-list curreny-list">
-                                        <li><a href="#">$ USD</a></li>
-                                        <li><a href="#">€ EUR</a></li>
-                                        <li><a href="#">£ GBP</a></li>
-                                        <li><a href="#">₹ INR</a></li>
-                                        <li><a href="#">¥ JPY</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <!-- Header Top Message End -->
 
                 </div>
@@ -94,7 +78,7 @@
                         <!-- Header Logo Start -->
                         <div class="col-lg-3 col-md-4 col-6">
                             <div class="header-logo">
-                                <a href="/"><img src="{{url('assets/images/logo/logo.png')}}" alt="Site Logo" /></a>
+                                <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" style="height: 80px;width: 80px;"/></a>
                             </div>
                         </div>
                         <!-- Header Logo End -->
@@ -104,21 +88,15 @@
                             <div class="main-menu">
                                 <ul>
                                     <li class="has-children">
-                                        <a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home 1</a></li>
-                                            <li><a href="index-2.html">Home 2</a></li>
-                                            <li><a href="index-3.html">Home 3</a></li>
-                                            <li><a href="index-4.html">Home 4</a></li>
-                                        </ul>
+                                        <a href="#">Trang chủ</a>
                                     </li>
                                     <li class="has-children position-static">
-                                        <a href="#">Shop</a>
+                                        <a href="#">Cửa hàng</a>
                                         <ul class="mega-menu">
                                             <li class="mega-menu-col">
                                                 <h4 class="mega-menu-title">Shop Layout</h4>
                                                 <ul class="m-b-n10">
-                                                    <li><a href="shop">Shop Grid</a></li>
+                                                    <li><a href="shop.html">Shop Grid</a></li>
                                                     <li><a href="shop-left-sidebar.html">Left Sidebar</a></li>
                                                     <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
                                                     <li><a href="shop-list-fullwidth.html">List Fullwidth</a></li>
@@ -157,8 +135,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="has-children">
-                                        <a href="#">Pages</a>
+                                    <!-- <li class="has-children">
+                                        <a href="#">Về chúng tôi</a>
                                         <ul class="sub-menu">
                                             <li><a href="about.html">About Us</a></li>
                                             <li><a href="contact.html">Contact Us</a></li>
@@ -167,7 +145,7 @@
                                             <li><a href="login.html">Login</a></li>
                                             <li><a href="register.html">Register</a></li>
                                         </ul>
-                                    </li>
+                                    </li> -->
                                     <li class="has-children">
                                         <a href="#">Blog</a>
                                         <ul class="sub-menu">
@@ -178,8 +156,8 @@
                                             <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about.html">Về chúng tôi</a></li>
+                                    <li><a href="contact.html">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>

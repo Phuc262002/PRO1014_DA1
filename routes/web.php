@@ -26,6 +26,21 @@ Route::get('/', function () {
 Route::get('shop', function () {
     return view('pages.client.shop');
 }) -> name('shop');
+Route::get('blog', function () {
+    return view('pages.client.blog');
+}) -> name('blog'); 
+Route::get('checkout', function () {
+    return view('pages.client.checkout');
+}) -> name('checkout');
+Route::get('services', function () {
+    return view('pages.client.services');
+}) -> name('services');
+
+
+
+
+
+
 
 Route::get('policy', function () {
     return view('pages.client.policy');
@@ -70,4 +85,11 @@ Route::get('test', function () {
 
 Route::get('cart', function () {
     return view('pages.client.cart');
+});
+
+Route::get('404', function () {
+    return view('errors.404');
+});
+Route::get('500', function () {
+    return view('errors.500');
 });

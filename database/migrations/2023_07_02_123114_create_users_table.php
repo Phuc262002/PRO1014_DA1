@@ -26,12 +26,10 @@ class CreateUsersTable extends Migration
             $table->boolean('confirm');
             $table->string('confirmation_code')->default(NULL);
             $table->dateTime('confirmation_code_expired_in')->default(NULL);
-            $table->unsignedBigInteger('role_id')->default(1);
+            $table->boolean('is_admin')->default(false);
             $table->string('image', 200);
             $table->string('remember_token')->nullable();
             $table->timestamps();
-
-            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
