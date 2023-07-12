@@ -38,6 +38,12 @@ Route::get('checkout', function () {
 Route::get('services', function () {
     return view('pages.client.services');
 }) -> name('services');
+Route::get('contact', function () {
+    return view('pages.client.contact');
+}) -> name('contact');
+Route::get('about', function () {
+    return view('pages.client.about');
+}) -> name('about');
 
 Route::get('account', function () {
     return view('pages.client.account');

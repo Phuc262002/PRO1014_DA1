@@ -41,13 +41,13 @@
                             <div class="blog-meta">
                                 <ul>
                                     <li><span>Bởi</span><a href="#/">Admin</a></li>
-                                    <li><span>27, Jan, 2021</span></li>
+                                    <li><span>27/02/2021</span></li>
                                 </ul>
                             </div>
                             <h2 class="blog-title"><a href="blog-details.html">Cách chăm sóc cá của bạn</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -78,7 +78,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Tìm cá đực và cá cái</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -109,7 +109,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -140,7 +140,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -171,7 +171,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -202,7 +202,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -233,7 +233,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -264,7 +264,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 
@@ -295,7 +295,7 @@
                             <h2 class="blog-title"><a href="blog-details.html">Mẹo chăm sóc thú cưng</a></h2>
                             <p>Pets Care là chuỗi cửa hànng thú cưng tại Hà Nội, TP.HCM, Đà Nẵng với hệ thống nhiều chi
                                 nhánh cửa hàng thú cưng chuyên cung cấp đồ dùng, quần áo</p>
-                            <a class="more-link" href="blog-details.html">Read More</a>
+                            <a class="more-link" href="blog-details.html">Xem Thêm</a>
                         </div>
                         <!-- Blog Content End -->
 

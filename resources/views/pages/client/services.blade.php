@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-wrapper">
-                        <h2 class="breadcrumb-title">Service</h2>
+                        <h2 class="breadcrumb-title">Dịch Vụ</h2>
                         <ul>
                             <li><a href="index.html">Trang Chủ</a></li>
-                            <li>Service</li>
+                            <li>Dịch vụ</li>
                         </ul>
                     </div>
                 </div>
@@ -31,9 +31,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-pawprint"></i></div>
-                            <h4><a href="services-detail.html">PET ADOPTION</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">NHẬN NUÔI THÚ CƯNG</a></h4>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -43,9 +43,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-injection-needle"></i></div>
-                            <h4><a href="services-detail.html">PET VACCINATION</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">TIM THUỐC ĐỊNH KỲ CHO VẬT NUÔI</a></h4>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-health-care"></i></div>
-                            <h4><a href="services-detail.html">PET GROMMING</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">TỈA LONG CHO VẬT NUÔI</a></h4>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -67,9 +67,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-sitting-dog"></i></div>
-                            <h4><a href="services-detail.html">DOG TRAINING</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">CHƠI VỚI THÚ CƯNG</a></h4>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -79,9 +79,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-home"></i></div>
-                            <h4><a href="services-detail.html">PET DAYCARE</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">CHƠI VỚI THÚ CƯNG</a></h4>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,8 @@
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-dog"></i></div>
                             <h4><a href="services-detail.html">PET SITTER</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -103,9 +103,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-dog-1"></i></div>
-                            <h4><a href="services-detail.html">DOG WALKER</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">DẪN THÚ CƯNG ĐI DẠO</a></h4>
+                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
@@ -115,9 +115,9 @@
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-doctor-stethoscope"></i></div>
-                            <h4><a href="services-detail.html">WELLNESS CARE</a></h4>
-                            <p>Knock dish off table head<br> butt cant eat out of my own<br> dish cats secretly make all<br>
-                                the worlds muffins. </p>
+                            <h4><a href="services-detail.html">CHĂM SÓC CHO THÚ CƯNG</a></h4>
+                            <                     <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
+                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                         </div>
                     </div>
                 </div>
