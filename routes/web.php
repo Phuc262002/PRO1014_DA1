@@ -25,22 +25,29 @@ Route::get('/', function () {
 
 Route::get('shop', function () {
     return view('pages.client.shop');
-}) -> name('shop');
+})->name('shop');
+
 Route::get('blog', function () {
     return view('pages.client.blog');
-}) -> name('blog'); 
+})->name('blog');
+
 Route::get('checkout', function () {
     return view('pages.client.checkout');
-}) -> name('checkout');
+})->name('checkout');
+
 Route::get('services', function () {
     return view('pages.client.services');
-}) -> name('services');
+})->name('services');
 Route::get('contact', function () {
     return view('pages.client.contact');
-}) -> name('contact');
+})->name('contact');
 Route::get('about', function () {
     return view('pages.client.about');
-}) -> name('about');
+})->name('about');
+
+Route::get('account', function () {
+    return view('pages.client.account');
+})->name('account');
 
 
 
@@ -50,11 +57,11 @@ Route::get('about', function () {
 
 Route::get('policy', function () {
     return view('pages.client.policy');
-}) -> name('policy');
+})->name('policy');
 
 Route::get('cart', function () {
     return view('pages.client.cart');
-}) -> name('cart');
+})->name('cart');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -63,9 +70,9 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('register', [RegisterController::class, 'index'])->name('register');
     Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
     Route::post('re_register', [RegisterController::class, 're_register'])->name('auth.re_register');
-    Route::get('email/verify/{email}',[VerificationController::class,'verify'])->name('verification.verify');
-    Route::post('email/verify_OTP',[VerificationController::class,'verify_OTP'])->name('verification.verify_OTP');
-    Route::post('email/logout_OTP',[VerificationController::class,'logout_OTP']);
+    Route::get('email/verify/{email}', [VerificationController::class, 'verify'])->name('verification.verify');
+    Route::post('email/verify_OTP', [VerificationController::class, 'verify_OTP'])->name('verification.verify_OTP');
+    Route::post('email/logout_OTP', [VerificationController::class, 'logout_OTP']);
 
     Route::get('google/login', [LoginController::class, 'googleLogin'])->name('auth.google.login');
     Route::get('google/callback', [LoginController::class, 'googleCallback']);
@@ -89,7 +96,9 @@ Route::get('test', function () {
     return view('test');
 });
 
-
+Route::get('cart', function () {
+    return view('pages.client.cart');
+});
 
 Route::get('404', function () {
     return view('errors.404');
