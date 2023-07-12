@@ -135,17 +135,13 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <!-- <li class="has-children">
-                                        <a href="#">Về chúng tôi</a>
+                                    <li class="has-children">
+                                        <a href="#">Dịch vụ</a>
                                         <ul class="sub-menu">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="error-404.html">Error 404</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="blog.html">Các dịch vụ</a></li>
+                                            <li><a href="blog-left-sidebar.html">Đặt lịch</a></li>
                                         </ul>
-                                    </li> -->
+                                    </li>
                                     <li class="has-children">
                                         <a href="#">Blog</a>
                                         <ul class="sub-menu">
@@ -156,6 +152,7 @@
                                             <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a></li>
                                         </ul>
                                     </li>
+                                    
                                     <li><a href="about.html">Về chúng tôi</a></li>
                                     <li><a href="contact.html">Liên hệ</a></li>
                                 </ul>

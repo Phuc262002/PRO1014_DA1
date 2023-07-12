@@ -78,7 +78,6 @@ Route::group(['prefix' => 'auth'], function () {
 Route::get('test', function () {
     return view('test');
 });
-<<<<<<< HEAD
 
 Route::get('404', function () {
     return view('errors.404');
@@ -86,5 +85,3 @@ Route::get('404', function () {
 Route::get('500', function () {
     return view('errors.500');
 });
-=======
->>>>>>> ad546c1527867aec96ded9e7a32ab5a5d25f335a
