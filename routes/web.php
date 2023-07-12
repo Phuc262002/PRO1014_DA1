@@ -46,6 +46,10 @@ Route::get('policy', function () {
     return view('pages.client.policy');
 }) -> name('policy');
 
+Route::get('cart', function () {
+    return view('pages.client.cart');
+}) -> name('cart');
+
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('auth.login');
@@ -77,6 +81,10 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::get('test', function () {
     return view('test');
+});
+
+Route::get('cart', function () {
+    return view('pages.client.cart');
 });
 
 Route::get('404', function () {
