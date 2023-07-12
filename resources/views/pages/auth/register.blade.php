@@ -22,7 +22,7 @@
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
                                 <a href="{{route('home')}}" class="d-inline-block auth-logo">
-                                    <img src="assets/images/logo.png" alt="" height="200">
+                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="200">
                                 </a>
                             </div>
                         </div>
@@ -40,9 +40,8 @@
                                     <p class="text-muted">Tạo tài khoản Pets Care cho riêng bạn</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form id="register_form" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                    <form id="register_form" enctype="multipart/form-data">
                                         @csrf
-
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email <span
                                                     class="text-danger">*</span></label>
