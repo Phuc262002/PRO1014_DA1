@@ -29,25 +29,25 @@ Route::get('shop', function () {
 
 Route::get('blog', function () {
     return view('pages.client.blog');
-}) -> name('blog'); 
+})->name('blog');
 
 Route::get('checkout', function () {
     return view('pages.client.checkout');
-}) -> name('checkout');
+})->name('checkout');
 
 Route::get('services', function () {
     return view('pages.client.services');
-}) -> name('services');
+})->name('services');
 Route::get('contact', function () {
     return view('pages.client.contact');
-}) -> name('contact');
+})->name('contact');
 Route::get('about', function () {
     return view('pages.client.about');
-}) -> name('about');
+})->name('about');
 
 Route::get('account', function () {
     return view('pages.client.account');
-}) -> name('account');
+})->name('account');
 
 
 
@@ -61,7 +61,7 @@ Route::get('policy', function () {
 
 Route::get('cart', function () {
     return view('pages.client.cart');
-}) -> name('cart');
+})->name('cart');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -96,7 +96,6 @@ Route::get('test', function () {
     return view('test');
 });
 
-<<<<<<< HEAD
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', function () {
         return view('pages.admin.dashboard');
@@ -163,7 +162,6 @@ Route::group(['prefix' => 'admin'], function () {
     })->name('admin.admin_manager');
 
 });
-=======
 Route::get('cart', function () {
     return view('pages.client.cart');
 });
@@ -178,4 +176,3 @@ Route::get('404', function () {
 Route::get('500', function () {
     return view('errors.500');
 });
->>>>>>> 2ef8b06e7402c026b004fc87b427d75e05cc1ad0
