@@ -76,7 +76,7 @@
                     <div class="row align-items-center position-relative">
 
                         <!-- Header Logo Start -->
-                        <div class="col-lg-3 col-md-4 col-6">
+                        <div class="col-lg-2 col-md-4 col-6">
                             <div class="header-logo">
                                 <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" style="height: 80px;width: 80px;"/></a>
                             </div>
@@ -84,7 +84,7 @@
                         <!-- Header Logo End -->
 
                         <!-- Header Menu Start -->
-                        <div class="col-lg-6 d-none d-lg-block">
+                        <div class="col-lg-8 d-none d-lg-block">
                             <div class="main-menu">
                                 <ul>
                                     <li class="has-children">
@@ -161,7 +161,7 @@
                         <!-- Header Menu End -->
 
                         <!-- Header Action Start -->
-                        <div class="col-lg-3 col-md-8 col-6">
+                        <div class="col-lg-2 col-md-8 col-6">
                             <div class="header-actions">
 
                                 <!-- Header Action Search Button Start -->
