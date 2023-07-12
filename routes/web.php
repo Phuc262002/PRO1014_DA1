@@ -38,6 +38,9 @@ Route::get('services', function () {
 Route::get('contact', function () {
     return view('pages.client.contact');
 }) -> name('contact');
+Route::get('about', function () {
+    return view('pages.client.about');
+}) -> name('about');
 
 
 
