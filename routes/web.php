@@ -35,6 +35,9 @@ Route::get('checkout', function () {
 Route::get('services', function () {
     return view('pages.client.services');
 }) -> name('services');
+Route::get('contact', function () {
+    return view('pages.client.contact');
+}) -> name('contact');
 
 
 
