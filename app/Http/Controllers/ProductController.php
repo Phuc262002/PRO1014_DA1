@@ -12,8 +12,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
-        return view('pages.admin.product_manager');
+        $title = 'Pets Care - Quản lý sản phẩm';
+        $products = Product::join('brands', 'brands.id', '=', 'products.brand_id')
+            ->select('products.*', 'brands.name') // Lựa chọn các trường từ bảng products
+            ->get(); // Lấy tất cả các sản phẩm kết quả
+        // return view('pages.admin.product_manager', compact('title', 'products'));
+        dd($products);
     }
 
     /**
