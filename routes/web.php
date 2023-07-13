@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,15 @@ Route::get('test', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::resources([
+        'product' => ProductController::class,
+    ]);
+
+
+
+
+    
     Route::get('quan-ly-tai-khoan', function () {
         return view('pages.admin.product_manager');
     })->name('admin.product_manager');
