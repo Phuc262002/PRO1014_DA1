@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    {{$title}}
+@endsection
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -10,9 +13,9 @@
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-16 mb-1">Good Morning, Anna!</h4>
+                                            <h4 class="fs-16 mb-1">Chào bạn, {{Auth::user()->name}}!</h4>
                                             <p class="text-muted mb-0">
-                                                Here's what's happening with your store today.
+                                                Chuyện gì đang xảy ra hôm nay với các sản phẩm của bạn?
                                             </p>
                                         </div>
                                         <div class="mt-3 mt-lg-0">

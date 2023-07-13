@@ -14,7 +14,6 @@ class HomeController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->take(8)
                         ->get();
-        dd($products);
-        // return view('home', compact('title'));
+        return view('home', compact('title'));
     }
 }
