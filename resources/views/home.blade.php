@@ -66,8 +66,8 @@
 
                         <!-- CTA Content Start -->
                         <div class="cta-content">
-                            <h4 class="title">Free Shipping</h4>
-                            <p>Free shipping on all order</p>
+                            <h4 class="title">Miễn phí giao hàng</h4>
+                            <p>Miễn phí giao hàng khu vực nội thành cho các đơn hàng trên 500K</p>
                         </div>
                         <!-- CTA Content End -->
 
@@ -87,8 +87,8 @@
 
                         <!-- CTA Content Start -->
                         <div class="cta-content">
-                            <h4 class="title">Online Support</h4>
-                            <p>Online live support 24/7</p>
+                            <h4 class="title">Hỗ trợ trực tuyến</h4>
+                            <p>Đường dây hỗ trợ hệ thống cửa hàng Pets Care trực tuyến 24/7</p>
                         </div>
                         <!-- CTA Content End -->
 
@@ -108,8 +108,8 @@
 
                         <!-- CTA Content Start -->
                         <div class="cta-content">
-                            <h4 class="title">Money Return</h4>
-                            <p>Back guarantee under 5 days</p>
+                            <h4 class="title">Chính sách hoàn tiền</h4>
+                            <p>Hoàn tiền cho các sản phẩm không đúng tiêu chuẩn, chính sách của cửa hàng</p>
                         </div>
                         <!-- CTA Content End -->
 
@@ -131,11 +131,10 @@
                 <div class="col-12">
                     <ul class="product-tab-nav nav justify-content-center m-b-n15 p-b-40 title-border-bottom">
                         <li class="nav-item m-b-15"><a class="nav-link active" data-bs-toggle="tab"
-                                href="#tab-product-all">Bestseller</a></li>
+                                href="#tab-product-all">Sản phẩm bán chạy</a></li>
                         <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab"
-                                href="#tab-product-featured">Sales popup</a></li>
-                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab" href="#tab-product-all">Top
-                                collection</a></li>
+                                href="#tab-product-featured">Sản phẩm giảm giá</a></li>
+                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab" href="#tab-product-all">   Bộ sưu tập</a></li>
                     </ul>
                 </div>
                 <!-- Tab End -->
@@ -881,7 +880,7 @@
 
                     <!-- Section Title Start -->
                     <div class="section-title text-center">
-                        <h2 class="title" data-aos="fade-up" data-aos-duration="1000">Deal Of The Week</h2>
+                        <h2 class="title" data-aos="fade-up" data-aos-duration="1000">Giảm giá trong tuần</h2>
                     </div>
                     <!-- Section Title End -->
 
@@ -925,7 +924,7 @@
                                             <div class="countdown-area">
                                                 <div class="countdown-wrapper" data-countdown="2028/12/28"></div>
                                             </div>
-                                            <a href="shop.html" class="btn btn-primary btn-hover-dark">Shop Now</a>
+                                            <a href="shop.html" class="btn btn-primary btn-hover-dark">Mua ngay</a>
                                         </div>
                                         <!-- Deal Content End -->
                                     </div>
@@ -1091,7 +1090,7 @@
             <div class="row" data-aos="fade-up" data-aos-duration="1000">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2 class="title">From Our Blog</h2>
+                        <h2 class="title">Bài viết của chúng tôi</h2>
                     </div>
                 </div>
             </div>
