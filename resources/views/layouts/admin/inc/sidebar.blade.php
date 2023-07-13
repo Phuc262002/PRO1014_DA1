@@ -2,21 +2,21 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="{{route('home')}}" class="logo logo-dark">
+        <a href="{{ route('home') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="40" />
+                <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="40" />
             </span>
             <span class="logo-lg">
-                <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="80" />
+                <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="80" />
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="{{route('home')}}" class="logo logo-light">
+        <a href="{{ route('home') }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="40" />
+                <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="40" />
             </span>
             <span class="logo-lg">
-                <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="80" />
+                <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="80" />
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -114,31 +114,15 @@
                     <div class="collapse menu-dropdown" id="sidebarPages1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.category_manager') }}" class="nav-link"
-                                    data-key="t-starter">
+                                <a href="{{ route('admin.list_product') }}" class="nav-link" data-key="t-starter">
                                     Tất cả danh mục
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_product') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.form_add_list_product') }}" class="nav-link"
+                                    data-key="t-team">
                                     Thêm danh mục
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPages2" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarPages">
-                        <i data-feather="star"></i>
-                        <span data-key="t-pages">Quản lí đánh giá</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarPages2">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="pages-starter.html" class="nav-link" data-key="t-starter">
-                                    Tất cả đánh giá
                                 </a>
                             </li>
                         </ul>
@@ -203,13 +187,14 @@
                     <div class="collapse menu-dropdown" id="sidebarBlog1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="pages-starter.html" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('admin.list_blog') }}" class="nav-link" data-key="t-starter">
                                     Tất cả danh mục
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.form_add_list_blog') }}" class="nav-link"
+                                    data-key="t-team">
                                     Thêm danh mục
                                 </a>
                             </li>
@@ -289,39 +274,66 @@
                     <div class="collapse menu-dropdown" id="sidebarSV">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="pages-starter.html" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('admin.service_all') }}" class="nav-link" data-key="t-starter">
                                     Tất cả dịch vụ
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.service_pending') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ chưa xác nhận
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.service_holding') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ giữ lại
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.service_accepted') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ đã chấp nhận
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.service_completed') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ đã hoàn thành
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
+                                <a href="{{ route('admin.service_canceled') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ đã hủy
                                 </a>
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="menu-title">
+                    <i class="ri-more-fill"></i>
+                    <span data-key="t-pages">Dịch vụ</span>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarService" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarCmt">
+                        <i data-feather="life-buoy"></i>
+                        <span data-key="t-pages">Dịch vụ</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarService">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.service_manager') }}" class="nav-link" data-key="t-team">
+                                    Quản lí dịch vụ
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.form_add_service_s') }}" class="nav-link"
+                                    data-key="t-team">
+                                    Thêm dịch vụ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 </li>
                 <li class="menu-title">
                     <i class="ri-more-fill"></i>
@@ -336,13 +348,15 @@
                     <div class="collapse menu-dropdown" id="sidebarSettings">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
-                                    Quản lí slider
+                                <a href="{{ route('admin.banner_slider_manager') }}" class="nav-link"
+                                    data-key="t-team">
+                                    Quản lí banner và slider
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team">
-                                    Quản lí banner
+                                <a href="{{ route('admin.form_add_banner_slider') }}" class="nav-link"
+                                    data-key="t-team">
+                                    Thêm banner và slider
                                 </a>
                             </li>
                         </ul>

@@ -49,6 +49,12 @@ Route::get('account', function () {
     return view('pages.client.account');
 })->name('account');
 
+
+
+
+
+
+
 Route::get('policy', function () {
     return view('pages.client.policy');
 })->name('policy');
@@ -90,7 +96,7 @@ Route::get('test', function () {
     return view('test');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('pages.admin.dashboard');
     })->name('admin.dashboard');
@@ -133,18 +139,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-nguoi-dung4', function () {
         return view('pages.admin.form_add_brand');
     })->name('admin.form_add_brand');
-    Route::get('quan-ly-nguoi-dung5', function () {
-        return view('pages.admin.form_add_list');
-    })->name('admin.form_add_list');
     Route::get('quan-ly-nguoi-dung6', function () {
         return view('pages.admin.form_add_blog');
     })->name('admin.form_add_blog');
     Route::get('quan-ly-nguoi-dung7', function () {
-        return view('pages.admin.form_add_banner');
-    })->name('admin.form_add_banner');
-    Route::get('quan-ly-nguoi-dung8', function () {
-        return view('pages.admin.category_manager');
-    })->name('admin.category_manager');
+        return view('pages.admin.form_add_banner_slider');
+    })->name('admin.form_add_banner_slider');
     Route::get('quan-ly-nguoi-dung9', function () {
         return view('pages.admin.brand_manager');
     })->name('admin.brand_manager');
@@ -154,15 +154,53 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-nguoi-dung11', function () {
         return view('pages.admin.admin_manager');
     })->name('admin.admin_manager');
+    Route::get('quan-ly-nguoi-dung12', function () {
+        return view('pages.admin.form_add_list_product');
+    })->name('admin.form_add_list_product');
+    Route::get('quan-ly-nguoi-dung8', function () {
+        return view('pages.admin.list_product');
+    })->name('admin.list_product');
+    Route::get('quan-ly-nguoi-dung13', function () {
+        return view('pages.admin.list_blog');
+    })->name('admin.list_blog');
+    Route::get('quan-ly-nguoi-dung5', function () {
+        return view('pages.admin.form_add_list_blog');
+    })->name('admin.form_add_list_blog');
+    Route::get('dich-vu-da-huy', function () {
+        return view('pages.admin.service_canceled');
+    })->name('admin.service_canceled');
+    Route::get('dich-vu-dang-xu-ly', function () {
+        return view('pages.admin.service_pending');
+    })->name('admin.service_pending');
+    Route::get('dich-vu-giu-lai', function () {
+        return view('pages.admin.service_holding');
+    })->name('admin.service_holding');
+    Route::get('dich-vu-hoan-thanh', function () {
+        return view('pages.admin.service_completed');
+    })->name('admin.service_completed');
+    Route::get('tat-ca-dich-vu', function () {
+        return view('pages.admin.service_all');
+    })->name('admin.service_all');
+    Route::get('dich-vu-da-chap-nhan', function () {
+        return view('pages.admin.service_accepted');
+    })->name('admin.service_accepted');
+    Route::get('banner-slider', function () {
+        return view('pages.admin.banner_slider_manager');
+    })->name('admin.banner_slider_manager');
+    Route::get('quan-ly-dich-vu', function () {
+        return view('pages.admin.service_manager');
+    })->name('admin.service_manager');
+    Route::get('quan-ly-dich-vu2', function () {
+        return view('pages.admin.form_add_service_s');
+    })->name('admin.form_add_service_s');
 
-})->name('admin');
 
-Route::group(['prefix' => 'trang-ca-nhan', 'middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('pages.client.account');
-    });
-})->name('client.account');
 
+});
+
+Route::get('account', function () {
+    return view('pages.client.account');
+});
 
 Route::get('404', function () {
     return view('errors.404');

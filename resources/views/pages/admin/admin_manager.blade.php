@@ -27,7 +27,7 @@
                                             <th data-ordering="false">ID</th>
                                             <th data-ordering="false">Người dùng</th>
                                             <th data-ordering="false">Email</th>
-                                            <th>Loại tài khoản</th>
+                                            <th>Trạng thái</th>
                                             <th data-ordering="false">Xác thực</th>
                                             <th>Vai trò</th>
                                             <th>Ngày tạo</th>

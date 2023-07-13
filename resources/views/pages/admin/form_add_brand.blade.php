@@ -29,8 +29,6 @@
                                             <div class="col-lg-6">
                                                 <label for="formFile" class="form-label">Thêm hình ảnh</label>
                                                 <div class="input-group">
-                                                    <button class="btn btn-outline-primary shadow-none" type="button"
-                                                        id="inputGroupFileAddon03">Button</button>
                                                     <input type="file" class="form-control" id="inputGroupFile03"
                                                         aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                                                 </div>

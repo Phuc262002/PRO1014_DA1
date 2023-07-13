@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/vendor/ckfinder/ckfinder.js') }}"></script>
+
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('favicon.png')}}" />
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
 
     <!-- jsvectormap css -->
     <link href="{{ asset('assets/admin/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet"
@@ -41,19 +44,23 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="22" />
+                                    <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                                        height="22" />
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="17" />
+                                    <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                                        height="17" />
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="22" />
+                                    <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                                        height="22" />
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="17" />
+                                    <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                                        height="17" />
                                 </span>
                             </a>
                         </div>
@@ -568,7 +575,7 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
-                                        src="{{asset('assets/images/logo/logo.png')}}" alt="Header Avatar" />
+                                        src="{{ asset('assets/images/logo/logo.png') }}" alt="Header Avatar" />
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna
                                             Adame</span>
