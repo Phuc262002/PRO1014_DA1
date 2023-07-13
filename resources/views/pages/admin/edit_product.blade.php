@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="main-content">
 
@@ -16,59 +19,66 @@
                                         <div class="row g-3">
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Tên sản phẩm</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" class="form-control" id="basiInput"
+                                                    value="{{ $product->name }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Slug</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" class="form-control" id="basiInput"
+                                                    value="{{ $product->slug }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Danh mục thương
                                                     hiệu</label>
                                                 <select class="form-select" aria-label=".form-select-sm example">
-                                                    <option selected>Chọn thương hiệu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    @foreach ($brands as $brand)
+                                                        <option {{ $brand->id == $product->brand_id ? 'selected' : '' }}>
+                                                            {{ $brand->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Danh mục sản
                                                     phẩm</label>
                                                 <select class="form-select" aria-label=".form-select-sm example">
-                                                    <option selected>Chọn danh mục</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    @foreach ($categories as $category)
+                                                        <option
+                                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                                            {{ $category->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá bán</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" class="form-control" id="basiInput"
+                                                    value="{{ $product->price }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá giảm</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" class="form-control" id="basiInput"
+                                                    value="{{ $product->discount_price }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Số lượng</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" class="form-control" id="basiInput"
+                                                    value="{{ $product->quantity }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="formFile" class="form-label">Thêm hình ảnh</label>
                                                 <div class="input-group">
 
                                                     <input type="file" class="form-control" id="inputGroupFile03"
-                                                        aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                                        aria-describedby="inputGroupFileAddon03" aria-label="Upload"
+                                                        value="{{ $product->image_main }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Mô tả ngắn</label>
-                                                <textarea class="w-100 form-control" id="" cols="30" rows="5"></textarea>
+                                                <textarea class="w-100 form-control" id="" cols="30" rows="5">  {{ $product->description_summary }}</textarea>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-lable">Nội dung</label>
-                                                <div id="editor"></div>
+                                                <div id="editor">{{ $product->description_detail }}</div>
                                             </div>
                                         </div>
                                     </div>

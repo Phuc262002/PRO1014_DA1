@@ -16,7 +16,6 @@ class HomeController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->take(8)
                         ->get();
-        // dd($products);
         
 
         $topsale = Product::where('status', true)
@@ -24,7 +23,7 @@ class HomeController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->take(8)
                         ->get();
-        // dd($products);
+    
         
 
         $banner = Banner::where([
@@ -36,5 +35,6 @@ class HomeController extends Controller
                         ->get();
 
         return view('home', compact('title', 'topnew', 'topsale', 'banner'));
+
     }
 }
