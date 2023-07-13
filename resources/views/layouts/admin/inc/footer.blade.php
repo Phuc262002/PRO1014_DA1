@@ -881,6 +881,8 @@
 
 <!-- App js -->
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>
+<script src="{{ asset('assets/admin/js/pages/form-editor.init.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
 </body>
 
 </html>

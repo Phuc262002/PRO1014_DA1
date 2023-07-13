@@ -23,35 +23,11 @@
                                                 <input type="text" class="form-control" id="basiInput">
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="exampleFormControlTextarea5" class="form-label">Danh mục thương
-                                                    hiệu</label>
-                                                <select class="form-select" aria-label=".form-select-sm example">
-                                                    <option selected>Chọn thương hiệu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label for="exampleFormControlTextarea5" class="form-label">Danh mục sản
-                                                    phẩm</label>
-                                                <select class="form-select" aria-label=".form-select-sm example">
-                                                    <option selected>Chọn danh mục</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá bán</label>
                                                 <input type="text" class="form-control" id="basiInput">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá giảm</label>
-                                                <input type="text" class="form-control" id="basiInput">
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Số lượng</label>
                                                 <input type="text" class="form-control" id="basiInput">
                                             </div>
                                             <div class="col-lg-6">
@@ -63,13 +39,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
-                                                <label for="formFile" class="form-label">Mô tả ngắn</label>
+                                                <label for="formFile" class="form-label">Mô tả </label>
                                                 <textarea class="w-100 form-control" id="" cols="30" rows="5"></textarea>
                                             </div>
-                                            <div class="col-lg-12">
-                                                <label for="formFile" class="form-lable">Nội dung</label>
-                                                <div id="editor"></div>
-                                            </div>
+
                                         </div>
                                     </div>
 

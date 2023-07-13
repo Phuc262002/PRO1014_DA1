@@ -95,12 +95,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-4">
-                                            <p class="mb-0 fs-12 text-muted fst-italic">Bằng cách đăng ký, bạn đồng ý với
-                                                Pets Care <a href="#"
-                                                    class="text-primary text-decoration-underline fst-normal fw-medium">
-                                                    Điều khoản sử dụng</a></p>
-                                        </div>
+                                       
 
                                         <div id="password-contain" class="p-3 bg-light mb-2 rounded">
                                             <h5 class="fs-13">Mật khẩu phải có:</h5>

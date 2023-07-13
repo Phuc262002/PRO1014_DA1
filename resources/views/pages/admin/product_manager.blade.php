@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -43,42 +46,44 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck01" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck01"></label>
-                                                        </div>
-                                                    </th>
-                                                    <td><a href="#" class="fw-medium">#VZ2110</a></td>
-                                                    <td>Cám heo</td>
-                                                    <td>
-                                                        <div class="flex-shrink-0">
-                                                            <img src="assets/images/users/avatar-3.jpg" alt=""
-                                                                width="100" height="100" />
-                                                        </div>
-                                                    </td>
-                                                    <td>Gucci</td>
-                                                    <td>$9.98</td>
-                                                    <td>10.000</td>
-                                                    <td>10.000</td>
-                                                    <td class="text-success">
-                                                        <i class="ri-checkbox-circle-line fs-17 align-middle"></i>
-                                                        Paid
-                                                    </td>
-                                                    <td>
-                                                        <div class="hstack gap-3 flex-wrap">
-                                                            <a href="javascript:void(0);" class="link-primary fs-15"><i
-                                                                    class="ri-eye-line"></i></a>
-                                                            <a href="javascript:void(0);" class="link-success fs-15"><i
-                                                                    class="ri-edit-2-line"></i></a>
-                                                            <a href="javascript:void(0);" class="link-danger fs-15"><i
-                                                                    class="ri-delete-bin-line"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($products as $item)
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="" id="responsivetableCheck01" />
+                                                                <label class="form-check-label"
+                                                                    for="responsivetableCheck01"></label>
+                                                            </div>
+                                                        </th>
+                                                        <td><a href="#" class="fw-medium">{{ $item->sku }}</a></td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>
+                                                            <div class="flex-shrink-0">
+                                                                <img src="{{ $item->image_main }}" alt=""
+                                                                    width="100" height="100" />
+                                                            </div>
+                                                        </td>
+                                                        <td>Gucci</td>
+                                                        <td>$9.98</td>
+                                                        <td>10.000</td>
+                                                        <td>10.000</td>
+                                                        <td class="text-success">
+                                                            <i class="ri-checkbox-circle-line fs-17 align-middle"></i>
+                                                            Paid
+                                                        </td>
+                                                        <td>
+                                                            <div class="hstack gap-3 flex-wrap">
+                                                                <a href="javascript:void(0);" class="link-primary fs-15"><i
+                                                                        class="ri-eye-line"></i></a>
+                                                                <a href="javascript:void(0);" class="link-success fs-15"><i
+                                                                        class="ri-edit-2-line"></i></a>
+                                                                <a href="javascript:void(0);" class="link-danger fs-15"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         <!-- end table -->
