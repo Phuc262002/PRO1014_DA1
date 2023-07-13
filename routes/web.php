@@ -49,12 +49,6 @@ Route::get('account', function () {
     return view('pages.client.account');
 })->name('account');
 
-
-
-
-
-
-
 Route::get('policy', function () {
     return view('pages.client.policy');
 })->name('policy');
@@ -96,8 +90,8 @@ Route::get('test', function () {
     return view('test');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('dashboard', function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/', function () {
         return view('pages.admin.dashboard');
     })->name('admin.dashboard');
     Route::get('quan-ly-tai-khoan', function () {
@@ -161,11 +155,14 @@ Route::group(['prefix' => 'admin'], function () {
         return view('pages.admin.admin_manager');
     })->name('admin.admin_manager');
 
-});
+})->name('admin');
 
-Route::get('account', function () {
-    return view('pages.client.account');
-});
+Route::group(['prefix' => 'trang-ca-nhan', 'middleware' => ['auth']], function () {
+    Route::get('/', function () {
+        return view('pages.client.account');
+    });
+})->name('client.account');
+
 
 Route::get('404', function () {
     return view('errors.404');

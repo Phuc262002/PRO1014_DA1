@@ -49,7 +49,7 @@
                                 <!-- Newsletter Form Start -->
                                 <div class="newsletter-form-wrap p-t-5">
                                     <form id="mc-form" class="mc-form">
-                                        <input type="email" id="mc-email" class="form-control email-box" placeholder="demo@example.com" name="EMAIL">
+                                        <input type="email" id="mc-email" class="form-control email-box" placeholder="petscare@gmail.com" name="EMAIL">
                                         <button id="mc-submit" class="newsletter-btn" type="submit">Gửi</button>
                                     </form>
                                     <!-- mailchimp-alerts Start -->

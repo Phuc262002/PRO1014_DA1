@@ -52,7 +52,7 @@
                                 <h1 class="display-1 fw-medium">404</h1>
                                 <h3 class="text-uppercase">Lỗi !!! 😭</h3>
                                 <p class="text-muted mb-4">Trang bạn đang tìm kiếm không tồn tại!</p>
-                                <a href="index.html" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Quay lại trang chủ</a>
+                                <a href="{{route('home')}}" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Quay lại trang chủ</a>
                             </div>
                         </div>
                     </div>

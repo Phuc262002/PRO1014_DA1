@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -36,12 +37,26 @@ class ResetPasswordController extends Controller
 
     public function reset(Request $request)
     {
-        $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users,email',
             'token' => 'required',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password'
+        ],[
+            'email.required' => 'Email không được để trống.',
+            'email.email' => 'Email không đúng định dạng.',
+            'email.exists' => 'Email không tồn tại.',
+            'token.required' => 'Token không được để trống.',
+            'password.required' => 'Mật khẩu không được để trống.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'password_confirmation.required' => 'Xác nhận mật khẩu không được để trống.',
+            'password_confirmation.same' => 'Xác nhận mật khẩu không khớp.',
         ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $resetToken = DB::table('password_reset_tokens')
             ->where('email', $request->email)
@@ -65,8 +80,14 @@ class ResetPasswordController extends Controller
                         $user->password = Hash::make($request->password);
                         $user->save();
                         DB::table('password_reset_tokens')->where('email', $request->email)->delete();
-                        Auth::login($user);
-                        return redirect()->route('login')->with('success', 'Đổi mật khẩu thành công.');
+                        if ($user->confirm == false) {
+                            Auth::logout();
+                            return redirect()->route('verification.verify', ['email' => $user->email]);
+                        } else {
+                            Auth::login($user);
+                            return redirect()->route('home');
+                        }
+                        
                     } else {
                         return back()->withErrors(['password' => 'Mật khẩu mới không được trùng với mật khẩu cũ']);
                     }

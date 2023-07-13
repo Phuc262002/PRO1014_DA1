@@ -42,7 +42,7 @@
                         <div>
                             <h4>Lỗi máy chủ!</h4>
                             <p class="text-muted w-75 mx-auto">Server Error 500. Chúng tôi không chắc chắn chính xác điều gì đã xảy ra, nhưng máy chủ của chúng tôi cho biết đã xảy ra sự cố.</p>
-                            <a href="index.html" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Quay lại trang chủ</a>
+                            <a href="{{route('home')}}" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Quay lại trang chủ</a>
                         </div>
                     </div><!-- end col-->
                 </div>

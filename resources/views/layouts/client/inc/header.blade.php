@@ -78,7 +78,7 @@
                         <!-- Header Logo Start -->
                         <div class="col-lg-2 col-md-4 col-6">
                             <div class="header-logo">
-                                <a href="{{route('home')}}"><img src="assets/images/logo/logo.png" alt="Site Logo" style="height: 80px;width: 80px;"/></a>
+                                <a href="{{route('home')}}"><img src="{{asset('assets/images/logo/logo.png')}}" alt="Site Logo" style="height: 80px;width: 80px;"/></a>
                             </div>
                         </div>
                         <!-- Header Logo End -->
@@ -88,21 +88,21 @@
                             <div class="main-menu">
                                 <ul>
                                     <li class="has-children">
-                                        <a href="{{route('home')}}">Trang chủ</a>
+                                        <a class="{{Request::routeIs('home') ? 'active' : ''}}" href="{{route('home')}}">Trang chủ</a>
                                     </li>
                                     <li class="has-children position-static">
-                                        <a href="{{route('shop')}}">Cửa hàng</a>
+                                        <a class="{{Request::routeIs('shop') ? 'active' : ''}}" href="{{route('shop')}}">Cửa hàng</a>
                                         
                                     </li>
                                     <li class="has-children">
-                                        <a href="{{route('services')}}">Dịch vụ</a>
+                                        <a class="{{Request::routeIs('services') | Request::routeIs('') ? 'active' : ''}}" href="#">Dịch vụ</a>
                                         <ul class="sub-menu">
-                                        
+                                            <li><a href="{{route('services')}}">Các dịch vụ</a></li>
+                                            <li><a href="shop">Đặt lịch</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-children">
-                                        <a href="{{route('blog')}}">Blog</a>
-                                        
+                                        <a class="{{Request::routeIs('blog') ? 'active' : ''}}" href="{{route('blog')}}">Blog</a>
                                     </li>
                                     
                                     <li><a href="{{route('about')}}">Về chúng tôi</a></li>
@@ -124,7 +124,7 @@
                                     </div>
                                     <!-- Search Form and Button Start -->
                                     <form class="header-search-form" action="#">
-                                        <input type="text" class="header-search-input" placeholder="Search Our Store">
+                                        <input type="text" class="header-search-input" placeholder="Nhập tên sản phẩm">
                                         <button class="header-search-button"><i class="icon-magnifier icons"></i></button>
                                     </form>
                                     <!-- Search Form and Button End -->

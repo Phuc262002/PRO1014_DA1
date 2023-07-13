@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-wrapper">
-                        <h2 class="breadcrumb-title">Shop Sidebar</h2>
+                        <h2 class="breadcrumb-title">CỬA HÀNG</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Shop Sidebar</li>
+                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
+                            <li>Cửa Hàng</li>
                         </ul>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                                 <button data-role="grid_list" type="button" class="btn-list" title="List"><i class="ti-align-justify"></i></button>
                             </div>
                             <div class="shop-top-show">
-                                <span>Showing 1–12 of 39 results</span>
+                                <span>Hiển thị 1–12 của 39 kết quả</span>
                             </div>
 
                         </div>
@@ -45,16 +45,16 @@
                         <!-- Shopt Top Bar Right Start -->
                         <div class="shop-top-bar-right">
 
-                            <h4 class="title m-r-10">Short By: </h4>
+                            <h4 class="title m-r-10">Lọc theo: </h4>
 
                             <div class="shop-short-by">
                                 <select class="nice-select" aria-label=".form-select-sm example">
-                                    <option selected>Short by Default</option>
-                                    <option value="1">Short by Popularity</option>
-                                    <option value="2">Short by Rated</option>
-                                    <option value="3">Short by Latest</option>
-                                    <option value="3">Short by Price</option>
-                                    <option value="3">Short by Price</option>
+                                    <option selected>Mặc định</option>
+                                    <option value="1">Phổ biến</option>
+                                    <option value="2">Đánh giá cao</option>
+                                    <option value="3">Mới nhất</option>
+                                    <option value="3">Giá giảm dần</option>
+                                    <option value="3">Giá tăng dần</option>
                                 </select>
                             </div>
                         </div>
@@ -636,7 +636,7 @@
                     <aside class="sidebar_widget m-t-50 mt-lg-0">
                         <div class="widget_inner">
                             <div class="widget-list m-b-50">
-                                <h3 class="widget-title m-b-30">Search</h3>
+                                <h3 class="widget-title m-b-30">Tìm kiếm</h3>
                                 <div class="search-box">
                                     <input type="text" class="form-control" placeholder="Search Our Store" aria-label="Search Our Store">
                                     <button class="search-icon" type="button">
@@ -645,7 +645,7 @@
                                 </div>
                             </div>
                             <div class="widget-list m-b-50">
-                                <h3 class="widget-title m-b-30">Categories</h3>
+                                <h3 class="widget-title m-b-30">Loại sản phẩm</h3>
                                 <div class="sidebar-body">
                                     <ul class="sidebar-list">
                                         <li><a href="#/">All Product</a></li>
@@ -656,7 +656,7 @@
                                 </div>
                             </div>
                             <div class="widget-list m-b-50">
-                                <h3 class="widget-title m-b-30">Color</h3>
+                                <h3 class="widget-title m-b-30">Màu sắc</h3>
                                 <div class="sidebar-body">
                                     <ul class="checkbox-container categories-list">
                                         <li>
@@ -693,7 +693,7 @@
                                 </div>
                             </div>
                             <div class="widget-list m-b-50">
-                                <h3 class="widget-title m-b-30">Tags</h3>
+                                <h3 class="widget-title m-b-30">Nhãn</h3>
                                 <div class="sidebar-body">
                                     <ul class="tags m-b-n10">
                                         <li><a href="#/">Pet Food</a></li>
@@ -707,7 +707,7 @@
                                 </div>
                             </div>
                             <div class="widget-list">
-                                <h3 class="widget-title m-b-30">Recent Products</h3>
+                                <h3 class="widget-title m-b-30">Tìm kiếm gần đây</h3>
                                 <div class="sidebar-body product-list-wrapper m-b-n30">
 
                                     <!-- Single Product List Start -->

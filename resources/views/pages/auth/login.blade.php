@@ -23,7 +23,7 @@
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
                                 <a href="{{route('home')}}" class="d-inline-block auth-logo">
-                                    <img src="assets/images/logo.png" alt="" height="200">
+                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="200">
                                 </a>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
+                                            <input class="form-check-input" type="checkbox" name="remember_me" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">Lưu đăng nhập</label>
                                         </div>
 
