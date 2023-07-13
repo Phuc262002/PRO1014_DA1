@@ -575,11 +575,7 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
-<<<<<<< HEAD
-                                        src="{{ asset('assets/images/logo/logo.png') }}" alt="Header Avatar" />
-=======
                                         src="{{Auth::user()->image}}" alt="Header Avatar" />
->>>>>>> d411336c09f799de104a2a1bf5dca2b5c4567c11
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
                                             {{Auth::user()->name}}
