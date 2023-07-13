@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
+                                            <input class="form-check-input" type="checkbox" name="remember_me" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">Lưu đăng nhập</label>
                                         </div>
 

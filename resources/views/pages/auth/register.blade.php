@@ -160,6 +160,7 @@
             $(document).ready(function() {
                 $('#register_form').submit(function(e) {
                     e.preventDefault();
+                    Warning('Đang xử lý. Vui lòng chờ trong giây lát');
                     var formData = new FormData(this);
                     $.ajax({
                         url: '{{ route('register') }}',

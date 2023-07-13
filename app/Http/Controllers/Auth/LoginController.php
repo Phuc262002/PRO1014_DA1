@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
@@ -35,7 +36,7 @@ class LoginController extends Controller
             'google_id' => null,
             'facebook_id' => null,
             'github_id' => null
-        ]);
+        ], $request->remember_me);
 
         if (!$user) {
             return [

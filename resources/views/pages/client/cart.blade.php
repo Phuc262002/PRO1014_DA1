@@ -9,7 +9,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Đơn hàng của bạn</h2>
                         <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
                             <li>Đơn hàng</li>
                         </ul>
                     </div>

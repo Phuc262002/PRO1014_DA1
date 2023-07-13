@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Liên hệ với chúng tôi</h2>
                         <ul>
-                            <li><a href="index.html">Trang Chủ</a></li>
+                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
                             <li>Liên hệ với chúng tôi</li>
                         </ul>
                     </div>

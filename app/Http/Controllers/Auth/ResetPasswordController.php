@@ -80,8 +80,14 @@ class ResetPasswordController extends Controller
                         $user->password = Hash::make($request->password);
                         $user->save();
                         DB::table('password_reset_tokens')->where('email', $request->email)->delete();
-                        Auth::login($user);
-                        return redirect()->route('login')->with('success', 'Đổi mật khẩu thành công.');
+                        if ($user->confirm == false) {
+                            Auth::logout();
+                            return redirect()->route('verification.verify', ['email' => $user->email]);
+                        } else {
+                            Auth::login($user);
+                            return redirect()->route('home');
+                        }
+                        
                     } else {
                         return back()->withErrors(['password' => 'Mật khẩu mới không được trùng với mật khẩu cũ']);
                     }

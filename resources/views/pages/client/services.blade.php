@@ -13,7 +13,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Dịch Vụ</h2>
                         <ul>
-                            <li><a href="index.html">Trang Chủ</a></li>
+                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
                             <li>Dịch vụ</li>
                         </ul>
                     </div>
