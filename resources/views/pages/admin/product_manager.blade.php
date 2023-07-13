@@ -42,6 +42,7 @@
                                                     <th scope="col">Số Lượng</th>
                                                     <th scope="col">Trạng Thái</th>
                                                     <th scope="col">Mô tả</th>
+                                                    <th scope="col">Slug</th>
                                                     <th scope="col">Chức Năng</th>
                                                 </tr>
                                             </thead>
@@ -64,19 +65,26 @@
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>Gucci</td>
-                                                        <td>$9.98</td>
-                                                        <td>10.000</td>
-                                                        <td>10.000</td>
-                                                        <td class="text-success">
-                                                            <i class="ri-checkbox-circle-line fs-17 align-middle"></i>
-                                                            Paid
-                                                        </td>
+                                                        <td>{{ $item->brand_name }}</td>
+                                                        <td>{{ $item->price }}</td>
+                                                        <td>{{ $item->quantity }}</td>
+                                                        @if ($item->status == true)
+                                                            <td class="text-success">
+                                                                <span class="badge bg-success">Active</span>
+                                                            </td>
+                                                        @else
+                                                            <td class="text-success">
+                                                                <span class="badge bg-success">Disabled</span>
+                                                            </td>
+                                                        @endif
+                                                        <td>{{ $item->description_summary }}</td>
+                                                        <td>{{ $item->slug }}</td>
                                                         <td>
                                                             <div class="hstack gap-3 flex-wrap">
                                                                 <a href="javascript:void(0);" class="link-primary fs-15"><i
                                                                         class="ri-eye-line"></i></a>
-                                                                <a href="javascript:void(0);" class="link-success fs-15"><i
+                                                                <a href="{{ route('product.edit', ['product' => $item->id]) }}"
+                                                                    class="link-success fs-15"><i
                                                                         class="ri-edit-2-line"></i></a>
                                                                 <a href="javascript:void(0);" class="link-danger fs-15"><i
                                                                         class="ri-delete-bin-line"></i></a>

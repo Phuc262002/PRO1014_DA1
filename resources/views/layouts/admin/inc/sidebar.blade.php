@@ -91,7 +91,7 @@
                     <div class="collapse menu-dropdown" id="sidebarPages5">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.product_manager') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('product.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả sản phẩm
                                 </a>
                             </li>
