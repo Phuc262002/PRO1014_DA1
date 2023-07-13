@@ -22,7 +22,7 @@ class ResetPasswordController extends Controller
         if ($resetToken && Hash::check($token, $resetToken->token)) {
             $now = Carbon::now();
             if ($now->diffInMinutes($resetToken->created_at) > 60) {
-                dd('Token đã hết hạn.');
+                return view('pages.auth.error_msg');
             } else {
                 return view('pages.auth.pass_change', [
                     'token' => $token,
@@ -30,7 +30,7 @@ class ResetPasswordController extends Controller
                 ]);
             }
         } else {
-            dd('Token không hợp lệ hoặc đã hết hạn.');
+            return view('pages.auth.error_msg');
         }
     }
 
@@ -65,7 +65,7 @@ class ResetPasswordController extends Controller
         if ($resetToken && Hash::check($request->token, $resetToken->token)) {
             $now = Carbon::now();
             if ($now->diffInMinutes($resetToken->created_at) > 60) {
-                dd('Token đã hết hạn.');
+                return view('pages.auth.error_msg');
             } else {
 
                 $user = User::where([
@@ -97,7 +97,7 @@ class ResetPasswordController extends Controller
 
             }
         } else {
-            dd('Token không hợp lệ hoặc đã hết hạn.');
+            return view('pages.auth.error_msg');
         }
     }
 
