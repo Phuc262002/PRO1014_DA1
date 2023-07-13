@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+{{$title}}
+@endsection
 @section('content')
     <!-- Hero/Intro Slider Start -->
     <div class="section">
@@ -131,10 +133,9 @@
                 <div class="col-12">
                     <ul class="product-tab-nav nav justify-content-center m-b-n15 p-b-40 title-border-bottom">
                         <li class="nav-item m-b-15"><a class="nav-link active" data-bs-toggle="tab"
-                                href="#tab-product-all">Sản phẩm bán chạy</a></li>
+                                href="#tab-product-all">Sản phẩm mới</a></li>
                         <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab"
                                 href="#tab-product-featured">Sản phẩm giảm giá</a></li>
-                        <li class="nav-item m-b-15"><a class="nav-link" data-bs-toggle="tab" href="#tab-product-all">   Bộ sưu tập</a></li>
                     </ul>
                 </div>
                 <!-- Tab End -->
