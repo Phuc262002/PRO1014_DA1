@@ -64,6 +64,30 @@ Route::get('cart', function () {
     return view('pages.client.cart');
 })->name('cart');
 
+Route::get('acc-cart', function () {
+    return view('pages.client.acc-cart');
+})->name('acc-cart');
+
+Route::get('bill-detail', function () {
+    return view('pages.client.bill-detail');
+})->name('bill-detail');
+
+Route::get('cart-detail', function () {
+    return view('pages.client.cart-detail');
+})->name('cart-detail');
+
+Route::get('service-detail', function () {
+    return view('pages.client.service-detail');
+})->name('service-detail');
+
+Route::get('maps', function () {
+    return view('pages.client.maps');
+})->name('maps');
+
+Route::get('edit-maps', function () {
+    return view('pages.client.edit-maps');
+})->name('edit-maps');
+
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('auth.login');

@@ -51,7 +51,7 @@
                                     <!-- Single Tab Content End -->
 
                                     <!-- Single Tab Content Start -->
-                                    <div class="tab-pane fade" id="orders" role="tabpanel">
+                                    <div class="tab-pane fade show active" id="orders" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3 class="title">Đơn hàng</h3>
                                             <div class="myaccount-table table-responsive text-center">
@@ -102,82 +102,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Single Tab Content End -->
-
-                                    <!-- Single Tab Content Start -->
-
-                                    <!-- Single Tab Content End -->
-                                    <!-- Single Tab Content End -->
-
-                                    <!-- Single Tab Content Start -->
-                                    <div class="tab-pane fade" id="address-edit" role="tabpanel">
-                                        <div class="myaccount-content">
-                                            <h3 class="title">Địa chỉ thanh toán</h3>
-                                            <address>
-                                                <p><strong>Alex Aya</strong></p>
-                                                <p>1234 Market ##, Suite 900 <br>Lorem Ipsum, ## 12345</p>
-                                                <p>Số điện thoại: (123) 123-456789</p>
-                                            </address>
-                                            <a href="#" class="btn btn btn-dark btn-hover-primary rounded-0"><i
-                                                    class="fa fa-edit m-r-10"></i>Chỉnh sửa địa chỉ</a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Single Tab Content End -->
-
-                                    <!-- Single Tab Content Start -->
-                                    <div class="tab-pane fade show active" id="account-info" role="tabpanel">
-                                        <div class="myaccount-content">
-                                            <h3 class="title">Tài khoản</h3>
-                                            <div class="account-details-form">
-                                                <form action="#">
-                                                    <div class="row">
-                                                    </div>
-                                                    <div class="single-input-item m-b-15">
-                                                        <label for="display-name" class="required m-b-10">Tên hiển
-                                                            thị</label>
-                                                        <input type="text" id="display-name"
-                                                            placeholder="Tên hiển thị" />
-                                                    </div>
-                                                    <div class="single-input-item m-b-15">
-                                                        <label for="email" class="required m-b-5">Email</label>
-                                                        <input type="email" id="email" placeholder="Email" />
-                                                    </div>
-                                                    <fieldset>
-                                                        <legend>Đổi mật khẩu</legend>
-                                                        <div class="single-input-item m-b-15">
-                                                            <label for="current-pwd" class="required m-b-10">Mật khẩu hiển
-                                                                thị</label>
-                                                            <input type="password" id="current-pwd"
-                                                                placeholder="Mật khẩu hiển thị" />
-                                                        </div>
-                                                        <div class="row m-b-n15">
-                                                            <div class="col-lg-6">
-                                                                <div class="single-input-item m-b-15">
-                                                                    <label for="new-pwd" class="required m-b-10">Mật khẩu
-                                                                        mới</label>
-                                                                    <input type="password" id="new-pwd"
-                                                                        placeholder="Mật khẩu mới" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="single-input-item m-b-15">
-                                                                    <label for="confirm-pwd" class="required m-b-10">Nhập
-                                                                        lại mật khẩu</label>
-                                                                    <input type="password" id="confirm-pwd"
-                                                                        placeholder="Nhập lại mật khẩu" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                    <div class="single-input-item single-item-button m-t-30">
-                                                        <button class="btn btn btn-primary btn-hover-dark rounded-0">Lưu
-                                                            thay đổi</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div> <!-- Single Tab Content End -->
 
                                 </div>
                             </div>
