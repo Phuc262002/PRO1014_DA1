@@ -131,7 +131,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
 
 
-    
+
     Route::get('quan-ly-tai-khoan', function () {
         return view('pages.admin.product_manager');
     })->name('admin.product_manager');
@@ -228,10 +228,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
 
 
-});
-
-Route::get('account', function () {
-    return view('pages.client.account');
 });
 
 Route::get('404', function () {
