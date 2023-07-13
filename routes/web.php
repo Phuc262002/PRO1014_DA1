@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,7 @@ use App\Http\Controllers\Auth\VerificationController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('shop', function () {
     return view('pages.client.shop');
@@ -96,10 +96,15 @@ Route::get('test', function () {
     return view('test');
 });
 
+<<<<<<< HEAD
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('pages.admin.dashboard');
     })->name('admin.dashboard');
+=======
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+>>>>>>> d411336c09f799de104a2a1bf5dca2b5c4567c11
     Route::get('quan-ly-tai-khoan', function () {
         return view('pages.admin.product_manager');
     })->name('admin.product_manager');
