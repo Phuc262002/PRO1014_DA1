@@ -16,6 +16,16 @@
                                 <h4 class="card-title mb-0 flex-grow-1">
                                     Quản Lý Sản Phẩm
                                 </h4>
+                                <form class="app-search d-none d-md-block">
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm" autocomplete="off"
+                                            id="search-options" value="" />
+                                        <span class="mdi mdi-magnify search-widget-icon"></span>
+                                        <span
+                                            class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
+                                            id="search-close-options"></span>
+                                    </div>
+                                </form>
                                 <div class="flex-shrink-0"></div>
                             </div>
                             <!-- end card header -->
@@ -58,7 +68,8 @@
                                                                     for="responsivetableCheck01"></label>
                                                             </div>
                                                         </th>
-                                                        <td><a href="#" class="fw-medium">{{ $item->sku }}</a></td>
+                                                        <td><a href="#" class="fw-medium">{{ $item->sku }}</a>
+                                                        </td>
                                                         <td>{{ $item->name }}</td>
                                                         <td>
                                                             <div class="flex-shrink-0">
@@ -77,8 +88,8 @@
                                                                 <span class="badge bg-success">Active</span>
                                                             </td>
                                                         @else
-                                                            <td class="text-success">
-                                                                <span class="badge bg-success">Disabled</span>
+                                                            <td class="text-danger">
+                                                                <span class="badge bg-danger">Disabled</span>
                                                             </td>
                                                         @endif
                                                         <td>

@@ -9,7 +9,7 @@
                 <div class="breadcrumb-wrapper">
                     <h2 class="breadcrumb-title">Về chúng tôi</h2>
                     <ul>
-                        <li><a href="{{route('home')}}">Trang Chủ</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
                         <li>Về chúng tôi</li>
                     </ul>
                 </div>
@@ -110,7 +110,7 @@
                                 <!-- Testimonial Thumb Start -->
                                 <div class="testimonial-thumb text-center">
                                     <img src="assets/images/testimonial/2.png" alt="Testimonial Image">
-                                    <h3 class="thumb-title">Hoàng Phúc</h3>
+                                    <h3 class="thumb-title">Hoàng</h3>
                                     <h6 class="thumb-subtitle">Customer</h6>
                                 </div>
                                 <!-- Testimonial Thumb End -->
