@@ -40,6 +40,10 @@ Route::get('checkout', function () {
 Route::get('services', function () {
     return view('pages.client.services');
 })->name('services');
+Route::get('book-services', function () {
+    return view('pages.client.book-services');
+})->name('book-services');
+
 Route::get('contact', function () {
     return view('pages.client.contact');
 })->name('contact');
