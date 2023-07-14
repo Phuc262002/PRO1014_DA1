@@ -149,7 +149,31 @@
                         </ul>
                     </div>
                 </li>
-
+                <li class="menu-title">
+                    <i class="ri-more-fill"></i>
+                    <span data-key="t-pages">Dịch vụ</span>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarService" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarCmt">
+                        <i data-feather="life-buoy"></i>
+                        <span data-key="t-pages">Dịch vụ</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarService">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('service.index') }}" class="nav-link" data-key="t-team">
+                                    Quản lí dịch vụ
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('service.create') }}" class="nav-link"
+                                    data-key="t-team">
+                                    Thêm dịch vụ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="menu-title">
                     <i class="ri-more-fill"></i>
                     <span data-key="t-pages">Bài viết</span>
@@ -308,33 +332,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="menu-title">
-                    <i class="ri-more-fill"></i>
-                    <span data-key="t-pages">Dịch vụ</span>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarService" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarCmt">
-                        <i data-feather="life-buoy"></i>
-                        <span data-key="t-pages">Dịch vụ</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarService">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.service_manager') }}" class="nav-link" data-key="t-team">
-                                    Quản lí dịch vụ
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.form_add_service_s') }}" class="nav-link"
-                                    data-key="t-team">
-                                    Thêm dịch vụ
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                </li>
+                
                 <li class="menu-title">
                     <i class="ri-more-fill"></i>
                     <span data-key="t-pages">Cài đặt</span>

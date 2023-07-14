@@ -8,7 +8,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">THÊM DỊCH VỤ MỚI</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">CẬP NHẬT DỊCH VỤ</h4>
                             </div><!-- end card header -->
                             <div class="card-body">
                                 <div class="live-preview">
@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-lg-6 mt-3">
                                             <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" checked>
-                                            <label class="btn btn-outline-success shadow-none" for="success-outlined">Thêm dịch vụ</label>
+                                            <label class="btn btn-outline-success shadow-none" for="success-outlined">Cập nhật dịch vụ</label>
                                         </div>
                                     </form>
 

@@ -109,6 +109,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="form-label">Ghi chú  </span>
+                            <textarea cols="30" rows="10" class="form-control textarea-item" name="message" placeholder="Nội dung ...."></textarea>
+                            
+                        </div>
+                    </div>
+                   
                     <div class="form-btn">
                         <button class="submit-btn">Đăng ký</button>
                     </div>
