@@ -38,11 +38,12 @@
                                                     <th scope="col">Tên Sản Phẩm</th>
                                                     <th scope="col">Hình Ảnh</th>
                                                     <th scope="col">Thương Hiệu</th>
+                                                    <th scope="col">Loại sản phẩm</th>
                                                     <th scope="col">Giá</th>
                                                     <th scope="col">Số Lượng</th>
-                                                    <th scope="col">Trạng Thái</th>
                                                     <th scope="col">Mô tả</th>
                                                     <th scope="col">Slug</th>
+                                                    <th scope="col">Trạng Thái</th>
                                                     <th scope="col">Chức Năng</th>
                                                 </tr>
                                             </thead>
@@ -65,9 +66,12 @@
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{{ $item->brand_name }}</td>
+                                                        <td>{{ $item->brand->name }}</td>
+                                                        <td>{{ $item->category->name }}</td>
                                                         <td>{{ $item->price }}</td>
                                                         <td>{{ $item->quantity }}</td>
+                                                        <td>{{ $item->description_summary }}</td>
+                                                        <td>{{ $item->slug }}</td>
                                                         @if ($item->status == true)
                                                             <td class="text-success">
                                                                 <span class="badge bg-success">Active</span>
@@ -77,8 +81,6 @@
                                                                 <span class="badge bg-success">Disabled</span>
                                                             </td>
                                                         @endif
-                                                        <td>{{ $item->description_summary }}</td>
-                                                        <td>{{ $item->slug }}</td>
                                                         <td>
                                                             <div class="hstack gap-3 flex-wrap">
                                                                 <a href="javascript:void(0);" class="link-primary fs-15"><i
@@ -97,6 +99,9 @@
                                         <!-- end table -->
                                     </div>
                                     <!-- end table responsive -->
+                                </div>
+                                <div>
+                                    {{ $products->links() }}
                                 </div>
                             </div>
                             <!-- end card-body -->

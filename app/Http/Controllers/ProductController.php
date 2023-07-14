@@ -16,12 +16,9 @@ class ProductController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý sản phẩm';
-        $products = Product::join('brands', 'brands.id', '=', 'products.brand_id')
-            ->join('categories', 'categories.id', '=', 'products.category_id')
-            ->select('products.*', 'brands.name as brand_name', 'categories.name as category_name')
-            ->get();
+        $products = Product::with('brand', 'category', 'image_list')->paginate(10);
         return view('pages.admin.product_manager', compact('title', 'products'));
-
+        // dd($products);
     }
 
     /**
