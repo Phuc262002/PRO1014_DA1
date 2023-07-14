@@ -34,7 +34,7 @@
                             <h4><a href="services-detail.html">NHẬN NUÔI THÚ CƯNG</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                               <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                             <h4><a href="services-detail.html">TIM THUỐC ĐỊNH KỲ CHO VẬT NUÔI</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.</p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                               <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
                             
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <h4><a href="services-detail.html">TỈA LONG CHO VẬT NUÔI</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                                <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                        </div>
                     </div>
@@ -75,7 +75,7 @@
                             <h4><a href="services-detail.html">CHƠI VỚI THÚ CƯNG</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                                <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                             <h4><a href="services-detail.html">CHƠI VỚI THÚ CƯNG</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                                <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <h4><a href="services-detail.html">PET SITTER</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                               <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <h4><a href="services-detail.html">DẪN THÚ CƯNG ĐI DẠO</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                               <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                             <h4><a href="services-detail.html">CHĂM SÓC CHO THÚ CƯNG</a></h4>
                             <p>“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
                                 Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
-                                <button type="button" class="btn btn-warning">Đặt lịch</button>
+                               <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                         </div>
                     </div>

@@ -94,7 +94,7 @@
                             <div class="form-group">
                                 <span class="form-label">Tên Pet </span>
                                 <input class="form-control" type="text" placeholder="Tên Pet của bạn ">
-                                <span class="select-arrow"></span>
+                                
                             </div>
                         </div>
                         <div class="col-md-4">
