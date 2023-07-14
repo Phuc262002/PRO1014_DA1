@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordRequest($token));
     }
+
+    public function address_list() {
+        return $this->hasMany(Information_user::class);
+    }
 }

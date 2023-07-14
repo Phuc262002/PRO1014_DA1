@@ -37,6 +37,7 @@
                                     <a href="{{route('service-detail')}}"><i class="fa fa-cart-arrow-down"></i> Dịch vụ</a>
                                     <a href="{{route('maps')}}"><i class="fa fa-map-marker"></i> Địa
                                         chỉ</a>
+                                    <a href="{{route('admin.dashboard')}}"><i class="fa fa-user"></i> Quản trị Admin</a>
                                     <a href="{{route('account')}}"><i class="fa fa-sign-out"></i> Đăng xuất</a>
                                 </div>
                             </div>

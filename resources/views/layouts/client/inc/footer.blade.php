@@ -444,6 +444,8 @@
  <!--Main JS-->
  <script src="{{asset('assets/js/main.js')}}"></script>
  <script src="{{asset('assets/js/toast.js')}}"></script>
+ <script src="{{asset('assets/vendor/ckeditor5/build/ckeditor.js')}}"></script>
+ <script src="{{asset('assets/vendor/ckfinder/ckfinder.js')}}"></script>
 
  <script>
      function Success(message) {
