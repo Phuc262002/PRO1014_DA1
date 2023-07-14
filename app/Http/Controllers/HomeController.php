@@ -27,14 +27,24 @@ class HomeController extends Controller
     
         
 
-        $banner = Banner::where([
+        $slider = Banner::where([
                             'status' => true,
                             'banner_type' => 'SLIDER'
                         ])
                                                 
                         ->orderBy('created_at', 'desc')
                         ->get();
+        
+        $banner_sale = Banner::where([
+                            'status' => true,
+                            'banner_type' => 'BANNER_SALE'
+                        ])
+                                                
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+            
 
-        return view('home', compact('title', 'topnew', 'topsale', 'banner'));
+        return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale'));
+        
     }
 }

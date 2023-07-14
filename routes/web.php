@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -240,3 +241,18 @@ Route::get('404', function () {
 Route::get('500', function () {
     return view('errors.500');
 });
+
+Route::group(['prefix' => 'trang-ca-nhan', 'middleware' => ['auth']], function () {
+    Route::get('/', [UserController::class, 'index'])->name('profile');
+
+    Route::resources([
+        'product' => ProductController::class,
+    ]);
+
+
+
+
+
+
+});
+
