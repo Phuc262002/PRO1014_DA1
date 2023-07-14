@@ -12,7 +12,18 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">Tất cả đơn hàng</h4>
+                                <form class="app-search d-none d-md-block">
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm" autocomplete="off"
+                                            id="search-options" value="" />
+                                        <span class="mdi mdi-magnify search-widget-icon"></span>
+                                        <span
+                                            class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
+                                            id="search-close-options"></span>
+                                    </div>
+                                </form>
                             </div>
+
                             <!-- end card header -->
 
                             <div class="card-body">

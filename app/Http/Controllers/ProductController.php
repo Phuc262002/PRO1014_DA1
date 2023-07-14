@@ -53,7 +53,8 @@ class ProductController extends Controller
         $title = 'Pets Care - Chỉnh sửa sản phẩm';
         $brands = Brand::all();
         $categories = Category::where('type_category', '=', 'PRODUCT')->get();
-        return view('pages.admin.edit_product', compact('title', 'product', 'brands', 'categories'));
+        $id = $product->id;
+        return view('pages.admin.edit_product', compact('title', 'product', 'brands', 'categories', 'id'));
     }
 
     /**
@@ -61,7 +62,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        dd($request->all());
     }
 
     /**

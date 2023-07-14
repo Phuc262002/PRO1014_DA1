@@ -12,26 +12,36 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">THÊM SẢN PHẨM MỚI</h4>
+
                             </div><!-- end card header -->
+
                             <div class="card-body">
                                 <div class="live-preview">
-                                    <div>
+                                    <form action="{{ route('product.update', ['product' => $id]) }}">
                                         <div class="row g-3">
                                             <div class="col-lg-6">
+                                                <label for="name" class="form-label">Mã sản phẩm</label>
+                                                <input type="text" class="form-control" id="name" name="sku"
+                                                    value="{{ $product->sku }}">
+                                            </div>
+                                            <div class="col-lg-6">
                                                 <label for="name" class="form-label">Tên sản phẩm</label>
-                                                <input type="text" class="form-control" id="name" value="{{ $product->name }}"
-                                                    onchange="ChangeToSlug()">
+                                                <input type="text" class="form-control" id="name" name="name"
+                                                    value="{{ $product->name }}" onchange="ChangeToSlug()">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="slug" class="form-label">Slug</label>
-                                                <input type="text" class="form-control" id="slug" value="{{ $product->slug }}">
+                                                <input type="text" class="form-control" id="slug" name="slug"
+                                                    value="{{ $product->slug }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Danh mục thương
                                                     hiệu</label>
-                                                <select class="form-select" aria-label=".form-select-sm example">
+                                                <select class="form-select" aria-label=".form-select-sm example"
+                                                    name="brand_id">
                                                     @foreach ($brands as $brand)
-                                                        <option {{ $brand->id == $product->brand_id ? 'selected' : '' }}>
+                                                        <option {{ $brand->id == $product->brand_id ? 'selected' : '' }}
+                                                            value="{{ $brand->id }}">
                                                             {{ $brand->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -39,27 +49,38 @@
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Danh mục sản
                                                     phẩm</label>
-                                                <select class="form-select" aria-label=".form-select-sm example">
+                                                <select class="form-select" aria-label=".form-select-sm example"
+                                                    name="category_id">
                                                     @foreach ($categories as $category)
                                                         <option
-                                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                                            {{ $category->id == $product->category_id ? 'selected' : '' }}
+                                                            value="{{ $category->id }}">
                                                             {{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá bán</label>
-                                                <input type="text" class="form-control" id="basiInput"
+                                                <input type="text" class="form-control" id="basiInput" name="price"
                                                     value="{{ $product->price }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá giảm</label>
                                                 <input type="text" class="form-control" id="basiInput"
-                                                    value="{{ $product->discount_price }}">
+                                                    name="discount_price" value="{{ $product->discount_price }}">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div>
+                                                    <label for="exampleInputdate" class="form-label">Ngày kết thúc giảm
+                                                        giá</label>
+                                                    <input type="date" class="form-control" id="exampleInputdate"
+                                                        name="discount_end" name="di"
+                                                        value="{{ $product->discount_end }}">
+                                                </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Số lượng</label>
-                                                <input type="text" class="form-control" id="basiInput"
+                                                <input type="text" class="form-control" id="basiInput" name="quantity"
                                                     value="{{ $product->quantity }}">
                                             </div>
                                             <div class="col-lg-6">
@@ -67,20 +88,26 @@
                                                 <div class="input-group">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="inputGroupFileAddon03">Thêm ảnh</button>
-                                                    <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="product_img" readonly value="{{ $product->image_main }}">
+                                                    <input type="text" class="form-control" id="ckfinder-product_img "
+                                                        name="image_main" readonly value="{{ $product->image_main }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Mô tả ngắn</label>
-                                                <textarea class="w-100 form-control" id="" cols="30" rows="5">  {{ $product->description_summary }}</textarea>
+                                                <textarea class="w-100 form-control" id="" cols="30" rows="5" name="description_summary">{{ $product->description_summary }}</textarea>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-lable">Nội dung</label>
                                                 <div id="editor">{{ $product->description_detail }}</div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="col-lg-3 mt-3">
+                                            <button type="submit" class="btn btn-success shadow-none">Cập
+                                                nhật
+                                                sản phẩm</button>
+                                        </div>
+
+                                    </form>
 
                                 </div>
 
@@ -89,11 +116,7 @@
                     </div>
                     <!--end col-->
                 </div>
-                <!--end row-->
-                <div class="col-lg-6">
-                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" checked>
-                    <label class="btn btn-outline-success shadow-none" for="success-outlined">Thêm sản phẩm</label>
-                </div>
+
             </div> <!-- container-fluid -->
 
         </div><!-- End Page-content -->
@@ -155,13 +178,13 @@
                         finder.on('files:choose', function(evt) {
                             var file = evt.data.files.first();
                             var output = document.getElementById(
-                            'ckfinder-product_img');
+                                'ckfinder-product_img');
                             output.value = file.getUrl();
                         });
 
                         finder.on('file:choose:resizedImage', function(evt) {
                             var output = document.getElementById(
-                            'ckfinder-product_img');
+                                'ckfinder-product_img');
                             output.value = evt.data.resizedUrl;
                         });
                     }
