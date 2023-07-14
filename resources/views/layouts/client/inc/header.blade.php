@@ -233,8 +233,8 @@
 
                                 <!-- Header My Account Button Start -->
                                 @if (Auth::check())
-                                    <a href="{{route('logout')}}" class="header-action-btn header-action-btn-wishlist">
-                                        <i class="icon-user icons"></i>
+                                    <a href="{{route('profile')}}" class="header-action-btn header-action-btn-wishlist">
+                                        <img class="rounded-circle w-50 header-profile-user" src="{{Auth::user()->image}}" alt="Header Avatar">
                                     </a>
                                 @else
                                     <a href="{{route('login')}}" class="header-action-btn header-action-btn-wishlist">
