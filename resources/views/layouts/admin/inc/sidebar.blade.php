@@ -97,7 +97,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_product') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('product.create') }}" class="nav-link" data-key="t-team">
                                     Thêm sản phẩm
                                 </a>
                             </li>

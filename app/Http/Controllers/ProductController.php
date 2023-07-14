@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.form_add_product');
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -62,7 +62,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        dd($request->all());
+        $update_product = Product::updateOrCreate([
+            'id' => $product->id,
+        ], $request->all());
+        if ($update_product) {
+            return back()->with('success', "Cập nhập sản phẩm thành công.");
+        } else {
+            return back()->with('error', "Cập nhật sản phẩm thất bại.");
+        }
     }
 
     /**
