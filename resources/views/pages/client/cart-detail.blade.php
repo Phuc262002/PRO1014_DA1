@@ -122,7 +122,7 @@
     <!-- Footer Section End -->
 
     <!-- Modal Start  -->
-    <div class="modalquickview modal fade" id="quick-view" tabindex="-1" aria-labelledby="quick-view" role="dialog"
+    {{-- <div class="modalquickview modal fade" id="quick-view" tabindex="-1" aria-labelledby="quick-view" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -274,5 +274,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
