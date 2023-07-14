@@ -10,11 +10,8 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
-<<<<<<< HEAD
 use App\Http\Controllers\ServiceController;
-=======
 use App\Http\Controllers\UserController;
->>>>>>> 325fec0ace087ebb9d737a150eee4a0efa2e472c
 
 /*
 |--------------------------------------------------------------------------
