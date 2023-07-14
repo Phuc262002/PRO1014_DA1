@@ -12,16 +12,22 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">THÊM SẢN PHẨM MỚI</h4>
-
                             </div><!-- end card header -->
-
                             <div class="card-body">
+                                @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
                                 <div class="live-preview">
-                                    <form action="{{ route('product.update', ['product' => $id]) }}">
+                                    <form action="{{ route('product.update', ['product' => $id]) }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
-                                                <label for="name" class="form-label">Mã sản phẩm</label>
-                                                <input type="text" class="form-control" id="name" name="sku"
+                                                <label for="sku" class="form-label">Mã sản phẩm</label>
+                                                <input type="text" class="form-control" id="sku" name="sku"
                                                     value="{{ $product->sku }}">
                                             </div>
                                             <div class="col-lg-6">
@@ -35,7 +41,7 @@
                                                     value="{{ $product->slug }}">
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="exampleFormControlTextarea5" class="form-label">Danh mục thương
+                                                <label for="brand_id" class="form-label">Danh mục thương
                                                     hiệu</label>
                                                 <select class="form-select" aria-label=".form-select-sm example"
                                                     name="brand_id">
@@ -47,7 +53,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="exampleFormControlTextarea5" class="form-label">Danh mục sản
+                                                <label for="category_id" class="form-label">Danh mục sản
                                                     phẩm</label>
                                                 <select class="form-select" aria-label=".form-select-sm example"
                                                     name="category_id">
@@ -60,45 +66,46 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Giá bán</label>
-                                                <input type="text" class="form-control" id="basiInput" name="price"
+                                                <label for="price" class="form-label">Giá bán</label>
+                                                <input type="text" class="form-control" id="price" name="price"
                                                     value="{{ $product->price }}">
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Giá giảm</label>
-                                                <input type="text" class="form-control" id="basiInput"
+                                                <label for="discount_price" class="form-label">Giá giảm</label>
+                                                <input type="text" class="form-control" id="discount_price"
                                                     name="discount_price" value="{{ $product->discount_price }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <div>
-                                                    <label for="exampleInputdate" class="form-label">Ngày kết thúc giảm
+                                                    <label for="discount_end" class="form-label">Ngày kết thúc giảm
                                                         giá</label>
-                                                    <input type="date" class="form-control" id="exampleInputdate"
+                                                    <input type="date" class="form-control" id="discount_end"
                                                         name="discount_end" name="di"
                                                         value="{{ $product->discount_end }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Số lượng</label>
-                                                <input type="text" class="form-control" id="basiInput" name="quantity"
+                                                <label for="quantity" class="form-label">Số lượng</label>
+                                                <input type="text" class="form-control" id="quantity" name="quantity"
                                                     value="{{ $product->quantity }}">
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="formFile" class="form-label">Thêm hình ảnh</label>
+                                                <label for="image_main" class="form-label">Thêm hình ảnh</label>
                                                 <div class="input-group">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
-                                                        id="inputGroupFileAddon03">Thêm ảnh</button>
-                                                    <input type="text" class="form-control" id="ckfinder-product_img "
+                                                        id="image_main">Thêm ảnh</button>
+                                                    <input type="text" class="form-control" id="ckfinder-product_img"
                                                         name="image_main" readonly value="{{ $product->image_main }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
-                                                <label for="formFile" class="form-label">Mô tả ngắn</label>
-                                                <textarea class="w-100 form-control" id="" cols="30" rows="5" name="description_summary">{{ $product->description_summary }}</textarea>
+                                                <label for="description_summary" class="form-label">Mô tả ngắn</label>
+                                                <textarea class="w-100 form-control" id="description_summary" cols="30" rows="5"
+                                                    name="description_summary">{{ $product->description_summary }}</textarea>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-lable">Nội dung</label>
-                                                <div id="editor">{{ $product->description_detail }}</div>
+                                                <textarea id="editor" name="description_detail">{{ $product->description_detail }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 mt-3">
@@ -169,7 +176,7 @@
 
     <script>
         $(document).ready(function() {
-            $("#inputGroupFileAddon03").click(function() {
+            $("#image_main").click(function() {
                 CKFinder.modal({
                     chooseFiles: true,
                     width: 800,
