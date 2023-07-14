@@ -881,6 +881,38 @@
 
 <!-- App js -->
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>
+<script src="{{ asset('assets/admin/js/pages/form-editor.init.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.js') }}"></script>
+<script src="{{asset('assets/js/toast.js')}}"></script>
+ <script>
+     function Success(message) {
+         toastNotif({
+             text: message,
+             color: '#5bc83f',
+             timeout: 5000,
+             icon: 'valid'
+         });
+     }
+
+     function Warning(message) {
+         toastNotif({
+             text: message,
+             color: '#ebb73f',
+             timeout: 5000,
+             icon: 'warring'
+         });
+     }
+
+     function Error(message) {
+         toastNotif({
+             text: message,
+             color: '#da4848',
+             timeout: 5000,
+             icon: 'error'
+         });
+     }
+ </script>
 </body>
 
 </html>

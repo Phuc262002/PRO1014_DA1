@@ -26,4 +26,19 @@ class Product extends Model
         'slug',
         'status'
     ];
+
+    public function image_list()
+    {
+        return $this->hasMany(Product_img_collection::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }
