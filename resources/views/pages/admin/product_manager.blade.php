@@ -100,6 +100,9 @@
                                     </div>
                                     <!-- end table responsive -->
                                 </div>
+                                <div>
+                                    {{ $products->links() }}
+                                </div>
                             </div>
                             <!-- end card-body -->
                         </div>
