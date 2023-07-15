@@ -850,10 +850,6 @@
                     Đặt lại mặc định
                 </button>
             </div>
-            {{-- <div class="col-6">
-                <a href="https://1.envato.market/velzon-admin" target="_blank" class="btn btn-primary w-100">Buy
-                    Now</a>
-            </div> --}}
         </div>
     </div>
 </div>
@@ -878,11 +874,37 @@
 
 <!-- Dashboard init -->
 <script src="{{ asset('assets/admin/js/pages/dashboard-ecommerce.init.js') }}"></script>
+<!-- Modern colorpicker bundle -->
+<script src="{{ asset('assets/admin/libs/%40simonwep/pickr/pickr.min.js') }}"></script>
+
+<!-- init js -->
+<script src="{{ asset('assets/admin/libs/flatpickr/flatpickr.min.js') }}"></script>
+
+<!-- cleave.js -->
+<script src="{{ asset('assets/admin/libs/cleave.js/cleave.min.js') }}"></script>
+<!-- form masks init -->
+<script src="{{ asset('assets/admin/js/pages/form-masks.init.js') }}"></script>
+
+<!-- Sweet Alerts js -->
+<script src="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+<!-- Sweet alert init js-->
+<script src="{{ asset('assets/admin/js/pages/sweetalerts.init.js') }}"></script>
+<!-- dropzone min -->
+<script src="{{ asset('assets/admin/libs/dropzone/dropzone-min.js') }}"></script>
+<!-- filepond js -->
+<script src="{{ asset('assets/admin/libs/filepond/filepond.min.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
+
+<script src="{{ asset('assets/admin/js/pages/form-file-upload.init.js') }}"></script>
 
 <!-- App js -->
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>
+
 <script src="{{ asset('assets/admin/js/pages/form-editor.init.js') }}"></script>
-<script src="{{ asset('assets/admin/libs/%40ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.js') }}"></script>
 <script src="{{asset('assets/js/toast.js')}}"></script>
  <script>

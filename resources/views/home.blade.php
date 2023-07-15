@@ -334,7 +334,7 @@
                                                 <span class="new">{{$item->price}}</span>
                                                 <span class="old">{{$item->price}}</span>
                                             </span>
-                                            <p>{{$item->description_detail}}</p>
+                                            <p>{{$item->description_summary}}</p>
                                             <div class="countdown-area">
                                                 <div class="countdown-wrapper" data-countdown="{{$item->discount_end}}"></div>
                                             </div>
@@ -651,12 +651,13 @@
 
                         <!-- SKU Start -->
                         <div class="sku m-b-15">
-                            <span>{{$item->sku}}</span>
+                            <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
+                            <span class="inventory-varient">{{$item->sku}}</span>
                         </div>
                         <!-- SKU End -->
 
                         <!-- Description Start -->
-                        <p class="desc-content m-b-25">T{{$item->description_detail}}</p>
+                        <p class="desc-content m-b-25">T{{$item->description_summary}}</p>
                         <!-- Description End -->
 
                         <!-- Product Inventory Start -->
@@ -776,12 +777,13 @@
 
                         <!-- SKU Start -->
                         <div class="sku m-b-15">
-                            <span>{{$item->sku}}</span>
+                            <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
+                            <span class="inventory-varient">{{$item->sku}}</span>
                         </div>
                         <!-- SKU End -->
 
                         <!-- Description Start -->
-                        <p class="desc-content m-b-25">T{{$item->description_detail}}</p>
+                        <p class="desc-content m-b-25">{{$item->description_summary}}</p>
                         <!-- Description End -->
 
                         <!-- Product Inventory Start -->

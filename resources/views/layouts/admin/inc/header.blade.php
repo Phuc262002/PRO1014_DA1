@@ -8,15 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script>
     <script src="{{ asset('assets/vendor/ckfinder/ckfinder.js') }}"></script>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/libs/dropzone/dropzone.css') }}" type="text/css" />
 
+    <!-- Filepond css -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/libs/filepond/filepond.min.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}">
     <!-- jsvectormap css -->
     <link href="{{ asset('assets/admin/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet"
         type="text/css" />
+    <link href="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!--Swiper slider css-->
     <link href="{{ asset('assets/admin/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />

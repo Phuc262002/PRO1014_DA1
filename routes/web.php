@@ -135,7 +135,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'service' => ServiceController::class,
     ]);
 
-
+    Route::delete('product/img-collection/{id}', [ProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
 
 
 
@@ -244,17 +244,10 @@ Route::get('500', function () {
     return view('errors.500');
 });
 
-Route::group(['prefix' => 'trang-ca-nhan', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile');
 
     Route::resources([
-        'product' => ProductController::class,
+        
     ]);
-
-
-
-
-
-
 });
-
