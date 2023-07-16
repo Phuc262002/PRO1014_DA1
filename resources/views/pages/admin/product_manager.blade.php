@@ -153,7 +153,7 @@
     <script>
         function deleteProduct(id) {
             Swal.fire({
-                title: "Bạn có chắc chắn?",
+                title: "Bạn có chắc muốn xóa?",
                 text: "Bạn có thể lấy lại sản phẩm này ở thùng rác.",
                 icon: "warning",
                 showCancelButton: !0,

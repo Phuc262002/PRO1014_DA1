@@ -108,7 +108,7 @@
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="image_main" id="image_main">Thêm ảnh</button>
                                                     <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="image_main" readonly value="Chưa có ảnh nào được chọn...">
+                                                        name="image_main" value="Chưa có ảnh nào được chọn...">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -120,11 +120,11 @@
                                                         name="image_main_list" value="Chưa có ảnh nào được chọn...">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12 mt-3">
                                                 <label for="formFile" class="form-label">Mô tả ngắn</label>
                                                 <textarea class="w-100 form-control" name="description_summary" id="" cols="30" rows="5"></textarea>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12 mt-3">
                                                 <label for="formFile" class="form-lable">Nội dung</label>
                                                 <textarea id="editor" name="description_detail"></textarea>
                                             </div>

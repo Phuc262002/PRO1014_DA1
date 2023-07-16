@@ -124,7 +124,7 @@
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="image_main">Thêm ảnh</button>
                                                     <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="image_main" readonly value="{{ $product->image_main }}">
+                                                        name="image_main" value="{{ $product->image_main }}">
                                                 </div>
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="mt-2">
@@ -197,12 +197,12 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12 mt-3">
                                             <label for="description_summary" class="form-label">Mô tả ngắn</label>
                                             <textarea class="w-100 form-control" id="description_summary" cols="30" rows="5"
                                                 name="description_summary">{{ $product->description_summary }}</textarea>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12 mt-3">
                                             <label for="formFile" class="form-lable">Nội dung</label>
                                             <textarea id="editor" name="description_detail">{{ $product->description_detail }}</textarea>
                                         </div>
