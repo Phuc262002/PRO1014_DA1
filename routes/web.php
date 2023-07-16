@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 
@@ -131,11 +131,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::resources([
-        'product' => ProductController::class,
+        'product' => AdminProductController::class,
         'service' => ServiceController::class,
     ]);
 
-    Route::delete('product/img-collection/{id}', [ProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
+    Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
 
 
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Brand;
@@ -9,8 +10,7 @@ use App\Models\Category;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product_img_collection;
 
-
-class ProductController extends Controller
+class AdminProductController extends Controller
 {
     /**
      * Display a listing of the resource.

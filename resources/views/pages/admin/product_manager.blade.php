@@ -94,7 +94,7 @@
                                                         </td>
                                                         <td>{{ $item->brand->name }}</td>
                                                         <td>{{ $item->category->name }}</td>
-                                                        <td>{{ $item->price }}</td>
+                                                        <td>{{ number_format($item->price) }}</td>
                                                         <td>{{ $item->quantity }}</td>
                                                         <td>{{ $item->description_summary }}</td>
                                                         <td>{{ $item->slug }}</td>
