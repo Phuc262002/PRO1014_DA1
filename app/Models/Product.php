@@ -18,6 +18,7 @@ class Product extends Model
         'category_id',
         'price',
         'discount_price',
+        'discount_end',
         'image_main',
         'quantity',
         'rating_count',
@@ -25,6 +26,11 @@ class Product extends Model
         'brand_id',
         'slug',
         'status'
+    ];
+
+    protected $attributes = [
+        'discount_price' => 0,
+        'discount_end' => null,
     ];
 
     public function image_list()

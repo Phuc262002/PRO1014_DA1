@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id')->default(1);
             $table->integer('price')->default(0);
             $table->integer('discount_price')->default(0);
+            $table->datetime('discount_end')->nullable();
             $table->string('image_main', 200);
             $table->integer('quantity')->default(0);
             $table->integer('rating_count')->default(0);

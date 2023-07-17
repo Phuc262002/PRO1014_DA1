@@ -185,7 +185,7 @@
                                                 <i class="fa fa-star-o"></i>
                                             </span>
                                             <span class="price">
-                                                <span class="new">{{$item->price}}</span>
+                                                <span class="new">{{number_format($item->price)}}</span>
                        
                                             </span>
                                         </div>
@@ -237,8 +237,8 @@
                                                 <i class="fa fa-star-o"></i>
                                             </span>
                                             <span class="price">
-                                                <span class="new">{{$item->discount_price}}</span>
-                                                <span class="old">{{$item->price}}</span>
+                                                <span class="new">{{number_format($item->discount_price)}}</span>
+                                                <span class="old">{{ number_format($item->price) }}</span>
                                             </span>
                                         </div>
                                         <!-- Content End  -->
@@ -331,10 +331,10 @@
                                                 <i class="fa fa-star-o"></i>
                                             </span>
                                             <span class="price">
-                                                <span class="new">{{$item->price}}</span>
-                                                <span class="old">{{$item->price}}</span>
+                                                <span class="new">{{ number_format($item->price) }}</span>
+                                                <span class="old">{{ number_format($item->price) }}</span>
                                             </span>
-                                            <p>{{$item->description_detail}}</p>
+                                            <p>{{$item->description_summary}}</p>
                                             <div class="countdown-area">
                                                 <div class="countdown-wrapper" data-countdown="{{$item->discount_end}}"></div>
                                             </div>
@@ -644,19 +644,20 @@
 
                         <!-- Price Box Start -->
                         <div class="price-box m-b-10">
-                            <span class="regular-price">{{$item->price}}</span>
-                            <span class="old-price"><del>{{$item->discount_price}}</del></span>
+                            <span class="regular-price">{{number_format($item->price)}}</span>
+                            <span class="old-price"><del>{{number_format($item->discount_price)}}</del></span>
                         </div>
                         <!-- Price Box End -->
 
                         <!-- SKU Start -->
                         <div class="sku m-b-15">
-                            <span>{{$item->sku}}</span>
+                            <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
+                            <span class="inventory-varient">{{$item->sku}}</span>
                         </div>
                         <!-- SKU End -->
 
                         <!-- Description Start -->
-                        <p class="desc-content m-b-25">T{{$item->description_detail}}</p>
+                        <p class="desc-content m-b-25">T{{$item->description_summary}}</p>
                         <!-- Description End -->
 
                         <!-- Product Inventory Start -->
@@ -769,19 +770,20 @@
 
                         <!-- Price Box Start -->
                         <div class="price-box m-b-10">
-                            <span class="regular-price">{{$item->price}}</span>
+                            <span class="regular-price">{{number_format($item->price)}}</span>
                             {{-- <span class="old-price"><del>{{$item->discount_price}}</del></span> --}}
                         </div>
                         <!-- Price Box End -->
 
                         <!-- SKU Start -->
                         <div class="sku m-b-15">
-                            <span>{{$item->sku}}</span>
+                            <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
+                            <span class="inventory-varient">{{$item->sku}}</span>
                         </div>
                         <!-- SKU End -->
 
                         <!-- Description Start -->
-                        <p class="desc-content m-b-25">T{{$item->description_detail}}</p>
+                        <p class="desc-content m-b-25">{{$item->description_summary}}</p>
                         <!-- Description End -->
 
                         <!-- Product Inventory Start -->

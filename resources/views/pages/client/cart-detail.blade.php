@@ -31,14 +31,18 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{route('account')}}"><i class="fa fa-user"></i> Tài khoản</a>
-                                    <a href="{{route('cart-detail')}}"><i class="fa fa-cart-arrow-down"></i> Đơn
+                                    <a href="{{ route('account') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('cart-detail') }}"><i class="fa fa-cart-arrow-down"></i> Đơn
                                         hàng</a>
-                                    <a href="{{route('service-detail')}}"><i class="fa fa-cart-arrow-down"></i> Dịch vụ</a>
-                                    <a href="{{route('maps')}}"><i class="fa fa-map-marker"></i> Địa
+                                    <a href="{{ route('service-detail') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
+                                        vụ</a>
+                                    <a href="{{ route('maps') }}"><i class="fa fa-map-marker"></i> Địa
                                         chỉ</a>
-                                        <a href="{{route('admin.dashboard')}}"><i class="fa fa-user"></i> Quản trị Admin</a>
-                                    <a href="{{route('account')}}"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                                    @if (Auth::user()->is_admin == true)
+                                        <a href="{{ route('admin.dashboard') }}"><i class="fa fa-user"></i> Quản trị
+                                            Admin</a>
+                                    @endif
+                                    <a href="{{ route('logout') }}"><i class="fa fa-sign-out"></i> Đăng xuất</a>
                                 </div>
                             </div>
                             <!-- My Account Tab Menu End -->
@@ -74,7 +78,7 @@
                                                             <td>Pending</td>
                                                             <td>5</td>
                                                             <td>$3000</td>
-                                                            <td><a href="{{route('bill-detail')}}"
+                                                            <td><a href="{{ route('bill-detail') }}"
                                                                     class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
                                                             </td>
                                                         </tr>
@@ -84,7 +88,7 @@
                                                             <td>Approved</td>
                                                             <td>5</td>
                                                             <td>$200</td>
-                                                            <td><a href="{{route('bill-detail')}}"
+                                                            <td><a href="{{ route('bill-detail') }}"
                                                                     class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
                                                             </td>
                                                         </tr>
@@ -94,7 +98,7 @@
                                                             <td>On Hold</td>
                                                             <td>5</td>
                                                             <td>$990</td>
-                                                            <td><a href="{{route('bill-detail')}}"
+                                                            <td><a href="{{ route('bill-detail') }}"
                                                                     class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
                                                             </td>
                                                         </tr>
