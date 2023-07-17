@@ -11,7 +11,11 @@ class Service extends Model
 
     protected $fillable = [
         'id',
+        'image_service',
         'name',
-        'description'
+        'description',
+        'icon',
+        'price',
+        'discount_price',
     ];
 }

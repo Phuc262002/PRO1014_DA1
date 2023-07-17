@@ -109,7 +109,7 @@
                                                         @endif
                                                         <td>
                                                             <div class="hstack gap-3 flex-wrap">
-                                                                <a href="javascript:void(0);" class="link-primary fs-15"><i
+                                                                <a href="{{ route('product.show', ['product' => $item->id]) }}" class="link-primary fs-15"><i
                                                                         class="ri-eye-line"></i></a>
                                                                 <a href="{{ route('product.edit', ['product' => $item->id]) }}"
                                                                     class="link-success fs-15"><i
