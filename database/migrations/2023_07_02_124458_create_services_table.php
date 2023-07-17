@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('image_service', 200);
             $table->string('name', 200);
             $table->text('description');
+            $table->string('icon', 200);
             $table->integer('price')->default(0);
             $table->integer('discount_price')->default(0);
             $table->timestamps();
