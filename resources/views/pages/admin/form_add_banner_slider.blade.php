@@ -51,6 +51,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 mt-3">
+                                        <input type="radio" class="btn-check" name="options-outlined"
+                                            id="success-outlined" checked>
+                                        <label class="btn btn-outline-success shadow-none" for="success-outlined">Thêm sản
+                                            phẩm</label>
+                                    </div>
 
                                 </div>
 
@@ -60,10 +66,7 @@
                     <!--end col-->
                 </div>
                 <!--end row-->
-                <div class="col-lg-6">
-                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" checked>
-                    <label class="btn btn-outline-success shadow-none" for="success-outlined">Thêm sản phẩm</label>
-                </div>
+
             </div> <!-- container-fluid -->
 
         </div><!-- End Page-content -->
