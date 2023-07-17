@@ -41,6 +41,9 @@ class AdminProductController extends Controller
         if($request->discount_price > 0 && $request->discount_end == null){
             return back()->with('error', "Vui lòng nhập ngày kết thúc khuyến mãi.");
         }
+        if ($request->image_main == 'Chưa có ảnh nào được chọn...') {
+            return back()->with('error', "Vui lòng chọn ảnh chính.");
+        }
         $product = Product::create($request->all());
         if ($request->image_main_list != 'Chưa có ảnh nào được chọn...') {
             $list_img = explode(',', $request->image_main_list);
@@ -69,7 +72,7 @@ class AdminProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('pages.admin.product_detail', compact('product'));
     }
 
     /**
