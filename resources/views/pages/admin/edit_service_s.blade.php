@@ -9,44 +9,80 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">CẬP NHẬT DỊCH VỤ</h4>
-                            </div><!-- end card header -->
+                            </div>
                             <div class="card-body">
+                                @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if (session('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first() }}
+                                    </div>
+                                @endif
                                 <div class="live-preview">
-                                    <form action="{{route ('service.update',['service' => $id])}}" method = "POST">
+                                    <form action="{{route ('service.update',['service' => $service->id])}}" method = "POST"
+                                        enctype="multipart/form-data">
                                         @csrf 
                                         @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Tên sản phẩm</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <label for="basiInput" class="form-label">Tên dịch vụ</label>
+                                                <input type="text" name="name" class="form-control" id="basiInput" value="{{$service->name}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="formFile" class="form-label">Thêm hình ảnh</label>
                                                 <div class="input-group">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="inputGroupFileAddon03">Thêm ảnh</button>
-                                                    <input type="text" class="form-control" id="ckfinder-product_img" name="product_img" readonly
-                                                        value="Chọn ảnh...">
+                                                    <input type="text" class="form-control" id="ckfinder-product_img" name="image_service" readonly
+                                                        value="{{$service->image_service}}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
+                                                <label for="basiInput" class="form-label">Icon</label>
+                                                <input type="text" name="icon" class="form-control" id="basiInput" value="{{$service->icon}}">
+                                            </div>
+                                            <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá bán</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" name="price" class="form-control" id="basiInput" value="{{$service->price}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giá giảm</label>
-                                                <input type="text" class="form-control" id="basiInput">
+                                                <input type="text" class="form-control" name="discount_price" id="basiInput"  value="{{$service->discount_price}}">
                                             </div>
                                             
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Mô tả </label>
-                                                <textarea class="w-100 form-control" id="" cols="30" rows="5"></textarea>
+                                                <textarea class="w-100 form-control" name="description" id="" cols="30" rows="5">{{$service->description}}</textarea>
                                             </div>
 
                                         </div>
-                                        <div class="col-lg-6 mt-3">
-                                            <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" checked>
-                                            <label class="btn btn-outline-success shadow-none" for="success-outlined">Cập nhật dịch vụ</label>
+                                        <div class="col-lg-3 mt-3">
+                                            <input type="hidden" id="save_action" name="save_action" value="save_and_back">
+                                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                                <button class="btn btn-success shadow-none">Lưu và Quay lại</button>
+                                                <div class="btn-group" role="group">
+                                                    <button id="btnGroupDrop1" type="button"
+                                                        class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                        <li><a data-value="save_and_edit" href="javascript:save_and_edit();"
+                                                                class="dropdown-item">Lưu và Tiếp tục sửa</a></li>
+                                                        <li><a data-value="save_and_new" href="javascript:save_and_new();"
+                                                                class="dropdown-item">Lưu và Thêm mới</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <a href="{{ route('service.index') }}" class="btn btn-danger shadow-none">Hủy
+                                                bỏ</a>
                                         </div>
                                     </form>
 
@@ -75,6 +111,17 @@
             .catch(error => {
                 console.error(error);
             });
+    </script>
+     <script>
+        function save_and_edit() {
+            $('#save_action').val('save_and_edit');
+            $('form').submit();
+        }
+
+        function save_and_new() {
+            $('#save_action').val('save_and_new');
+            $('form').submit();
+        }
     </script>
 
     <script>

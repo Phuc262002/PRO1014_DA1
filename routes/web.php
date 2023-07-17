@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -134,9 +135,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resources([
         'product' => AdminProductController::class,
-        'service' => ServiceController::class,
         'category-product' => AdminCategoryProductController::class,
         'category-blog' => AdminCategoryBlogController::class,
+        'service' => AdminServiceController::class,
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
