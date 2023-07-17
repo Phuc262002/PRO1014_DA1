@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="main-content">
 
@@ -8,7 +11,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">THÊM DANH MỤC BLOG MỚI</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">CẬP NHẬP DANH MỤC BLOG</h4>
                             </div><!-- end card header -->
                             <div class="card-body">
                                 @if (session('success'))
@@ -27,64 +30,61 @@
                                     </div>
                                 @endif
                                 <div class="live-preview">
-                                    <form action="{{ route('category-blog.store') }}" method="post"
+                                    <form id="form_edit" action="{{ route('category-blog.update', ['category_blog' => $category->id]) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
-                                                <label for="name" class="form-label">Tên danh mục</label>
+                                                <label for="name" class="form-label">Tên tiêu đề Blog</label>
                                                 <input type="text" class="form-control" id="name" name="name"
-                                                     onchange="ChangeToSlug()">
+                                                    value="{{$category->name}}" onchange="ChangeToSlug()">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="slug" class="form-label">Slug</label>
                                                 <input type="text" class="form-control" id="slug" name="slug"
-                                                    slug>
+                                                    value="{{$category->name}}"slug>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="type_category" class="form-label">Thể loại</label>
                                                 <input type="text" class="form-control" id="type_category" name="type_category"
-                                                    value="POST" readonly>
+                                                    value="{{$category->type_category}}" readonly>
                                             </div>
                                             <div class="col-lg-12 mt-3">
                                                 <label for="description" class="form-label">Mô tả</label>
                                                 <textarea class="w-100 form-control" id="description" cols="30" rows="5"
-                                                    name="description"></textarea>
+                                                    name="description">{{$category->description}}</textarea>
                                             </div>
-                                            <div class="col-lg-3 mt-3">
-                                                <input type="hidden" id="save_action" name="save_action"
-                                                    value="save_and_back">
-                                                <div class="btn-group" role="group"
-                                                    aria-label="Button group with nested dropdown">
-                                                    <button class="btn btn-success shadow-none">Lưu và Quay lại</button>
-                                                    <div class="btn-group" role="group">
-                                                        <button id="btnGroupDrop1" type="button"
-                                                            class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                            <li><a data-value="save_and_edit"
-                                                                    href="javascript:save_and_edit();"
-                                                                    class="dropdown-item">Lưu và Tiếp tục sửa</a></li>
-                                                            <li><a data-value="save_and_new" href="javascript:save_and_new();"
-                                                                    class="dropdown-item">Lưu và Thêm mới</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <a href="{{ route('category-blog.index') }}" class="btn btn-danger shadow-none">Hủy
-                                                    bỏ</a>
-                                            </div>
+                                            
                                         </div>
-                                    </form>
-
+                                        
                                 </div>
-
+                                <div class="col-lg-3 mt-3">
+                                    <input type="hidden" id="save_action" name="save_action" value="save_and_back">
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                        <button class="btn btn-success shadow-none">Lưu và Quay lại</button>
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button"
+                                                class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <li><a data-value="save_and_edit" href="javascript:save_and_edit();"
+                                                        class="dropdown-item">Lưu và Tiếp tục sửa</a></li>
+                                                <li><a data-value="save_and_new" href="javascript:save_and_new();"
+                                                        class="dropdown-item">Lưu và Thêm mới</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a href="" class="btn btn-danger shadow-none">Hủy
+                                        bỏ</a>
+                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                     <!--end col-->
                 </div>
-                <!--end row-->
 
             </div> <!-- container-fluid -->
 

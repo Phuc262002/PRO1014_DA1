@@ -10,6 +10,8 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminCategoryProductController;
+use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 
@@ -133,6 +135,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resources([
         'product' => AdminProductController::class,
         'service' => ServiceController::class,
+        'category-product' => AdminCategoryProductController::class,
+        'category-blog' => AdminCategoryBlogController::class,
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
@@ -236,6 +240,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
 
 });
+
+
 
 Route::get('404', function () {
     return view('errors.404');
