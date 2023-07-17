@@ -346,7 +346,7 @@
                     <div class="collapse menu-dropdown" id="sidebarSettings">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.banner_slider_manager') }}" class="nav-link"
+                                <a href="{{ route('banner.index') }}" class="nav-link"
                                     data-key="t-team">
                                     Quản lí banner và slider
                                 </a>

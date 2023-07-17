@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminBannerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 
@@ -133,6 +134,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resources([
         'product' => AdminProductController::class,
         'service' => ServiceController::class,
+        'banner' => AdminBannerController::class,    
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
