@@ -12,7 +12,9 @@
                             </div><!-- end card header -->
                             <div class="card-body">
                                 <div class="live-preview">
-                                    <form >
+                                    <form action="{{route ('service.update',['service' => $id])}}" method = "POST">
+                                        @csrf 
+                                        @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Tên sản phẩm</label>
