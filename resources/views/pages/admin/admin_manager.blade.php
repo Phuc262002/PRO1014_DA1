@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -35,6 +36,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         <tr>
                                             <th scope="row">
                                                 <div class="form-check">

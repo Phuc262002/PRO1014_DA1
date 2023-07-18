@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminBannerController;
 use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminServiceController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ShopController;
@@ -31,7 +32,7 @@ use App\Http\Controllers\ShopController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('shop',[ShopController::class, 'index'])->name('shop');
+Route::get('shop', [ShopController::class, 'index'])->name('shop');
 
 Route::get('blog', function () {
     return view('pages.client.blog');
@@ -137,6 +138,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'category-product' => AdminCategoryProductController::class,
         'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
+        'user' => AdminUserController::class,
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
