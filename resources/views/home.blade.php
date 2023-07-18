@@ -378,14 +378,8 @@
         </div>
         <!-- Product Deal Section End -->
 
-    <!-- Testimonial Section Start -->
-    <div class="section bg-name-bright section-padding section-margin">
-        
-    </div>
-    <!-- Testimonial Section End -->
-
         <!-- Blog Section Start -->
-        <div class="section section-margin-bottom">
+        <div class="section section-margin-bottom section-margin">
             <div class="container">
 
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
