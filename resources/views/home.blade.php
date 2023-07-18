@@ -409,7 +409,7 @@
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
-                                        <li><span>{{ toDateString($item->created_at)}}</span></li>
+                                        <li><span>{{ $item->created_at toDateString()}}</span></li>
                                     </ul>
                                 </div>
                                 <h2 class="blog-title"><a href="blog-details.html">How to take care of your fish</a></h2>
