@@ -76,7 +76,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="" class="btn btn-danger shadow-none">Hủy
+                                    <a href="{{route('category-product.index')}}" class="btn btn-danger shadow-none">Hủy
                                         bỏ</a>
                                 </div>
                                 </form>

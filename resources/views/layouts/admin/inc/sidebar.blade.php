@@ -188,13 +188,13 @@
                     <div class="collapse menu-dropdown" id="sidebarBlog">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.blog_manager') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('post.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả bài viết
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_blog') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('post.create') }}" class="nav-link" data-key="t-team">
                                     Thêm bài viết
                                 </a>
                             </li>

@@ -8,7 +8,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">THÊM BLOG MỚI</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">CHỈNH SỬA BLOG</h4>
                             </div><!-- end card header -->
                             <div class="card-body">
                                 @if (session('success'))
@@ -27,24 +27,26 @@
                                     </div>
                                 @endif
                                 <div class="live-preview">
-                                    <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+                                    <form id="form_edit" action="{{ route('post.update', ['post' => $post->id]) }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Tiêu đề</label>
                                                 <input type="text" class="form-control" id="title" name="title"
-                                                    onchange="ChangeToSlug()">
+                                                value="{{$post->title}}"onchange="ChangeToSlug()">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="slug" class="form-label">Slug</label>
-                                                <input type="text" class="form-control" id="slug" name="slug">
+                                                <input type="text" class="form-control" id="slug" name="slug" value="{{$post->slug}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Thể loại</label>
                                                 <select class="form-select" aria-label=".form-select-sm example"
                                                     name="category_id">
                                                     @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        <option {{$category->id == $post->category_id ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -54,16 +56,16 @@
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="image_main" id="image_main">Thêm ảnh</button>
                                                     <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="image_post" value="Chưa có ảnh nào được chọn...">
+                                                        name="img_post" value="{{$post->img_post}}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Mô tả ngắn</label>
-                                                <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description"></textarea>
+                                                <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description">{{$post->description}}</textarea>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Nội dung</label>
-                                                <textarea id="editor" name="content"></textarea>
+                                                <textarea id="editor" name="content">{{$post->content}}</textarea>
                                             </div>
                                             <div class="col-lg-3 mt-3">
                                                 <input type="hidden" id="save_action" name="save_action"
@@ -100,7 +102,7 @@
                     <!--end col-->
                 </div>
                 <!--end row-->
-
+               
             </div> <!-- container-fluid -->
 
         </div><!-- End Page-content -->
@@ -111,7 +113,7 @@
         ClassicEditor
             .create(document.querySelector('#editor'), {
                 ckfinder: {
-                    uploadUrl: '{{ route('home') }}/assets/vendor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                    uploadUrl: '{{route('home')}}/assets/vendor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
                 }
             })
             .catch(error => {
@@ -175,4 +177,16 @@
             })
         });
     </script>
+    <script>
+        function save_and_edit() {
+            $('#save_action').val('save_and_edit');
+            $('form').submit();
+        }
+
+        function save_and_new() {
+            $('#save_action').val('save_and_new');
+            $('form').submit();
+        }
+    </script>
+
 @endsection
