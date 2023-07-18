@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
      <!-- Breadcrumb Area Start -->
      <div class="section breadcrumb-area bg-name-bright">
