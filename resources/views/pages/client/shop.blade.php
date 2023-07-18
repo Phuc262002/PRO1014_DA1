@@ -35,11 +35,9 @@
 
                             <div class="shop_toolbar_btn">
                                 <button data-role="grid_3" type="button" class="active btn-grid-3" title="Grid"><i class="ti-layout-grid4-alt"></i></button>
-                                <button data-role="grid_list" type="button" class="btn-list" title="List"><i class="ti-align-justify"></i></button>
+                                
                             </div>
-                            <div class="shop-top-show">
-                                <span>Hiển thị 1–12 của 39 kết quả</span>
-                            </div>
+                            
 
                         </div>
                         <!-- Shop Top Bar Left end -->
@@ -212,96 +210,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="widget-list">
-                                <h3 class="widget-title m-b-30">Tìm kiếm gần đây</h3>
-                                <div class="sidebar-body product-list-wrapper m-b-n30">
-
-                                    <!-- Single Product List Start -->
-                                    <div class="single-product-list m-b-30">
-
-                                        <!-- Product List Thumb Start -->
-                                        <div class="product">
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image first-image" src="assets/images/products/small-product/1.png" alt="Product Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product List Thumb End -->
-
-                                        <!-- Product List Content Start -->
-                                        <div class="product-list-content">
-                                            <h6 class="product-name">
-                                                <a href="single-product.html">Pet Leaving House</a>
-                                            </h6>
-                                            <span class="price">
-                                                    <span class="new">$12.50</span>
-                                            <span class="old">$15.85</span>
-                                            </span>
-                                        </div>
-                                        <!-- Product List Content End -->
-
-                                    </div>
-                                    <!-- Single Product List End -->
-
-                                    <!-- Single Product List Start -->
-                                    <div class="single-product-list m-b-30">
-
-                                        <!-- Product List Thumb Start -->
-                                        <div class="product">
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image first-image" src="assets/images/products/small-product/2.png" alt="Product Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product List Thumb End -->
-
-                                        <!-- Product List Content Start -->
-                                        <div class="product-list-content">
-                                            <h6 class="product-name">
-                                                <a href="single-product.html">This is the testing</a>
-                                            </h6>
-                                            <span class="price">
-                                                    <span class="new">$10.50</span>
-                                            <span class="old">$12.85</span>
-                                            </span>
-                                        </div>
-                                        <!-- Product List Content End -->
-
-                                    </div>
-                                    <!-- Single Product List End -->
-
-                                    <!-- Single Product List Start -->
-                                    <div class="single-product-list m-b-30">
-
-                                        <!-- Product List Thumb Start -->
-                                        <div class="product">
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image first-image" src="assets/images/products/small-product/3.png" alt="Product Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product List Thumb End -->
-
-                                        <!-- Product List Content Start -->
-                                        <div class="product-list-content">
-                                            <h6 class="product-name">
-                                                <a href="single-product.html">Animals for life</a>
-                                            </h6>
-                                            <span class="price">
-                                                    <span class="new">$22.50</span>
-                                            <span class="old">$25.85</span>
-                                            </span>
-                                        </div>
-                                        <!-- Product List Content End -->
-
-                                    </div>
-                                    <!-- Single Product List End -->
-
-                                </div>
-                            </div>
+                            
                         </div>
                     </aside>
                     <!-- Sidebar Widget End -->

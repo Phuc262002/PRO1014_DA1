@@ -175,4 +175,15 @@
             })
         });
     </script>
+    <script>
+        function save_and_edit() {
+            $('#save_action').val('save_and_edit');
+            $('form').submit();
+        }
+
+        function save_and_new() {
+            $('#save_action').val('save_and_new');
+            $('form').submit();
+        }
+    </script>
 @endsection
