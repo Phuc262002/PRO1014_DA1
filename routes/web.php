@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceClientController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +31,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('shop', function () {
-    return view('pages.client.shop');
-})->name('shop');
+Route::get('shop',[ShopController::class, 'index'])->name('shop');
 
 Route::get('blog', function () {
     return view('pages.client.blog');
@@ -41,9 +41,7 @@ Route::get('checkout', function () {
     return view('pages.client.checkout');
 })->name('checkout');
 
-Route::get('services', function () {
-    return view('pages.client.services');
-})->name('services');
+Route::get('services', [ServiceClientController::class, 'index'])->name('services');
 Route::get('book-services', function () {
     return view('pages.client.book-services');
 })->name('book-services');
