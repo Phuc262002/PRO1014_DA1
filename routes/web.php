@@ -119,6 +119,8 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+    Route::get('prevent', [LoginController::class, 'preventAccount'])->name('preventAccount');
+
     Route::get('password/reset', [ForgotPasswordController::class, 'index'])->name('password.reset');
     Route::post('password/reset', [ForgotPasswordController::class, 'sendResetLinkEmail']);
     Route::get('password/reset/{token}', [ResetPasswordController::class, 'index'])->name('password.reset.token');

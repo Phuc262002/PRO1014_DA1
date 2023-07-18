@@ -40,6 +40,21 @@
                                     <h5 class="text-primary">Chào bạn !</h5>
                                     <p class="text-muted">Đăng nhập để tiếp tục với Pets Care.</p>
                                 </div>
+                                @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if (session('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first() }}
+                                    </div>
+                                @endif
                                 <div class="p-2 mt-4">
                                     <form id="login_form" enctype="multipart/form-data">
                                         @csrf

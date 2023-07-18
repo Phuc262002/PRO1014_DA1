@@ -147,7 +147,7 @@
 
                                         <!-- Cart Product Total Start -->
                                         <div class="cart-product-total p-b-20 m-b-20 border-bottom">
-                                            <span class="value">Total</span>
+                                            <span class="value">Tổng tiền</span>
                                             <span class="price" id="total-cart-money"></span>
                                         </div>
                                         <!-- Cart Product Total End -->

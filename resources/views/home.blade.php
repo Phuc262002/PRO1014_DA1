@@ -17,7 +17,7 @@
                         <div class="hero-slide-content text-start">
                             <h5 class="sub-title">{{$item->title}}</h5>
                             {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
-                            <p class="ms-0">{{$item->introduction}}</p>
+                            <p class="ms-0">{!!$item->introduction !!}</p>
                             <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                         </div>
                     </div>
@@ -409,14 +409,12 @@
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
-                                        <li><span>{{ $item->created_at toDateString()}}</span></li>
+                                        <li><span>{{ $item->created_at->format('d-m-y')}}</span></li>
                                     </ul>
                                 </div>
-                                <h2 class="blog-title"><a href="blog-details.html">How to take care of your fish</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
+                                <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                <p>{{ $item->description }}</p>
+                                <a class="more-link" href="blog-details.html">Xem thêm</a>
                             </div>
                             <!-- Blog Content End -->
                         </div>

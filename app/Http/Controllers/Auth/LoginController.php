@@ -51,11 +51,21 @@ class LoginController extends Controller
                     'message' => 'Tài khoản chưa được xác thực',
                     'link_authencation' =>  route('verification.verify', ['email' => $email])
                 ];
+                
             } else {
-                return [
-                    'status' => 'success',
-                    'message' => 'Đăng nhập thành công'
-                ];
+                if(Auth::user()->status == false) {
+                    Auth::logout();
+                    return [
+                        'status' => 'error',
+                        'message' => 'Tài khoản của bạn đã bị khóa',
+                        'link_authencation' => route('preventAccount')
+                    ];
+                } else {
+                    return [
+                        'status' => 'success',
+                        'message' => 'Đăng nhập thành công'
+                    ];
+                }
             }
         }
     }
@@ -121,8 +131,12 @@ class LoginController extends Controller
                 }
             }
         }
-        Auth::login($user, true);
-        return redirect()->route('home');
+        if ($user->status == false) {
+            return redirect()->route('preventAccount');
+        } else {
+            Auth::login($user, true);
+            return redirect()->route('home');
+        }
     }
 
     public function facebookLogin()
@@ -187,8 +201,12 @@ class LoginController extends Controller
             }
         }
 
-        Auth::login($user, true);
-        return redirect()->route('home');
+        if ($user->status == false) {
+            return redirect()->route('preventAccount');
+        } else {
+            Auth::login($user, true);
+            return redirect()->route('home');
+        }
         
     }
 
@@ -200,5 +218,10 @@ class LoginController extends Controller
         } else {
             return redirect()->route('login');
         }
+    }
+
+    public function preventAccount()
+    {
+        return view('pages.auth.preventAccount');
     }
 }
