@@ -80,7 +80,7 @@
                                     <div class="action-wrapper">
                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
                                         data-bs-target="#quick-view{{$item->id}}"><i class="fa-regular fa-eye"></i></a>                                     
-                                        <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                        <a  href="javascript:addCart({{ $item->id }})" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
                                     </div>
                                 </div>
                                 <div class="content">
@@ -386,14 +386,15 @@
 
                             <!-- SKU Start -->
                             <div class="sku m-b-15">
+                                <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
                                 <span>{{$item->sku}}</span>
                             </div>
                             <!-- SKU End -->
 
                             <!-- Product Inventory Start -->
                             <div class="product-inventroy m-b-15">
-                                <span class="inventroy-title"> <strong>Availability:</strong></span>
-                                <span class="inventory-varient">12 Left in Stock</span>
+                                <span class="inventroy-title"> <strong>Còn lại:</strong></span>
+                                <span class="inventory-varient">{{ $item->quantity }}</span>
                             </div>
                             <!-- Product Inventory End -->
 
@@ -403,7 +404,7 @@
 
                             <!-- Quantity Start -->
                             <div class="quantity d-flex align-items-center justify-content-start m-b-25">
-                                <span class="m-r-10"><strong>Qty: </strong></span>
+                                <span class="m-r-10"><strong>Số lượng: </strong></span>
                                 <div class="cart-plus-minus">
                                     <input class="cart-plus-minus-box" value="1" type="text">
                                     <div class="dec qtybutton"></div>
@@ -416,34 +417,14 @@
                             <div class="cart-btn action-btn m-b-30">
                                 <div class="action-cart-btn-wrapper d-flex justify-content-start">
                                     <div class="add-to_cart">
-                                        <a class="btn btn-primary btn-hover-dark rounded-0" href="cart.html">Add to cart</a>
+                                        <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCart({{ $item->id }})">Thêm vào giỏ hàng</a>
                                     </div>
-                                    <a href="wishlist.html" title="Wishlist" class="action"><i class="ti-heart"></i></a>
+                                    
                                 </div>
                             </div>
                             <!-- Cart Button End -->
 
-                            <!-- Social Shear Start -->
-                            <div class="social-share">
-                                <div class="widget-social justify-content-center m-b-30">
-                                    <a title="Twitter" href="#/"><i class="icon-social-twitter"></i></a>
-                                    <a title="Instagram" href="#/"><i class="icon-social-instagram"></i></a>
-                                    <a title="Linkedin" href="#/"><i class="icon-social-linkedin"></i></a>
-                                    <a title="Skype" href="#/"><i class="icon-social-skype"></i></a>
-                                    <a title="Dribble" href="#/"><i class="icon-social-dribbble"></i></a>
-                                </div>
-                            </div>
-                            <!-- Social Shear End -->
-
-                            <!-- Payment Option Start -->
-                            <div class="payment-option m-t-20 d-flex justify-content-start">
-                                <span><strong>Payment: </strong></span>
-                                <a href="#">
-                                    <img class="fit-image m-l-5" src="assets/images/payment/payment_large.png" alt="Payment Option Image">
-                                </a>
-                            </div>
-                            <!-- Payment Option End -->
-
+                           
                         </div>
                         <!-- Product Summery End -->
 
