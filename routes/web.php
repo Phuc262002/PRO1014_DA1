@@ -10,6 +10,9 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminBannerController;
+use App\Http\Controllers\Admin\AdminCategoryProductController;
+use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
@@ -130,6 +133,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resources([
         'product' => AdminProductController::class,
+        'banner' => AdminBannerController::class,
+        'category-product' => AdminCategoryProductController::class,
+        'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
     ]);
 
@@ -230,10 +236,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-dich-vu2', function () {
         return view('pages.admin.form_add_service_s');
     })->name('admin.form_add_service_s');
+    Route::get('quan-ly-binh-luan', function () {
+        return view('pages.admin.comment_manager');
+    })->name('admin.comment_manager');
+
 
 
 
 });
+
+
 
 Route::get('404', function () {
     return view('errors.404');
@@ -246,6 +258,6 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile');
 
     Route::resources([
-        
+
     ]);
 });

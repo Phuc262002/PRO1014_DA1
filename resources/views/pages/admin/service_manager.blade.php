@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Quản Lý Dịch vụ
+                                    Quản lý dịch vụ
                                 </h4>
                                 <form class="app-search d-none d-md-block">
                                     <div class="position-relative">
@@ -56,55 +56,57 @@
                                                                 for="responsivetableCheck"></label>
                                                         </div>
                                                     </th>
-                                                    <th scope="col">ID</th>
                                                     <th scope="col">Tên dịch vụ</th>
                                                     <th scope="col">Hình Ảnh</th>
                                                     <th scope="col">Icon</th>
                                                     <th scope="col">Mô Tả</th>
                                                     <th scope="col">Giá</th>
                                                     <th scope="col">Giảm giá</th>
-                                                    
+
                                                     <th scope="col">Chức Năng</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($services as $item)
-                                                <tr>
-                                                    <th scope="row">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck01" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck01"></label>
-                                                        </div>
-                                                    </th>
-                                                    <td><a href="#" class="fw-medium">#{{$item->id}}</a></td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td>
-                                                        <div class="flex-shrink-0">
-                                                            <img src="{{$item->image_service}}" alt=""
-                                                                width="100" height="100" />
-                                                        </div>
-                                                    </td>
-                                                    <td>{{$item->icon}}</td>
-                                                    <td>{{$item->description}}</td>
-                                                    <td>{{$item->price}}</td>
-                                                    <td>{{$item->discount_price}}</td>
-                                                    <td>
-                                                        <div class="hstack gap-3 flex-wrap">
-                                                            <a href="javascript:void(0);" class="link-primary fs-15"><i
-                                                                    class="ri-eye-line"></i></a>
-                                                            <a href="{{route('service.edit', ['service' => $item->id])}}" class="link-success fs-15"><i
-                                                                    class="ri-edit-2-line"></i></a>
-                                                            <a href="javascript:deleteService({{$item->id}});" class="link-danger fs-15"><i
-                                                                    class="ri-delete-bin-line"></i></a>
-                                                            <form id="delete_form_{{$item->id}}" action="{{route('service.destroy',['service' => $item->id])}}" method="POST">
-                                                                 @csrf
-                                                                 @method('DELETE')
-                                                            </form>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="" id="responsivetableCheck01" />
+                                                                <label class="form-check-label"
+                                                                    for="responsivetableCheck01"></label>
+                                                            </div>
+                                                        </th>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>
+                                                            <div class="flex-shrink-0">
+                                                                <img src="{{ $item->image_service }}" alt=""
+                                                                    width="100" height="100" />
+                                                            </div>
+                                                        </td>
+                                                        <td>{{ $item->icon }}</td>
+                                                        <td>{{ $item->description }}</td>
+                                                        <td>{{ $item->price }}</td>
+                                                        <td>{{ $item->discount_price }}</td>
+                                                        <td>
+                                                            <div class="hstack gap-3 flex-wrap">
+                                                                <a href="javascript:void(0);" class="link-primary fs-15"><i
+                                                                        class="ri-eye-line"></i></a>
+                                                                <a href="{{ route('service.edit', ['service' => $item->id]) }}"
+                                                                    class="link-success fs-15"><i
+                                                                        class="ri-edit-2-line"></i></a>
+                                                                <a href="javascript:deleteService({{ $item->id }});"
+                                                                    class="link-danger fs-15"><i
+                                                                        class="ri-delete-bin-line"></i></a>
+                                                                <form id="delete_form_{{ $item->id }}"
+                                                                    action="{{ route('service.destroy', ['service' => $item->id]) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>

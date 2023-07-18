@@ -27,14 +27,15 @@
                                     </div>
                                 @endif
                                 <div class="live-preview">
-                                    <form action="{{ route('banner.store') }}" method="post"
+                                    <form action="{{route('banner.update', ['banner' => $banner->id]) }}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
+                                        @method ( 'put' )
                                         <div>
                                         <div class="row g-3">
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Tiêu đề</label>
-                                                <input type="text" class="form-control" id="basiInput"name="title">
+                                                <input type="text" class="form-control" id="basiInput" name="title" value="{{$banner->title}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="image_main" class="form-label">Thêm hình ảnh</label>
@@ -42,29 +43,39 @@
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="image_main" id="image_main">Thêm ảnh</button>
                                                     <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="img_banner" value="Chưa có ảnh nào được chọn...">
+                                                        name="img_banner" value="{{$banner->img_banner}}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Trạng
                                                     thái</label>
                                                 <select class="form-select" aria-label=".form-select-sm example" name="status">
-                                                    <option value="1">Active</option>
+                                                    @if ($banner->status == true)
+                                                    <option selected value="1">Active</option>
                                                     <option value="0">Disabled</option>
+                                                    @else
+                                                    <option value="1">Active</option>
+                                                    <option selected value="0">Disabled</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Loại
                                                     banner</label>
-                                                <select class="form-select" aria-label=".form-select-sm example" name="banner_type">
-                                                    <option value="SLIDER">SLIDER</option>
+                                                <select class="form-select" aria-label=".form-select-sm example" name="banner_type" value="{{$banner->banner_type}}">
+                                                    @if ($banner->banner_type == 'SLIDER')
+                                                    <option selected value="SLIDER">SLIDER</option>
                                                     <option value="BANNER_SALE">BANNER_SALE</option>
+                                                    @else
+                                                    <option value="SLIDER">SLIDER</option>
+                                                    <option selected value="BANNER_SALE">BANNER_SALE</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                         
                                             <div class="col-lg-12 mt-3">
                                                 <label for="formFile" class="form-lable">Nội dung</label>
-                                                <textarea id="editor" name="introduction"></textarea>
+                                                <textarea id="editor" name="introduction">{{$banner->introduction}}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 mt-3">
@@ -87,15 +98,9 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <a href="{{ route('product.index') }}" class="btn btn-danger shadow-none">Hủy
+                                            <a href="{{ route('banner.index') }}" class="btn btn-danger shadow-none">Hủy
                                                 bỏ</a>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 mt-3">
-                                        <input type="radio" class="btn-check" name="options-outlined"
-                                            id="success-outlined" checked>
-                                        <label class="btn btn-outline-success shadow-none" for="success-outlined">Thêm sản
-                                            phẩm</label>
                                     </div>
 
                                 </div>
@@ -107,7 +112,6 @@
                 </div>
                 <!--end row-->
                 
-
             </div> <!-- container-fluid -->
 
         </div><!-- End Page-content -->

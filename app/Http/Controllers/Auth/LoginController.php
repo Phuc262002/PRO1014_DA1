@@ -33,7 +33,6 @@ class LoginController extends Controller
         $user = Auth::attempt([
             'email' => $request->email,
             'password' => $request->password,
-            'google_id' => null,
             'facebook_id' => null,
             'github_id' => null
         ], $request->remember_me);
@@ -71,28 +70,57 @@ class LoginController extends Controller
         $user_google = Socialite::driver('google')->user();
 
         if(!$user_google) {
-            return redirect()->route('login')->with('status', 'Something went wrong');
+            return redirect()->route('login')->with('error', 'Đã có lỗi xảy ra!');
         } else {
             $user = User::where([
                 'google_id' => $user_google->id,
-                'email' => $user_google->email
+                'email' => $user_google->email,
             ])->first();
 
             if(!$user) {
-                $user = User::create([
-                    'name' => $user_google->name,
+                $check_email = User::where([
                     'email' => $user_google->email,
-                    'password' => Str::random(20),
-                    'google_id' => $user_google->id,
-                    'email_verified_at' => now(),
-                    'image' => $user_google->avatar,
-                    'confirm' => 1,
-                    'confirmation_code' => Str::random(6),
-                    'confirmation_code_expired_in' => now()
-                ]);
+                    'google_id' => null,
+                    'facebook_id' => null,
+                    'github_id' => null
+                ])->first();
+                if (!$check_email) {
+                    $user = User::create([
+                        'name' => $user_google->name,
+                        'email' => $user_google->email,
+                        'password' => Str::random(20),
+                        'google_id' => $user_google->id,
+                        'email_verified_at' => now(),
+                        'image' => $user_google->avatar,
+                        'confirm' => 1,
+                        'confirmation_code' => Str::random(6),
+                        'confirmation_code_expired_in' => now()
+                    ]);
+                } else {
+                    User::where([
+                        'email' => $user_google->email,
+                        'google_id' => null,
+                        'facebook_id' => null,
+                        'github_id' => null
+                    ])->update([
+                        'google_id' => $user_google->id,
+                        'image' => $user_google->avatar,
+                        'email_verified_at' => now(),
+                        'confirm' => 1,
+                        'confirmation_code' => Str::random(6),
+                        'confirmation_code_expired_in' => now(),
+                        'remember_token' => $user_google->token
+                    ]);
+
+                    $user = User::where([
+                        'email' => $user_google->email,
+                        'google_id' => $user_google->id,
+                        'facebook_id' => null,
+                        'github_id' => null
+                    ])->first();
+                }
             }
         }
-
         Auth::login($user, true);
         return redirect()->route('home');
     }

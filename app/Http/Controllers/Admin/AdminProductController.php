@@ -38,8 +38,11 @@ class AdminProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        if($request->discount_price > 0 && $request->discount_end == null){
+        if ($request->discount_price > 0 && $request->discount_end == null) {
             return back()->with('error', "Vui lòng nhập ngày kết thúc khuyến mãi.");
+        }
+        if ($request->image_main == 'Chưa có ảnh nào được chọn...') {
+            return back()->with('error', "Vui lòng chọn ảnh chính.");
         }
         $product = Product::create($request->all());
         if ($request->image_main_list != 'Chưa có ảnh nào được chọn...') {
@@ -52,11 +55,11 @@ class AdminProductController extends Controller
             }
         }
         if ($product) {
-            if($request->save_action == 'save_and_back'){
+            if ($request->save_action == 'save_and_back') {
                 return redirect()->route('product.index')->with('success', "Thêm sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
+            } else if ($request->save_action == 'save_and_edit') {
                 return redirect()->route('product.edit', $product->id)->with('success', "Thêm sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_new'){
+            } else if ($request->save_action == 'save_and_new') {
                 return redirect()->route('product.create')->with('success', "Thêm sản phẩm thành công.");
             }
         } else {
@@ -69,7 +72,8 @@ class AdminProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $products = Product::where('id', $product->id)->with('brand', 'category', 'image_list')->paginate(10);
+        return view('pages.admin.product_detail', compact('product'));
     }
 
     /**
@@ -103,11 +107,11 @@ class AdminProductController extends Controller
             }
         }
         if ($update_product) {
-            if($request->save_action == 'save_and_back'){
+            if ($request->save_action == 'save_and_back') {
                 return redirect()->route('product.index')->with('success', "Cập nhật sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
+            } else if ($request->save_action == 'save_and_edit') {
                 return back()->with('success', "Cập nhật sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_new'){
+            } else if ($request->save_action == 'save_and_new') {
                 return redirect()->route('product.create')->with('success', "Cập nhật sản phẩm thành công.");
             }
         } else {
@@ -124,16 +128,17 @@ class AdminProductController extends Controller
             $delete_product = Product::destroy($product->id);
 
             if ($delete_product) {
-                return back()->with('success', "Xóa sản phẩm thành công.");
+                return redirect()->route('product.index')->with('success', "Xóa sản phẩm thành công.");
             } else {
-                return back()->with('error', "Xóa sản phẩm thất bại.");
+                return redirect()->route('product.index')->with('error', "Xóa sản phẩm thất bại.");
             }
         } catch (\Exception $e) {
             return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
         }
     }
 
-    public function destroyImgCollection(Request $request ,$id = null) {
+    public function destroyImgCollection(Request $request, $id = null)
+    {
         try {
             $delete_img = Product_img_collection::where([
                 'product_id' => $id,
