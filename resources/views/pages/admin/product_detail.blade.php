@@ -54,21 +54,57 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <th>Số lượng</th>
+                                            <td>
+                                                {{ $product->quantity }}
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th>Giá</th>
                                             <td>
-                                                {{ $product->price }}
+                                                {{ number_format($product->price) }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Giá giảm</th>
                                             <td>
-                                                {{ $product->discount_price }}
+                                                {{ number_format($product->discount_price) }}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Số lượng</th>
+                                            <th>Ngày kết thúc giảm giá</th>
                                             <td>
-                                                {{ $product->quantity }}
+                                                {{ $product->discount_end }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Thương hiệu</th>
+                                            <td>
+                                                {{ $product->brand->name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Slug</th>
+                                            <td>
+                                                {{ $product->slug }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Danh mục</th>
+                                            <td>
+                                                {{ $product->category->name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Lượt đánh giá</th>
+                                            <td>
+                                                {{ $product->rating_count }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Lượt đánh giá trung bình</th>
+                                            <td>
+                                                {{ $product->average_rating }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -94,6 +130,22 @@
                                                 @endif
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Chức năng</th>
+                                            <td>
+                                                <div class="hstack gap-3 flex-wrap">
+                                                    <a href="{{ route('product.edit', ['product' => $product->id]) }}"
+                                                        class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                                    <a href="javascript:deleteProduct({{ $product->id }});"
+                                                        class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
+                                                    <form id="delete_form_{{ $product->id }}"
+                                                        action="{{ route('product.destroy', ['product' => $product->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                            </td>
+                                        </tr>
 
                                     </tbody>
                                 </table>
@@ -104,4 +156,37 @@
 
             </div>
         </div>
+    @endsection
+    @section('js')
+        <script>
+            function deleteProduct(id) {
+                Swal.fire({
+                    title: "Bạn có chắc muốn xóa?",
+                    text: "Bạn có thể lấy lại sản phẩm này ở thùng rác.",
+                    icon: "warning",
+                    showCancelButton: !0,
+                    confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
+                    cancelButtonClass: "btn btn-danger w-xs mt-2",
+                    confirmButtonText: "Có, xóa nó",
+                    cancelButtonText: "Hủy",
+                    buttonsStyling: !1,
+                    showCloseButton: !0,
+                }).then(function(t) {
+                    if (t.value) {
+                        document.getElementById('delete_form_' + id).submit();
+                    }
+
+                    // t.value &&
+                    //     Swal.fire({
+                    //         title: "Đã xóa!",
+                    //         text: "Sản phẩm đã được xóa.",
+                    //         icon: "success",
+                    //         confirmButtonClass: "btn btn-primary w-xs mt-2",
+                    //         buttonsStyling: !1,
+                    //     });
+
+
+                });
+            }
+        </script>
     @endsection

@@ -135,7 +135,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resources([
         'product' => AdminProductController::class,
-        'banner' => AdminBannerController::class,    
+        'banner' => AdminBannerController::class,
         'category-product' => AdminCategoryProductController::class,
         'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
@@ -238,6 +238,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-dich-vu2', function () {
         return view('pages.admin.form_add_service_s');
     })->name('admin.form_add_service_s');
+    Route::get('quan-ly-binh-luan', function () {
+        return view('pages.admin.comment_manager');
+    })->name('admin.comment_manager');
+
 
 
 
@@ -256,6 +260,6 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile');
 
     Route::resources([
-        
+
     ]);
 });
