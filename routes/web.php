@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceClientController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('shop', function () {
-    return view('pages.client.shop');
-})->name('shop');
+Route::get('shop',[ShopController::class, 'index'])->name('shop');
 
 Route::get('blog', function () {
     return view('pages.client.blog');
@@ -42,9 +42,7 @@ Route::get('checkout', function () {
     return view('pages.client.checkout');
 })->name('checkout');
 
-Route::get('services', function () {
-    return view('pages.client.services');
-})->name('services');
+Route::get('services', [ServiceClientController::class, 'index'])->name('services');
 Route::get('book-services', function () {
     return view('pages.client.book-services');
 })->name('book-services');
@@ -136,7 +134,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resources([
         'product' => AdminProductController::class,
-        'banner' => AdminBannerController::class,    
+        'banner' => AdminBannerController::class,
         'category-product' => AdminCategoryProductController::class,
         'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
@@ -240,6 +238,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-dich-vu2', function () {
         return view('pages.admin.form_add_service_s');
     })->name('admin.form_add_service_s');
+    Route::get('quan-ly-binh-luan', function () {
+        return view('pages.admin.comment_manager');
+    })->name('admin.comment_manager');
+
 
 
 
@@ -258,6 +260,6 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile');
 
     Route::resources([
-        
+
     ]);
 });

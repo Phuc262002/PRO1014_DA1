@@ -4,6 +4,7 @@
 <link href="assets/css/services/bootstrap.css" rel="stylesheet">
 
 
+
 @section('content')
     <!--.service_area-->
     <div class="section breadcrumb-area bg-name-bright">
@@ -25,20 +26,22 @@
         <div class="container">
             <!-- Breadcrumb Area End -->
             <div class="row">
+                @foreach ($data_services as $item)
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service hvr-float-shadow">
-                        <figure><a href="services-detail.html"><img src="assets/images/services/1.jpg" alt="Images"></a>
+                        <figure><a href="services-detail.html"><img src="{{$item->image_service}}" alt="Images"></a>
                         </figure>
                         <div class="service-text">
                             <div class="icon"><i class="flaticon-pawprint"></i></div>
-                            <h4><a href="services-detail.html">NHẬN NUÔI THÚ CƯNG</a></h4>
-                            <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
-                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
+                            <h4><a href="services-detail.html">{{$item->name}}</a></h4>
+                            <p>{{$item->description}}</p>
                                <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                @endforeach
+                
+                {{-- <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service hvr-float-shadow">
                         <figure><a href="services-detail.html"><img src="assets/images/services/2.jpg" alt="Images"></a>
                         </figure>
@@ -135,8 +138,10 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
+            
+            
         </div>
     </section>
  

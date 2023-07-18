@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Dịch vụ đang xử lí
+                                    Dịch vụ đang xử lý
                                 </h4>
                                 <form class="app-search d-none d-md-block p-0">
                                     <div class="position-relative">

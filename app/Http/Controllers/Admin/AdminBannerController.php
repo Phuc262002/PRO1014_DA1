@@ -13,7 +13,7 @@ class AdminBannerController extends Controller
      */
     public function index()
     {
-        $title = 'Pets Care - Quản lý sản phẩm';
+        $title = 'Pets Care - Quản lý thông tin';
         $banner = Banner::paginate(10);
         return view('pages.admin.banner_slider_manager', compact('title', 'banner'));
     }
@@ -59,7 +59,7 @@ class AdminBannerController extends Controller
      */
     public function edit(Banner $banner)
     {
-        $title = 'Pets Care - Chỉnh sửa sản phẩm';
+        $title = 'Pets Care - Chỉnh sửa thông tin';
         return view('pages.admin.edit_banner_slider', compact('title', 'banner'));
     }
 

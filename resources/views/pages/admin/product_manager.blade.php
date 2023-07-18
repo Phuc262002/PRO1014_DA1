@@ -59,15 +59,12 @@
                                                                 for="responsivetableCheck"></label>
                                                         </div>
                                                     </th>
-                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Sku</th>
                                                     <th scope="col">Tên Sản Phẩm</th>
                                                     <th scope="col">Hình Ảnh</th>
-                                                    <th scope="col">Thương Hiệu</th>
-                                                    <th scope="col">Loại sản phẩm</th>
                                                     <th scope="col">Giá</th>
+                                                    <th scope="col">Giá giảm</th>
                                                     <th scope="col">Số Lượng</th>
-                                                    <th scope="col">Mô tả</th>
-                                                    <th scope="col">Slug</th>
                                                     <th scope="col">Trạng Thái</th>
                                                     <th scope="col">Chức Năng</th>
                                                 </tr>
@@ -92,12 +89,9 @@
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{{ $item->brand->name }}</td>
-                                                        <td>{{ $item->category->name }}</td>
                                                         <td>{{ number_format($item->price) }}</td>
+                                                        <td>{{ number_format($item->discount_price) }}</td>
                                                         <td>{{ $item->quantity }}</td>
-                                                        <td>{{ $item->description_summary }}</td>
-                                                        <td>{{ $item->slug }}</td>
                                                         @if ($item->status == true)
                                                             <td class="text-success">
                                                                 <span class="badge bg-success">Active</span>
@@ -109,7 +103,8 @@
                                                         @endif
                                                         <td>
                                                             <div class="hstack gap-3 flex-wrap">
-                                                                <a href="{{ route('product.show', ['product' => $item->id]) }}" class="link-primary fs-15"><i
+                                                                <a href="{{ route('product.show', ['product' => $item->id]) }}"
+                                                                    class="link-primary fs-15"><i
                                                                         class="ri-eye-line"></i></a>
                                                                 <a href="{{ route('product.edit', ['product' => $item->id]) }}"
                                                                     class="link-success fs-15"><i
@@ -117,7 +112,9 @@
                                                                 <a href="javascript:deleteProduct({{ $item->id }});"
                                                                     class="link-danger fs-15"><i
                                                                         class="ri-delete-bin-line"></i></a>
-                                                                <form id="delete_form_{{$item->id}}" action="{{ route('product.destroy', ['product' => $item->id]) }}" method="POST">
+                                                                <form id="delete_form_{{ $item->id }}"
+                                                                    action="{{ route('product.destroy', ['product' => $item->id]) }}"
+                                                                    method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                 </form>

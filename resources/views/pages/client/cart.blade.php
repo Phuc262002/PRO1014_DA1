@@ -1,15 +1,15 @@
 @extends('layouts.client.master')
 
 @section('content')
- <!-- Breadcrumb Area Start -->
- <div class="section breadcrumb-area bg-name-bright">
+    <!-- Breadcrumb Area Start -->
+    <div class="section breadcrumb-area bg-name-bright">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Đơn hàng của bạn</h2>
                         <ul>
-                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
+                            <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                             <li>Đơn hàng</li>
                         </ul>
                     </div>
@@ -44,72 +44,7 @@
                             <!-- Table Head End -->
 
                             <!-- Table Body Start -->
-                            <tbody>
-                                <tr>
-                                    <td class="pro-thumbnail"><a href="#"><img class="fit-image" src="assets/images/products/small-product/6.png" alt="Product" /></a></td>
-                                    <td class="pro-title"><a href="#">Learn About Fish Farming</a></td>
-                                    <td class="pro-price"><span>$95.00</span></td>
-                                    <td class="pro-quantity">
-                                        <div class="quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                                <div class="dec qtybutton">-</div>
-                                                <div class="inc qtybutton">+</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="pro-subtotal"><span>$95.00</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="ti-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="pro-thumbnail"><a href="#"><img class="fit-image" src="assets/images/products/small-product/5.png" alt="Product" /></a></td>
-                                    <td class="pro-title"><a href="#">Basic Birds Food</a></td>
-                                    <td class="pro-price"><span>$75.00</span></td>
-                                    <td class="pro-quantity">
-                                        <div class="quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                                <div class="dec qtybutton">-</div>
-                                                <div class="inc qtybutton">+</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="pro-subtotal"><span>$75.00</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="ti-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="pro-thumbnail"><a href="#"><img class="fit-image" src="assets/images/products/small-product/3.png" alt="Product" /></a></td>
-                                    <td class="pro-title"><a href="#">Dog Trainning Center</a></td>
-                                    <td class="pro-price"><span>$28.00</span></td>
-                                    <td class="pro-quantity">
-                                        <div class="quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                                <div class="dec qtybutton">-</div>
-                                                <div class="inc qtybutton">+</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="pro-subtotal"><span>$56.00</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="ti-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="pro-thumbnail"><a href="#"><img class="fit-image" src="assets/images/products/small-product/4.png" alt="Product" /></a></td>
-                                    <td class="pro-title"><a href="#">Animal Rescue Center</a></td>
-                                    <td class="pro-price"><span>$20.00</span></td>
-                                    <td class="pro-quantity">
-                                        <div class="quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                                <div class="dec qtybutton">-</div>
-                                                <div class="inc qtybutton">+</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="pro-subtotal"><span>$40.00</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="ti-trash"></i></a></td>
-                                </tr>
-                            </tbody>
+                            <tbody id="cart-product"></tbody>
                             <!-- Table Body End -->
 
                         </table>
@@ -121,14 +56,13 @@
 
                         <!-- Cart Button left Side Start -->
                         <div class="cart-btn-lef-side m-b-20">
-                            <a href="#" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua hàng</a>
-                            <a href="#" class="btn btn btn-gray-deep btn-hover-primary">Cập nhật giỏ hàng</a>
+                            <a href="{{route('shop')}}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua hàng</a>
                         </div>
                         <!-- Cart Button left Side End -->
 
                         <!-- Cart Button Right Side Start -->
                         <div class="cart-btn-right-right m-b-20">
-                            <a href="#" class="btn btn btn-gray-deep btn-hover-primary">Xóa giỏ hàng</a>
+                            <a href="javascript:deleteCartAll()" class="btn btn btn-gray-deep btn-hover-primary">Xóa giỏ hàng</a>
                         </div>
                         <!-- Cart Button Right Side End -->
 
@@ -156,15 +90,15 @@
                                 <table class="table">
                                     <tr>
                                         <td>Đơn giá</td>
-                                        <td>$230</td>
+                                        <td id="totalMoney"></td>
                                     </tr>
                                     <tr>
                                         <td>Phí vận chuyển</td>
-                                        <td>$70</td>
+                                        <td>0 đ</td>
                                     </tr>
                                     <tr class="total">
                                         <td>Tổng cộng</td>
-                                        <td class="total-amount">$300</td>
+                                        <td id="totalMoneyFinal" class="total-amount">$300</td>
                                     </tr>
                                 </table>
                             </div>
@@ -174,7 +108,8 @@
                         <!-- Cart Calculate Items End -->
 
                         <!-- Cart Checktout Button Start -->
-                        <a href="checkout.html" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận thanh toán</a>
+                        <a href="{{route('checkout')}}" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận thanh
+                            toán</a>
                         <!-- Cart Checktout Button End -->
 
                     </div>
@@ -186,4 +121,112 @@
         </div>
     </div>
     <!-- Shopping Cart Section End -->
+@endsection
+
+@section('js')
+    <script>
+        function formatVietnamDong(amount) {
+            return amount.toLocaleString('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            });
+        }
+
+        function renderCart() {
+            if (localStorage.getItem('cart')) {
+                const cartItems = JSON.parse(localStorage.getItem('cart'));
+
+                const cartWrapper = $('#cart-product');
+
+                const cartHtmls = cartItems.map(item => {
+                    return `<tr>
+                                <td class="pro-thumbnail"><a href="#"><img class="fit-image"
+                                            src="${item.image_main}" alt="Product" /></a></td>
+                                <td class="pro-title"><a href="#">${item.name}</a></td>
+                                <td class="pro-price"><span>${formatVietnamDong(item.price)}</span></td>
+                                <td class="pro-quantity">
+                                    <div class="quantity">
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" onchange="inputQuantityCart(${item.id})" value="${item.quantity}" type="text">
+                                            <div class="dec qtybutton" onclick="dec_qtybutton(${item.id})">-</div>
+                                            <div class="inc qtybutton" onclick="inc_qtybutton(${item.id})">+</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pro-subtotal"><span>${formatVietnamDong(item.price*item.quantity)}</span></td>
+                                <td class="pro-remove"><a href="javascript:deleteCart(${item.id})"><i class="ti-trash"></i></a></td>
+                            </tr>`;
+                });
+
+                cartWrapper.html(cartHtmls);
+            } else {
+                $('#cart-product').html('');
+                $('.cart-product-wrapper').html('<h3 class="text-center">Không có sản phẩm nào trong giỏ hàng</h3>');
+            }
+            totalCartMoney()
+        }
+
+        function deleteCart(id) {
+            const cartItems = JSON.parse(localStorage.getItem('cart'));
+            const newCartItems = cartItems.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(newCartItems));
+            renderCart();
+            renderCartHeader();
+        }
+
+        function deleteCartAll() {
+            localStorage.removeItem('cart');
+            renderCart();
+            renderCartHeader();
+        }
+
+        function inc_qtybutton(id) {
+            const cartItems = JSON.parse(localStorage.getItem('cart'));
+            const newCartItems = cartItems.map(item => {
+                if (item.id === id) {
+                    item.quantity += 1;
+                }
+                return item;
+            });
+            localStorage.setItem('cart', JSON.stringify(newCartItems));
+            renderCart();
+            renderCartHeader();
+        }
+
+        function dec_qtybutton(id) {
+            const cartItems = JSON.parse(localStorage.getItem('cart'));
+            const newCartItems = cartItems.map(item => {
+                if (item.id === id) {
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    }
+                }
+                return item;
+            });
+            localStorage.setItem('cart', JSON.stringify(newCartItems));
+            renderCart();
+            renderCartHeader();
+        }
+
+        function inputQuantityCart(id) {
+            const cartItems = JSON.parse(localStorage.getItem('cart'));
+            const newCartItems = cartItems.map(item => {
+                if (item.id === id) {
+                    if(event.target.value > 0) {
+                        item.quantity = event.target.value;
+                    } else {
+                        item.quantity = 1;
+                        Error('Số lượng phải là số và lớn hơn 0');
+                    }
+                }
+                return item;
+            });
+            localStorage.setItem('cart', JSON.stringify(newCartItems));
+            renderCart();
+            renderCartHeader();
+        }
+
+        renderCart()
+        totalCartMoney()
+    </script>
 @endsection
