@@ -9,35 +9,21 @@
         <div class="hero-slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach ($slider as $item)
-                <div class="hero-slide-item swiper-slide">
-                    <div class="hero-slide-bg">
-                        <img src="{{$item->img_banner}}" alt="Slider Image" />
-                    </div>
-                    <div class="container">
-                        <div class="hero-slide-content text-start">
-                            <h5 class="sub-title">{{$item->title}}</h5>
-                            {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
-                            <p class="ms-0">{{$item->introduction}}</p>
-                            <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                    
+                    <div class="hero-slide-item swiper-slide">
+                        <div class="hero-slide-bg">
+                            <img src="{{$item->img_banner}}" alt="Slider Image" />
+                        </div>
+                        <div class="container">
+                            <div class="hero-slide-content text-start"> 
+                                <h2 class="title m-0">{{$item->title}}</h2>
+                                <p class="ms-0">{!!$item->introduction!!}</p>
+                                <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-             @endforeach
-
-                {{-- <div class="hero-slide-item swiper-slide">
-                    <div class="hero-slide-bg">
-                        <img src="assets/images/slider/slider1-2.png" alt="Slider Image" />
-                    </div>
-                    <div class="container">
-                        <div class="hero-slide-content text-center text-md-end">
-                            <h5 class="sub-title">We keep pets for pleasure.</h5>
-                            <h2 class="title m-0">Vitamins For all Pets</h2>
-                            <p>We know your concerns when you are looking for a chewing treat for your dog.</p>
-                            <a href="shop.html" class="btn btn-dark btn-hover-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
+                @endforeach
+            </div>
 
             <!-- Swiper Pagination Start -->
             <div class="swiper-pagination d-lg-none"></div>
@@ -370,93 +356,7 @@
     <!-- Product Deal Section End -->
 
     <!-- Testimonial Section Start -->
-    <div class="section bg-name-bright section-padding section-margin">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-
-                    <!-- Testimonial Carousel Start -->
-                    <div class="testimonial-carousel">
-
-                        <!-- Testimonial Gallery Top Start -->
-                        <div class="swiper-container testimonial-gallery-top" data-aos="fade-up"
-                            data-aos-duration="1000">
-                            <div class="swiper-wrapper">
-
-                                <!-- Single Swiper Slide Start -->
-                                <div class="swiper-slide">
-
-                                    <!-- Testimonial Content Start -->
-                                    <div class="testimonial-content text-center">
-                                        <p>Lorem ipsum dolor sit amet, co adipisicing elit, sed do eiusmod tempor incididunt
-                                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita
-                                            ullamco laboris nisi ut aliquip ex ea commodo</p>
-                                    </div>
-                                    <!-- Testimonial Content End -->
-
-                                </div>
-                                <!-- Single Swiper Slide End -->
-
-                                <!-- Single Swiper Slide Start -->
-                                <div class="swiper-slide">
-
-                                    <!-- Testimonial Content Start -->
-                                    <div class="testimonial-content text-center">
-                                        <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc
-                                            scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis
-                                            orci augue nec sapien. Cum sociis natoque</p>
-                                    </div>
-                                    <!-- Testimonial Content End -->
-
-                                </div>
-                                <!-- Single Swiper Slide End -->
-                            </div>
-
-                        </div>
-                        <!-- Testimonial Gallery Top End -->
-
-                        <!-- Testimonial Gallery Thumb Start -->
-                        <div class="swiper-container testimonial-gallery-thumbs" data-aos="fade-up"
-                            data-aos-duration="1500">
-                            <div class="swiper-wrapper">
-
-                                <!-- Single Swiper Slide Start -->
-                                <div class="swiper-slide">
-                                    <!-- Testimonial Thumb Start -->
-                                    <div class="testimonial-thumb text-center">
-                                        <img src="assets/images/testimonial/1.png" alt="Testimonial Image">
-                                        <h3 class="thumb-title">Jonathon Jhon</h3>
-                                        <h6 class="thumb-subtitle">Customer</h6>
-                                    </div>
-                                    <!-- Testimonial Thumb End -->
-                                </div>
-                                <!-- Single Swiper Slide End -->
-
-                                <!-- Single Swiper Slide Start -->
-                                <div class="swiper-slide">
-                                    <!-- Testimonial Thumb Start -->
-                                    <div class="testimonial-thumb text-center">
-                                        <img src="assets/images/testimonial/2.png" alt="Testimonial Image">
-                                        <h3 class="thumb-title">Cristal Jerry</h3>
-                                        <h6 class="thumb-subtitle">Customer</h6>
-                                    </div>
-                                    <!-- Testimonial Thumb End -->
-                                </div>
-                                <!-- Single Swiper Slide End -->
-
-                            </div>
-
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination"></div>
-                        </div>
-                        <!-- Testimonial Gallery Thumb End -->
-
-                    </div>
-                    <!-- Testimonial Carousel End -->
-
-                </div>
-            </div>
-        </div>
+    <div class="section bg-name-bright section-padding section-margin">       
     </div>
     <!-- Testimonial Section End -->
 

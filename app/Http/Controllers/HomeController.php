@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         $title="Pets Care - Luôn đồng hành cùng thú cưng của bạn";
         $topnew = Product::where('status', true)
+                        // ->where('discount_price', '=', 0)
                         ->orderBy('created_at', 'desc')
                         ->take(8)
                         ->with('image_list', 'brand', 'category')
@@ -30,9 +31,9 @@ class HomeController extends Controller
         $slider = Banner::where([
                             'status' => true,
                             'banner_type' => 'SLIDER'
-                        ])
-                                                
+                        ])         
                         ->orderBy('created_at', 'desc')
+                        ->take(5)
                         ->get();
         
         $banner_sale = Banner::where([
@@ -41,6 +42,7 @@ class HomeController extends Controller
                         ])
                                                 
                         ->orderBy('created_at', 'desc')
+                        ->take(2)
                         ->get();
             
 
