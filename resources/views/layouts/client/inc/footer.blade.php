@@ -407,6 +407,9 @@
              });
 
              cartWrapper.html(cartHtmls);
+         } else {
+             $('#cart-product').html('');
+             $('.cart-product-wrapper').html('');
          }
          totalCartMoney()
      }

@@ -56,7 +56,7 @@
 
                         <!-- Cart Button left Side Start -->
                         <div class="cart-btn-lef-side m-b-20">
-                            <a href="#" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua hàng</a>
+                            <a href="{{route('shop')}}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua hàng</a>
                         </div>
                         <!-- Cart Button left Side End -->
 
@@ -108,7 +108,7 @@
                         <!-- Cart Calculate Items End -->
 
                         <!-- Cart Checktout Button Start -->
-                        <a href="checkout.html" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận thanh
+                        <a href="{{route('checkout')}}" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận thanh
                             toán</a>
                         <!-- Cart Checktout Button End -->
 
@@ -159,6 +159,9 @@
                 });
 
                 cartWrapper.html(cartHtmls);
+            } else {
+                $('#cart-product').html('');
+                $('.cart-product-wrapper').html('<h3 class="text-center">Không có sản phẩm nào trong giỏ hàng</h3>');
             }
             totalCartMoney()
         }

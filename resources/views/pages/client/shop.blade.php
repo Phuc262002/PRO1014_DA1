@@ -127,18 +127,7 @@
 
                         <!-- Shopt Top Bar Right Start -->
                         <div class="shop-top-bar-right">
-                            <nav>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link active" href="#/">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#/">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#/">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link rounded-0" href="#/" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            {{$product->links()}}
                         </div>
                         <!-- Shopt Top Bar Right End -->
 
