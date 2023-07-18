@@ -132,7 +132,7 @@
         function deleteService(id) {
             Swal.fire({
                 title: "Bạn có chắc muốn xóa?",
-                text: "Bạn có thể lấy lại sản phẩm này ở thùng rác.",
+                text: "Dữ liệu sẽ bị xóa và không khôi phục lại được.",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
