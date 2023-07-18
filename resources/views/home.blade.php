@@ -217,7 +217,7 @@
                                                             alt="Product" />
                                                     </a>
                                                     <span class="badges">
-                                                        <span class="sale">Giảm giá</span>
+                                                        <span class="sale">Giảm {{100 - ($item->discount_price/$item->price) * 100}}%</span>
                                                     </span>
                                                     <div class="action-wrapper">
                                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
