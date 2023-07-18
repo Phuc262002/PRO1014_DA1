@@ -63,13 +63,11 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-grow-1 overflow-hidden">
                                                     <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Total Earnings
+                                                        Tổng doanh thu
                                                     </p>
                                                 </div>
                                                 <div class="flex-shrink-0">
                                                     <h5 class="text-success fs-14 mb-0">
-                                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
-                                                        +16.24 %
                                                     </h5>
                                                 </div>
                                             </div>
@@ -78,8 +76,6 @@
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         $<span class="counter-value" data-target="559.25">0</span>k
                                                     </h4>
-                                                    <a href="#" class="text-decoration-underline">View net
-                                                        earnings</a>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
                                                     <span class="avatar-title bg-success rounded fs-3">
@@ -101,13 +97,11 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-grow-1 overflow-hidden">
                                                     <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Orders
+                                                        Đơn hàng
                                                     </p>
                                                 </div>
                                                 <div class="flex-shrink-0">
                                                     <h5 class="text-danger fs-14 mb-0">
-                                                        <i class="ri-arrow-right-down-line fs-13 align-middle"></i>
-                                                        -3.57 %
                                                     </h5>
                                                 </div>
                                             </div>
@@ -116,7 +110,6 @@
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         <span class="counter-value" data-target="36894">0</span>
                                                     </h4>
-                                                    <a href="#" class="text-decoration-underline">View all orders</a>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
                                                     <span class="avatar-title bg-info rounded fs-3">
@@ -138,13 +131,11 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-grow-1 overflow-hidden">
                                                     <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Customers
+                                                        Khách hàng
                                                     </p>
                                                 </div>
                                                 <div class="flex-shrink-0">
                                                     <h5 class="text-success fs-14 mb-0">
-                                                        <i class="ri-arrow-right-up-line fs-13 align-middle"></i>
-                                                        +29.08 %
                                                     </h5>
                                                 </div>
                                             </div>
@@ -153,7 +144,6 @@
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         <span class="counter-value" data-target="183.35">0</span>M
                                                     </h4>
-                                                    <a href="#" class="text-decoration-underline">See details</a>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
                                                     <span class="avatar-title bg-warning rounded fs-3">
@@ -175,11 +165,10 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-grow-1 overflow-hidden">
                                                     <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        My Balance
+                                                        Dịch vụ
                                                     </p>
                                                 </div>
                                                 <div class="flex-shrink-0">
-                                                    <h5 class="text-muted fs-14 mb-0">+0.00 %</h5>
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-end justify-content-between mt-4">
@@ -187,11 +176,10 @@
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         $<span class="counter-value" data-target="165.89">0</span>k
                                                     </h4>
-                                                    <a href="#" class="text-decoration-underline">Withdraw money</a>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
                                                     <span class="avatar-title bg-danger rounded fs-3">
-                                                        <i class="bx bx-wallet"></i>
+                                                        <i class="bx bx-aperture"></i>
                                                     </span>
                                                 </div>
                                             </div>
@@ -208,7 +196,7 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header border-0 align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">Revenue</h4>
+                                            <h4 class="card-title mb-0 flex-grow-1">Doanh thu</h4>
                                             <div>
                                                 <button type="button" class="btn btn-soft-secondary btn-sm shadow-none">
                                                     ALL
@@ -228,43 +216,33 @@
 
                                         <div class="card-header p-0 border-0 bg-soft-light">
                                             <div class="row g-0 text-center">
-                                                <div class="col-6 col-sm-3">
+                                                <div class="col-6 col-sm-4">
                                                     <div class="p-3 border border-dashed border-start-0">
                                                         <h5 class="mb-1">
                                                             <span class="counter-value" data-target="7585">0</span>
                                                         </h5>
-                                                        <p class="text-muted mb-0">Orders</p>
+                                                        <p class="text-muted mb-0">Đơn hàng</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-6 col-sm-3">
+                                                <div class="col-6 col-sm-4">
                                                     <div class="p-3 border border-dashed border-start-0">
                                                         <h5 class="mb-1">
                                                             $<span class="counter-value" data-target="22.89">0</span>k
                                                         </h5>
-                                                        <p class="text-muted mb-0">Earnings</p>
+                                                        <p class="text-muted mb-0">Doanh thu</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-6 col-sm-3">
+                                                <div class="col-6 col-sm-4">
                                                     <div class="p-3 border border-dashed border-start-0">
                                                         <h5 class="mb-1">
                                                             <span class="counter-value" data-target="367">0</span>
                                                         </h5>
-                                                        <p class="text-muted mb-0">Refunds</p>
+                                                        <p class="text-muted mb-0">Đã hủy</p>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-                                                <div class="col-6 col-sm-3">
-                                                    <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                                        <h5 class="mb-1 text-success">
-                                                            <span class="counter-value" data-target="18.92">0</span>%
-                                                        </h5>
-                                                        <p class="text-muted mb-0">
-                                                            Conversation Ratio
-                                                        </p>
-                                                    </div>
-                                                </div>
                                                 <!--end col-->
                                             </div>
                                         </div>
