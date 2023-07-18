@@ -395,11 +395,11 @@
                     <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1000">
                         <!-- Single Blog Start -->
                         <div class="single-blog-wrapper">
-
+                            @foreach ($category_blog as $item)
                             <!-- Blog Thumb Start -->
                             <div class="blog-thumb thumb-effect">
                                 <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="assets/images/blog/medium-size/1.jpg" alt="Blog Image">
+                                    <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
                                 </a>
                             </div>
                             <!-- Blog Thumb End -->
@@ -419,7 +419,7 @@
                                 <a class="more-link" href="blog-details.html">Read More</a>
                             </div>
                             <!-- Blog Content End -->
-
+                            @endforeach
                         </div>
                         <!-- Single Blog End -->
                     </div>
