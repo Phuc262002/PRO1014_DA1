@@ -12,8 +12,9 @@ class ShopController extends Controller
      */
     public function index()
     {
+        $title="Pets Care - Luôn đồng hành cùng thú cưng của bạn";
         $product = Product::paginate(12);
-        return view('pages.client.shop' , compact('product'));
+        return view('pages.client.shop' , compact('title','product'));
     }
 
     /**

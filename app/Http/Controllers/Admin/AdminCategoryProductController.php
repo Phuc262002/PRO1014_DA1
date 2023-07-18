@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class AdminCategoryProductController extends Controller
 {
@@ -29,19 +30,19 @@ class AdminCategoryProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         $category = Category::create($request->all());
         if ($category) {
             if($request->save_action == 'save_and_back'){
-                return redirect()->route('category-product.index')->with('success', "Cập nhật sản phẩm thành công.");
+                return redirect()->route('category-product.index')->with('success', "Thêm danh mục sản phẩm thành công.");
             } else if ($request->save_action == 'save_and_edit'){
-                return back()->with('success', "Cập nhật sản phẩm thành công.");
+                return back()->with('success', "Cập nhật danh mục sản phẩm thành công.");
             } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('category-product.create')->with('success', "Cập nhật sản phẩm thành công.");
+                return redirect()->route('category-product.create')->with('success', "Cập nhật danh mục sản phẩm thành công.");
             }
         } else {
-            return back()->with('error', "Cập nhật sản phẩm thất bại.");
+            return back()->with('error', "Cập nhật danh mục sản phẩm thất bại.");
         }
 
         
@@ -69,7 +70,7 @@ class AdminCategoryProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category, $category_product = null)
+    public function update(CategoryRequest $request, Category $category, $category_product = null)
     {
         $update_product_category = Category::updateOrCreate([
             'id' => $category_product
@@ -77,14 +78,14 @@ class AdminCategoryProductController extends Controller
 
         if ($update_product_category) {
             if($request->save_action == 'save_and_back'){
-                return redirect()->route('category-product.index')->with('success', "Cập nhật sản phẩm thành công.");
+                return redirect()->route('category-product.index')->with('success', "Cập nhật danh mục sản phẩm thành công.");
             } else if ($request->save_action == 'save_and_edit'){
-                return back()->with('success', "Cập nhật sản phẩm thành công.");
+                return back()->with('success', "Cập nhật danh mục sản phẩm thành công.");
             } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('category-product.create')->with('success', "Cập nhật sản phẩm thành công.");
+                return redirect()->route('category-product.create')->with('success', "Cập nhật danh mục sản phẩm thành công.");
             }
         } else {
-            return back()->with('error', "Cập nhật sản phẩm thất bại.");
+            return back()->with('error', "Cập nhật danh mục sản phẩm thất bại.");
         }
     }
 
@@ -97,9 +98,9 @@ class AdminCategoryProductController extends Controller
             $delete_category_product = Category::destroy($category_product);
 
             if ($delete_category_product) {
-                return back()->with('success', "Xóa sản phẩm thành công.");
+                return back()->with('success', "Xóa danh mục sản phẩm thành công.");
             } else {
-                return back()->with('error', "Xóa sản phẩm thất bại.");
+                return back()->with('error', "Xóa danh mục sản phẩm thất bại.");
             }
         } catch (\Exception $e) {
             return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
