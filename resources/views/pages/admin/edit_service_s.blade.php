@@ -50,7 +50,7 @@
                                                 <input type="text" name="icon" class="form-control" id="basiInput" value="{{$service->icon}}">
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Giá bán</label>
+                                                <label for="basiInput" class="form-label">Giá dịch vụ</label>
                                                 <input type="text" name="price" class="form-control" id="basiInput" value="{{$service->price}}">
                                             </div>
                                             <div class="col-lg-6">

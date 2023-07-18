@@ -10,13 +10,9 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\AdminBannerController;
-=======
 use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
->>>>>>> 4311527ca89bc3789fd81aa8d179ad8c00bb5c69
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\UserController;
 
@@ -139,14 +135,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resources([
         'product' => AdminProductController::class,
-<<<<<<< HEAD
-        'service' => ServiceController::class,
         'banner' => AdminBannerController::class,    
-=======
         'category-product' => AdminCategoryProductController::class,
         'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
->>>>>>> 4311527ca89bc3789fd81aa8d179ad8c00bb5c69
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
