@@ -107,7 +107,7 @@
         function deleteCategoryProduct(id) {
             Swal.fire({
                 title: "Bạn có chắc muốn xóa?",
-                text: "Bạn có thể lấy lại sản phẩm này ở thùng rác.",
+                text: "Bạn có thể lấy lại danh mục sản phẩm này ở thùng rác.",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",

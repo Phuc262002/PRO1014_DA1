@@ -111,6 +111,16 @@ class AdminPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        try {
+            $delete_post = Post::destroy($post->id);
+
+            if ($delete_post) {
+                return back()->with('success', "Xóa bài Blog thành công.");
+            } else {
+                return back()->with('error', "Xóa bài Blog thất bại.");
+            }
+        } catch (\Exception $e) {
+            return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+        }
     }
 }
