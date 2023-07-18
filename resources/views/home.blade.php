@@ -392,10 +392,10 @@
 
                 <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 m-b-n40">
 
+                    @foreach ($blog as $item)
                     <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1000">
                         <!-- Single Blog Start -->
                         <div class="single-blog-wrapper">
-                            @foreach ($category_blog as $item)
                             <!-- Blog Thumb Start -->
                             <div class="blog-thumb thumb-effect">
                                 <a class="image" href="blog-details.html">
@@ -408,8 +408,8 @@
                             <div class="blog-content">
                                 <div class="blog-meta">
                                     <ul>
-                                        <li><span>By</span><a href="#/">Admin</a></li>
-                                        <li><span>27, Jan, 2021</span></li>
+                                        <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
+                                        <li><span>{{ toDateString($item->created_at)}}</span></li>
                                     </ul>
                                 </div>
                                 <h2 class="blog-title"><a href="blog-details.html">How to take care of your fish</a></h2>
@@ -419,74 +419,14 @@
                                 <a class="more-link" href="blog-details.html">Read More</a>
                             </div>
                             <!-- Blog Content End -->
-                            @endforeach
                         </div>
                         <!-- Single Blog End -->
                     </div>
+                    @endforeach
 
-                    <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1300">
-                        <!-- Single Blog Start -->
-                        <div class="single-blog-wrapper">
+                    
 
-                            <!-- Blog Thumb Start -->
-                            <div class="blog-thumb thumb-effect">
-                                <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="assets/images/blog/medium-size/2.jpg" alt="Blog Image">
-                                </a>
-                            </div>
-                            <!-- Blog Thumb End -->
-
-                            <!-- Blog Content Start -->
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By</span><a href="#/">Admin</a></li>
-                                        <li><span>12, Feb, 2021</span></li>
-                                    </ul>
-                                </div>
-                                <h2 class="blog-title"><a href="blog-details.html">Find the male and female fish</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
-                            </div>
-                            <!-- Blog Content End -->
-
-                        </div>
-                        <!-- Single Blog End -->
-                    </div>
-
-                    <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1600">
-                        <!-- Single Blog Start -->
-                        <div class="single-blog-wrapper">
-
-                            <!-- Blog Thumb Start -->
-                            <div class="blog-thumb thumb-effect">
-                                <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="assets/images/blog/medium-size/3.jpg" alt="Blog Image">
-                                </a>
-                            </div>
-                            <!-- Blog Thumb End -->
-
-                            <!-- Blog Content Start -->
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By</span><a href="#/">Admin</a></li>
-                                        <li><span>20, March, 2021</span></li>
-                                    </ul>
-                                </div>
-                                <h2 class="blog-title"><a href="blog-details.html">Tips for taking care of dogs</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
-                            </div>
-                            <!-- Blog Content End -->
-
-                        </div>
-                        <!-- Single Blog End -->
-                    </div>
+                    
 
                 </div>
 
@@ -521,10 +461,6 @@
                                             </a>
                                         @endforeach
                                     </div>
-
-                                    <!-- Swiper Pagination Start -->
-                                    <!-- <div class="swiper-pagination d-md-none"></div> -->
-                                    <!-- Swiper Pagination End -->
 
                                     <!-- Next Previous Button Start -->
                                     <div class="swiper-product-button-next swiper-button-next"><i

@@ -48,11 +48,11 @@ class HomeController extends Controller
                         ->get();
             
         $blog = Post::orderBy('created_at', 'desc')
-                    ->with('')
+                    ->with('category','user_post')
                     ->take(3)
                     ->get();
 
-        return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale'));
+        return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale','blog'));
         
     }
 }
