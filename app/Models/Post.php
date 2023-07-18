@@ -22,4 +22,14 @@ class Post extends Model
         'status'
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function user_post()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
