@@ -10,6 +10,9 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminBannerController;
+use App\Http\Controllers\Admin\AdminCategoryProductController;
+use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\UserController;
 
@@ -132,6 +135,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resources([
         'product' => AdminProductController::class,
+        'banner' => AdminBannerController::class,    
+        'category-product' => AdminCategoryProductController::class,
+        'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
     ]);
 
@@ -236,6 +242,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
 
 });
+
+
 
 Route::get('404', function () {
     return view('errors.404');

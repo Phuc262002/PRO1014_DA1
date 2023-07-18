@@ -59,7 +59,6 @@ class RegisterController extends Controller
 
         $user = User::where([
             'email' => $request->email,
-            'google_id' => null,
             'facebook_id' => null,
             'github_id' => null,
         ])->first();
@@ -126,7 +125,6 @@ class RegisterController extends Controller
         
         $user = User::where([
             'email' => $request->email,
-            'google_id' => null,
             'facebook_id' => null,
             'github_id' => null,
         ])->first();

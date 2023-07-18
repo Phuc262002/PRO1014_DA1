@@ -56,7 +56,6 @@
                                                                 for="responsivetableCheck"></label>
                                                         </div>
                                                     </th>
-                                                    <th scope="col">ID</th>
                                                     <th scope="col">Tên dịch vụ</th>
                                                     <th scope="col">Hình Ảnh</th>
                                                     <th scope="col">Icon</th>
@@ -78,7 +77,6 @@
                                                                 for="responsivetableCheck01"></label>
                                                         </div>
                                                     </th>
-                                                    <td><a href="#" class="fw-medium">#{{$item->id}}</a></td>
                                                     <td>{{$item->name}}</td>
                                                     <td>
                                                         <div class="flex-shrink-0">

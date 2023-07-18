@@ -114,13 +114,13 @@
                     <div class="collapse menu-dropdown" id="sidebarPages1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.list_product') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('category-product.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả danh mục
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_list_product') }}" class="nav-link"
+                                <a href="{{ route('category-product.create') }}" class="nav-link"
                                     data-key="t-team">
                                     Thêm danh mục
                                 </a>
@@ -211,13 +211,13 @@
                     <div class="collapse menu-dropdown" id="sidebarBlog1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.list_blog') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('category-blog.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả danh mục
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_list_blog') }}" class="nav-link"
+                                <a href="{{ route('category-blog.create') }}" class="nav-link"
                                     data-key="t-team">
                                     Thêm danh mục
                                 </a>
@@ -346,7 +346,7 @@
                     <div class="collapse menu-dropdown" id="sidebarSettings">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.banner_slider_manager') }}" class="nav-link"
+                                <a href="{{ route('banner.index') }}" class="nav-link"
                                     data-key="t-team">
                                     Quản lí banner và slider
                                 </a>
