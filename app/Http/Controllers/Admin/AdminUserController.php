@@ -14,7 +14,7 @@ class AdminUserController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản trị người dùng';
-        $users = User::where(['is_admin' => false])->paginate(10);
+        $users = User::paginate(10);
         return view('pages.admin.user_manager', compact('title', 'users'));
     }
 
@@ -47,6 +47,7 @@ class AdminUserController extends Controller
      */
     public function edit(User $user)
     {
+
         return view('pages.admin.edit_user', compact('user'));
     }
 
@@ -69,7 +70,6 @@ class AdminUserController extends Controller
         } else {
             return back()->with('error', "Cập nhật sản phẩm thất bại.");
         }
-        dd($request->all());
     }
 
     /**
@@ -77,6 +77,16 @@ class AdminUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        try {
+            $delete_user = User::destroy($user->id);
+
+            if ($delete_user) {
+                return back()->with('success', "Xóa thành công.");
+            } else {
+                return back()->with('error', "Xóa thất bại.");
+            }
+        } catch (\Exception $e) {
+            return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+        }
     }
 }

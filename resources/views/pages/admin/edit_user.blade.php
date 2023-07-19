@@ -18,6 +18,21 @@
                             </div><!-- end card header -->
 
                             <div class="card-body">
+                                @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if (session('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first() }}
+                                    </div>
+                                @endif
                                 <div class="live-preview">
                                     <form action="{{ route('user.update', ['user' => $user->id]) }}" method="post"
                                         enctype="multipart/form-data" class="row g-3">
@@ -114,7 +129,8 @@
                                             </ul>
                                         </div>
                                         <div class="col-lg-3 mt-3">
-                                            <input type="hidden" id="save_action" name="save_action" value="save_and_back">
+                                            <input type="hidden" id="save_action" name="save_action"
+                                                value="save_and_back">
                                             <div class="btn-group" role="group"
                                                 aria-label="Button group with nested dropdown">
                                                 <button class="btn btn-success shadow-none">Lưu và Quay lại</button>

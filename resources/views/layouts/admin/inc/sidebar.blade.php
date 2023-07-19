@@ -49,7 +49,7 @@
                         <i class="mdi mdi-account-circle-outline"></i>
                         <span data-key="t-authentication">Quản lý tài khoản</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarAuth">
+                    {{-- <div class="collapse menu-dropdown" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('admin.admin_manager') }}" class="nav-link" data-key="t-starter">
@@ -57,25 +57,25 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                     <div class="collapse menu-dropdown" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('user.index') }}" class="nav-link" data-key="t-starter">
-                                    Tài khoản người dùng
+                                    Tất cả tài khoản
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="collapse menu-dropdown" id="sidebarAuth">
+                    {{-- <div class="collapse menu-dropdown" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_user') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('user.create') }}" class="nav-link" data-key="t-starter">
                                     Thêm tài khoản
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </li>
                 <li class="menu-title">
                     <i class="ri-more-fill"></i>
@@ -114,8 +114,7 @@
                     <div class="collapse menu-dropdown" id="sidebarPages1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('category-product.index') }}" class="nav-link"
-                                    data-key="t-starter">
+                                <a href="{{ route('category-product.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả danh mục
                                 </a>
                             </li>
