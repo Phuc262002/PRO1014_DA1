@@ -128,7 +128,8 @@
                         <div class="quantity d-flex align-items-center m-b-25">
                             <span class="m-r-10"><strong>Số Lượng: </strong></span>
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" value="1" type="text">
+                                <input class="cart-plus-minus-box" id="quantyCart_{{ $product->id }}"
+                                min="1" value="1" type="text">
                                 <div class="dec qtybutton"></div>
                                 <div class="inc qtybutton"></div>
                             </div>
@@ -139,10 +140,9 @@
                         <div class="cart-btn action-btn m-b-30">
                             <div class="action-cart-btn-wrapper d-flex">
                                 <div class="add-to_cart">
-                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="cart.html">Thêm Vào Giỏ
+                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCartQuality({{$product->id}})">Thêm Vào Giỏ
                                         Hàng</a>
                                 </div>
-                                <a href="wishlist.html" title="Wishlist" class="action"><i class="ti-heart"></i></a>
                             </div>
                         </div>
                         <!-- Cart Button End -->
@@ -176,10 +176,6 @@
                         <li class="nav-item m-b-15">
                             <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#connect-3" role="tab"
                                 aria-selected="false">Chính sách vận chuyển</a>
-                        </li>
-                        <li class="nav-item m-b-15">
-                            <a class="nav-link" id="review-tab" data-bs-toggle="tab" href="#connect-4" role="tab"
-                                aria-selected="false">Kích thước sản phẩm</a>
                         </li>
                     </ul>
 
@@ -332,55 +328,6 @@
                             </div>
                             <!-- Shipping Policy End -->
                         </div>
-                        <div class="tab-pane fade" id="connect-4" role="tabpanel" aria-labelledby="review-tab">
-                            <div class="size-tab table-responsive-lg m-t-40">
-                                <h4 class="title-3 m-b-20">Size Chart</h4>
-                                <table class="table border mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <td class="cun-name"><span>UK</span></td>
-                                            <td>18</td>
-                                            <td>20</td>
-                                            <td>22</td>
-                                            <td>24</td>
-                                            <td>26</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cun-name"><span>European</span></td>
-                                            <td>46</td>
-                                            <td>48</td>
-                                            <td>50</td>
-                                            <td>52</td>
-                                            <td>54</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cun-name"><span>usa</span></td>
-                                            <td>14</td>
-                                            <td>16</td>
-                                            <td>18</td>
-                                            <td>20</td>
-                                            <td>22</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cun-name"><span>Australia</span></td>
-                                            <td>28</td>
-                                            <td>10</td>
-                                            <td>12</td>
-                                            <td>14</td>
-                                            <td>16</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cun-name"><span>Canada</span></td>
-                                            <td>24</td>
-                                            <td>18</td>
-                                            <td>14</td>
-                                            <td>42</td>
-                                            <td>36</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -427,8 +374,6 @@
                                                 <div class="action-wrapper">
                                                     <a href="#/" class="action quickview" data-bs-toggle="modal"
                                                         data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                            class="ti-heart"></i></a>
                                                     <a href="cart.html" class="action cart" title="Cart"><i
                                                             class="ti-shopping-cart"></i></a>
                                                 </div>
@@ -521,8 +466,6 @@
                                                 <div class="action-wrapper">
                                                     <a href="#/" class="action quickview" data-bs-toggle="modal"
                                                         data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                            class="ti-heart"></i></a>
                                                     <a href="cart.html" class="action cart" title="Cart"><i
                                                             class="ti-shopping-cart"></i></a>
                                                 </div>
@@ -569,8 +512,6 @@
                                                     <a href="#/" class="action quickview" data-bs-toggle="modal"
                                                         data-bs-target="#quick-view" title="Quickview"><i
                                                             class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                            class="ti-heart"></i></a>
                                                     <a href="cart.html" class="action cart" title="Cart"><i
                                                             class="ti-shopping-cart"></i></a>
                                                 </div>
@@ -615,8 +556,6 @@
                                                 <div class="action-wrapper">
                                                     <a href="#/" class="action quickview" data-bs-toggle="modal"
                                                         data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                            class="ti-heart"></i></a>
                                                     <a href="cart.html" class="action cart" title="Cart"><i
                                                             class="ti-shopping-cart"></i></a>
                                                 </div>
