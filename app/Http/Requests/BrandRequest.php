@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rule;
+
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,11 +26,23 @@ class BrandRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
     public function rules(): array
+    
     {
+        $brandID = $this->route('brand');
+
         return [
-            'name'=> 'required',
-            'nation'=> 'required',
-            'slug'=> 'required',
+            
+            'name' => [
+                'required',
+                Rule::unique('brands')->ignore($brandID),
+                'max:255',
+            ],
+            'slug' => [
+                'required',
+                Rule::unique('brands')->ignore($brandID),
+                'max:255',
+            ],
+            'nation' => 'required'
         ];
     }
     public function messages(): array
