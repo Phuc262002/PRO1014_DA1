@@ -9,20 +9,20 @@
         <div class="hero-slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach ($slider as $item)
-                <div class="hero-slide-item swiper-slide">
-                    <div class="hero-slide-bg">
-                        <img src="{{$item->img_banner}}" alt="Slider Image" />
-                    </div>
-                    <div class="container">
-                        <div class="hero-slide-content text-start">
-                            <h5 class="sub-title">{{$item->title}}</h5>
-                            {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
-                            <p class="ms-0">{!!$item->introduction !!}</p>
-                            <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                    <div class="hero-slide-item swiper-slide">
+                        <div class="hero-slide-bg">
+                            <img src="{{ $item->img_banner }}" alt="Slider Image" />
+                        </div>
+                        <div class="container">
+                            <div class="hero-slide-content text-start">
+                                <h5 class="sub-title">{{ $item->title }}</h5>
+                                {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
+                                <p class="ms-0">{!! $item->introduction !!}</p>
+                                <a href="{{ route('shop') }}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-             @endforeach
+                @endforeach
 
                 {{-- <div class="hero-slide-item swiper-slide">
                     <div class="hero-slide-bg">
@@ -159,7 +159,7 @@
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
                                                     <a href="single-product.html" class="image">
-                                                        <img class="fit-image" src="{{ $item->image_main }}" 
+                                                        <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
                                                     </a>
 
@@ -217,7 +217,8 @@
                                                             alt="Product" />
                                                     </a>
                                                     <span class="badges">
-                                                        <span class="sale">Giảm {{100 - ($item->discount_price/$item->price) * 100}}%</span>
+                                                        <span class="sale">Giảm
+                                                            {{ 100 - ($item->discount_price / $item->price) * 100 }}%</span>
                                                     </span>
                                                     <div class="action-wrapper">
                                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
@@ -393,38 +394,38 @@
                 <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 m-b-n40">
 
                     @foreach ($blog as $item)
-                    <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1000">
-                        <!-- Single Blog Start -->
-                        <div class="single-blog-wrapper">
-                            <!-- Blog Thumb Start -->
-                            <div class="blog-thumb thumb-effect">
-                                <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
-                                </a>
-                            </div>
-                            <!-- Blog Thumb End -->
-
-                            <!-- Blog Content Start -->
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
-                                        <li><span>{{ $item->created_at->format('d-m-y')}}</span></li>
-                                    </ul>
+                        <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1000">
+                            <!-- Single Blog Start -->
+                            <div class="single-blog-wrapper">
+                                <!-- Blog Thumb Start -->
+                                <div class="blog-thumb thumb-effect">
+                                    <a class="image" href="blog-details.html">
+                                        <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
+                                    </a>
                                 </div>
-                                <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
-                                <p>{{ $item->description }}</p>
-                                <a class="more-link" href="blog-details.html">Xem thêm...</a>
+                                <!-- Blog Thumb End -->
+
+                                <!-- Blog Content Start -->
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <ul>
+                                            <li><span>By</span><a href="">{{ $item->user_post->name }}</a></li>
+                                            <li><span>{{ $item->created_at->format('d-m-y') }}</span></li>
+                                        </ul>
+                                    </div>
+                                    <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                    <p>{{ $item->description }}</p>
+                                    <a class="more-link" href="blog-details.html">Xem thêm...</a>
+                                </div>
+                                <!-- Blog Content End -->
                             </div>
-                            <!-- Blog Content End -->
+                            <!-- Single Blog End -->
                         </div>
-                        <!-- Single Blog End -->
-                    </div>
                     @endforeach
 
-                    
 
-                    
+
+
 
                 </div>
 
@@ -527,7 +528,8 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}"
+                                            min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>
@@ -539,7 +541,8 @@
                                     <div class="action-cart-btn-wrapper d-flex justify-content-start">
                                         <div class="add-to_cart">
                                             <a class="btn btn-primary btn-hover-dark rounded-0"
-                                                href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ hàng</a>
+                                                href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ
+                                                hàng</a>
                                         </div>
 
                                     </div>
@@ -654,7 +657,8 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}"
+                                            min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>
@@ -666,7 +670,8 @@
                                     <div class="action-cart-btn-wrapper d-flex justify-content-start">
                                         <div class="add-to_cart">
                                             <a class="btn btn-primary btn-hover-dark rounded-0"
-                                                href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ hàng</a>
+                                                href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ
+                                                hàng</a>
                                         </div>
 
                                     </div>

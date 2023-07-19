@@ -30,8 +30,8 @@
                                     </div>
                                 @endif
                                 <div class="live-preview">
-                                    <form id="form_edit" action="{{ route('product.update', ['product' => $id]) }}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form id="form_edit" action="{{ route('product.update', ['product' => $id]) }}"
+                                        method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row g-3">

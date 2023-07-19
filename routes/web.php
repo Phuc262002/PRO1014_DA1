@@ -245,6 +245,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-binh-luan', function () {
         return view('pages.admin.comment_manager');
     })->name('admin.comment_manager');
+    Route::get('Chinh-sua-nguoi-dung', function () {
+        return view('pages.admin.edit_user');
+    })->name('admin.edit_user');
 
 
 
