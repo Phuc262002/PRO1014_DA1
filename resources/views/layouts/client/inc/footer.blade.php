@@ -319,7 +319,12 @@
                          cartItems = JSON.parse(existingCart);
                          const existingProduct = cartItems.find(item => item.id === response.data.id);
                          if (existingProduct) {
-                             existingProduct.quantity += 1;
+                            if(existingProduct.quantity < response.data.in_stock) {
+                                existingProduct.quantity += 1;
+                            } else {
+                                Error('Số lượng sản phẩm trong kho không đủ');
+                                return;
+                            }
                          } else {
                              cartItems.push(response.data);
                          }
@@ -342,7 +347,7 @@
      function addCartQuality(id) {
          let quantity = $('#quantyCart_' + id).val();
          if (quantity < 1) {
-             Error('Số lượng phải lớn hơn 0');
+             Error('Số lượng phải là số và lớn hơn 0');
              return;
          }
          $.ajax({
@@ -355,8 +360,16 @@
                          cartItems = JSON.parse(existingCart);
                          const existingProduct = cartItems.find(item => item.id === response.data.id);
                          if (existingProduct) {
+                            if (existingProduct.quantity + parseInt(quantity) > response.data.in_stock) {
+                                Error('Số lượng sản phẩm trong kho không đủ');
+                                return;
+                            }
                              existingProduct.quantity += parseInt(quantity);
                          } else {
+                            if(parseInt(quantity) > response.data.in_stock) {
+                                Error('Số lượng sản phẩm trong kho không đủ');
+                                return;
+                            }
                              response.data.quantity = parseInt(quantity);
                              cartItems.push(response.data);
                          }
@@ -393,7 +406,7 @@
                                    <div class="cart-product-content">
                                        <h3 class="title"><a href="single-product.html">${item.name}</a></h3>
                                        <div class="product-quty-price">
-                                           <span class="cart-quantity">Qty: <strong> ${item.quantity} </strong></span>
+                                           <span class="cart-quantity">Số lượng: <strong> ${item.quantity} </strong></span>
                                            <span class="price">
                                            <span class="new">${formatVietnamDong(item.price)}</span>
                                            </span>
@@ -407,9 +420,11 @@
              });
 
              cartWrapper.html(cartHtmls);
+             $('.header-action-num').html(cartItems.length);
          } else {
              $('#cart-product').html('');
              $('.cart-product-wrapper').html('');
+             $('.header-action-num').html('0');
          }
          totalCartMoney()
      }

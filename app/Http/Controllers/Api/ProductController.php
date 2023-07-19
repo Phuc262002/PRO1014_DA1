@@ -32,13 +32,15 @@ class ProductController extends Controller
         $product_data = [
             'id' => $product->id,
             'name' => $product->name,
-            'price' => $product->price,
+            'price' => $product->discount_price > 0 ? $product->discount_price : $product->price,
+            'price_original' => $product->price,
             'discount_price' => $product->discount_price,
             'image_main' => $product->image_main,
-            'quantity' => 1
+            'quantity' => 1,
+            'in_stock' => $product->quantity,
 
         ];
-
+        
         return [
             'status' => 200,
             'data' => $product_data

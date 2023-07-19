@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
      <!-- Breadcrumb Area Start -->
      <div class="section breadcrumb-area bg-name-bright">
@@ -73,7 +75,7 @@
                                         <img class="fit-image" src="{{$item->image_main}}" alt="Product" />
                                     </a>
                                     <span class="badges">
-                                            <span class="sale">Giảm {{100 -$item->discount_price/$item->price * 100}}%</span>
+                                            <span class="sale">Giảm {{ceil(100 -$item->discount_price/$item->price * 100)}}%</span>
                                     </span>
                                     <div class="action-wrapper">
                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
@@ -297,14 +299,14 @@
                             <!-- Product Inventory End -->
 
                             <!-- Description Start -->
-                            <p class="desc-content m-b-25">{!!$item->description_detail!!}</p>
+                            <p class="desc-content m-b-25">{!!$item->description_summary!!}</p>
                             <!-- Description End -->
 
                             <!-- Quantity Start -->
                             <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                 <span class="m-r-10"><strong>Số lượng: </strong></span>
                                 <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" value="1" type="text">
+                                    <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                     <div class="dec qtybutton"></div>
                                     <div class="inc qtybutton"></div>
                                 </div>
@@ -315,7 +317,7 @@
                             <div class="cart-btn action-btn m-b-30">
                                 <div class="action-cart-btn-wrapper d-flex justify-content-start">
                                     <div class="add-to_cart">
-                                        <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCart({{ $item->id }})">Thêm vào giỏ hàng</a>
+                                        <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ hàng</a>
                                     </div>
                                     
                                 </div>

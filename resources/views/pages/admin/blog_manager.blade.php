@@ -41,9 +41,7 @@
                                             </th>
                                             <th data-ordering="false">Tiêu đề</th>
                                             <th data-ordering="false">Hình ảnh</th>
-                                            <th>Slug</th>
                                             <th>Mô tả</th>
-                                            <th>Nội dung</th>
                                             <th data-ordering="false">Danh mục</th>                                           
                                             <th>Người đăng</th>
                                             <th>Số lượng bình luận</th>
@@ -66,9 +64,7 @@
                                                         width="100" height="100" />
                                                 </div>
                                             </td>
-                                            <td>{{$item->slug}}</td>
                                             <td>{!! $item->description !!}</td>
-                                            <td>{!! $item->content !!}</td>
                                             <td>{{$item->category->name}}</td>
                                             <td>{{$item->user_post->name}}</td>
                                             <td>{{$item->comment_count}}</td>
@@ -80,7 +76,7 @@
                                                             class="ri-edit-2-line"></i></a>
                                                     <a href="javascript:deletePost({{$item->id}});" class="link-danger fs-15"><i
                                                         class="ri-delete-bin-line"></i></a>
-                                                    <form id="delete_form_{{$item->id}}" action="{{ route('Post.destroy', ['post' => $item->id])}}" method="POST">
+                                                    <form id="delete_form_{{$item->id}}" action="{{ route('post.destroy', ['post' => $item->id])}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>

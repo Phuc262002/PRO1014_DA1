@@ -56,13 +56,15 @@
 
                         <!-- Cart Button left Side Start -->
                         <div class="cart-btn-lef-side m-b-20">
-                            <a href="{{route('shop')}}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua hàng</a>
+                            <a href="{{ route('shop') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua
+                                hàng</a>
                         </div>
                         <!-- Cart Button left Side End -->
 
                         <!-- Cart Button Right Side Start -->
                         <div class="cart-btn-right-right m-b-20">
-                            <a href="javascript:deleteCartAll()" class="btn btn btn-gray-deep btn-hover-primary">Xóa giỏ hàng</a>
+                            <a href="javascript:deleteCartAll()" class="btn btn btn-gray-deep btn-hover-primary">Xóa giỏ
+                                hàng</a>
                         </div>
                         <!-- Cart Button Right Side End -->
 
@@ -108,7 +110,8 @@
                         <!-- Cart Calculate Items End -->
 
                         <!-- Cart Checktout Button Start -->
-                        <a href="{{route('checkout')}}" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận thanh
+                        <a href="{{ route('checkout') }}" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận
+                            thanh
                             toán</a>
                         <!-- Cart Checktout Button End -->
 
@@ -147,7 +150,7 @@
                                 <td class="pro-quantity">
                                     <div class="quantity">
                                         <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" onchange="inputQuantityCart(${item.id})" value="${item.quantity}" type="text">
+                                            <input class="cart-plus-minus-box" onchange="inputQuantityCart(${item.id}, this)" value="${item.quantity}" type="text">
                                             <div class="dec qtybutton" onclick="dec_qtybutton(${item.id})">-</div>
                                             <div class="inc qtybutton" onclick="inc_qtybutton(${item.id})">+</div>
                                         </div>
@@ -161,7 +164,7 @@
                 cartWrapper.html(cartHtmls);
             } else {
                 $('#cart-product').html('');
-                $('.cart-product-wrapper').html('<h3 class="text-center">Không có sản phẩm nào trong giỏ hàng</h3>');
+                $('.cart-product-wrapper').html('');
             }
             totalCartMoney()
         }
@@ -181,16 +184,29 @@
         }
 
         function inc_qtybutton(id) {
-            const cartItems = JSON.parse(localStorage.getItem('cart'));
-            const newCartItems = cartItems.map(item => {
-                if (item.id === id) {
-                    item.quantity += 1;
+            $.ajax({
+                url: '{{ route('home') }}/api/products/' + id,
+                success: function(response) {
+                    const cartItems = JSON.parse(localStorage.getItem('cart'));
+                    const newCartItems = cartItems.map(item => {
+                        if (item.id === id) {
+                            if (item.quantity < response.data.in_stock) {
+                                item.quantity += 1;
+                            } else {
+                                Error('Số lượng sản phẩm trong kho không đủ');
+                            }
+                        }
+                        return item;
+                    });
+                    localStorage.setItem('cart', JSON.stringify(newCartItems));
+                    renderCart();
+                    renderCartHeader();
+
+                },
+                error: function(error) {
+                    console.log(error);
                 }
-                return item;
             });
-            localStorage.setItem('cart', JSON.stringify(newCartItems));
-            renderCart();
-            renderCartHeader();
         }
 
         function dec_qtybutton(id) {
@@ -208,22 +224,37 @@
             renderCartHeader();
         }
 
-        function inputQuantityCart(id) {
-            const cartItems = JSON.parse(localStorage.getItem('cart'));
-            const newCartItems = cartItems.map(item => {
-                if (item.id === id) {
-                    if(event.target.value > 0) {
-                        item.quantity = event.target.value;
-                    } else {
-                        item.quantity = 1;
-                        Error('Số lượng phải là số và lớn hơn 0');
-                    }
+        function inputQuantityCart(id, event) {
+            $.ajax({
+                url: '{{ route('home') }}/api/products/' + id,
+                success: function(response) {
+                    const cartItems = JSON.parse(localStorage.getItem('cart'));
+                    const newCartItems = cartItems.map(item => {
+                        if (item.id === id) {
+                            if ($(event).val() > 0) {
+                                if($(event).val() > response.data.in_stock){
+                                    item.quantity = response.data.in_stock;
+                                    Error('Số lượng sản phẩm trong kho không đủ');
+                                } else {
+                                    item.quantity = $(event).val();
+                                }
+                            } else {
+                                item.quantity = 1;
+                                Error('Số lượng phải là số và lớn hơn 0');
+                            }
+                        }
+                        return item;
+                    });
+                    localStorage.setItem('cart', JSON.stringify(newCartItems));
+                    renderCart();
+                    renderCartHeader();
+
+                },
+                error: function(error) {
+                    console.log(error);
                 }
-                return item;
             });
-            localStorage.setItem('cart', JSON.stringify(newCartItems));
-            renderCart();
-            renderCartHeader();
+
         }
 
         renderCart()

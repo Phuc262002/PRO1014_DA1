@@ -17,7 +17,7 @@
                         <div class="hero-slide-content text-start">
                             <h5 class="sub-title">{{$item->title}}</h5>
                             {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
-                            <p class="ms-0">{{$item->introduction}}</p>
+                            <p class="ms-0">{!!$item->introduction !!}</p>
                             <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
                                                         <div class="countdown-wrapper"
                                                             data-countdown="{{ $item->discount_end }}"></div>
                                                     </div>
-                                                    <a href="{{ route('cart') }}"
+                                                    <a href="javascript:addCart({{ $item->id }})"
                                                         class="btn btn-primary btn-hover-dark">Mua ngay</a>
                                                 </div>
 
@@ -409,7 +409,7 @@
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
-                                        <li><span>{{ $item->created_at->format('d/m/y')}}</span></li>
+                                        <li><span>{{ $item->created_at->format('d-m-y')}}</span></li>
                                     </ul>
                                 </div>
                                 <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
@@ -527,7 +527,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>
@@ -654,7 +654,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="bumber">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>

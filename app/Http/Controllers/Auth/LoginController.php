@@ -51,11 +51,21 @@ class LoginController extends Controller
                     'message' => 'Tài khoản chưa được xác thực',
                     'link_authencation' =>  route('verification.verify', ['email' => $email])
                 ];
+                
             } else {
-                return [
-                    'status' => 'success',
-                    'message' => 'Đăng nhập thành công'
-                ];
+                if(Auth::user()->status == false) {
+                    Auth::logout();
+                    return [
+                        'status' => 'error',
+                        'message' => 'Tài khoản của bạn đã bị khóa',
+                        'link_authencation' => route('preventAccount')
+                    ];
+                } else {
+                    return [
+                        'status' => 'success',
+                        'message' => 'Đăng nhập thành công'
+                    ];
+                }
             }
         }
     }
@@ -118,6 +128,10 @@ class LoginController extends Controller
                         'facebook_id' => null,
                         'github_id' => null
                     ])->first();
+
+                    if ($user->status == false) {
+                        return redirect()->route('preventAccount');
+                    }
                 }
             }
         }
@@ -165,7 +179,7 @@ class LoginController extends Controller
         $user_github = Socialite::driver('github')->user();
 
         if(!$user_github) {
-            return redirect()->route('login')->with('status', 'Something went wrong');
+            return redirect()->route('login')->with('status', 'Đã có lỗi xảy ra!');
         } else {
             $user = User::where([
                 'github_id' => $user_github->id,
@@ -184,11 +198,18 @@ class LoginController extends Controller
                     'confirmation_code' => Str::random(6),
                     'confirmation_code_expired_in' => now()
                 ]);
+
+                Auth::login($user, true);
+                return redirect()->route('home');
+            } else {
+                if ($user->status == false) {
+                    return redirect()->route('preventAccount');
+                } else {
+                    Auth::login($user, true);
+                    return redirect()->route('home');
+                }
             }
         }
-
-        Auth::login($user, true);
-        return redirect()->route('home');
         
     }
 
@@ -200,5 +221,10 @@ class LoginController extends Controller
         } else {
             return redirect()->route('login');
         }
+    }
+
+    public function preventAccount()
+    {
+        return view('pages.auth.preventAccount');
     }
 }
