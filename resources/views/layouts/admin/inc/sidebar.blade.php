@@ -61,7 +61,7 @@
                     <div class="collapse menu-dropdown" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.user_manager') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('user.index') }}" class="nav-link" data-key="t-starter">
                                     Tài khoản người dùng
                                 </a>
                             </li>

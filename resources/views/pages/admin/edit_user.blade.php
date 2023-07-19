@@ -55,14 +55,6 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                                <label class="form-check-label" for="gridCheck">
-                                                    Gửi tài khoản cho người dùng qua gmail.
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
                                             <div class="text-end">
                                                 <button type="submit" class="btn btn-primary">Cập nhật</button>
                                             </div>
@@ -72,9 +64,9 @@
                                 <div class="d-none code-view">
                                     <pre class="language-markup" style="height: 375px;">
 
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
 @endsection

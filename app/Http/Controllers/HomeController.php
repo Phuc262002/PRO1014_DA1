@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Banner;
+use App\Models\Post;   
+
 
 
 class HomeController extends Controller
@@ -25,8 +27,6 @@ class HomeController extends Controller
                         ->take(8)
                         ->with('image_list', 'brand', 'category')
                         ->get();
-    
-        
 
         $slider = Banner::where([
                             'status' => true,
@@ -45,8 +45,12 @@ class HomeController extends Controller
                         ->take(2)
                         ->get();
             
-
-        return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale'));
+        $blog = Post::orderBy('created_at', 'desc')
+                    ->with('category','user_post')
+                    ->take(3)
+                    ->get();
+                   
+        return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale','blog'));
         
     }
 }

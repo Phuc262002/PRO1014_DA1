@@ -3,7 +3,9 @@
 <link href="assets/css/services/reponsive.css" rel="stylesheet">
 <link href="assets/css/services/bootstrap.css" rel="stylesheet">
 
-
+@section('title')
+    {{ $title }}
+@endsection
 
 @section('content')
     <!--.service_area-->

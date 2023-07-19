@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Product;
+use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $title="Pets Care - Luôn đồng hành cùng thú cưng của bạn";
-        $product = Product::paginate(12);
-        return view('pages.client.shop' , compact('title','product'));
+        $title = 'Pets Care - Quản trị người dùng';
+        $users = User::where(['is_admin' => false])->paginate(10);
+        return view('pages.admin.user_manager', compact('title', 'users'));
     }
 
     /**
@@ -22,7 +23,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.form_add_user');
     }
 
     /**
@@ -36,7 +37,7 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(User $user)
     {
         //
     }
@@ -44,7 +45,7 @@ class ShopController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(User $user)
     {
         //
     }
@@ -52,7 +53,7 @@ class ShopController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -60,7 +61,7 @@ class ShopController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(User $user)
     {
         //
     }

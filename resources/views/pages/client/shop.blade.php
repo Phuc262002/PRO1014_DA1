@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
      <!-- Breadcrumb Area Start -->
      <div class="section breadcrumb-area bg-name-bright">
@@ -33,11 +35,9 @@
 
                             <div class="shop_toolbar_btn">
                                 <button data-role="grid_3" type="button" class="active btn-grid-3" title="Grid"><i class="ti-layout-grid4-alt"></i></button>
-                                <button data-role="grid_list" type="button" class="btn-list" title="List"><i class="ti-align-justify"></i></button>
+                                
                             </div>
-                            <div class="shop-top-show">
-                                <span>Hiển thị 1–12 của 39 kết quả</span>
-                            </div>
+                            
 
                         </div>
                         <!-- Shop Top Bar Left end -->
@@ -75,7 +75,7 @@
                                         <img class="fit-image" src="{{$item->image_main}}" alt="Product" />
                                     </a>
                                     <span class="badges">
-                                            <span class="sale">Giảm {{100 -$item->discount_price/$item->price * 100}}%</span>
+                                            <span class="sale">Giảm {{ceil(100 -$item->discount_price/$item->price * 100)}}%</span>
                                     </span>
                                     <div class="action-wrapper">
                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
@@ -210,96 +210,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="widget-list">
-                                <h3 class="widget-title m-b-30">Tìm kiếm gần đây</h3>
-                                <div class="sidebar-body product-list-wrapper m-b-n30">
-
-                                    <!-- Single Product List Start -->
-                                    <div class="single-product-list m-b-30">
-
-                                        <!-- Product List Thumb Start -->
-                                        <div class="product">
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image first-image" src="assets/images/products/small-product/1.png" alt="Product Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product List Thumb End -->
-
-                                        <!-- Product List Content Start -->
-                                        <div class="product-list-content">
-                                            <h6 class="product-name">
-                                                <a href="single-product.html">Pet Leaving House</a>
-                                            </h6>
-                                            <span class="price">
-                                                    <span class="new">$12.50</span>
-                                            <span class="old">$15.85</span>
-                                            </span>
-                                        </div>
-                                        <!-- Product List Content End -->
-
-                                    </div>
-                                    <!-- Single Product List End -->
-
-                                    <!-- Single Product List Start -->
-                                    <div class="single-product-list m-b-30">
-
-                                        <!-- Product List Thumb Start -->
-                                        <div class="product">
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image first-image" src="assets/images/products/small-product/2.png" alt="Product Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product List Thumb End -->
-
-                                        <!-- Product List Content Start -->
-                                        <div class="product-list-content">
-                                            <h6 class="product-name">
-                                                <a href="single-product.html">This is the testing</a>
-                                            </h6>
-                                            <span class="price">
-                                                    <span class="new">$10.50</span>
-                                            <span class="old">$12.85</span>
-                                            </span>
-                                        </div>
-                                        <!-- Product List Content End -->
-
-                                    </div>
-                                    <!-- Single Product List End -->
-
-                                    <!-- Single Product List Start -->
-                                    <div class="single-product-list m-b-30">
-
-                                        <!-- Product List Thumb Start -->
-                                        <div class="product">
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image first-image" src="assets/images/products/small-product/3.png" alt="Product Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Product List Thumb End -->
-
-                                        <!-- Product List Content Start -->
-                                        <div class="product-list-content">
-                                            <h6 class="product-name">
-                                                <a href="single-product.html">Animals for life</a>
-                                            </h6>
-                                            <span class="price">
-                                                    <span class="new">$22.50</span>
-                                            <span class="old">$25.85</span>
-                                            </span>
-                                        </div>
-                                        <!-- Product List Content End -->
-
-                                    </div>
-                                    <!-- Single Product List End -->
-
-                                </div>
-                            </div>
+                            
                         </div>
                     </aside>
                     <!-- Sidebar Widget End -->
@@ -388,14 +299,14 @@
                             <!-- Product Inventory End -->
 
                             <!-- Description Start -->
-                            <p class="desc-content m-b-25">{!!$item->description_detail!!}</p>
+                            <p class="desc-content m-b-25">{!!$item->description_summary!!}</p>
                             <!-- Description End -->
 
                             <!-- Quantity Start -->
                             <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                 <span class="m-r-10"><strong>Số lượng: </strong></span>
                                 <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" value="1" type="text">
+                                    <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                     <div class="dec qtybutton"></div>
                                     <div class="inc qtybutton"></div>
                                 </div>
@@ -406,7 +317,7 @@
                             <div class="cart-btn action-btn m-b-30">
                                 <div class="action-cart-btn-wrapper d-flex justify-content-start">
                                     <div class="add-to_cart">
-                                        <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCart({{ $item->id }})">Thêm vào giỏ hàng</a>
+                                        <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ hàng</a>
                                     </div>
                                     
                                 </div>

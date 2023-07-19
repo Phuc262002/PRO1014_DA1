@@ -17,7 +17,7 @@
                         <div class="hero-slide-content text-start">
                             <h5 class="sub-title">{{$item->title}}</h5>
                             {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
-                            <p class="ms-0">{{$item->introduction}}</p>
+                            <p class="ms-0">{!!$item->introduction !!}</p>
                             <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
                                                         <div class="countdown-wrapper"
                                                             data-countdown="{{ $item->discount_end }}"></div>
                                                     </div>
-                                                    <a href="{{ route('cart') }}"
+                                                    <a href="javascript:addCart({{ $item->id }})"
                                                         class="btn btn-primary btn-hover-dark">Mua ngay</a>
                                                 </div>
 
@@ -392,14 +392,14 @@
 
                 <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 m-b-n40">
 
+                    @foreach ($blog as $item)
                     <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1000">
                         <!-- Single Blog Start -->
                         <div class="single-blog-wrapper">
-
                             <!-- Blog Thumb Start -->
                             <div class="blog-thumb thumb-effect">
                                 <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="assets/images/blog/medium-size/1.jpg" alt="Blog Image">
+                                    <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
                                 </a>
                             </div>
                             <!-- Blog Thumb End -->
@@ -408,85 +408,23 @@
                             <div class="blog-content">
                                 <div class="blog-meta">
                                     <ul>
-                                        <li><span>By</span><a href="#/">Admin</a></li>
-                                        <li><span>27, Jan, 2021</span></li>
+                                        <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
+                                        <li><span>{{ $item->created_at->format('d-m-y')}}</span></li>
                                     </ul>
                                 </div>
-                                <h2 class="blog-title"><a href="blog-details.html">How to take care of your fish</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
+                                <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                <p>{{ $item->description }}</p>
+                                <a class="more-link" href="blog-details.html">Xem thêm...</a>
                             </div>
                             <!-- Blog Content End -->
-
                         </div>
                         <!-- Single Blog End -->
                     </div>
+                    @endforeach
 
-                    <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1300">
-                        <!-- Single Blog Start -->
-                        <div class="single-blog-wrapper">
+                    
 
-                            <!-- Blog Thumb Start -->
-                            <div class="blog-thumb thumb-effect">
-                                <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="assets/images/blog/medium-size/2.jpg" alt="Blog Image">
-                                </a>
-                            </div>
-                            <!-- Blog Thumb End -->
-
-                            <!-- Blog Content Start -->
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By</span><a href="#/">Admin</a></li>
-                                        <li><span>12, Feb, 2021</span></li>
-                                    </ul>
-                                </div>
-                                <h2 class="blog-title"><a href="blog-details.html">Find the male and female fish</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
-                            </div>
-                            <!-- Blog Content End -->
-
-                        </div>
-                        <!-- Single Blog End -->
-                    </div>
-
-                    <div class="col m-b-40" data-aos="fade-up" data-aos-duration="1600">
-                        <!-- Single Blog Start -->
-                        <div class="single-blog-wrapper">
-
-                            <!-- Blog Thumb Start -->
-                            <div class="blog-thumb thumb-effect">
-                                <a class="image" href="blog-details.html">
-                                    <img class="fit-image" src="assets/images/blog/medium-size/3.jpg" alt="Blog Image">
-                                </a>
-                            </div>
-                            <!-- Blog Thumb End -->
-
-                            <!-- Blog Content Start -->
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By</span><a href="#/">Admin</a></li>
-                                        <li><span>20, March, 2021</span></li>
-                                    </ul>
-                                </div>
-                                <h2 class="blog-title"><a href="blog-details.html">Tips for taking care of dogs</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
-                            </div>
-                            <!-- Blog Content End -->
-
-                        </div>
-                        <!-- Single Blog End -->
-                    </div>
+                    
 
                 </div>
 
@@ -521,10 +459,6 @@
                                             </a>
                                         @endforeach
                                     </div>
-
-                                    <!-- Swiper Pagination Start -->
-                                    <!-- <div class="swiper-pagination d-md-none"></div> -->
-                                    <!-- Swiper Pagination End -->
 
                                     <!-- Next Previous Button Start -->
                                     <div class="swiper-product-button-next swiper-button-next"><i
@@ -593,7 +527,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>
@@ -720,7 +654,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="bumber">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>

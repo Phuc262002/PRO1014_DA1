@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ShopController;
@@ -32,7 +33,7 @@ use App\Http\Controllers\ShopController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('shop',[ShopController::class, 'index'])->name('shop');
+Route::get('shop', [ShopController::class, 'index'])->name('shop');
 
 Route::get('blog', function () {
     return view('pages.client.blog');
@@ -118,6 +119,8 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+    Route::get('prevent', [LoginController::class, 'preventAccount'])->name('preventAccount');
+
     Route::get('password/reset', [ForgotPasswordController::class, 'index'])->name('password.reset');
     Route::post('password/reset', [ForgotPasswordController::class, 'sendResetLinkEmail']);
     Route::get('password/reset/{token}', [ResetPasswordController::class, 'index'])->name('password.reset.token');
@@ -138,6 +141,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'category-product' => AdminCategoryProductController::class,
         'category-blog' => AdminCategoryBlogController::class,
         'service' => AdminServiceController::class,
+        'user' => AdminUserController::class,
         'post' => AdminPostController::class,
     ]);
 

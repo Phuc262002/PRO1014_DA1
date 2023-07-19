@@ -135,7 +135,7 @@
                                 <div class="header-action-btn header-action-btn-cart d-none d-sm-flex">
                                     <a class="cart-visible" href="javascript:void(0)">
                                         <i class="icon-handbag icons"></i>
-                                        <span class="header-action-num">3</span>
+                                        <span class="header-action-num">0</span>
                                     </a>
 
                                     <!-- Header Cart Content Start -->
@@ -147,7 +147,7 @@
 
                                         <!-- Cart Product Total Start -->
                                         <div class="cart-product-total p-b-20 m-b-20 border-bottom">
-                                            <span class="value">Total</span>
+                                            <span class="value">Tổng tiền</span>
                                             <span class="price" id="total-cart-money"></span>
                                         </div>
                                         <!-- Cart Product Total End -->
