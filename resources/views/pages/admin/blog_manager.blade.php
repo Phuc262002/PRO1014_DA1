@@ -181,3 +181,4 @@
             });
         }
     </script>
+@endsection
