@@ -250,14 +250,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-binh-luan', function () {
         return view('pages.admin.comment_manager');
     })->name('admin.comment_manager');
-<<<<<<< HEAD
 
 
-=======
-    Route::get('chinh-sua-thuong-hieu', function () {
-        return view('pages.admin.edit_brand');
-    })->name('admin.edit_brand');
->>>>>>> af651a25ccd949e53158af27ac9f4731d511f83f
     
 
 
