@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Http\Requests\BrandRequest;
+
+
 
 class AdminBrandController extends Controller
 {
@@ -28,7 +31,7 @@ class AdminBrandController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
         $brands = Brand::create($request->all());
         if ($brands) {
@@ -65,8 +68,9 @@ class AdminBrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(BrandRequest $request, Brand $brand)
     {
+
         $update_brand = Brand::updateOrCreate([
             'id' => $brand->id,
         ],$request->all());

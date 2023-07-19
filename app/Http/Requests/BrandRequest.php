@@ -27,6 +27,20 @@ class BrandRequest extends FormRequest
     {
         return [
             'name'=> 'required',
+            'nation'=> 'required',
+            'slug'=> 'required',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Vui lòng nhập tên thương hiệu.',
+            'name.unique' => 'Tên thương hiệu đã tồn tại.',
+            'nation.required' => 'Vui lòng nhập quốc gia.',
+            'image_service.required' => 'Vui lòng chọn hình ảnh sản phẩm.',
+            'image_service.unique' => 'Hình ảnh sản phẩm đã tồn tại.',
+            'slug.required' => 'Vui lòng nhập slug.',
+            'slug.unique' => 'slug đã tồn tại.',
             
         ];
     }
