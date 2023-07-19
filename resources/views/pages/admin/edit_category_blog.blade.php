@@ -11,7 +11,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">CHỈNH SỬA DANH MỤC BLOG</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">CẬP NHẬT DANH MỤC BLOG</h4>
                             </div><!-- end card header -->
                             <div class="card-body">
                                 @if (session('success'))

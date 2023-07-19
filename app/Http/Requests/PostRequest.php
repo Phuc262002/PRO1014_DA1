@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CategoryRequest extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,20 +26,20 @@ class CategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        $categoryId = $this->route('category');
+        $postId = $this->route('post');
 
         return [
-            'name' => [
-                'required',
-                Rule::unique('products')->ignore($categoryId),
-                'max:255',
-            ],
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255',
             'slug' => [
                 'required',
-                Rule::unique('products')->ignore($categoryId),
+                Rule::unique('posts')->ignore($postId),
                 'max:255',
             ],
             'description' => 'required',
+            'content' => 'required',
+            'img_post' => 'required',
+            'category_id' => 'required',
         ];
     }
 
@@ -50,11 +50,14 @@ class CategoryRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'name.unique' => 'Tên sản phẩm đã tồn tại.',
+            'title.required' => 'Vui lòng nhập tên tiêu đề Blog.',
+            'title.unique' => 'Tên tiêu đề Blog đã tồn tại.',
+            'description.required' => 'Vui lòng nhập mô tả Blog.',
             'slug.required' => 'Vui lòng nhập slug.',
             'slug.unique' => 'Slug đã tồn tại.',
-            'description.required' => 'Vui lòng nhập mô tả.',
+            'content.required' => 'Vui lòng nhập nội dung Blog.',
+            'img_post.required' => 'Vui lòng thêm hình ảnh.',
+            'category_id.required' => 'Vui lòng chọn thể loại.',
         ];
     }
 }

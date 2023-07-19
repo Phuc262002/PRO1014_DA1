@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\CategoryBlogRequest;
 
 
 class AdminCategoryBlogController extends Controller
@@ -33,7 +33,7 @@ class AdminCategoryBlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request)
+    public function store(CategoryBlogRequest $request)
     {
         $category = Category::create($request->all());
         if ($category) {
@@ -70,7 +70,7 @@ class AdminCategoryBlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest $request, Category $category, $category_blog = null)
+    public function update(CategoryBlogRequest $request, Category $category, $category_blog = null)
     {
         $update_blog_category = Category::updateOrCreate([
             'id' => $category_blog

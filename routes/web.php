@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,10 @@ use App\Http\Controllers\ShopController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('shop', [ShopController::class, 'index'])->name('shop');
+Route::resource('san-pham', ProductController::class);
+
+Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->name('san-pham.detail');
+
 
 Route::get('blog', function () {
     return view('pages.client.blog');
@@ -247,9 +250,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-binh-luan', function () {
         return view('pages.admin.comment_manager');
     })->name('admin.comment_manager');
+<<<<<<< HEAD
     Route::get('chinh-sua-thuong-hieu', function () {
         return view('pages.admin.edit_brand');
     })->name('admin.edit_brand');
+=======
+    
+
+>>>>>>> 2e9089800c950e2d09a0a3d3b377e249eacb9d69
 
 
 
