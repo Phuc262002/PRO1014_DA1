@@ -74,7 +74,8 @@
                                                         <td>{{ $item->comment_count }}</td>
                                                         <td>
                                                             <div class="hstack gap-3 flex-wrap">
-                                                                <a href="javascript:void(0);" class="link-primary fs-15"><i
+                                                                <a href="{{ route('post.show', ['post' => $item->id]) }}"
+                                                                    class="link-primary fs-15"><i
                                                                         class="ri-eye-line"></i></a>
                                                                 <a href="{{ route('post.edit', ['post' => $item->id]) }}"
                                                                     class="link-success fs-15"><i

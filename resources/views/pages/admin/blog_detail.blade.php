@@ -1,5 +1,7 @@
 @extends('layouts.admin.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -33,109 +35,102 @@
 
                                     <tbody>
                                         <tr>
-                                            <th class="w-25">Sku</th>
-                                            <td>
-                                                <a href="#" class="fw-medium">{{ $product->sku }}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
                                             <th>Tên sản phẩm</th>
                                             <td>
-                                                {{ $product->name }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Hình ảnh</th>
-                                            <td>
-                                                <div class="flex-shrink-0">
-                                                    <img src="{{ $product->image_main }}" alt="" width="100"
-                                                        height="100" />
-                                                </div>
 
                                             </td>
                                         </tr>
                                         <tr>
+                                            <th>Hình ảnh</th>
+                                            {{-- <td>
+                                                <div class="flex-shrink-0">
+                                                    <img src="{{ $post->image_main }}" alt="" width="100"
+                                                        height="100" />
+                                                </div>
+
+                                            </td> --}}
+                                        </tr>
+                                        <tr>
                                             <th>Số lượng</th>
                                             <td>
-                                                {{ $product->quantity }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Giá</th>
                                             <td>
-                                                {{ number_format($product->price) }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Giá giảm</th>
                                             <td>
-                                                {{ number_format($product->discount_price) }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Ngày kết thúc giảm giá</th>
                                             <td>
-                                                {{ $product->discount_end }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Thương hiệu</th>
                                             <td>
-                                                {{ $product->brand->name }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Slug</th>
                                             <td>
-                                                {{ $product->slug }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Danh mục</th>
                                             <td>
-                                                {{ $product->category->name }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Lượt đánh giá</th>
                                             <td>
-                                                {{ $product->rating_count }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Lượt đánh giá trung bình</th>
                                             <td>
-                                                {{ $product->average_rating }}
+
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Mô tả ngắn</th>
                                             <td>
-                                                {{ $product->description_summary }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Nội dung</th>
                                             <td>
-                                                {!! $product->description_detail !!}
+
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <th>Trạng thái</th>
-                                            <td>
-                                                @if ($product->status == true)
+                                            {{-- <td>
+                                                @if ($post->status == true)
                                                     <span class="badge bg-success">Active</span>
                                                 @else
                                                     <span class="badge bg-danger">Disabled</span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <th>Chức năng</th>
                                             <td>
                                                 <div class="hstack gap-3 flex-wrap">
-                                                    <a href="{{ route('product.edit', ['product' => $product->id]) }}"
+                                                    <a href="{{ route('post.edit', ['product' => $product->id]) }}"
                                                         class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                     <a href="javascript:deleteProduct({{ $product->id }});"
                                                         class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
@@ -146,7 +141,7 @@
                                                         @method('DELETE')
                                                     </form>
                                             </td>
-                                        </tr>
+                                        </tr> --}}
 
                                     </tbody>
                                 </table>
