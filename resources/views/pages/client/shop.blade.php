@@ -71,7 +71,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-6 product">
                             <div class="product-inner">
                                 <div class="thumb">
-                                    <a href="single-product.html" class="image">
+                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
                                         <img class="fit-image" src="{{$item->image_main}}" alt="Product" />
                                             @if($item->discount_price > 0)
                                                 <div class="countdown-area">
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <h5 class="title"><a href="single-product.html">{{$item->name}}</a></h5>
+                                    <h5 class="title"><a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{$item->name}}</a></h5>
                                     <span class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
