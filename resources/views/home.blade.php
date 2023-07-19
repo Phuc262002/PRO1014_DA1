@@ -409,14 +409,12 @@
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By</span><a href="">{{$item->user_post->name}}</a></li>
-                                        <li><span>{{ $item->created_at toDateString()}}</span></li>
+                                        <li><span>{{ $item->created_at->format('d/m/y')}}</span></li>
                                     </ul>
                                 </div>
-                                <h2 class="blog-title"><a href="blog-details.html">How to take care of your fish</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                    ut
-                                    labore et dolore magna aliqua. Ut...</p>
-                                <a class="more-link" href="blog-details.html">Read More</a>
+                                <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                <p>{{ $item->description }}</p>
+                                <a class="more-link" href="blog-details.html">Xem thêm...</a>
                             </div>
                             <!-- Blog Content End -->
                         </div>

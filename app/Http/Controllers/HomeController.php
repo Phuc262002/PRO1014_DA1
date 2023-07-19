@@ -27,8 +27,6 @@ class HomeController extends Controller
                         ->take(8)
                         ->with('image_list', 'brand', 'category')
                         ->get();
-    
-        
 
         $slider = Banner::where([
                             'status' => true,
@@ -51,7 +49,7 @@ class HomeController extends Controller
                     ->with('category','user_post')
                     ->take(3)
                     ->get();
-
+                   
         return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale','blog'));
         
     }
