@@ -178,7 +178,7 @@
                                                 <!-- Content Start  -->
                                                 <div class="content">
                                                     <h5 class="title"><a
-                                                            href="single-product.html">{{ $item->name }}</a>
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
                                                     </h5>
                                                     <span class="rating">
                                                         <i class="fa fa-star-o"></i>

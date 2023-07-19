@@ -128,8 +128,8 @@
                         <div class="quantity d-flex align-items-center m-b-25">
                             <span class="m-r-10"><strong>Số Lượng: </strong></span>
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" id="quantyCart_{{ $product->id }}"
-                                min="1" value="1" type="text">
+                                <input class="cart-plus-minus-box" id="quantyCart_{{ $product->id }}" min="1"
+                                    value="1" type="text">
                                 <div class="dec qtybutton"></div>
                                 <div class="inc qtybutton"></div>
                             </div>
@@ -140,7 +140,8 @@
                         <div class="cart-btn action-btn m-b-30">
                             <div class="action-cart-btn-wrapper d-flex">
                                 <div class="add-to_cart">
-                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="javascript:addCartQuality({{$product->id}})">Thêm Vào Giỏ
+                                    <a class="btn btn-primary btn-hover-dark rounded-0"
+                                        href="javascript:addCartQuality({{ $product->id }})">Thêm Vào Giỏ
                                         Hàng</a>
                                 </div>
                             </div>
@@ -356,232 +357,70 @@
                         <div class="swiper-container">
 
                             <div class="swiper-wrapper">
+                                @foreach ($same_product as $item)
+                                    <div class="swiper-slide">
+                                        <!-- Product Start -->
+                                        <div class="product-wrapper">
+                                            <div class="product">
+                                                <!-- Thumb Start  -->
+                                                <div class="thumb">
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
+                                                        <img class="fit-image" src="{{ $item->image_main }}"
+                                                            alt="Product" />
+                                                    </a>
+                                                    @if ($item->discount_price != 0)
+                                                        <span class="badges">
+                                                            <span class="sale">Giảm
+                                                                {{ ceil(100 - ($item->discount_price / $item->price) * 100) }}%</span>
+                                                        </span>
+                                                    @endif
+                                                    <div class="action-wrapper">
+                                                        <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                            data-bs-target="#quick-view{{ $item->id }}"
+                                                            title="Quickview"><i class="fa-regular fa-eye"></i></a>
+                                                        <a href="javascript:addCart({{ $item->id }})"
+                                                            class="action cart" title="Cart"><i
+                                                                class="ti-shopping-cart"></i></a>
+                                                    </div>
 
-                                <div class="swiper-slide">
-                                    <!-- Product Start -->
-                                    <div class="product-wrapper">
-                                        <div class="product">
-                                            <!-- Thumb Start  -->
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image"
-                                                        src="assets/images/products/medium-product/5.png"
-                                                        alt="Product" />
-                                                </a>
-                                                <span class="badges">
-                                                    <span class="sale">-18%</span>
-                                                </span>
-                                                <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
-                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i
-                                                            class="ti-shopping-cart"></i></a>
+
+                                                    @if ($item->discount_price > 0)
+                                                        <div class="countdown-area">
+                                                            <div class="countdown-wrapper"
+                                                                data-countdown="{{ $item->discount_end }}"></div>
+                                                        </div>
+                                                    @endif
                                                 </div>
+                                                <!-- Thumb End  -->
 
-                                                <div class="countdown-area">
-                                                    <div class="countdown-wrapper" data-countdown="2028/12/28"></div>
+                                                <!-- Content Start  -->
+                                                <div class="content">
+                                                    <h5 class="title"><a
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                    </h5>
+                                                    <span class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-half-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </span>
+                                                    <span class="price">
+                                                        @if ($item->discount_price > 0)
+                                                            <span
+                                                                class="new">{{ number_format($item->discount_price) }}</span>
+                                                            <span class="old">{{ number_format($item->price) }}</span>
+                                                        @else
+                                                            <span class="new">{{ number_format($item->price) }}</span>
+                                                        @endif
+                                                    </span>
                                                 </div>
+                                                <!-- Content End  -->
                                             </div>
-                                            <!-- Thumb End  -->
-
-                                            <!-- Content Start  -->
-                                            <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Pet Leaving House</a>
-                                                </h5>
-                                                <span class="rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="price">
-                                                    <span class="new">$47.50</span>
-                                                    <span class="old">$50.00</span>
-                                                </span>
-                                            </div>
-                                            <!-- Content End  -->
                                         </div>
+                                        <!-- Product End -->
                                     </div>
-                                    <!-- Product End -->
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <!-- Product Start -->
-                                    <div class="product-wrapper">
-                                        <div class="product">
-                                            <!-- Thumb Start  -->
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image"
-                                                        src="assets/images/products/medium-product/8.png"
-                                                        alt="Product" />
-                                                </a>
-                                                <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
-                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                            class="ti-heart"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i
-                                                            class="ti-shopping-cart"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- Thumb End  -->
-
-                                            <!-- Content Start  -->
-                                            <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Basic Dog Trainning</a>
-                                                </h5>
-                                                <span class="rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </span>
-                                                <span class="price">
-                                                    <span class="new">$55.00</span>
-                                                </span>
-                                            </div>
-                                            <!-- Content End  -->
-                                        </div>
-                                    </div>
-                                    <!-- Product End -->
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <!-- Product Start -->
-                                    <div class="product-wrapper">
-                                        <div class="product">
-                                            <!-- Thumb Start  -->
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image"
-                                                        src="assets/images/products/medium-product/6.png"
-                                                        alt="Product" />
-                                                </a>
-                                                <span class="badges">
-                                                    <span class="sale">-20%</span>
-                                                </span>
-                                                <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
-                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i
-                                                            class="ti-shopping-cart"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- Thumb End  -->
-
-                                            <!-- Content Start  -->
-                                            <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Pet Leaving House</a>
-                                                </h5>
-                                                <span class="rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="price">
-                                                    <span class="new">$58.50</span>
-                                                    <span class="old">$62.85</span>
-                                                </span>
-                                            </div>
-                                            <!-- Content End  -->
-                                        </div>
-                                    </div>
-                                    <!-- Product End -->
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <!-- Product Start -->
-                                    <div class="product-wrapper">
-                                        <div class="product">
-                                            <!-- Thumb Start  -->
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image"
-                                                        src="assets/images/products/medium-product/1.png"
-                                                        alt="Product" />
-                                                </a>
-                                                <span class="badges">
-                                                    <span class="sale">-18%</span>
-                                                </span>
-                                                <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
-                                                        data-bs-target="#quick-view" title="Quickview"><i
-                                                            class="ti-plus"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i
-                                                            class="ti-shopping-cart"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- Thumb End  -->
-
-                                            <!-- Content Start  -->
-                                            <div class="content">
-                                                <h5 class="title"><a href="single-product.html">An Animal Album</a></h5>
-                                                <span class="rating">
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="price">
-                                                    <span class="new">$80.50</span>
-                                                    <span class="old">$85.80</span>
-                                                </span>
-                                            </div>
-                                            <!-- Content End  -->
-                                        </div>
-                                    </div>
-                                    <!-- Product End -->
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <!-- Product Start -->
-                                    <div class="product-wrapper">
-                                        <div class="product">
-                                            <!-- Thumb Start  -->
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img class="fit-image"
-                                                        src="assets/images/products/medium-product/3.png"
-                                                        alt="Product" />
-                                                </a>
-                                                <span class="badges">
-                                                    <span class="new">New</span>
-                                                </span>
-                                                <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
-                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i
-                                                            class="ti-shopping-cart"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- Thumb End  -->
-
-                                            <!-- Content Start  -->
-                                            <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Wait, You Need This</a>
-                                                </h5>
-                                                <span class="rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
-                                                <span class="price">
-                                                    <span class="new">$90.00</span>
-                                                </span>
-                                            </div>
-                                            <!-- Content End  -->
-                                        </div>
-                                    </div>
-                                    <!-- Product End -->
-                                </div>
+                                @endforeach
 
                             </div>
 
@@ -600,4 +439,130 @@
         </div>
     </div>
     <!-- Product Section End -->
+
+    @foreach ($same_product as $item)
+        <div class="modalquickview modal fade" id="quick-view{{ $item->id }}" tabindex="-1"
+            aria-labelledby="quick-view" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button class="btn close" data-bs-dismiss="modal">×</button>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+
+                            <!-- Product Details Image Start -->
+                            <div class="modal-product-carousel">
+
+                                <!-- Single Product Image Start -->
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <a class="swiper-slide" href="#">
+                                            <img class="w-100" src="{{ $item->image_main }}" alt alt="Product">
+                                        </a>
+                                        @foreach ($item->image_list as $img)
+                                            <a class="swiper-slide" href="#">
+                                                <img class="w-100" src="{{ $img->image_collection }}" alt="Product">
+                                            </a>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Swiper Pagination Start -->
+                                    <!-- <div class="swiper-pagination d-md-none"></div> -->
+                                    <!-- Swiper Pagination End -->
+
+                                    <!-- Next Previous Button Start -->
+                                    <div class="swiper-product-button-next swiper-button-next"><i
+                                            class="ti-arrow-right"></i>
+                                    </div>
+                                    <div class="swiper-product-button-prev swiper-button-prev"><i
+                                            class="ti-arrow-left"></i>
+                                    </div>
+                                    <!-- Next Previous Button End -->
+                                </div>
+                                <!-- Single Product Image End -->
+
+                            </div>
+                            <!-- Product Details Image End -->
+
+                        </div>
+                        <div class="col-md-6 col-12 overflow-hidden position-relative">
+
+                            <!-- Product Summery Start -->
+                            <div class="product-summery position-relative">
+
+                                <!-- Product Head Start -->
+
+                                <div class="product-head m-b-15">
+                                    <h2 class="product-title">{{ $item->name }}</h2>
+                                </div>
+                                <!-- Product Head End -->
+
+                                <!-- Rating Start -->
+                                <span class="rating justify-content-start m-b-10">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </span>
+                                <!-- Rating End -->
+
+                                <!-- Price Box Start -->
+                                <div class="price-box m-b-10">
+                                    <span class="regular-price">{{ number_format($item->price) }}</span>
+                                    {{-- <span class="old-price"><del>{{$item->discount_price}}</del></span> --}}
+                                </div>
+                                <!-- Price Box End -->
+
+                                <!-- SKU Start -->
+                                <div class="sku m-b-15">
+                                    <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
+                                    <span class="inventory-varient">{{ $item->sku }}</span>
+                                </div>
+                                <!-- SKU End -->
+
+                                <!-- Description Start -->
+                                <p class="desc-content m-b-25">{{ $item->description_summary }}</p>
+                                <!-- Description End -->
+
+                                <!-- Product Inventory Start -->
+                                <div class="product-inventroy m-b-15">
+                                    <span class="inventroy-title"> <strong>Còn lại:</strong></span>
+                                    <span class="inventory-varient">{{ $item->quantity }}</span>
+                                </div>
+                                <!-- Product Inventory End -->
+
+                                <!-- Quantity Start -->
+                                <div class="quantity d-flex align-items-center justify-content-start m-b-25">
+                                    <span class="m-r-10"><strong>Số lượng: </strong></span>
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}"
+                                            min="1" value="1" type="text">
+                                        <div class="dec qtybutton"></div>
+                                        <div class="inc qtybutton"></div>
+                                    </div>
+                                </div>
+                                <!-- Quantity End -->
+
+                                <!-- Cart Button Start -->
+                                <div class="cart-btn action-btn m-b-30">
+                                    <div class="action-cart-btn-wrapper d-flex justify-content-start">
+                                        <div class="add-to_cart">
+                                            <a class="btn btn-primary btn-hover-dark rounded-0"
+                                                href="javascript:addCartQuality({{ $item->id }})">Thêm vào giỏ
+                                                hàng</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Cart Button End -->
+
+                            </div>
+                            <!-- Product Summery End -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection

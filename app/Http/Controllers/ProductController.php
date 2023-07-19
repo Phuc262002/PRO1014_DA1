@@ -39,8 +39,9 @@ class ProductController extends Controller
     public function show(Product $product, $slug = null)
     {
         $product = Product::where('slug', $slug)->with('image_list', 'brand', 'category')->firstOrFail();
+        $same_product = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->with('image_list', 'brand', 'category')->get();
         $title = "Pets Care - $product->name";
-        return view('pages.client.product-detail', compact('product', 'title'));
+        return view('pages.client.product-detail', compact('product', 'title', 'same_product'));
     }
 
     /**
