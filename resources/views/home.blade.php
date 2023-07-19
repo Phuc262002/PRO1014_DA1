@@ -346,7 +346,7 @@
                                                         <div class="countdown-wrapper"
                                                             data-countdown="{{ $item->discount_end }}"></div>
                                                     </div>
-                                                    <a href="{{ route('cart') }}"
+                                                    <a href="javascript:addCart({{ $item->id }})"
                                                         class="btn btn-primary btn-hover-dark">Mua ngay</a>
                                                 </div>
 
@@ -527,7 +527,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>
@@ -654,7 +654,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-start m-b-25">
                                     <span class="m-r-10"><strong>Số lượng: </strong></span>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="bumber">
+                                        <input class="cart-plus-minus-box" id="quantyCart_{{ $item->id }}" min="1" value="1" type="text">
                                         <div class="dec qtybutton"></div>
                                         <div class="inc qtybutton"></div>
                                     </div>
