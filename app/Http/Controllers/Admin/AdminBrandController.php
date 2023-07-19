@@ -59,7 +59,7 @@ class AdminBrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        return view('pages.admin.edit_brand', compact('brand'));
     }
 
     /**
@@ -73,14 +73,14 @@ class AdminBrandController extends Controller
 
         if ($update_brand) {
             if($request->save_action == 'save_and_back'){
-                return redirect()->route('brands.index')->with('success', "Thêm dịch vụ thành công.");
+                return redirect()->route('brands.index')->with('success', "Cập nhật thành công.");
             } else if ($request->save_action == 'save_and_edit'){
-                return redirect()->route('brands.edit', $brand->id)->with('success', "Thêm dịch vụ thành công.");
+                return redirect()->route('brands.edit', $brand->id)->with('success', "Cập nhật thành công.");
             } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('brands.create')->with('success', "Thêm dịch vụ thành công.");
+                return redirect()->route('brands.create')->with('success', "Cập nhật thành công.");
             }
         } else {
-            return back()->with('error', "Thêm dịch vụ thất bại.");
+            return back()->with('error', "Cập nhật thất bại.");
         }
     }
 
