@@ -18,7 +18,7 @@
                             <h5 class="sub-title">{{$item->title}}</h5>
                             {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
                             <p class="ms-0">{!!$item->introduction !!}</p>
-                            <a href="{{route('shop')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                            <a href="{{route('san-pham.index')}}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -158,10 +158,19 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
-                                                    <a href="single-product.html" class="image">
-                                                        <img class="fit-image" src="{{ $item->image_main }}" 
-                                                            alt="Product" />
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
+                                                        <img class="fit-image" src="{{ $item->image_main }}" alt="Product" />
+                                                            @if($item->discount_price > 0)
+                                                            <div class="countdown-area">
+                                                                <div class="countdown-wrapper" data-countdown="{{ $item->discount_end }}"></div>
+                                                            </div>
+                                                            @endif
                                                     </a>
+                                                    @if($item->discount_price > 0)
+                                                    <span class="badges">
+                                                        <span class="sale">Giảm {{ceil(100 -$item->discount_price/$item->price * 100)}}%</span>
+                                                    </span>
+                                                    @endif
 
                                                     <div class="action-wrapper">
                                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
@@ -187,10 +196,15 @@
                                                         <i class="fa fa-star-o"></i>
                                                     </span>
                                                     <span class="price">
+                                                        @if($item->discount_price > 0)
+                                                        <span class="new">{{ number_format($item->discount_price) }}</span>
+                                                        <span class="old">{{ number_format($item->price) }}</span>
+                                                        @else
                                                         <span class="new">{{ number_format($item->price) }}</span>
-
+                                                        @endif
                                                     </span>
                                                 </div>
+                                                
 
                                                 <!-- Content End  -->
                                             </div>
@@ -215,6 +229,9 @@
                                                     <a href="single-product.html" class="image">
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
+                                                            <div class="countdown-area">
+                                                                <div class="countdown-wrapper" data-countdown="{{ $item->discount_end }}"></div>
+                                                            </div>
                                                     </a>
                                                     <span class="badges">
                                                         <span class="sale">Giảm {{100 - ($item->discount_price/$item->price) * 100}}%</span>
@@ -238,12 +255,11 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
                                                         <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-half-o"></i>
                                                     </span>
                                                     <span class="price">
-                                                        <span
-                                                            class="new">{{ number_format($item->discount_price) }}</span>
+                                                        <span class="new">{{ number_format($item->discount_price) }}</span>
                                                         <span class="old">{{ number_format($item->price) }}</span>
                                                     </span>
                                                 </div>
@@ -276,7 +292,7 @@
                     <!-- Banner Start -->
                     @foreach ($banner_sale as $item)
                         <div class="col-md-6 col-12 m-b-30" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="{{ route('shop') }}" class="banner">
+                            <a href="{{ route('san-pham.index') }}" class="banner">
                                 <img class="fit-image" src="{{ $item->img_banner }}" alt="Banner Image" />
                             </a>
                         </div>
@@ -338,7 +354,7 @@
                                                         <i class="fa fa-star-o"></i>
                                                     </span>
                                                     <span class="price">
-                                                        <span class="new">{{ number_format($item->price) }}</span>
+                                                        <span class="new">{{ number_format($item->discount_price) }}</span>
                                                         <span class="old">{{ number_format($item->price) }}</span>
                                                     </span>
                                                     <p>{{ $item->description_summary }}</p>
@@ -492,16 +508,19 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
                                     <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-half-o"></i>
                                 </span>
                                 <!-- Rating End -->
 
                                 <!-- Price Box Start -->
                                 <div class="price-box m-b-10">
+                                    @if($item->discount_price > 0)
+                                    <span class="regular-price">{{ number_format($item->discount_price) }}</span>
+                                    <span class="old-price"><del>{{ number_format($item->price) }}</del></span>
+                                    @else
                                     <span class="regular-price">{{ number_format($item->price) }}</span>
-                                    <span
-                                        class="old-price"><del>{{ number_format($item->discount_price) }}</del></span>
+                                    @endif
                                 </div>
                                 <!-- Price Box End -->
 
@@ -620,8 +639,8 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
                                     <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-half-o"></i>
                                 </span>
                                 <!-- Rating End -->
 

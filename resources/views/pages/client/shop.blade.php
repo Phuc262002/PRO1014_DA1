@@ -73,10 +73,17 @@
                                 <div class="thumb">
                                     <a href="single-product.html" class="image">
                                         <img class="fit-image" src="{{$item->image_main}}" alt="Product" />
+                                            @if($item->discount_price > 0)
+                                                <div class="countdown-area">
+                                                    <div class="countdown-wrapper" data-countdown="{{ $item->discount_end }}"></div>
+                                                </div>
+                                            @endif
                                     </a>
+                                    @if($item->discount_price > 0)
                                     <span class="badges">
                                             <span class="sale">Giảm {{ceil(100 -$item->discount_price/$item->price * 100)}}%</span>
                                     </span>
+                                    @endif
                                     <div class="action-wrapper">
                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
                                         data-bs-target="#quick-view{{$item->id}}"><i class="fa-regular fa-eye"></i></a>                                     
@@ -93,8 +100,12 @@
                                             <i class="fa fa-star-o"></i>
                                         </span>
                                     <span class="price">
+                                        @if($item->discount_price > 0)
                                             <span class="new">{{number_format( $item->discount_price)}}</span>
-                                    <span class="old">{{number_format ($item->price)}}</span>
+                                            <span class="old">{{number_format ($item->price)}}</span>
+                                        @else
+                                        <span class="new">{{number_format( $item->price)}}</span>
+                                        @endif
                                     </span>
                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     <!-- Cart Button Start -->
@@ -279,8 +290,12 @@
 
                             <!-- Price Box Start -->
                             <div class="price-box m-b-10">
-                                <span class="regular-price">{{number_format ($item->discount_price)}}</span>
-                                <span class="old-price"><del>{{number_format ($item->price)}}</del></span>
+                                @if($item->discount_price > 0)
+                                    <span class="regular-price">{{number_format ($item->discount_price)}}</span>
+                                    <span class="old-price"><del>{{number_format ($item->price)}}</del></span>
+                                @else
+                                    <span class="regular-price">{{number_format ($item->price)}}</span>
+                                @endif
                             </div>
                             <!-- Price Box End -->
 
