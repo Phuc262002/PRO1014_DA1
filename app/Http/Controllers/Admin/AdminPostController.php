@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class AdminPostController extends Controller
 {
@@ -32,7 +33,7 @@ class AdminPostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $post = Post::create([
             'title' => $request->title,
@@ -79,7 +80,7 @@ class AdminPostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $update_post = Post::updateOrCreate([
             'id' => $post->id
