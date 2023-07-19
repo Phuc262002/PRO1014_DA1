@@ -34,7 +34,7 @@
                         <figure><a href="services-detail.html"><img src="{{$item->image_service}}" alt="Images"></a>
                         </figure>
                         <div class="service-text">
-                            <div class="icon"><i class="flaticon-pawprint"></i></div>
+                            <div class="icon"><i class="{{$item->icon}}"></i></div>
                             <h4><a href="services-detail.html">{{$item->name}}</a></h4>
                             <p>{{$item->description}}</p>
                                <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
