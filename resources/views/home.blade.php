@@ -9,7 +9,7 @@
         <div class="hero-slider swiper-container">
             <div class="swiper-wrapper">
                 @foreach ($slider as $item)
-                    <<<<<<< HEAD <div class="hero-slide-item swiper-slide">
+                    <div class="hero-slide-item swiper-slide">
                         <div class="hero-slide-bg">
                             <img src="{{ $item->img_banner }}" alt="Slider Image" />
                         </div>
@@ -20,37 +20,11 @@
                                 <p class="ms-0">{!! $item->introduction !!}</p>
                                 <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                             </div>
-                            =======
-                            <div class="hero-slide-item swiper-slide">
-                                <div class="hero-slide-bg">
-                                    <img src="{{ $item->img_banner }}" alt="Slider Image" />
-                                </div>
-                                <div class="container">
-                                    <div class="hero-slide-content text-start">
-                                        <h5 class="sub-title">{{ $item->title }}</h5>
-                                        {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
-                                        <p class="ms-0">{!! $item->introduction !!}</p>
-                                        <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary">Mua
-                                            ngay</a>
-                                        >>>>>>> af651a25ccd949e53158af27ac9f4731d511f83f
-                                    </div>
-                                </div>
-                @endforeach
-
-                {{-- <div class="hero-slide-item swiper-slide">
-                    <div class="hero-slide-bg">
-                        <img src="assets/images/slider/slider1-2.png" alt="Slider Image" />
-                    </div>
-                    <div class="container">
-                        <div class="hero-slide-content text-center text-md-end">
-                            <h5 class="sub-title">We keep pets for pleasure.</h5>
-                            <h2 class="title m-0">Vitamins For all Pets</h2>
-                            <p>We know your concerns when you are looking for a chewing treat for your dog.</p>
-                            <a href="shop.html" class="btn btn-dark btn-hover-primary">Shop Now</a>
                         </div>
                     </div>
-                </div>
-            </div> --}}
+                @endforeach
+
+
 
                 <!-- Swiper Pagination Start -->
                 <div class="swiper-pagination d-lg-none"></div>
