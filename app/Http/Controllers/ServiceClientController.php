@@ -14,7 +14,8 @@ class ServiceClientController extends Controller
     {
         $title="Pets Care - Luôn đồng hành cùng thú cưng của bạn";
         $data_services = Service::all();
-       return view('pages.client.services', compact('title','data_services'));
+        return view('pages.client.services', compact('title','data_services'));
+        
     }
 
 }

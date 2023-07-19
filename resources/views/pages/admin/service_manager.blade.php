@@ -99,7 +99,7 @@
                                                                     class="link-danger fs-15"><i
                                                                         class="ri-delete-bin-line"></i></a>
                                                                 <form id="delete_form_{{ $item->id }}"
-                                                                    action="{{ route('service.destroy', ['service' => $item->id]) }}"
+                                                                    action="{{ route('service.destroy', ['service' => $item->id] ) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')

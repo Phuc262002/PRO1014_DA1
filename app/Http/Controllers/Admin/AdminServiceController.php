@@ -14,6 +14,7 @@ class AdminServiceController extends Controller
      */
     public function index()
     {
+     
         $services = Service::all();
         return view('pages.admin.service_manager', compact('services'));
     }

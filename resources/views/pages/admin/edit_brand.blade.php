@@ -1,5 +1,4 @@
 @extends('layouts.admin.master')
-
 @section('content')
     <div class="main-content">
 
@@ -9,59 +8,50 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">THÊM DỊCH VỤ MỚI</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">CẬP NHẬT THƯƠNG HIỆU </h4>
                             </div><!-- end card header -->
                             <div class="card-body">
                                 @if (session('success'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('success') }}
-                                    </div>
-                                @endif
-                                @if (session('error'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
-                                @if ($errors->any())
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $errors->first() }}
-                                    </div>
-                                @endif
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if ($errors->any())
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first() }}
+                                </div>
+                            @endif
                                 <div class="live-preview">
-                                    <form action="{{route ('service.store')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('brands.update'['brand' => $brand->id])}}" method="POST" enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Tên dịch vụ</label>
+                                                <label for="basiInput" class="form-label">Tên thương hiệu</label>
                                                 <input type="text" name="name" class="form-control" id="basiInput">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="basiInput" class="form-label">Quốc gia</label>
+                                                <input type="text" name="nation" class="form-control" id="basiInput">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="basiInput" class="form-label">Slug</label>
+                                                <input type="text" name="slug" class="form-control" id="basiInput">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="formFile" class="form-label">Thêm hình ảnh</label>
                                                 <div class="input-group">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="inputGroupFileAddon03">Thêm ảnh</button>
-                                                    <input type="text" class="form-control" id="ckfinder-product_img" name="image_service" readonly
+                                                    <input type="text" class="form-control" id="ckfinder-product_img" name="" readonly
                                                         value="Chọn ảnh...">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Icon</label>
-                                                <input type="text" name="icon" class="form-control" id="basiInput" >
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Giá dịch vụ</label>
-                                                <input type="text" name="price" class="form-control" id="basiInput">
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label for="basiInput" class="form-label">Giá giảm</label>
-                                                <input type="text" value="0" name="discount_price" class="form-control" id="basiInput">
-                                            </div>
-                                            
-                                            <div class="col-lg-12">
-                                                <label for="formFile" class="form-label">Mô tả </label>
-                                                <textarea class="w-100 form-control" name="description" id="" cols="30" rows="5"></textarea>
-                                            </div>
-
                                         </div>
                                         <div class="col-lg-3 mt-3">
                                             <input type="hidden" id="save_action" name="save_action"
@@ -83,7 +73,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <a href="{{ route('service.index') }}" class="btn btn-danger shadow-none">Hủy
+                                            <a href="{{ route('brands.index') }}" class="btn btn-danger shadow-none">Hủy
                                                 bỏ</a>
                                         </div>
                                     </form>
@@ -96,7 +86,7 @@
                     <!--end col-->
                 </div>
                 <!--end row-->
-              
+                
             </div> <!-- container-fluid -->
 
         </div><!-- End Page-content -->
