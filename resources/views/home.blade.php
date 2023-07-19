@@ -24,20 +24,7 @@
                 </div>
              @endforeach
 
-                {{-- <div class="hero-slide-item swiper-slide">
-                    <div class="hero-slide-bg">
-                        <img src="assets/images/slider/slider1-2.png" alt="Slider Image" />
-                    </div>
-                    <div class="container">
-                        <div class="hero-slide-content text-center text-md-end">
-                            <h5 class="sub-title">We keep pets for pleasure.</h5>
-                            <h2 class="title m-0">Vitamins For all Pets</h2>
-                            <p>We know your concerns when you are looking for a chewing treat for your dog.</p>
-                            <a href="shop.html" class="btn btn-dark btn-hover-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
+                
 
                 <!-- Swiper Pagination Start -->
                 <div class="swiper-pagination d-lg-none"></div>
