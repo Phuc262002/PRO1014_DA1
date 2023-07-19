@@ -91,7 +91,7 @@
                                         <a class="{{Request::routeIs('home') ? 'active' : ''}}" href="{{route('home')}}">Trang chủ</a>
                                     </li>
                                     <li class="has-children position-static">
-                                        <a class="{{Request::routeIs('shop') ? 'active' : ''}}" href="{{route('shop')}}">Cửa hàng</a>
+                                        <a class="{{Request::routeIs('san-pham.index') ? 'active' : ''}}" href="{{route('san-pham.index')}}">Cửa hàng</a>
                                         
                                     </li>
                                     <li class="has-children">

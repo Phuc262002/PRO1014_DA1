@@ -137,12 +137,12 @@
                     <div class="collapse menu-dropdown" id="sidebarPages3">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.brand_manager') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('brands.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả thương hiệu
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.form_add_brand') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('brands.create') }}" class="nav-link" data-key="t-starter">
                                     Thêm thương hiệu
                                 </a>
                             </li>
