@@ -107,27 +107,26 @@
         </div>
     @endsection
     @section('js')
-    <script>
-        function deletePost(id) {
-            Swal.fire({
-                title: "Bạn có chắc muốn xóa?",
-                text: "Bạn có thể lấy lại bài Blog này ở thùng rác.",
-                icon: "warning",
-                showCancelButton: !0,
-                confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
-                cancelButtonClass: "btn btn-danger w-xs mt-2",
-                confirmButtonText: "Có, xóa nó",
-                cancelButtonText: "Hủy",
-                buttonsStyling: !1,
-                showCloseButton: !0,
-            }).then(function(t) {
-                if (t.value) {
-                    document.getElementById('delete_form_' + id).submit();
-                }
-            });
-        }
-    </script>
-@endsection
+        <script>
+            function deletePost(id) {
+                Swal.fire({
+                    title: "Bạn có chắc muốn xóa?",
+                    text: "Bạn có thể lấy lại bài Blog này ở thùng rác.",
+                    icon: "warning",
+                    showCancelButton: !0,
+                    confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
+                    cancelButtonClass: "btn btn-danger w-xs mt-2",
+                    confirmButtonText: "Có, xóa nó",
+                    cancelButtonText: "Hủy",
+                    buttonsStyling: !1,
+                    showCloseButton: !0,
+                }).then(function(t) {
+                    if (t.value) {
+                        document.getElementById('delete_form_' + id).submit();
+                    }
+                });
+            }
+        </script>
         <script>
             function deletePost(id) {
                 Swal.fire({
