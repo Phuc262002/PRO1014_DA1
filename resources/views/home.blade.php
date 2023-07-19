@@ -18,7 +18,7 @@
                                 <h5 class="sub-title">{{ $item->title }}</h5>
                                 {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
                                 <p class="ms-0">{!! $item->introduction !!}</p>
-                                <a href="{{ route('shop') }}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                                <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                             </div>
                             =======
                             <div class="hero-slide-item swiper-slide">
