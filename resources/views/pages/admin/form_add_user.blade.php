@@ -62,12 +62,4 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="d-none code-view">
-                                    <pre class="language-markup" style="height: 375px;">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- end col -->
-                                        </div>
-@endsection
+                            @endsection
