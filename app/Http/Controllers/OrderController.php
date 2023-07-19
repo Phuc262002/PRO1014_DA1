@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,7 +14,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Pets Care - Thanh toán';
+        $user = User::where('id', auth()->user()->id)->with('address_list')->first();
+        $address_default = $user->address_list->where('is_default', 1)->first();
+        $payment_list = Payment::all();
+        return view('pages.client.checkout', compact('title', 'user', 'address_default', 'payment_list'));
     }
 
     /**
@@ -28,7 +34,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = json_decode($request->cart);
+        dd($cart);
+        // return back()->with('success', 'Đặt hàng thành công');
     }
 
     /**

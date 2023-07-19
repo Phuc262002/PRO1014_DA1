@@ -319,12 +319,12 @@
                          cartItems = JSON.parse(existingCart);
                          const existingProduct = cartItems.find(item => item.id === response.data.id);
                          if (existingProduct) {
-                            if(existingProduct.quantity < response.data.in_stock) {
-                                existingProduct.quantity += 1;
-                            } else {
-                                Error('Số lượng sản phẩm trong kho không đủ');
-                                return;
-                            }
+                             if (existingProduct.quantity < response.data.in_stock) {
+                                 existingProduct.quantity += 1;
+                             } else {
+                                 Error('Số lượng sản phẩm trong kho không đủ');
+                                 return;
+                             }
                          } else {
                              cartItems.push(response.data);
                          }
@@ -338,8 +338,12 @@
                      Error('Thêm thất bại');
                  }
              },
-             error: function() {
-                 Error('Thêm sản phẩm thất bại');
+             error: function(error) {
+                 if (error.status == 429) {
+                     Error('Ban đang ấn quá nhanh, vui lòng thử lại sau 1 phút.');
+                 } else {
+                     Error('Thêm sản phẩm thất bại');
+                 }
              }
          });
      }
@@ -360,16 +364,16 @@
                          cartItems = JSON.parse(existingCart);
                          const existingProduct = cartItems.find(item => item.id === response.data.id);
                          if (existingProduct) {
-                            if (existingProduct.quantity + parseInt(quantity) > response.data.in_stock) {
-                                Error('Số lượng sản phẩm trong kho không đủ');
-                                return;
-                            }
+                             if (existingProduct.quantity + parseInt(quantity) > response.data.in_stock) {
+                                 Error('Số lượng sản phẩm trong kho không đủ');
+                                 return;
+                             }
                              existingProduct.quantity += parseInt(quantity);
                          } else {
-                            if(parseInt(quantity) > response.data.in_stock) {
-                                Error('Số lượng sản phẩm trong kho không đủ');
-                                return;
-                            }
+                             if (parseInt(quantity) > response.data.in_stock) {
+                                 Error('Số lượng sản phẩm trong kho không đủ');
+                                 return;
+                             }
                              response.data.quantity = parseInt(quantity);
                              cartItems.push(response.data);
                          }
@@ -384,8 +388,12 @@
                      Error('Thêm thất bại');
                  }
              },
-             error: function() {
-                 Error('Thêm sản phẩm thất bại');
+             error: function(error) {
+                 if (error.status == 429) {
+                     Error('Ban đang ấn quá nhanh, vui lòng thử lại sau 1 phút.');
+                 } else {
+                     Error('Thêm sản phẩm thất bại');
+                 }
              }
          });
      }
@@ -401,10 +409,10 @@
                            <div class="cart-product-inner p-b-20 m-b-20 border-bottom">
                                <div class="single-cart-product">
                                    <div class="cart-product-thumb">
-                                       <a href="single-product.html"><img src="${item.image_main}" alt="${item.name}"></a>
+                                       <a href="{{ route('home') }}/san-pham/${item.slug}"><img src="${item.image_main}" alt="${item.name}"></a>
                                    </div>
                                    <div class="cart-product-content">
-                                       <h3 class="title"><a href="single-product.html">${item.name}</a></h3>
+                                       <h3 class="title"><a href="{{ route('home') }}/san-pham/${item.slug}">${item.name}</a></h3>
                                        <div class="product-quty-price">
                                            <span class="cart-quantity">Số lượng: <strong> ${item.quantity} </strong></span>
                                            <span class="price">

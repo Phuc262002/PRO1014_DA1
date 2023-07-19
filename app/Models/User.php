@@ -71,4 +71,8 @@ class User extends Authenticatable
     public function address_list() {
         return $this->hasMany(Information_user::class);
     }
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }

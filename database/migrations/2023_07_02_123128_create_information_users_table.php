@@ -19,6 +19,7 @@ class CreateInformationUsersTable extends Migration
             $table->string('fullname', 50);
             $table->string('phone', 15);
             $table->string('address', 50);
+            $table->boolean('is_default')->default(true);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

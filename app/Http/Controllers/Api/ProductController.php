@@ -38,6 +38,7 @@ class ProductController extends Controller
             'image_main' => $product->image_main,
             'quantity' => 1,
             'in_stock' => $product->quantity,
+            'slug' => $product->slug,
 
         ];
         

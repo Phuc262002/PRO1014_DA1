@@ -1,15 +1,17 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
-<!-- Breadcrumb Area Start -->
-<div class="section breadcrumb-area bg-name-bright">
+    <!-- Breadcrumb Area Start -->
+    <div class="section breadcrumb-area bg-name-bright">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">THANH TOÁN</h2>
                         <ul>
-                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
+                            <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                             <li>Thanh toán</li>
                         </ul>
                     </div>
@@ -22,15 +24,30 @@
     <!-- Checkout Section Start -->
     <div class="section section-margin">
         <div class="container">
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    {{ $errors->first() }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <!-- Coupon Accordion Start -->
                     <div class="coupon-accordion">
 
-                        
+
 
                         <!-- Title Start -->
-                        <h3 class="title">Phiếu Giảm Giá  <span id="showcoupon">Nhấn vào đây để nhập mã của bạn</span></h3>
+                        <h3 class="title">Phiếu Giảm Giá <span id="showcoupon">Nhấn vào đây để nhập mã của bạn</span></h3>
                         <!-- Title End -->
 
                         <!-- Checkout Coupon Start -->
@@ -39,7 +56,8 @@
                                 <form action="#">
                                     <p class="checkout-coupon d-flex">
                                         <input placeholder="Mã Giảm Giá" type="text">
-                                        <input class="btn btn-primary btn-hover-dark rounded-0" value="Lưu" type="submit">
+                                        <input class="btn btn-primary btn-hover-dark rounded-0" value="Lưu"
+                                            type="submit">
                                     </p>
                                 </form>
                             </div>
@@ -54,7 +72,10 @@
                 <div class="col-lg-6 col-12 m-b-20">
 
                     <!-- Checkbox Form Start -->
-                    <form action="#">
+                    <form action="{{ route('thanh-toan.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="address_id" value="{{ $address_default->id }}">
+                        <input type="hidden" name="cart" id="cart_product">
                         <div class="checkbox-form">
 
                             <!-- Checkbox Form Title Start -->
@@ -63,33 +84,33 @@
 
                             <div class="row">
 
-                               
+
 
                                 <!-- First Name Input Start -->
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Họ và Tên <span class="required">*</span></label>
-                                        <input placeholder="Họ và Tên" type="text">
+                                        <input placeholder="Họ và Tên" type="text"
+                                            value="{{ $address_default->fullname }}" readonly>
                                     </div>
                                 </div>
                                 <!-- First Name Input End -->
-
 
                                 <!-- Phone Number Input Start -->
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Số Điện Thoại <span class="required">*</span></label>
-                                        <input  type="text">
+                                        <input type="text" value="{{ $address_default->phone }}" readonly>
                                     </div>
                                 </div>
                                 <!-- Phone Number Input End -->
-                               
-                                
+
+
                                 <!-- Email Address Input Start -->
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Địa Chỉ Email <span class="required">*</span></label>
-                                        <input placeholder="Email..." type="email">
+                                        <input placeholder="Email..." type="email" value="{{ $user->email }}" readonly>
                                     </div>
                                 </div>
                                 <!-- Email Address Input End -->
@@ -99,14 +120,15 @@
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Địa Chỉ <span class="required">*</span></label>
-                                        <input placeholder="Đường" type="text">
+                                        <input placeholder="Đường" type="text" value="{{ $address_default->address }}"
+                                            readonly>
                                     </div>
                                 </div>
                                 <!-- Address Input End -->
 
-                              
-                               
-                            </div>                            
+
+
+                            </div>
                         </div>
                     </form>
                     <!-- Checkbox Form End -->
@@ -138,12 +160,16 @@
                                 <!-- Table Body Start -->
                                 <tbody>
                                     <tr class="cart_item">
-                                        <td class="cart-product-name text-start ps-0"> Cám ăn cho người<strong class="product-quantity"> × 2</strong></td>
-                                        <td class="cart-product-total text-end pe-0"><span class="amount">100.000 VNĐ</span></td>
+                                        <td class="cart-product-name text-start ps-0"> Cám ăn cho người<strong
+                                                class="product-quantity"> × 2</strong></td>
+                                        <td class="cart-product-total text-end pe-0"><span class="amount">100.000 VNĐ</span>
+                                        </td>
                                     </tr>
                                     <tr class="cart_item">
-                                        <td class="cart-product-name text-start ps-0"> Thịt heo cho heo<strong class="product-quantity"> × 4</strong></td>
-                                        <td class="cart-product-total text-end pe-0"><span class="amount">20.000 VNĐ</span></td>
+                                        <td class="cart-product-name text-start ps-0"> Thịt heo cho heo<strong
+                                                class="product-quantity"> × 4</strong></td>
+                                        <td class="cart-product-total text-end pe-0"><span class="amount">20.000 VNĐ</span>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <!-- Table Body End -->
@@ -156,7 +182,8 @@
                                     </tr>
                                     <tr class="order-total">
                                         <th class="text-start ps-0">Tổng số đơn đặt hàng</th>
-                                        <td class="text-end pe-0"><strong><span class="amount">120.000 VNĐ</span></strong></td>
+                                        <td class="text-end pe-0"><strong><span class="amount">120.000 VNĐ</span></strong>
+                                        </td>
                                     </tr>
                                 </tfoot>
                                 <!-- Table Footer End -->
@@ -168,46 +195,25 @@
                         <!-- Payment Accordion Order Button Start -->
                         <div class="payment-accordion-order-button">
                             <div class="payment-accordion">
-                                <div class="single-payment">
-                                    <h5 class="panel-title m-b-15">
-                                        <a class="collapse-off" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                            Thanh Toán bằng Thẻ.
-                                        </a>
-                                    </h5>
-                                    <div class="collapse show" id="collapseExample">
-                                        <div class="card card-body rounded-0">
-                                            <p>Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn đặt hàng của bạn làm tham chiếu thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền trong tài khoản của chúng tôi được thanh toán.
-                                            </p>
+                                @foreach ($payment_list as $item)
+                                    <div class="single-payment">
+                                        <h5 class="panel-title m-b-15">
+                                            <a class="collapse-off" data-bs-toggle="collapse" href="#collapseExample-{{$item->id }}"
+                                                aria-expanded="false" aria-controls="collapseExample-{{$item->id }}">
+                                                {{$item->payment_name }}
+                                            </a>
+                                        </h5>
+                                        <div class="collapse show" id="collapseExample-{{$item->id }}">
+                                            <div class="card card-body rounded-0">
+                                                <p>{!! $item->payment_name !!}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="single-payment">
-                                    <h5 class="panel-title m-b-15">
-                                        <a class="collapse-off" data-bs-toggle="collapse" href="#collapseExample-2" aria-expanded="false" aria-controls="collapseExample-2">
-                                            Ví Điện Tử
-                                        </a>
-                                    </h5>
-                                    <div class="collapse" id="collapseExample-2">
-                                        <div class="card card-body rounded-0">
-                                            <p>Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn đặt hàng của bạn làm tham chiếu thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền trong tài khoản của chúng tôi được thanh toán.
-                                            </div>
-                                    </div>
-                                </div>
-                                <div class="single-payment">
-                                    <h5 class="panel-title m-b-15">
-                                        <a class="collapse-off" data-bs-toggle="collapse" href="#collapseExample-3" aria-expanded="false" aria-controls="collapseExample-3">
-                                            Ngân hàng.
-                                        </a>
-                                    </h5>
-                                    <div class="collapse" id="collapseExample-3">
-                                        <div class="card card-body rounded-0">
-                                            <p>Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn đặt hàng của bạn làm tham chiếu thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền trong tài khoản của chúng tôi được thanh toán.
-                                            </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="order-button-payment">
-                                <button class="btn btn-primary btn-hover-dark rounded-0 w-100">Thanh Toán</button>
+                                <button class="btn btn-primary btn-hover-dark rounded-0 w-100" onclick="checkout()">Thanh
+                                    Toán</button>
                             </div>
                         </div>
                         <!-- Payment Accordion Order Button End -->
@@ -217,5 +223,17 @@
             </div>
         </div>
     </div>
-    <!-- Checkout Section End --> 
+    <!-- Checkout Section End -->
+@endsection
+
+@section('js')
+    <script>
+        const cartProduct = localStorage.getItem('cart') ? localStorage.getItem('cart') : [];
+        $('#cart_product').attr('value', cartProduct)
+
+        function checkout() {
+            const form = $('form');
+            form.submit();
+        }
+    </script>
 @endsection
