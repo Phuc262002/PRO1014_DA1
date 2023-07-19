@@ -36,14 +36,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Product $product, $slug = null)
     {
-        //
-    }
-
-    public function getProductDetail(Request $request, Product $product) 
-    {
-        return view('pages.client.product-detail' , compact('title','product'));
+        $product = Product::where('slug', $slug)->with('image_list', 'brand', 'category')->firstOrFail();
+        $title = "Pets Care - $product->name";
+        return view('pages.client.product-detail', compact('product', 'title'));
     }
 
     /**

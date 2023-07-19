@@ -56,7 +56,7 @@
 
                         <!-- Cart Button left Side Start -->
                         <div class="cart-btn-lef-side m-b-20">
-                            <a href="{{ route('shop') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua
+                            <a href="{{ route('cart') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua
                                 hàng</a>
                         </div>
                         <!-- Cart Button left Side End -->

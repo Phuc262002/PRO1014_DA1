@@ -1,8 +1,10 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
-     <!-- Breadcrumb Area Start -->
-     <div class="section breadcrumb-area bg-name-bright">
+    <!-- Breadcrumb Area Start -->
+    <div class="section breadcrumb-area bg-name-bright">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -33,30 +35,14 @@
                         <div class="single-product-img swiper-container product-gallery-top">
                             <div class="swiper-wrapper popup-gallery">
 
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/1.png">
-                                    <img class="w-100" src="assets/images/products/large-product/1.png" alt="Product">
+                                <a class="swiper-slide w-100" href="{{ $product->image_main }}">
+                                    <img class="w-100" src="{{ $product->image_main }}" alt="Product">
                                 </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/2.png">
-                                    <img class="w-100" src="assets/images/products/large-product/2.png" alt="Product">
-                                </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/3.png">
-                                    <img class="w-100" src="assets/images/products/large-product/3.png" alt="Product">
-                                </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/4.png">
-                                    <img class="w-100" src="assets/images/products/large-product/4.png" alt="Product">
-                                </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/5.png">
-                                    <img class="w-100" src="assets/images/products/large-product/5.png" alt="Product">
-                                </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/6.png">
-                                    <img class="w-100" src="assets/images/products/large-product/6.png" alt="Product">
-                                </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/7.png">
-                                    <img class="w-100" src="assets/images/products/large-product/7.png" alt="Product">
-                                </a>
-                                <a class="swiper-slide w-100" href="assets/images/products/large-product/8.png">
-                                    <img class="w-100" src="assets/images/products/large-product/8.png" alt="Product">
-                                </a>
+                                @foreach ($product->image_list as $item)
+                                    <a class="swiper-slide w-100" href="{{ $item->image_collection }}">
+                                        <img class="w-100" src="{{ $item->image_collection }}" alt="Product">
+                                    </a>
+                                @endforeach
 
                             </div>
                         </div>
@@ -66,29 +52,13 @@
                         <div class="single-product-thumb swiper-container product-gallery-thumbs">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/1.png" alt="Product">
+                                    <img src="{{ $product->image_main }}" alt="Product">
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/2.png" alt="Product">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/3.png" alt="Product">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/4.png" alt="Product">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/5.png" alt="Product">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/6.png" alt="Product">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/7.png" alt="Product">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="assets/images/products/medium-plus-product/8.png" alt="Product">
-                                </div>
+                                @foreach ($product->image_list as $item)
+                                    <div class="swiper-slide">
+                                        <img src="{{ $item->image_collection }}" alt="Product">
+                                    </div>
+                                @endforeach
                             </div>
 
                             <!-- Next Previous Button Start -->
@@ -110,45 +80,48 @@
                     <div class="product-summery position-relative">
 
                         <!-- Product Head Start -->
-                        @foreach ($product as $item)
                         <div class="product-head m-b-15">
-                            <h2 class="product-title">{{$item->name}}</h2>
+                            <h2 class="product-title">{{ $product->name }}</h2>
                         </div>
-                        
+
                         <!-- Product Head End -->
 
                         <!-- Rating Start -->
                         <span class="rating justify-content-start m-b-10">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </span>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </span>
                         <!-- Rating End -->
 
                         <!-- Price Box Start -->
                         <div class="price-box m-b-10">
-                            <span class="regular-price">$70.00</span>
-                            <span class="old-price"><del>$85.00</del></span>
+                            @if ($product->discount_price != 0)
+                                <span class="regular-price">{{ number_format($product->discount_price) }}</span>
+                                <span class="old-price"><del>{{ number_format($product->price) }}</del></span>
+                            @else
+                                <span class="regular-price">{{ number_format($product->price) }}</span>
+                            @endif
                         </div>
                         <!-- Price Box End -->
 
                         <!-- SKU Start -->
                         <div class="sku m-b-15">
-                            <span>Mã hàng: 12345</span>
+                            <span>Mã hàng: {{ $product->sku }}</span>
                         </div>
                         <!-- SKU End -->
 
                         <!-- Product Inventory Start -->
                         <div class="product-inventroy m-b-15">
                             <span class="inventroy-title"> <strong>Còn lại : </strong></span>
-                            <span class="inventory-varient">12 sản phẩm </span>
+                            <span class="inventory-varient">{{ $product->quantity }} sản phẩm </span>
                         </div>
                         <!-- Product Inventory End -->
 
                         <!-- Description Start -->
-                        <p class="desc-content m-b-25">Có rất nhiều biến thể của các đoạn Lorem Ipsum có sẵn, nhưng phần lớn đã bị thay đổi ở một số hình thức, bằng cách thêm vào sự hài hước, hoặc những từ ngữ ngẫu nhiên trông không giống một chút nào đáng tin cậy.</p>
+                        <p class="desc-content m-b-25">{{ $product->description_summary }}</p>
                         <!-- Description End -->
 
                         <!-- Quantity Start -->
@@ -166,14 +139,14 @@
                         <div class="cart-btn action-btn m-b-30">
                             <div class="action-cart-btn-wrapper d-flex">
                                 <div class="add-to_cart">
-                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="cart.html">Thêm Vào Giỏ Hàng</a>
+                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="cart.html">Thêm Vào Giỏ
+                                        Hàng</a>
                                 </div>
                                 <a href="wishlist.html" title="Wishlist" class="action"><i class="ti-heart"></i></a>
                             </div>
                         </div>
                         <!-- Cart Button End -->
 
-                        @endforeach
                     </div>
                     <!-- Product Summery End -->
 
@@ -193,24 +166,28 @@
                 <div class="col-lg-12 single-product-tab">
                     <ul class="nav nav-tabs m-b-n15" id="myTab" role="tablist">
                         <li class="nav-item m-b-15">
-                            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#connect-1" role="tab" aria-selected="true">Mô tả</a>
+                            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#connect-1" role="tab"
+                                aria-selected="true">Mô tả</a>
                         </li>
                         <li class="nav-item m-b-15">
-                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#connect-2" role="tab" aria-selected="false">Đánh giá</a>
+                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#connect-2" role="tab"
+                                aria-selected="false">Đánh giá</a>
                         </li>
                         <li class="nav-item m-b-15">
-                            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#connect-3" role="tab" aria-selected="false">Chính sách vận chuyển</a>
+                            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#connect-3" role="tab"
+                                aria-selected="false">Chính sách vận chuyển</a>
                         </li>
                         <li class="nav-item m-b-15">
-                            <a class="nav-link" id="review-tab" data-bs-toggle="tab" href="#connect-4" role="tab" aria-selected="false">Kích thước sản phẩm</a>
+                            <a class="nav-link" id="review-tab" data-bs-toggle="tab" href="#connect-4" role="tab"
+                                aria-selected="false">Kích thước sản phẩm</a>
                         </li>
                     </ul>
 
                     <div class="tab-content mb-text" id="myTabContent">
-                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel"
+                            aria-labelledby="home-tab">
                             <div class="desc-content">
-                                <p class="m-b-15">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p>
-                                <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                {!! $product->description_detail !!}
                             </div>
                         </div>
                         <div class="tab-pane fade" id="connect-2" role="tabpanel" aria-labelledby="profile-tab">
@@ -232,12 +209,12 @@
 
                                             <!-- Rating Start -->
                                             <span class="rating justify-content-start m-b-15">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </span>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
                                             <!-- Rating End -->
 
                                             <!-- Review Title & Date Start -->
@@ -247,7 +224,11 @@
                                             <!-- Review Title & Date End -->
 
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra ex, vitae vestibulum arcu. Duis sollicitudin metus sed lorem commodo, eu dapibus libero interdum. Morbi convallis viverra erat, et aliquet orci congue vel. Integer in odio enim. Pellentesque in dignissim leo. Vivamus varius ex sit amet quam tincidunt iaculis.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in viverra ex,
+                                            vitae vestibulum arcu. Duis sollicitudin metus sed lorem commodo, eu dapibus
+                                            libero interdum. Morbi convallis viverra erat, et aliquet orci congue vel.
+                                            Integer in odio enim. Pellentesque in dignissim leo. Vivamus varius ex sit amet
+                                            quam tincidunt iaculis.</p>
                                     </div>
                                     <!-- Review Details End -->
 
@@ -257,17 +238,18 @@
                                 <!-- Rating Wrap Start -->
                                 <div class="rating_wrap">
                                     <h5 class="rating-title m-b-10">Add a review </h5>
-                                    <p class="m-b-10">Your email address will not be published. Required fields are marked *</p>
+                                    <p class="m-b-10">Your email address will not be published. Required fields are marked
+                                        *</p>
                                     <h6 class="rating-sub-title m-b-10">Your Rating</h6>
 
                                     <!-- Rating Start -->
                                     <span class="rating justify-content-start m-b-15">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
                                     <!-- Rating End -->
 
                                 </div>
@@ -325,7 +307,11 @@
                             <!-- Shipping Policy Start -->
                             <div class="shipping-policy m-t-40 m-b-n15">
                                 <h4 class="title m-b-20">Shipping policy for our store</h4>
-                                <p class="m-b-15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate</p>
+                                <p class="m-b-15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                    nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+                                    enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate</p>
                                 <ul class="policy-list m-b-15">
                                     <li>1-2 business days (Typically by end of day)</li>
                                     <li><a href="#">30 days money back guaranty</a></li>
@@ -334,9 +320,15 @@
                                     <li>luptatum zzril delenit augue duis dolore</li>
                                     <li>te feugait nulla facilisi.</li>
                                 </ul>
-                                <p class="m-b-15">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum</p>
-                                <p class="m-b-15">claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per</p>
-                                <p class="m-b-15">seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                                <p class="m-b-15">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet
+                                    doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam;
+                                    est usus legentis in iis qui facit eorum</p>
+                                <p class="m-b-15">claritatem. Investigationes demonstraverunt lectores legere me lius quod
+                                    ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem
+                                    consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum
+                                    claram, anteposuerit litterarum formas humanitatis per</p>
+                                <p class="m-b-15">seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis
+                                    videntur parum clari, fiant sollemnes in futurum.</p>
                             </div>
                             <!-- Shipping Policy End -->
                         </div>
@@ -425,15 +417,20 @@
                                             <!-- Thumb Start  -->
                                             <div class="thumb">
                                                 <a href="single-product.html" class="image">
-                                                    <img class="fit-image" src="assets/images/products/medium-product/5.png" alt="Product" />
+                                                    <img class="fit-image"
+                                                        src="assets/images/products/medium-product/5.png"
+                                                        alt="Product" />
                                                 </a>
                                                 <span class="badges">
-                                                        <span class="sale">-18%</span>
+                                                    <span class="sale">-18%</span>
                                                 </span>
                                                 <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                            class="ti-heart"></i></a>
+                                                    <a href="cart.html" class="action cart" title="Cart"><i
+                                                            class="ti-shopping-cart"></i></a>
                                                 </div>
 
                                                 <div class="countdown-area">
@@ -444,17 +441,18 @@
 
                                             <!-- Content Start  -->
                                             <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Pet Leaving House</a></h5>
+                                                <h5 class="title"><a href="single-product.html">Pet Leaving House</a>
+                                                </h5>
                                                 <span class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </span>
                                                 <span class="price">
-                                                        <span class="new">$47.50</span>
-                                                <span class="old">$50.00</span>
+                                                    <span class="new">$47.50</span>
+                                                    <span class="old">$50.00</span>
                                                 </span>
                                             </div>
                                             <!-- Content End  -->
@@ -470,28 +468,34 @@
                                             <!-- Thumb Start  -->
                                             <div class="thumb">
                                                 <a href="single-product.html" class="image">
-                                                    <img class="fit-image" src="assets/images/products/medium-product/8.png" alt="Product" />
+                                                    <img class="fit-image"
+                                                        src="assets/images/products/medium-product/8.png"
+                                                        alt="Product" />
                                                 </a>
                                                 <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                            class="ti-heart"></i></a>
+                                                    <a href="cart.html" class="action cart" title="Cart"><i
+                                                            class="ti-shopping-cart"></i></a>
                                                 </div>
                                             </div>
                                             <!-- Thumb End  -->
 
                                             <!-- Content Start  -->
                                             <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Basic Dog Trainning</a></h5>
+                                                <h5 class="title"><a href="single-product.html">Basic Dog Trainning</a>
+                                                </h5>
                                                 <span class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </span>
                                                 <span class="price">
-                                                        <span class="new">$55.00</span>
+                                                    <span class="new">$55.00</span>
                                                 </span>
                                             </div>
                                             <!-- Content End  -->
@@ -507,32 +511,38 @@
                                             <!-- Thumb Start  -->
                                             <div class="thumb">
                                                 <a href="single-product.html" class="image">
-                                                    <img class="fit-image" src="assets/images/products/medium-product/6.png" alt="Product" />
+                                                    <img class="fit-image"
+                                                        src="assets/images/products/medium-product/6.png"
+                                                        alt="Product" />
                                                 </a>
                                                 <span class="badges">
-                                                        <span class="sale">-20%</span>
+                                                    <span class="sale">-20%</span>
                                                 </span>
                                                 <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                            class="ti-heart"></i></a>
+                                                    <a href="cart.html" class="action cart" title="Cart"><i
+                                                            class="ti-shopping-cart"></i></a>
                                                 </div>
                                             </div>
                                             <!-- Thumb End  -->
 
                                             <!-- Content Start  -->
                                             <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Pet Leaving House</a></h5>
+                                                <h5 class="title"><a href="single-product.html">Pet Leaving House</a>
+                                                </h5>
                                                 <span class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </span>
                                                 <span class="price">
-                                                        <span class="new">$58.50</span>
-                                                <span class="old">$62.85</span>
+                                                    <span class="new">$58.50</span>
+                                                    <span class="old">$62.85</span>
                                                 </span>
                                             </div>
                                             <!-- Content End  -->
@@ -548,15 +558,21 @@
                                             <!-- Thumb Start  -->
                                             <div class="thumb">
                                                 <a href="single-product.html" class="image">
-                                                    <img class="fit-image" src="assets/images/products/medium-product/1.png" alt="Product" />
+                                                    <img class="fit-image"
+                                                        src="assets/images/products/medium-product/1.png"
+                                                        alt="Product" />
                                                 </a>
                                                 <span class="badges">
-                                                        <span class="sale">-18%</span>
+                                                    <span class="sale">-18%</span>
                                                 </span>
                                                 <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                        data-bs-target="#quick-view" title="Quickview"><i
+                                                            class="ti-plus"></i></a>
+                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                            class="ti-heart"></i></a>
+                                                    <a href="cart.html" class="action cart" title="Cart"><i
+                                                            class="ti-shopping-cart"></i></a>
                                                 </div>
                                             </div>
                                             <!-- Thumb End  -->
@@ -565,15 +581,15 @@
                                             <div class="content">
                                                 <h5 class="title"><a href="single-product.html">An Animal Album</a></h5>
                                                 <span class="rating">
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </span>
                                                 <span class="price">
-                                                        <span class="new">$80.50</span>
-                                                <span class="old">$85.80</span>
+                                                    <span class="new">$80.50</span>
+                                                    <span class="old">$85.80</span>
                                                 </span>
                                             </div>
                                             <!-- Content End  -->
@@ -589,31 +605,37 @@
                                             <!-- Thumb Start  -->
                                             <div class="thumb">
                                                 <a href="single-product.html" class="image">
-                                                    <img class="fit-image" src="assets/images/products/medium-product/3.png" alt="Product" />
+                                                    <img class="fit-image"
+                                                        src="assets/images/products/medium-product/3.png"
+                                                        alt="Product" />
                                                 </a>
                                                 <span class="badges">
-                                                        <span class="new">New</span>
+                                                    <span class="new">New</span>
                                                 </span>
                                                 <div class="action-wrapper">
-                                                    <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view"><i class="ti-plus"></i></a>
-                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                                    <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                                    <a href="#/" class="action quickview" data-bs-toggle="modal"
+                                                        data-bs-target="#quick-view"><i class="ti-plus"></i></a>
+                                                    <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
+                                                            class="ti-heart"></i></a>
+                                                    <a href="cart.html" class="action cart" title="Cart"><i
+                                                            class="ti-shopping-cart"></i></a>
                                                 </div>
                                             </div>
                                             <!-- Thumb End  -->
 
                                             <!-- Content Start  -->
                                             <div class="content">
-                                                <h5 class="title"><a href="single-product.html">Wait, You Need This</a></h5>
+                                                <h5 class="title"><a href="single-product.html">Wait, You Need This</a>
+                                                </h5>
                                                 <span class="rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </span>
                                                 <span class="price">
-                                                        <span class="new">$90.00</span>
+                                                    <span class="new">$90.00</span>
                                                 </span>
                                             </div>
                                             <!-- Content End  -->
@@ -625,8 +647,10 @@
                             </div>
 
                             <div class="swiper-pagination d-block d-md-none"></div>
-                            <div class="swiper-button-prev swiper-nav-button d-none d-md-flex"><i class="ti-angle-left"></i></div>
-                            <div class="swiper-button-next swiper-nav-button d-none d-md-flex"><i class="ti-angle-right"></i></div>
+                            <div class="swiper-button-prev swiper-nav-button d-none d-md-flex"><i
+                                    class="ti-angle-left"></i></div>
+                            <div class="swiper-button-next swiper-nav-button d-none d-md-flex"><i
+                                    class="ti-angle-right"></i></div>
 
                         </div>
                     </div>
