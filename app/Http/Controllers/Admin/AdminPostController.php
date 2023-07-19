@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class AdminPostController extends Controller
 {
@@ -32,13 +33,13 @@ class AdminPostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $post = Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            'img_post' => $request->image_post,
+            'img_post' => $request->img_post,
             'user_post_id' => Auth::user()->id,
             'category_id' => $request->category_id,
             'slug' => $request->slug,
@@ -79,7 +80,7 @@ class AdminPostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $update_post = Post::updateOrCreate([
             'id' => $post->id
@@ -111,6 +112,16 @@ class AdminPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        try {
+            $delete_post = Post::destroy($post->id);
+
+            if ($delete_post) {
+                return back()->with('success', "Xóa bài Blog thành công.");
+            } else {
+                return back()->with('error', "Xóa bài Blog thất bại.");
+            }
+        } catch (\Exception $e) {
+            return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+        }
     }
 }

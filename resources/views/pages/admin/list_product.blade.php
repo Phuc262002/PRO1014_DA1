@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Quản lý danh mục
+                                    Quản lý danh mục sản phẩm
                                 </h4>
                                 <div class="flex-shrink-0"></div>
                             </div>
@@ -107,7 +107,7 @@
         function deleteCategoryProduct(id) {
             Swal.fire({
                 title: "Bạn có chắc muốn xóa?",
-                text: "Bạn có thể lấy lại sản phẩm này ở thùng rác.",
+                text: "Bạn có thể lấy lại danh mục sản phẩm này ở thùng rác.",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
