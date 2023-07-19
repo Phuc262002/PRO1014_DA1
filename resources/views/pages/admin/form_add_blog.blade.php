@@ -54,7 +54,7 @@
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="image_main" id="image_main">Thêm ảnh</button>
                                                     <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="image_post" value="Chưa có ảnh nào được chọn...">
+                                                        name="img_post" value="Chưa có ảnh nào được chọn...">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">

@@ -39,7 +39,7 @@ class AdminPostController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            'img_post' => $request->image_post,
+            'img_post' => $request->img_post,
             'user_post_id' => Auth::user()->id,
             'category_id' => $request->category_id,
             'slug' => $request->slug,
