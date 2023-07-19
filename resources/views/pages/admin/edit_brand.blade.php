@@ -27,21 +27,22 @@
                                 </div>
                             @endif
                                 <div class="live-preview">
-                                    <form action="{{route('brands.update'['brand' => $brand->id])}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route ('brands.update',['brand' => $brand->id])}}" method = "POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Tên thương hiệu</label>
-                                                <input type="text" name="name" class="form-control" id="basiInput">
+                                                <input type="text" name="name" class="form-control" id="basiInput"value="{{$brand->name}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Quốc gia</label>
-                                                <input type="text" name="nation" class="form-control" id="basiInput">
+                                                <input type="text" name="nation" class="form-control" id="basiInput" value="{{$brand->nation}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Slug</label>
-                                                <input type="text" name="slug" class="form-control" id="basiInput">
+                                                <input type="text" name="slug" class="form-control" id="basiInput" value="{{$brand->slug}}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="formFile" class="form-label">Thêm hình ảnh</label>

@@ -47,7 +47,7 @@ class AdminUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('pages.admin.edit_user', compact('user'));
     }
 
     /**
@@ -55,7 +55,21 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $update_user = User::updateOrCreate([
+            'id' => $user->id,
+        ], $request->all());
+        if ($update_user) {
+            if ($request->save_action == 'save_and_back') {
+                return redirect()->route('user.index')->with('success', "Cập nhật sản phẩm thành công.");
+            } else if ($request->save_action == 'save_and_edit') {
+                return back()->with('success', "Cập nhật sản phẩm thành công.");
+            } else if ($request->save_action == 'save_and_new') {
+                return redirect()->route('user.create')->with('success', "Cập nhật sản phẩm thành công.");
+            }
+        } else {
+            return back()->with('error', "Cập nhật sản phẩm thất bại.");
+        }
+        dd($request->all());
     }
 
     /**
