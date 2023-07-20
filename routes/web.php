@@ -22,6 +22,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('san-pham', ProductController::class);
 Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->name('san-pham.detail');
+
+Route::resource('dich-vu', ServiceClientController::class);
+Route::resource('bai-viet', PostController::class);
+
+Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 
 Route::get('services', [ServiceClientController::class, 'index'])->name('services');
 

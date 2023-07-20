@@ -413,7 +413,7 @@
                             <div class="single-blog-wrapper">
                                 <!-- Blog Thumb Start -->
                                 <div class="blog-thumb thumb-effect">
-                                    <a class="image" href="blog-details.html">
+                                    <a class="image" href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">
                                         <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
                                     </a>
                                 </div>
@@ -427,9 +427,9 @@
                                             <li><span>{{ $item->created_at->format('d-m-y') }}</span></li>
                                         </ul>
                                     </div>
-                                    <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                    <h2 class="blog-title"><a href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">{{ $item->title }}</a></h2>
                                     <p>{{ $item->description }}</p>
-                                    <a class="more-link" href="blog-details.html">Xem thêm...</a>
+                                    <a class="more-link" href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">Xem thêm...</a>
                                 </div>
                                 <!-- Blog Content End -->
                             </div>
