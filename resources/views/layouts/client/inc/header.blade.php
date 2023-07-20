@@ -102,7 +102,7 @@
                                         </ul>
                                     </li>
                                     <li class="has-children">
-                                        <a class="{{Request::routeIs('blog') ? 'active' : ''}}" href="{{route('blog')}}">Blog</a>
+                                        <a class="{{Request::routeIs('bai-viet.index') ? 'active' : ''}}" href="{{route('bai-viet.index')}}">Blog</a>
                                     </li>
                                     
                                     <li><a href="{{route('about')}}">Về chúng tôi</a></li>
