@@ -326,9 +326,17 @@
                                  return;
                              }
                          } else {
+                             if (1 > response.data.in_stock) {
+                                 Error('Số lượng sản phẩm trong kho không đủ');
+                                 return;
+                             }
                              cartItems.push(response.data);
                          }
                      } else {
+                         if (1 > response.data.in_stock) {
+                             Error('Số lượng sản phẩm trong kho không đủ');
+                             return;
+                         }
                          cartItems.push(response.data);
                      }
                      localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -453,9 +461,9 @@
                  total += item.price * item.quantity;
              });
          }
-         document.getElementById('total-cart-money').innerHTML = formatVietnamDong(total);
-         document.getElementById('totalMoney').innerHTML = formatVietnamDong(total);
-         document.getElementById('totalMoneyFinal').innerHTML = formatVietnamDong(total);
+         $('#total-cart-money').html(formatVietnamDong(total));
+         $('#totalMoney').html(formatVietnamDong(total));
+         $('#totalMoneyFinal').html(formatVietnamDong(total));
      }
 
      renderCartHeader()

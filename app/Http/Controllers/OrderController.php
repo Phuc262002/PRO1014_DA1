@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Order_detail;
 use App\Models\User;
+use App\Models\Product;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
@@ -35,8 +37,49 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $cart = json_decode($request->cart);
-        dd($cart);
-        // return back()->with('success', 'Đặt hàng thành công');
+
+        $checkQuantity = true;
+
+        foreach ($cart as $item) {
+            $product = Product::find($item->id);
+            if ($product->quantity < $item->quantity) {
+                $checkQuantity = false;
+                break;
+            }
+        }
+
+        if ($checkQuantity) {
+            $order = new Order();
+            $order->order_hash_id = 'DH' . time().rand(1000, 9999);
+            $order->user_id = auth()->user()->id;
+            $order->address_id = $request->address_id;
+            $order->payment_id = $request->payment_id;
+            $order->total = $request->total;
+            $order->save();
+
+            foreach ($cart as $item) {
+                $order_detail = new Order_detail();
+                $order_detail->order_id = $order->id;
+                $order_detail->product_id = $item->id;
+                $order_detail->quantity = $item->quantity;
+                $order_detail->price = $item->price;
+                $order_detail->save();
+            }
+
+            foreach ($cart as $item) {
+                $product = Product::find($item->id);
+                $product->quantity = $product->quantity - $item->quantity;
+                $product->save();
+            }
+
+            return back()->with('success', 'Đặt hàng thành công');
+            // $order = Order::where('id', $order->id)->with('user', 'address', 'payment', 'order_detail')->first();
+            // $order_detail_list = Order_detail::where('order_id', $order->id)->with('product', 'order')->get();
+
+            // dd($order, $order_detail_list);
+        } else {
+            return back()->with('error', 'Số lượng sản phẩm không đủ');
+        }
     }
 
     /**

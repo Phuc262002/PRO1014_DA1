@@ -72,10 +72,14 @@
                 <div class="col-lg-6 col-12 m-b-20">
 
                     <!-- Checkbox Form Start -->
-                    <form action="{{ route('thanh-toan.store') }}" method="POST" enctype="multipart/form-data">
+                    <form id="form_checkout" action="{{ route('thanh-toan.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="address_id" value="{{ $address_default->id }}">
                         <input type="hidden" name="cart" id="cart_product">
+                        <input type="hidden" name="payment_id" id="payment_id">
+                        <input type="hidden" name="total" id="total">
+
                         <div class="checkbox-form">
 
                             <!-- Checkbox Form Title Start -->
@@ -158,31 +162,20 @@
                                 <!-- Table Head End -->
 
                                 <!-- Table Body Start -->
-                                <tbody>
-                                    <tr class="cart_item">
-                                        <td class="cart-product-name text-start ps-0"> Cám ăn cho người<strong
-                                                class="product-quantity"> × 2</strong></td>
-                                        <td class="cart-product-total text-end pe-0"><span class="amount">100.000 VNĐ</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="cart-product-name text-start ps-0"> Thịt heo cho heo<strong
-                                                class="product-quantity"> × 4</strong></td>
-                                        <td class="cart-product-total text-end pe-0"><span class="amount">20.000 VNĐ</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tbody id="cart_products_html"></tbody>
                                 <!-- Table Body End -->
 
                                 <!-- Table Footer Start -->
                                 <tfoot>
                                     <tr class="cart-subtotal">
                                         <th class="text-start ps-0">Tổng đơn hàng</th>
-                                        <td class="text-end pe-0"><span class="amount">120.000 VNĐ</span></td>
+                                        <td class="text-end pe-0"><span id="amount_pre" class="amount"></span>
+                                        </td>
                                     </tr>
                                     <tr class="order-total">
-                                        <th class="text-start ps-0">Tổng số đơn đặt hàng</th>
-                                        <td class="text-end pe-0"><strong><span class="amount">120.000 VNĐ</span></strong>
+                                        <th class="text-start ps-0">Tổng giá trị đơn đặt hàng</th>
+                                        <td class="text-end pe-0"><strong><span id="amount_final"
+                                                    class="amount"></span></strong>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -198,12 +191,13 @@
                                 @foreach ($payment_list as $item)
                                     <div class="single-payment">
                                         <h5 class="panel-title m-b-15">
-                                            <a class="collapse-off" data-bs-toggle="collapse" href="#collapseExample-{{$item->id }}"
-                                                aria-expanded="false" aria-controls="collapseExample-{{$item->id }}">
-                                                {{$item->payment_name }}
+                                            <a class="collapse-off" data-bs-toggle="collapse"
+                                                href="#collapseExample-{{ $item->id }}" aria-expanded="false"
+                                                aria-controls="collapseExample-{{ $item->id }}">
+                                                {{ $item->payment_name }}
                                             </a>
                                         </h5>
-                                        <div class="collapse show" id="collapseExample-{{$item->id }}">
+                                        <div class="collapse show" id="collapseExample-{{ $item->id }}">
                                             <div class="card card-body rounded-0">
                                                 <p>{!! $item->payment_name !!}</p>
                                             </div>
@@ -229,11 +223,41 @@
 @section('js')
     <script>
         const cartProduct = localStorage.getItem('cart') ? localStorage.getItem('cart') : [];
-        $('#cart_product').attr('value', cartProduct)
+
+        const cart = JSON.parse(cartProduct).map(item => {
+            return `
+            <tr class="cart_item">
+                <td class="cart-product-name text-start ps-0">${item.name}<strong
+                        class="product-quantity"> × ${item.quantity}</strong></td>
+                <td class="cart-product-total text-end pe-0"><span class="amount">${formatVietnamDong(item.price * item.quantity)}</span>
+                </td>
+            </tr>
+            `
+        }).join('');
+
+        let total = 0;
+        if (cartProduct) {
+            JSON.parse(cartProduct).forEach(item => {
+                total += item.price * item.quantity;
+            });
+        }
+
+        $('#cart_product').attr('value', cartProduct);
+        $('#total').attr('value', total);
+        $('#payment_id').attr('value', 1);
+
+
+        $('#cart_products_html').html(cart);
+        $('#amount_pre').html(formatVietnamDong(total));
+        $('#amount_final').html(formatVietnamDong(total));
 
         function checkout() {
-            const form = $('form');
-            form.submit();
+            $('#form_checkout').submit();
         }
+    </script>
+    <script>
+        @if (session('success'))
+            localStorage.removeItem('cart');
+        @endif
     </script>
 @endsection

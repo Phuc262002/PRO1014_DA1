@@ -236,7 +236,7 @@
                                     item.quantity = response.data.in_stock;
                                     Error('Số lượng sản phẩm trong kho không đủ');
                                 } else {
-                                    item.quantity = Number($(event).val());
+                                    item.quantity = parseInt($(event).val());
                                 }
                             } else {
                                 item.quantity = 1;

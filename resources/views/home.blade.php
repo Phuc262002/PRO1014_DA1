@@ -219,7 +219,7 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
-                                                    <a href="single-product.html" class="image">
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
                                                         <div class="countdown-area">
@@ -229,7 +229,7 @@
                                                     </a>
                                                     <span class="badges">
                                                         <span class="sale">Giảm
-                                                            {{ 100 - ($item->discount_price / $item->price) * 100 }}%</span>
+                                                            {{ ceil(100 - ($item->discount_price / $item->price) * 100) }}%</span>
                                                     </span>
                                                     <div class="action-wrapper">
                                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
@@ -245,7 +245,7 @@
                                                 <!-- Content Start  -->
                                                 <div class="content">
                                                     <h5 class="title"><a
-                                                            href="single-product.html">{{ $item->name }}</a></h5>
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a></h5>
                                                     <span class="rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -329,7 +329,7 @@
                                                 <!-- Deal Thumb Start -->
                                                 <div class="deal-thumb col-md-6 m-b-30" data-aos="fade-up"
                                                     data-aos-duration="1200">
-                                                    <a href="single-product.html">
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product Image">
                                                     </a>
@@ -340,7 +340,7 @@
                                                 <div class="product-deal-content col-md-6 m-b-30" data-aos="fade-up"
                                                     data-aos-duration="1400">
                                                     <h5 class="title m-b-15"><a
-                                                            href="single-product.html">{{ $item->name }}</a>
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
                                                     </h5>
                                                     <span class="rating m-b-15">
                                                         <i class="fa fa-star"></i>
