@@ -145,11 +145,7 @@
                     return `<tr>
                                 <td class="pro-thumbnail"><a href="{{ route('home') }}/san-pham/${item.slug}"><img class="fit-image"
                                             src="${item.image_main}" alt="Product" /></a></td>
-<<<<<<< HEAD
-                                <td class="pro-title"><a href="${item.slug}">${item.name}</a></td>
-=======
                                 <td class="pro-title"><a href="{{ route('home') }}/san-pham/${item.slug}">${item.name}</a></td>
->>>>>>> efd8de326586f2c656b45245f822884a7aa35f99
                                 <td class="pro-price"><span>${formatVietnamDong(item.price)}</span></td>
                                 <td class="pro-quantity">
                                     <div class="quantity">

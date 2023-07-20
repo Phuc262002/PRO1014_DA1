@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ProductController;
@@ -64,6 +65,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'user' => AdminUserController::class,
         'post' => AdminPostController::class,
         'brands' => AdminBrandController::class,
+        'orders' => AdminOrderController::class,
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');

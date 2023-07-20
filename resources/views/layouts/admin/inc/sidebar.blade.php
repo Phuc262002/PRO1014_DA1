@@ -253,34 +253,34 @@
                     <div class="collapse menu-dropdown" id="sidebarCart">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.order_all') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('orders.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả đơn hàng
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.order_pending') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('orders.index') }}?status=PENDING" class="nav-link" data-key="t-team">
                                     Đơn hàng chưa xác nhận
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.order_holding') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('orders.index') }}?status=HOLDING" class="nav-link" data-key="t-team">
                                     Đơn hàng giữ lại
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.order_accepted') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('orders.index') }}?status=ACCEPTED" class="nav-link" data-key="t-team">
                                     Đơn hàng đã chấp nhận
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.order_completed') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('orders.index') }}?status=COMPLETED" class="nav-link" data-key="t-team">
                                     Đơn hàng đã hoàn thành
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.order_canceled') }}" class="nav-link" data-key="t-team">
+                                <a href="{{ route('orders.index') }}?status=CANCELED" class="nav-link" data-key="t-team">
                                     Đơn hàng đã hủy
                                 </a>
                             </li>
