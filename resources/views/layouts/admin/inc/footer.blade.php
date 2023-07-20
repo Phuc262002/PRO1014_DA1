@@ -900,6 +900,17 @@
 <script src="{{ asset('assets/admin/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
 
 <script src="{{ asset('assets/admin/js/pages/form-file-upload.init.js') }}"></script>
+ <!-- list.js min js -->
+ <script src="{{ asset('assets/libs/list.js/list.min.js') }}"></script>
+
+ <!--list pagination js-->
+ <script src="{{ asset('assets/libs/list.pagination.js/list.pagination.min.js') }}"></script>
+
+ <!-- invoicelist init js -->
+ <script src="{{ asset('assets/js/pages/invoiceslist.init.js') }}"></script>
+
+ <!-- Sweet Alerts js -->
+ <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
 <!-- App js -->
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>

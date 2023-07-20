@@ -182,6 +182,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('them-ma-giam-gia', function () {
         return view('pages.admin.form_add_discount');
     })->name('admin.form_add_discount');
+    Route::get('them-san-pham', function () {
+        return view('pages.admin.order_details');
+    })->name('admin.order_details');
 
 
 
@@ -286,4 +289,7 @@ Route::get('about', function () {
 
 Route::get('account', function () {
     return view('pages.client.account');
-})->name('account');
+})->name('invoicedetails.');
+Route::get('invoicedetails', function () {
+    return view('pages.client.invoicedetails');
+})->name('invoicedetails');
