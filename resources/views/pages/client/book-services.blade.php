@@ -1,6 +1,6 @@
 @extends('layouts.client.master')
-<link rel="stylesheet" href="assets/css/book-services/bootstrap.css">
-<link rel="stylesheet" href="assets/css/book-services/style.css">
+<link rel="stylesheet" href="{{asset('assets/css/book-services/bootstrap.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/book-services/style.css')}}">
 
 @section('content')
 <!-- Breadcrumb Area Start -->
@@ -33,34 +33,22 @@
             </div>
             <!-- Section Title End -->
             <div class="booking-form">
-                <form>
+                <form action="{{route ('dich-vu.store')}}" method="POST"
+                enctype="multipart/form-data">
+                @csrf
                     <div class="form-group">
-                        {{-- <div class="form-checkbox">
-                            <label for="roundtrip">
-                                <input type="radio" id="roundtrip" name="flight-type">
-                                <span></span>Roundtrip
-                            </label>
-                            <label for="one-way">
-                                <input type="radio" id="one-way" name="flight-type">
-                                <span></span>One way
-                            </label>
-                            <label for="multi-city">
-                                <input type="radio" id="multi-city" name="flight-type">
-                                <span></span>Multi-City
-                            </label>
-                        </div> --}}
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span class="form-label">Họ và Tên </span>
-                                <input class="form-control" type="text" placeholder="Họ và Tên ">
+                                <input name="name" class="form-control" type="text" placeholder="Họ và Tên ">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span class="form-label">Số điện thoại</span>
-                                <input class="form-control" type="text" placeholder="Số điện thoại của bạn">
+                                <input name="number" class="form-control" type="text" placeholder="Số điện thoại của bạn">
                             </div>
                         </div>
                     </div>
@@ -79,17 +67,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <span class="form-label">Pet của bạn</span>
-                                <select class="form-control">
-                                    <option>Chó</option>
-                                    <option>Mèo</option>
-                                    <option>Khác...</option>
-                                </select>
-                                <span class="select-arrow"></span>
-                            </div>
-                        </div>
+                        
                         <div class="col-md-4">
                             <div class="form-group">
                                 <span class="form-label">Tên Pet </span>
@@ -101,9 +79,9 @@
                             <div class="form-group">
                                 <span class="form-label">Dịch vụ</span>
                                 <select class="form-control">
-                                    <option>Spa cho thú cưng</option>
-                                    <option>Tiêm thuốc định kỳ </option>
-                                    <option>Khách sạn cho thú cưng</option>
+                                    @foreach ($name_services as $item)
+                                            <option value="{{$item->id}}" {{$item->id == $service_id ? 'selected' : ''}}>{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                                 <span class="select-arrow"></span>
                             </div>

@@ -97,8 +97,8 @@
                                     <li class="has-children">
                                         <a class="{{Request::routeIs('services') | Request::routeIs('') ? 'active' : ''}}" href="#">Dịch vụ</a>
                                         <ul class="sub-menu">
-                                            <li><a href="{{route('services')}}">Các dịch vụ</a></li>
-                                            <li><a href="{{route('book-services')}}">Đặt lịch</a></li>
+                                            <li><a href="{{route('dich-vu.index')}}">Các dịch vụ</a></li>
+                                            <li><a href="{{route('dich-vu.create')}}">Đặt lịch</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-children">

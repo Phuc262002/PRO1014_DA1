@@ -38,7 +38,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('san-pham', ProductController::class);
 Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->name('san-pham.detail');
 
-Route::get('services', [ServiceClientController::class, 'index'])->name('services');
+Route::resource('dich-vu', ServiceClientController::class);
 
 Route::middleware('auth')->resource('thanh-toan', OrderController::class);
 
