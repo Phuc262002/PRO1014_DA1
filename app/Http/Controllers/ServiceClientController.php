@@ -22,8 +22,6 @@ class ServiceClientController extends Controller
         $service_id = request()->input('service_id');
         $name_services = Service::all();
         return view('pages.client.book-services',compact('name_services', 'service_id'));
-      
-        
     }
 
     /**
@@ -31,7 +29,7 @@ class ServiceClientController extends Controller
      */
     public function store(Request $request)
     {
-        return view('pages.client.book-services');
+        return view('pages.admin.book-services');
     }
 
     /**
