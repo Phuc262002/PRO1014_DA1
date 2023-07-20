@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    {{$title}}
+@endsection
 @section('content')
 <div class="main-content">
 
@@ -266,6 +269,7 @@
                             <div class="text-sm-end d-none d-sm-block">
                                 Design & Develop by Themesbrand
                             </div>
+                            {{ $order->links() }}
                         </div>
                     </div>
                 </div>
