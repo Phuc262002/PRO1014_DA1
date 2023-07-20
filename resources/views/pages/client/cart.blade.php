@@ -145,7 +145,7 @@
                     return `<tr>
                                 <td class="pro-thumbnail"><a href="#"><img class="fit-image"
                                             src="${item.image_main}" alt="Product" /></a></td>
-                                <td class="pro-title"><a href="#">${item.name}</a></td>
+                                <td class="pro-title"><a href="${item.slug}">${item.name}</a></td>
                                 <td class="pro-price"><span>${formatVietnamDong(item.price)}</span></td>
                                 <td class="pro-quantity">
                                     <div class="quantity">
