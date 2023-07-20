@@ -1,7 +1,7 @@
 @extends('layouts.client.master')
-<link href="assets/css/services/style.css" rel="stylesheet">
-<link href="assets/css/services/reponsive.css" rel="stylesheet">
-<link href="assets/css/services/bootstrap.css" rel="stylesheet">
+<link href="{{asset('assets/css/services/style.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/services/reponsive.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/services/bootstrap.css')}}" rel="stylesheet">
 
 @section('title')
     {{ $title }}
@@ -37,7 +37,7 @@
                             <div class="icon"><i class="{{$item->icon}}"></i></div>
                             <h4><a href="services-detail.html">{{$item->name}}</a></h4>
                             <p>{{$item->description}}</p>
-                               <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
+                               <a href="{{route('dich-vu.create')}}?service_id={{$item->id}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                             <div class="icon"><i class="flaticon-dog-1"></i></div>
                             <h4><a href="services-detail.html">DẪN THÚ CƯNG ĐI DẠO</a></h4>
                             <p>‘“Các bé đến ở Khách Sạn ThiThi Pet khi về nhà còn mập mạp , sạch sẽ , do có <br> sự chăm sóc từ đội ngũ y Bác Sĩ tốt nhất . Có sự am hiểu về quá trình chăm sóc , nuôi dưỡng và chế độ ăn của từng bé “”
-                                Lời nhận xét của hầu hết các khách hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
+                                Lời nhận xét của hầu hết các khách   hàng <br> khi gửi bé cún( chó , mèo ) tại dịch vụ trông giữ chó-mèo tại THITHI PET TPHCM.. </p>
                                <a href="{{route('book-services')}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
 
                         </div>
@@ -150,16 +150,16 @@
     <!--/service_area-->
     <div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
 
-    <script src="assets/js/services/jquery.js"></script>
-    <script src="assets/js/services/bootstrap.min.js"></script>
-    <script src="assets/js/services/jquery.countTo.js"></script>
-    <script src="assets/js/services/isotope.js"></script>
-    <script src="assets/js/services/jquery.appear.js"></script>
-    <script src="assets/js/services/html5lightbox/html5lightbox.js"></script>
-    <script src="assets/js/services/owl.js"></script>
-    <script src="assets/js/services/validate.js"></script>
-    <script src="assets/js/services/wow.js"></script>
+    <script src="{{asset('assets/js/services/jquery.js')}}"></script>
+    <script src="{{asset('assets/js/services/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/services/jquery.countTo.js')}}"></script>
+    <script src="{{asset('assets/js/services/isotope.js')}}"></script>
+    <script src="{{asset('assets/js/services/jquery.appear.js')}}"></script>
+    <script src="{{asset('assets/js/services/html5lightbox/html5lightbox.js')}}"></script>
+    <script src="{{asset('assets/js/services/owl.js')}}"></script>
+    <script src="{{asset('assets/js/services/validate.js')}}"></script>
+    <script src="{{asset('assets/js/services/wow.js')}}"></script>
 
-    <script src="assets/js/services/custom.js"></script>
+    <script src="{{asset('assets/js/services/custom.js')}}"></script>
 
 @endsection

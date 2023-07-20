@@ -155,18 +155,42 @@
                     <a class="nav-link menu-link" href="#sidebarService" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarCmt">
                         <i data-feather="life-buoy"></i>
-                        <span data-key="t-pages">Dịch vụ</span>
+                        <span data-key="t-pages">Quản lý dịch vụ</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarService">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('service.index') }}" class="nav-link" data-key="t-team">
-                                    Quản lý dịch vụ
+                                    Tất cả dịch vụ
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('service.create') }}" class="nav-link" data-key="t-team">
                                     Thêm dịch vụ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-title">
+                    <i class="ri-more-fill"></i>
+                    <span data-key="t-pages">Mã giảm giá</span>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#discount" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="discount">
+                        <i data-feather="life-buoy"></i>
+                        <span data-key="t-pages">Quản lý mã giảm giá</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="discount">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('coupon.index') }}" class="nav-link" data-key="t-team">
+                                    Tất cả mã giảm giá
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('coupon.create') }}" class="nav-link" data-key="t-team">
+                                    Thêm mã giảm giá
                                 </a>
                             </li>
                         </ul>

@@ -219,11 +219,8 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
-<<<<<<< HEAD
-                                                    <a href="{{ route('san-pham.index') }}" class="image">
-=======
                                                     <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
->>>>>>> efd8de326586f2c656b45245f822884a7aa35f99
+
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
                                                         <div class="countdown-area">
@@ -248,12 +245,10 @@
 
                                                 <!-- Content Start  -->
                                                 <div class="content">
-                                                    <h5 class="title"><a
-<<<<<<< HEAD
-                                                            href="{{ route('san-pham.index') }}">{{ $item->name }}</a></h5>
-=======
-                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a></h5>
->>>>>>> efd8de326586f2c656b45245f822884a7aa35f99
+                                                    <h5 class="title">
+                                                        <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                    </h5>
+
                                                     <span class="rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -419,7 +414,7 @@
                             <div class="single-blog-wrapper">
                                 <!-- Blog Thumb Start -->
                                 <div class="blog-thumb thumb-effect">
-                                    <a class="image" href="blog-details.html">
+                                    <a class="image" href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">
                                         <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
                                     </a>
                                 </div>
@@ -433,9 +428,9 @@
                                             <li><span>{{ $item->created_at->format('d-m-y') }}</span></li>
                                         </ul>
                                     </div>
-                                    <h2 class="blog-title"><a href="blog-details.html">{{ $item->title }}</a></h2>
+                                    <h2 class="blog-title"><a href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">{{ $item->title }}</a></h2>
                                     <p>{{ $item->description }}</p>
-                                    <a class="more-link" href="blog-details.html">Xem thêm...</a>
+                                    <a class="more-link" href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">Xem thêm...</a>
                                 </div>
                                 <!-- Blog Content End -->
                             </div>

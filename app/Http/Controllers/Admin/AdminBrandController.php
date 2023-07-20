@@ -35,18 +35,18 @@ class AdminBrandController extends Controller
     {
         $brands = Brand::create($request->all());
         if ($brands) {
-            if($request->save_action == 'save_and_back'){
+            if ($request->save_action == 'save_and_back') {
                 return redirect()->route('brands.index')->with('success', "Thêm thương hiệu thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return redirect()->route('brands.edit', $service->id)->with('success', "Thêm thương hiệu thành công.");
-            } else if ($request->save_action == 'save_and_new'){
+            } else if ($request->save_action == 'save_and_edit') {
+                return redirect()->route('brands.edit', $brands->id)->with('success', "Thêm thương hiệu thành công.");
+            } else if ($request->save_action == 'save_and_new') {
                 return redirect()->route('brands.create')->with('success', "Thêm thương hiệu thành công.");
             }
         } else {
             return back()->with('error', "Thêm thương hiệu thất bại.");
         }
-       
-        
+
+
     }
 
     /**
@@ -73,14 +73,14 @@ class AdminBrandController extends Controller
 
         $update_brand = Brand::updateOrCreate([
             'id' => $brand->id,
-        ],$request->all());
+        ], $request->all());
 
         if ($update_brand) {
-            if($request->save_action == 'save_and_back'){
+            if ($request->save_action == 'save_and_back') {
                 return redirect()->route('brands.index')->with('success', "Cập nhật thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
+            } else if ($request->save_action == 'save_and_edit') {
                 return redirect()->route('brands.edit', $brand->id)->with('success', "Cập nhật thành công.");
-            } else if ($request->save_action == 'save_and_new'){
+            } else if ($request->save_action == 'save_and_new') {
                 return redirect()->route('brands.create')->with('success', "Cập nhật thành công.");
             }
         } else {
@@ -92,11 +92,10 @@ class AdminBrandController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Brand $brand)
-    {
-        {
+    { {
             try {
-                $delete_brand= Brand::destroy($brand->id);
-    
+                $delete_brand = Brand::destroy($brand->id);
+
                 if ($delete_brand) {
                     return back()->with('success', "Xóa thương hiệu thành công.");
                 } else {

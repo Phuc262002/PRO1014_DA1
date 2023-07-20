@@ -12,7 +12,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Pets Care - Blog';
+        $posts = Post::with('category', 'user_post')->paginate(9);
+        return view('pages.client.blog', compact('title', 'posts'));
     }
 
     /**
@@ -20,6 +22,10 @@ class PostController extends Controller
      */
     public function create()
     {
+        //
+    }
+
+    public function getPosttDetail() {
         //
     }
 
@@ -34,9 +40,12 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+
+    public function show(Post $post, $slug = null)
     {
-        //
+        $post = Post::where('slug', $slug)->with('category', 'user_post')->first();
+        $title = 'Pets Care - '.$post->title;
+        return view('pages.client.blog-details', compact('title', 'post'));
     }
 
     /**
