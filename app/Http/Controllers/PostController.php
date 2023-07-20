@@ -44,8 +44,8 @@ class PostController extends Controller
     public function show(Post $post, $slug = null)
     {
         $post = Post::where('slug', $slug)->with('category', 'user_post')->first();
-        dd($post);
-        // return view('pages.')
+        $title = 'Pets Care - '.$post->title;
+        return view('pages.client.blog-details', compact('title', 'post'));
     }
 
     /**
