@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('products', ProductController::class)->only('show');
+Route::middleware('throttle:60,1')->apiResource('products', ProductController::class)->only('show');

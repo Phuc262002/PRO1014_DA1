@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Sản phẩm chi tiết
+                                    Bài viết chi tiết
                                 </h4>
                                 <form class="app-search d-none d-md-block p-0">
                                     <div class="position-relative">
@@ -35,113 +35,62 @@
 
                                     <tbody>
                                         <tr>
-                                            <th>Tên sản phẩm</th>
+                                            <th>Tiêu đề</th>
                                             <td>
-
+                                                {{ $post->title }}
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Hình ảnh</th>
-                                            {{-- <td>
+                                            <td>
                                                 <div class="flex-shrink-0">
-                                                    <img src="{{ $post->image_main }}" alt="" width="100"
+                                                    <img src="{{ $post->image_post }}" alt="" width="100"
                                                         height="100" />
                                                 </div>
 
-                                            </td> --}}
-                                        </tr>
-                                        <tr>
-                                            <th>Số lượng</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Giá</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Giá giảm</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Ngày kết thúc giảm giá</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Thương hiệu</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Slug</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Danh mục</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Lượt đánh giá</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Lượt đánh giá trung bình</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Mô tả ngắn</th>
-                                            <td>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Nội dung</th>
                                             <td>
-
+                                                {{ $post->content }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Danh mục</th>
+                                            <td>
+                                                {{ $post->category_id }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Lượt bình luận</th>
+                                            <td>
+                                                {{ $post->comment_count }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>slug </th>
+                                            <td>
+                                                {{ $post->slug }}
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <th>Trạng thái</th>
-                                            {{-- <td>
-                                                @if ($post->status == true)
-                                                    <span class="badge bg-success">Active</span>
-                                                @else
-                                                    <span class="badge bg-danger">Disabled</span>
-                                                @endif
-                                            </td> --}}
-                                        </tr>
-                                        {{-- <tr>
                                             <th>Chức năng</th>
                                             <td>
                                                 <div class="hstack gap-3 flex-wrap">
-                                                    <a href="{{ route('post.edit', ['product' => $product->id]) }}"
+                                                    <a href="{{ route('post.edit', ['post' => $post->id]) }}"
                                                         class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                                    <a href="javascript:deleteProduct({{ $product->id }});"
+                                                    <a href="javascript:deletepost({{ $post->id }});"
                                                         class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a>
-                                                    <form id="delete_form_{{ $product->id }}"
-                                                        action="{{ route('product.destroy', ['product' => $product->id]) }}"
+                                                    <form id="delete_form_{{ $post->id }}"
+                                                        action="{{ route('post.destroy', ['post' => $post->id]) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
                                             </td>
-                                        </tr> --}}
+                                        </tr>
 
                                     </tbody>
                                 </table>
@@ -155,7 +104,7 @@
     @endsection
     @section('js')
         <script>
-            function deleteProduct(id) {
+            function deletePost(id) {
                 Swal.fire({
                     title: "Bạn có chắc muốn xóa?",
                     text: "Bạn có thể lấy lại sản phẩm này ở thùng rác.",

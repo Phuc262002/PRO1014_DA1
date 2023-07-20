@@ -219,7 +219,11 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
+<<<<<<< HEAD
                                                     <a href="{{ route('san-pham.index') }}" class="image">
+=======
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
+>>>>>>> efd8de326586f2c656b45245f822884a7aa35f99
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
                                                         <div class="countdown-area">
@@ -229,7 +233,7 @@
                                                     </a>
                                                     <span class="badges">
                                                         <span class="sale">Giảm
-                                                            {{ 100 - ($item->discount_price / $item->price) * 100 }}%</span>
+                                                            {{ ceil(100 - ($item->discount_price / $item->price) * 100) }}%</span>
                                                     </span>
                                                     <div class="action-wrapper">
                                                         <a href="#/" class="action quickview" data-bs-toggle="modal"
@@ -245,7 +249,11 @@
                                                 <!-- Content Start  -->
                                                 <div class="content">
                                                     <h5 class="title"><a
+<<<<<<< HEAD
                                                             href="{{ route('san-pham.index') }}">{{ $item->name }}</a></h5>
+=======
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a></h5>
+>>>>>>> efd8de326586f2c656b45245f822884a7aa35f99
                                                     <span class="rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
