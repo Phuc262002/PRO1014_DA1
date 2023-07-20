@@ -41,6 +41,7 @@ Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->n
 
 Route::resource('dich-vu', ServiceClientController::class);
 Route::resource('bai-viet', PostController::class);
+
 Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 
 Route::get('services', [ServiceClientController::class, 'index'])->name('services');

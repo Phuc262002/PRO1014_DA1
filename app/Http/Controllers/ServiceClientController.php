@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ServiceClientController extends Controller
@@ -21,9 +22,9 @@ class ServiceClientController extends Controller
     {
         $service_id = request()->input('service_id');
         $name_services = Service::all();
-        return view('pages.client.book-services',compact('name_services', 'service_id'));
-      
-        
+        $user = User::where('id', auth()->user()->id)->with('address_list')->first();
+        $user_address = $user->address_list->where('is_default', 1)->first();
+        return view('pages.client.book-services',compact('name_services', 'service_id', 'user', 'user_address'));
     }
 
     /**
@@ -31,7 +32,8 @@ class ServiceClientController extends Controller
      */
     public function store(Request $request)
     {
-        return view('pages.client.book-services');
+        dd($request->all());
+        // return view('pages.client.book-services');
     }
 
     /**
