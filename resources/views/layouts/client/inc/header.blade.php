@@ -190,7 +190,7 @@
 
                                 <!-- Header My Account Button Start -->
                                 @if (Auth::check())
-                                    <a href="{{ route('profile') }}"
+                                    <a href="{{ route('index') }}"
                                         class="header-action-btn header-action-btn-wishlist">
                                         <img class="rounded-circle w-50 header-profile-user"
                                             src="{{ Auth::user()->image }}" alt="Header Avatar">

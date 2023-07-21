@@ -31,11 +31,11 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('account') }}"><i class="fa fa-user"></i> Tài khoản</a>
-                                    <a href="{{ route('cart-detail') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
-                                    <a href="{{ route('service-detail') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
+                                    <a href="{{ route('index') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('don-hang.index') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
+                                    <a href="{{ route('dich-vu.index') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
                                         vụ</a>
-                                    <a href="{{ route('maps') }}"><i class="fa fa-map-marker"></i> Địa chỉ</a>
+                                    <a href="{{ route('dia-chi.index') }}"><i class="fa fa-map-marker"></i> Địa chỉ</a>
                                     @if (Auth::user()->is_admin == true)
                                         <a href="{{ route('admin.dashboard') }}"><i class="fa fa-user"></i> Quản trị
                                             Admin</a>

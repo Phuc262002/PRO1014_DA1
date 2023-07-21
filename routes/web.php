@@ -25,6 +25,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\CartClientController;
+use App\Http\Controllers\ServiceUserController;
+use App\Http\Controllers\MapClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +60,12 @@ Route::get('gio-hang', function () {
 })->name('cart');
 
 Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
-    Route::get('/', [UserController::class, 'index'])->name('profile');
 
     Route::resources([
+        '/' => UserController::class,
+        'don-hang' => CartClientController::class,
+        'dich-vu' => ServiceUserController::class,
+        'dia-chi' => MapClientController::class,
 
     ]);
 });
