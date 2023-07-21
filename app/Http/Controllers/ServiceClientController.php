@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\BookServiceRequest;
+
+
 
 class ServiceClientController extends Controller
 {
@@ -28,9 +31,12 @@ class ServiceClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookServiceRequest $request)
     {
-        return view('pages.client.book-services');
+        // $name_services = Service::all();
+        // return view('pages.client.book-services',compact('name_services'));
+        dd($request->all());
+        
     }
 
     /**
