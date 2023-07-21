@@ -92,8 +92,8 @@
                                                             class="ri-eye-line"></i></a>
                                                     {{-- <a href="javascript:void(0);" class="link-success fs-15"><i
                                                             class="ri-edit-2-line"></i></a> --}}
-                                                    <a href="{{ route('orders.edit') }}" class="link-success fs-15">
-                                                        <i class="ri-edit-2-line"></i>
+                                                    {{-- <a href="{{ route('orders.edit') }}" class="link-success fs-15">
+                                                        <i class="ri-edit-2-line"></i> --}}
                                                     </a>
                                                 </div>
                                             </td>
