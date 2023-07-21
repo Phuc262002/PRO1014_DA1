@@ -219,8 +219,8 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
-                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}"
-                                                        class="image">
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
+
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
                                                         <div class="countdown-area">
@@ -245,9 +245,10 @@
 
                                                 <!-- Content Start  -->
                                                 <div class="content">
-                                                    <h5 class="title"><a
-                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                    <h5 class="title">
+                                                        <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
                                                     </h5>
+
                                                     <span class="rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -423,8 +424,10 @@
                                 <div class="blog-content">
                                     <div class="blog-meta">
                                         <ul>
-                                            <li><span>By</span><a href="">{{ $item->user_post->name }}</a></li>
-                                            <li><span>{{ $item->created_at->format('d-m-y') }}</span></li>
+                                            <li><span><img class="rounded-circle header-profile-user" width="30"
+                                                src="{{ $item->user_post->image }}"
+                                                alt="{{ $item->user_post->name }}"></span><a href="">{{ $item->user_post->name }}</a></li>
+                                            <li><span>{{ $item->created_at->format('d/m/Y') }}</span></li>
                                         </ul>
                                     </div>
                                     <h2 class="blog-title"><a href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">{{ $item->title }}</a></h2>

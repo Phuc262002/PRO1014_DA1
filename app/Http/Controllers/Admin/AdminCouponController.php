@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
+use App\Http\Requests\CouponRequest;
+
 
 class AdminCouponController extends Controller
 {
@@ -29,7 +31,7 @@ class AdminCouponController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Coupon $coupon)
+    public function store(CouponRequest $request, Coupon $coupon)
     {
         $coupon = Coupon::create($request->all());
 
@@ -66,7 +68,7 @@ class AdminCouponController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Coupon $coupon)
+    public function update(CouponRequest $request, Coupon $coupon)
     {
         $update_coupon = Coupon::updateOrCreate([
             'id' => $coupon->id,
@@ -74,14 +76,14 @@ class AdminCouponController extends Controller
 
         if ($update_coupon) {
             if ($request->save_action == 'save_and_back') {
-                return redirect()->route('coupon.index')->with('success', "Thêm thành công.");
+                return redirect()->route('coupon.index')->with('success', "Cập nhập thành công.");
             } else if ($request->save_action == 'save_and_edit') {
-                return redirect()->route('coupon.edit', $coupon->id)->with('success', "Thêm thành công.");
+                return redirect()->route('coupon.edit', $coupon->id)->with('success', "Cập nhập thành công.");
             } else if ($request->save_action == 'save_and_new') {
-                return redirect()->route('coupon.create')->with('success', "Thêm thành công.");
+                return redirect()->route('coupon.create')->with('success', "Cập nhập thành công.");
             }
         } else {
-            return back()->with('error', "Thêm thất bại.");
+            return back()->with('error', "Cập nhập thất bại.");
         }
     }
 

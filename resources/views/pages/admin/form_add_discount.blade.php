@@ -191,14 +191,14 @@
     <script>
         function generateRandomCoupon() {
             var charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            var sku = '';
+            var coupon = '';
 
             for (var i = 0; i < 7; i++) {
                 var randomIndex = Math.floor(Math.random() * charset.length);
-                sku += charset[randomIndex];
+                coupon += charset[randomIndex];
             }
 
-            document.getElementById('coupon_hash_id').value = 'SP_' + sku;
+            document.getElementById('coupon_hash_id').value = coupon;
         }
     </script>
 @endsection

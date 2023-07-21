@@ -17,12 +17,14 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminCouponController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,15 +43,18 @@ Route::resource('san-pham', ProductController::class);
 Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->name('san-pham.detail');
 
 Route::resource('dich-vu', ServiceClientController::class);
-Route::resource('bai-viet', PostController::class);
 
+Route::resource('bai-viet', PostController::class);
 Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 
-Route::get('services', [ServiceClientController::class, 'index'])->name('services');
+Route::resource('hoa-don', BillController::class);
 
 Route::middleware('auth')->resource('thanh-toan', OrderController::class);
 
 
+Route::get('gio-hang', function () {
+    return view('pages.client.cart');
+})->name('cart');
 
 Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile');
@@ -71,6 +76,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'user' => AdminUserController::class,
         'post' => AdminPostController::class,
         'brands' => AdminBrandController::class,
+        'orders' => AdminOrderController::class,
         'coupon' => AdminCouponController::class,
     ]);
 
@@ -182,6 +188,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('them-ma-giam-gia', function () {
         return view('pages.admin.form_add_discount');
     })->name('admin.form_add_discount');
+    Route::get('them-san-pham', function () {
+        return view('pages.admin.order_details');
+    })->name('admin.order_details');
 
 
 
@@ -236,10 +245,6 @@ Route::get('policy', function () {
     return view('pages.client.policy');
 })->name('policy');
 
-Route::get('cart', function () {
-    return view('pages.client.cart');
-})->name('cart');
-
 Route::get('acc-cart', function () {
     return view('pages.client.acc-cart');
 })->name('acc-cart');
@@ -286,4 +291,7 @@ Route::get('about', function () {
 
 Route::get('account', function () {
     return view('pages.client.account');
-})->name('account');
+})->name('invoicedetails.');
+Route::get('invoicedetails', function () {
+    return view('pages.client.invoicedetails');
+})->name('invoicedetails');
