@@ -34,9 +34,10 @@
                         <figure><a href="services-detail.html"><img src="{{$item->image_service}}" alt="Images"></a>
                         </figure>
                         <div class="service-text">
-                            <div class="icon"><i class="{{$item->icon}}"></i></div>
+                            <div class="icon"><i class="{{$item->icon}}"></i></div> 
                             <h4><a href="services-detail.html">{{$item->name}}</a></h4>
                             <p>{{$item->description}}</p>
+                            <p>Giá : {{number_format($item->price)}}</p>
                                <a href="{{route('dich-vu.create')}}?service_id={{$item->id}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
                         </div>
                     </div>
