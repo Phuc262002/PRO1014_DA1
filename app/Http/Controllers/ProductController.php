@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,25 +11,10 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $title="Pets Care - Luôn đồng hành cùng thú cưng của bạn";
-    //     $query = request()->query();
-
-    //     if(isset($query['search'])) {
-    //         $search = $query['search'];
-    //         $product = Product::where('name', 'like', "%$search%")->with('image_list', 'brand', 'category')->paginate(12);
-    //     } else {
-    //         $search = '';
-    //         $product = Product::with('image_list', 'brand', 'category')->paginate(12);
-    //     }
-        
-    //     return view('pages.client.shop' , compact('title','product', 'search'));
-    // }
-
     public function index()
     {
         $title = "Pets Care - Luôn đồng hành cùng thú cưng của bạn";
+        $categories = Category::where('type_category', 'PRODUCT')->with('product')->get();
         $query = request()->query();
 
         $category = isset($query['category']) ? $query['category'] : null;
@@ -41,7 +27,7 @@ class ProductController extends Controller
         // Apply category filter if provided
         if ($category) {
             $productQuery->whereHas('category', function ($q) use ($category) {
-                $q->where('name', $category);
+                $q->where('slug', $category);
             });
         }
 
@@ -71,7 +57,7 @@ class ProductController extends Controller
 
         $product = $productQuery->with('image_list', 'brand', 'category')->paginate(12);
 
-        return view('pages.client.shop', compact('title', 'product', 'search', 'category', 'filter'));
+        return view('pages.client.shop', compact('title', 'product', 'categories', 'search', 'category', 'filter'));
     }
 
 
