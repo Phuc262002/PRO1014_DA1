@@ -203,7 +203,54 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all" id="invoice-list-data">
-
+                                                    @foreach ($order as $item)
+                                                    <tr>
+                                                        <th scope="row">
+                                                           <div class="form-check">
+                                                              <input class="form-check-input" type="checkbox" name="chk_child" value="#{{$item->order_hash_id}}">
+                                                           </div>
+                                                        </th>
+                                                        <td class="id"><a href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="{{$item->order_hash_id}}" class="fw-medium link-primary">{{$item->order_hash_id}}</a>
+                                                        </td>
+                                                        <td class="customer_name">
+                                                           <div class="d-flex align-items-center">
+                                                            {{$item->user->name}}
+                                                           </div>
+                                                        </td>
+                                                        <td class="email">
+                                                            123
+                                                        </td>
+                                                        <td class="country">USA</td>
+                                                        <td class="date"><small class="text-muted">{{$item->created_at}}</small></td>
+                                                        <td class="invoice_amount">123</td>
+                                                        <td class="status"><span class="badge badge-soft-info text-uppercase">123</span></td>
+                                                        <td>
+                                                           <div class="dropdown">
+                                                              <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                              <i class="ri-more-fill align-middle"></i>
+                                                              </button>
+                                                              <ul class="dropdown-menu dropdown-menu-end">
+                                                                 <li><button class="dropdown-item" href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="" ><i class="ri-eye-fill align-bottom me-2 text-muted"></i>
+                                                                    View</button>
+                                                                 </li>
+                                                                 <li><button class="dropdown-item" href="javascript:void(0);" onclick="EditInvoice(this);" data-id=""><i class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+                                                                    Edit</button>
+                                                                 </li>
+                                                                 <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-line align-bottom me-2 text-muted"></i>
+                                                                    Download</a>
+                                                                 </li>
+                                                                 <li class="dropdown-divider"></li>
+                                                                 <li>
+                                                                    <a class="dropdown-item remove-item-btn" data-bs-toggle="modal" href="#deleteOrder">
+                                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
+                                                                    Delete
+                                                                    </a>
+                                                                 </li>
+                                                              </ul>
+                                                           </div>
+                                                        </td>
+                                                     </tr>
+                                                     @endforeach
                                                 </tbody>
                                             </table>
                                             <div class="noresult" style="display: none">
@@ -215,15 +262,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end mt-3">
-                                            <div class="pagination-wrap hstack gap-2">
-                                                <a class="page-item pagination-prev disabled" href="#">
-                                                    Previous
-                                                </a>
-                                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="#">
-                                                    Next
-                                                </a>
-                                            </div>
+                                            {{ $order->links() }}
                                         </div>
                                     </div>
 
@@ -269,7 +308,6 @@
                             <div class="text-sm-end d-none d-sm-block">
                                 Design & Develop by Themesbrand
                             </div>
-                            {{ $order->links() }}
                         </div>
                     </div>
                 </div>

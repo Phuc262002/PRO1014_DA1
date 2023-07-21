@@ -23,10 +23,7 @@
                                                 <div class="row g-3 mb-0 align-items-center">
                                                     <div class="col-sm-auto">
                                                         <div class="input-group">
-                                                            <input type="text" id="datepicker"
-                                                                class="form-control border-0 dash-filter-picker shadow"
-                                                                data-provider="flatpickr" data-range-date="true"
-                                                                data-date-format="d.m, Y" />
+                                                            <input type="text" class="form-control" id="datepicker-range" data-provider="flatpickr" data-date-format="d M, Y" data-range-date="true" placeholder="Select date">
                                                             <div
                                                                 class="input-group-text bg-primary border-primary text-white">
                                                                 <i class="ri-calendar-2-line"></i>

@@ -24,6 +24,7 @@ use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,15 +43,18 @@ Route::resource('san-pham', ProductController::class);
 Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->name('san-pham.detail');
 
 Route::resource('dich-vu', ServiceClientController::class);
-Route::resource('bai-viet', PostController::class);
 
+Route::resource('bai-viet', PostController::class);
 Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 
-Route::get('services', [ServiceClientController::class, 'index'])->name('services');
+Route::resource('hoa-don', BillController::class);
 
 Route::middleware('auth')->resource('thanh-toan', OrderController::class);
 
 
+Route::get('gio-hang', function () {
+    return view('pages.client.cart');
+})->name('cart');
 
 Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile');
@@ -240,10 +244,6 @@ Route::get('500', function () {
 Route::get('policy', function () {
     return view('pages.client.policy');
 })->name('policy');
-
-Route::get('cart', function () {
-    return view('pages.client.cart');
-})->name('cart');
 
 Route::get('acc-cart', function () {
     return view('pages.client.acc-cart');

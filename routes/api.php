@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\CouponController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('throttle:60,1')->apiResource('products', ProductController::class)->only('show');
+Route::middleware('throttle:60,1')->apiResource('coupons', CouponController::class)->only('index');
+
