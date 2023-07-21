@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminCouponController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceClientController;
 use App\Http\Controllers\ProductController;
@@ -41,6 +42,7 @@ Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->n
 
 Route::resource('dich-vu', ServiceClientController::class);
 Route::resource('bai-viet', PostController::class);
+
 Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 
 Route::get('services', [ServiceClientController::class, 'index'])->name('services');
@@ -69,6 +71,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'user' => AdminUserController::class,
         'post' => AdminPostController::class,
         'brands' => AdminBrandController::class,
+        'coupon' => AdminCouponController::class,
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');
@@ -173,9 +176,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('quan-ly-binh-luan', function () {
         return view('pages.admin.comment_manager');
     })->name('admin.comment_manager');
+    Route::get('quan-ly-ma-giam-gia', function () {
+        return view('pages.admin.discount_manager');
+    })->name('admin.discount_manager');
+    Route::get('them-ma-giam-gia', function () {
+        return view('pages.admin.form_add_discount');
+    })->name('admin.form_add_discount');
 
 
-    
+
 
 
 

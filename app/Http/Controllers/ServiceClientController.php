@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ServiceClientController extends Controller
@@ -29,7 +30,7 @@ class ServiceClientController extends Controller
      */
     public function store(Request $request)
     {
-        return view('pages.admin.book-services');
+        return view('pages.client.book-services');
     }
 
     /**

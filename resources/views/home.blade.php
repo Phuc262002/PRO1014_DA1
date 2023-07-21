@@ -219,7 +219,8 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
-                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}"
+                                                        class="image">
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
                                                         <div class="countdown-area">
@@ -245,7 +246,8 @@
                                                 <!-- Content Start  -->
                                                 <div class="content">
                                                     <h5 class="title"><a
-                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a></h5>
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                    </h5>
                                                     <span class="rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
