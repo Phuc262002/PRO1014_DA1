@@ -39,8 +39,8 @@
                                                 <label for="sku" class="form-label">Mã giảm giá</label>
                                                 <div class="input-group">
                                                     <input type="text" id="coupon_hash_id" name="coupon_hash_id"
-                                                        class="form-control" aria-label="Recipient's username"
-                                                        aria-describedby="button-addon2">
+                                                        value="{{ $coupon->coupon_hash_id }}" class="form-control"
+                                                        aria-label="Recipient's username" aria-describedby="button-addon2">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="button-addon2" onclick="generateRandomCoupon()"><i
                                                             class="ri-refresh-line"></i></button>
@@ -168,14 +168,14 @@
     <script>
         function generateRandomCoupon() {
             var charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            var sku = '';
+            var coupon = '';
 
             for (var i = 0; i < 7; i++) {
                 var randomIndex = Math.floor(Math.random() * charset.length);
-                sku += charset[randomIndex];
+                coupon += charset[randomIndex];
             }
 
-            document.getElementById('coupon_hash_id').value = 'SP_' + sku;
+            document.getElementById('coupon_hash_id').value = coupon;
         }
     </script>
 @endsection

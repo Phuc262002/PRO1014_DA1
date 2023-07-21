@@ -20,7 +20,11 @@ class OrderController extends Controller
         $user = User::where('id', auth()->user()->id)->with('address_list')->first();
         $address_default = $user->address_list->where('is_default', 1)->first();
         $payment_list = Payment::all();
-        return view('pages.client.checkout', compact('title', 'user', 'address_default', 'payment_list'));
+        if ($address_default) {
+            return view('pages.client.checkout', compact('title', 'user', 'address_default', 'payment_list'));
+        } else {
+            return redirect()->route('cart')->with('error', 'Vui lòng thêm địa chỉ giao hàng');
+        }
     }
 
     /**
@@ -54,7 +58,11 @@ class OrderController extends Controller
             $order->user_id = auth()->user()->id;
             $order->address_id = $request->address_id;
             $order->payment_id = $request->payment_id;
+            $order->pre_total = $request->pre_total;
             $order->total = $request->total;
+            if ($request->coupon_id) {
+                $order->coupon_id = $request->coupon_id;
+            }
             $order->save();
 
             foreach ($cart as $item) {
@@ -72,11 +80,10 @@ class OrderController extends Controller
                 $product->save();
             }
 
-            return back()->with('success', 'Đặt hàng thành công');
-            // $order = Order::where('id', $order->id)->with('user', 'address', 'payment', 'order_detail')->first();
-            // $order_detail_list = Order_detail::where('order_id', $order->id)->with('product', 'order')->get();
-
-            // dd($order, $order_detail_list);
+            return back()->with([
+                'success' => 'Đặt hàng thành công',
+                'bill_link' => '/hoa-don?bill_id=' . $order->order_hash_id,
+            ]);
         } else {
             return back()->with('error', 'Số lượng sản phẩm không đủ');
         }

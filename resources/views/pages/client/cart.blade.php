@@ -22,7 +22,21 @@
     <!-- Shopping Cart Section Start -->
     <div class="section section-margin">
         <div class="container">
-
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    {{ $errors->first() }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
 

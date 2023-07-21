@@ -8,10 +8,10 @@
         <div class="row">
             <div class="col-12 text-center">
                 <div class="breadcrumb-wrapper">
-                    <h2 class="breadcrumb-title">Blog Details</h2>
+                    <h2 class="breadcrumb-title">Chi tiết bài viết</h2>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li>Blog Details</li>
+                        <li>Chi tiết bài viết</li>
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,9 @@
                         <div class="blog-details-title-meta">
                             <h2 class="title">{{$post->title}}</h2>
                             <ul class="blog-meta">
-                                <li>By: <a href="#/">{{$post->user_post->name}}</a> <span>{{$post->created_at->format('d-m-y')}}</span></li>
+                                <li><img class="rounded-circle header-profile-user" width="30"
+                                    src="{{ $post->user_post->image }}"
+                                    alt="{{ $post->user_post->name }}"> <a href="#/">{{$post->user_post->name}}</a> <span>{{$post->created_at->format('d/m/Y')}}</span></li>
                             </ul>
                         </div>
                         <!-- Blog details title & Meta End -->

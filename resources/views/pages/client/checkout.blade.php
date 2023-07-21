@@ -55,9 +55,9 @@
                             <div class="coupon-info">
                                 <form action="#">
                                     <p class="checkout-coupon d-flex">
-                                        <input placeholder="Mã Giảm Giá" type="text">
+                                        <input placeholder="Mã Giảm Giá" type="text" name="coupon_id" id="coupon_id">
                                         <input class="btn btn-primary btn-hover-dark rounded-0" value="Lưu"
-                                            type="submit">
+                                            type="button" onclick="input_coupon()">
                                     </p>
                                 </form>
                             </div>
@@ -78,6 +78,7 @@
                         <input type="hidden" name="address_id" value="{{ $address_default->id }}">
                         <input type="hidden" name="cart" id="cart_product">
                         <input type="hidden" name="payment_id" id="payment_id">
+                        <input type="hidden" name="pre_total" id="pre_total">
                         <input type="hidden" name="total" id="total">
 
                         <div class="checkbox-form">
@@ -172,6 +173,11 @@
                                         <td class="text-end pe-0"><span id="amount_pre" class="amount"></span>
                                         </td>
                                     </tr>
+                                    <tr class="cart-subtotal">
+                                        <th class="text-start ps-0">Giảm giá</th>
+                                        <td class="text-end pe-0"><span id="discount_price" class="amount">0</span>
+                                        </td>
+                                    </tr>
                                     <tr class="order-total">
                                         <th class="text-start ps-0">Tổng giá trị đơn đặt hàng</th>
                                         <td class="text-end pe-0"><strong><span id="amount_final"
@@ -191,14 +197,24 @@
                                 @foreach ($payment_list as $item)
                                     <div class="single-payment">
                                         <h5 class="panel-title m-b-15">
-                                            <a class="collapse-off" data-bs-toggle="collapse"
+                                            <a class="collapse-off rounded" data-bs-toggle="collapse"
                                                 href="#collapseExample-{{ $item->id }}" aria-expanded="false"
                                                 aria-controls="collapseExample-{{ $item->id }}">
                                                 {{ $item->payment_name }}
                                             </a>
                                         </h5>
-                                        <div class="collapse show" id="collapseExample-{{ $item->id }}">
-                                            <div class="card card-body rounded-0">
+                                        <div class="collapse {{ $item->id == 1 ? 'show' : '' }}"
+                                            id="collapseExample-{{ $item->id }}">
+                                            <div class="card card-body rounded mb-1">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="{{ $item->id }}" {{ $item->id == 1 ? 'checked' : '' }}
+                                                        name="payment_id" id="payment_id{{ $item->id }}" onclick="inputPayment({{ $item->id }})"> 
+                                                    <label class="form-check-label" for="payment_id{{ $item->id }}">
+                                                        {{ $item->payment_name }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="card card-body rounded">
                                                 <p>{!! $item->payment_name !!}</p>
                                             </div>
                                         </div>
@@ -244,6 +260,7 @@
 
         $('#cart_product').attr('value', cartProduct);
         $('#total').attr('value', total);
+        $('#pre_total').attr('value', total);
         $('#payment_id').attr('value', 1);
 
 
@@ -251,13 +268,42 @@
         $('#amount_pre').html(formatVietnamDong(total));
         $('#amount_final').html(formatVietnamDong(total));
 
+        function inputPayment(id) {
+            $('#payment_id').attr('value', id);
+        }
+
         function checkout() {
             $('#form_checkout').submit();
+        }
+
+        function input_coupon() {
+            const coupon_id = $('#coupon_id').val();
+            if (coupon_id) {
+                $.ajax({
+                    url: "{{ route('coupons.index') }}?coupon_code=" + coupon_id,
+                    success: function(data) {
+                        if (data.status == 'success') {
+                            Success(data.message);
+                            $('#discount_price').html(formatVietnamDong(data.data.discount));
+                            $('#amount_final').html(formatVietnamDong(total - parseInt(data.data.discount)));
+                            $('#total').attr('value', total - parseInt(data.data.discount));
+                            $('#form_checkout').append(
+                                `<input type="hidden" name="coupon_id" value="${data.data.id}">`
+                            );
+                        } else {
+                            Error(data.message);
+                        }
+                    }
+                });
+            } else {
+                Error('Vui lòng nhập mã giảm giá');
+            }
         }
     </script>
     <script>
         @if (session('success'))
             localStorage.removeItem('cart');
+            window.location.href = "{{ session('bill_link') }}";
         @endif
     </script>
 @endsection
