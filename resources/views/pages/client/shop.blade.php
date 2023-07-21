@@ -52,10 +52,14 @@
                                 <div class="shop-short-by">
                                     <select class="nice-select" name="filter" onchange="inputFilter()"
                                         aria-label=".form-select-sm example">
-                                        <option value="filter_newest" {{$filter == "filter_newest" ? 'selected' : ''}}>Mới nhất</option>
-                                        <option value="filter_oldest" {{$filter == "filter_oldest" ? 'selected' : ''}}>Cũ nhất</option>
-                                        <option value="filter_Za" {{$filter == "filter_Za" ? 'selected' : ''}}>Giá giảm dần</option>
-                                        <option value="filter_Az" {{$filter == "filter_Az" ? 'selected' : ''}}>Giá tăng dần</option>
+                                        <option value="filter_newest" {{ $filter == 'filter_newest' ? 'selected' : '' }}>Mới
+                                            nhất</option>
+                                        <option value="filter_oldest" {{ $filter == 'filter_oldest' ? 'selected' : '' }}>Cũ
+                                            nhất</option>
+                                        <option value="filter_Za" {{ $filter == 'filter_Za' ? 'selected' : '' }}>Giá giảm
+                                            dần</option>
+                                        <option value="filter_Az" {{ $filter == 'filter_Az' ? 'selected' : '' }}>Giá tăng
+                                            dần</option>
                                     </select>
                                 </div>
                                 @foreach (request()->query() as $key => $value)
@@ -200,61 +204,11 @@
                                 <h3 class="widget-title m-b-30">Loại sản phẩm</h3>
                                 <div class="sidebar-body">
                                     <ul class="sidebar-list">
-                                        <li><a href="#/">All Product</a></li>
-                                        <li><a href="#/">Best Seller (5)</a></li>
-                                        <li><a href="#/">Featured (4)</a></li>
-                                        <li><a href="#/">New Products (6)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="widget-list m-b-50">
-                                <h3 class="widget-title m-b-30">Màu sắc</h3>
-                                <div class="sidebar-body">
-                                    <ul class="checkbox-container categories-list">
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck12">
-                                                <label class="custom-control-label" for="customCheck12">black (20)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck13">
-                                                <label class="custom-control-label" for="customCheck13">red (6)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck14">
-                                                <label class="custom-control-label" for="customCheck14">blue (8)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck11">
-                                                <label class="custom-control-label" for="customCheck11">green (5)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck15">
-                                                <label class="custom-control-label" for="customCheck15">pink (4)</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="widget-list m-b-50">
-                                <h3 class="widget-title m-b-30">Nhãn</h3>
-                                <div class="sidebar-body">
-                                    <ul class="tags m-b-n10">
-                                        <li><a href="#/">Pet Food</a></li>
-                                        <li><a href="#/">Animals</a></li>
-                                        <li><a href="#/">Domestic</a></li>
-                                        <li><a href="#/">Wild</a></li>
-                                        <li><a href="#/">Dogs</a></li>
-                                        <li><a href="#/">Cats</a></li>
-                                        <li><a href="#/">Hubby</a></li>
+                                        <li><a href="">Tất cả sản phẩm</a></li>
+                                        @foreach ($categories as $item)
+                                        <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => $item->slug])) }}">{{ $item->name }} ({{ count($item->product) }})</a></li>
+
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
