@@ -44,6 +44,9 @@ class AdminOrderController extends Controller
         $order = Order::where('status', 'CANCELED')->with('user', 'address', 'payment', 'order_detail')->paginate(10);
         return view('pages.admin.order_all', compact('title', 'order'));
 
+        }else{
+            $order = Order::with('user', 'address', 'payment', 'order_detail')->paginate(10);
+        return view('pages.admin.order_all', compact('title', 'order'));
         }
     }
 

@@ -282,7 +282,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('orders.index') }}?status=PENDING" class="nav-link" data-key="t-team">
                                     Đơn hàng chưa xác nhận
                                 </a>
@@ -307,7 +307,7 @@
                                 <a href="{{ route('orders.index') }}?status=CANCELED" class="nav-link" data-key="t-team">
                                     Đơn hàng đã hủy
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>

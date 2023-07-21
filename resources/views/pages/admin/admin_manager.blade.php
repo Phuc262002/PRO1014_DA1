@@ -54,15 +54,7 @@
                                                     <div class="flex-grow-1">Jordan Kennedy</div>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <a href="#!">Post launch reminder/ post list</a>
-                                            </td>
-                                            <td>03 Oct, 2021</td>
-                                            <td>
-                                                <span class="badge badge-soft-info">Re-open</span>
-                                            </td>
-                                            <td>03 Oct, 2021</td>
-                                            <td><span class="badge bg-danger">High</span></td>
+                                            
                                             <td>
                                                 <div class="hstack gap-3 flex-wrap">
                                                     <a href="javascript:void(0);" class="link-primary fs-15"><i
