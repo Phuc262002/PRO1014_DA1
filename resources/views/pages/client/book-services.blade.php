@@ -32,47 +32,40 @@
                     <h2 class="title">Thông Tin</h2>
                 </div>
                 <!-- Section Title End -->
+                @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if (session('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first() }}
+                                    </div>
+                                @endif
                 <div class="booking-form">
                     <form action="{{ route('dich-vu.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <span class="form-label">Họ và Tên </span>
-                                    @if (Auth::check())
-                                        <input name="name" class="form-control" type="text" placeholder="Họ và Tên"
-                                            value="{{ Auth::user()->name }}">
-                                    @else
-                                        <input name="name" class="form-control" type="text" placeholder="Họ và Tên">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <span class="form-label">Số điện thoại</span>
-                                    @if (Auth::check())
-                                        <input name="number" class="form-control" type="text"
-                                        placeholder="Số điện thoại của bạn" value="{{ $user_address->phone }}" >
-                                    @else
-                                            <input name="number" class="form-control" type="text"
-                                            placeholder="Số điện thoại của bạn">
-                                    @endif
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Ngày : </span>
-                                    <input class="form-control" type="date" required>
+                                    <input  name="book_date" class="form-control" type="date" >
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Giờ : </span>
-                                    <input class="form-control" type="time" required>
+                                    <input  name="book_time" class="form-control" type="time" >
                                 </div>
                             </div>
                         </div>
@@ -81,28 +74,36 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Tên Pet </span>
-                                    <input class="form-control" type="text" placeholder="Tên Pet của bạn ">
+                                    <input name="pet_name" class="form-control" type="text" placeholder="Tên Pet của bạn ">
 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Dịch vụ</span>
-                                    <select class="form-control">
+                                    <select  name="service_id" class="form-control">
                                         @foreach ($name_services as $item)
-                                            <option value="{{ $item->id }}"
+                                        @if(isset($service_id)){
+                                             <option value="{{ $item->id }}"
                                                 {{ $item->id == $service_id ? 'selected' : '' }}>{{ $item->name }}
-                                            </option>
+                                            </option>   
+                                        }@else {
+                                            <option value="{{ $item->id }}"
+                                                >{{ $item->name }}
+                                            </option>   
+                                        }
+                                        @endif   
                                         @endforeach
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
+                           
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <span class="form-label">Ghi chú </span>
-                                <textarea cols="30" rows="10" class="form-control textarea-item" name="message" placeholder="Nội dung ...."></textarea>
+                                <textarea cols="30" rows="10" class="form-control textarea-item" name="description" placeholder="Nội dung ...."></textarea>
 
                             </div>
                         </div>

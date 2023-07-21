@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\BookServiceRequest;
+
+
 
 class ServiceClientController extends Controller
 {
@@ -22,24 +25,24 @@ class ServiceClientController extends Controller
     {
         $service_id = request()->input('service_id');
         $name_services = Service::all();
-        $user = User::where('id', auth()->user()->id)->with('address_list')->first();
-        $user_address = $user->address_list->where('is_default', 1)->first();
-        return view('pages.client.book-services',compact('name_services', 'service_id', 'user', 'user_address'));
+        return view('pages.client.book-services',compact('name_services', 'service_id'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BookServiceRequest $request)
     {
+        // $name_services = Service::all();
+        // return view('pages.client.book-services',compact('name_services'));
         dd($request->all());
-        // return view('pages.client.book-services');
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Service $product)
     {
         //
     }
@@ -47,7 +50,7 @@ class ServiceClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Service $product)
     {
         //
     }
@@ -55,7 +58,7 @@ class ServiceClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Service $product)
     {
         //
     }
@@ -63,7 +66,7 @@ class ServiceClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Service $product)
     {
         //
     }

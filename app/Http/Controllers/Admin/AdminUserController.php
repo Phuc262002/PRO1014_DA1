@@ -60,15 +60,10 @@ class AdminUserController extends Controller
             'id' => $user->id,
         ], $request->all());
         if ($update_user) {
-            if ($request->save_action == 'save_and_back') {
-                return redirect()->route('user.index')->with('success', "Cập nhật sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_edit') {
-                return back()->with('success', "Cập nhật sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_new') {
-                return redirect()->route('user.create')->with('success', "Cập nhật sản phẩm thành công.");
-            }
+            return back()->with('success', "Cập nhật tài khoản thành công.");
+
         } else {
-            return back()->with('error', "Cập nhật sản phẩm thất bại.");
+            return back()->with('error', "Cập nhật tài khoản thất bại.");
         }
     }
 

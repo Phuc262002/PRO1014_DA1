@@ -1,7 +1,4 @@
 @extends('layouts.admin.master')
-@section('title')
-    {{$title}}
-@endsection
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -14,7 +11,7 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Tất cả đơn hàng
+                                    Tất cả dịch vụ
                                 </h4>
                                 <form class="app-search d-none d-md-block p-0">
                                     <div class="position-relative">
@@ -29,21 +26,6 @@
                                 <div class="flex-shrink-0"></div>
                             </div>
                             <div class="card-body">
-                                @if (session('success'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('success') }}
-                                    </div>
-                                @endif
-                                @if (session('error'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ session('error') }}
-                                    </div>
-                                @endif
-                                @if ($errors->any())
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $errors->first() }}
-                                    </div>
-                                @endif
                                 <table id="example"
                                     class="table table-bordered dt-responsive nowrap table-striped align-middle"
                                     style="width: 100%">
@@ -61,48 +43,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($order as $item)
                                         <tr>
-                                            
+
                                             <td>
-                                                <a href="#" class="fw-medium">{{$item->order_hash_id}}</a>
+                                                <a href="#" class="fw-medium">#VL2110</a>
                                             </td>
-                                            <td>{{$item->user->name}}</td>
-                                            <td>{{$item->created_at}}</td>
+                                            <td>William Elmore</td>
+                                            <td>07 Oct, 2021</td>
+                                            <td>$24.05</td>
+                                            <td>$24.05</td>
                                             <td>
-                                                {{$item->coupon_id}}
-                                            </td>
-                                            <td>{{$item->total}}</td>
-                                            <td>
-                                                @if ($item->status == 'PENDING')
-                                                    <span class="badge bg-primary opacity-75">{{$item->status}}</span>
-                                                @elseif($item->status == 'HOLDING')
-                                                    <span class="badge bg-warning">{{$item->status}}</span>
-                                                @elseif($item->status == 'ACCEPTED')
-                                                    <span class="badge bg-info">{{$item->status}}</span>
-                                                @elseif($item->status == 'COMPLETED')
-                                                    <span class="badge bg-success">{{$item->status}}</span>
-                                                @elseif($item->status == 'CANCELED')
-                                                    <span class="badge bg-danger">{{$item->status}}</span>
-                                                @endif
+                                                <span class="badge bg-success">Paid</span>
                                             </td>
                                             <td>
                                                 <div class="hstack gap-3 flex-wrap">
                                                     <a href="javascript:void(0);" class="link-primary fs-15"><i
                                                             class="ri-eye-line"></i></a>
-                                                    {{-- <a href="javascript:void(0);" class="link-success fs-15"><i
-                                                            class="ri-edit-2-line"></i></a> --}}
-                                                    <a href="{{ route('orders.edit') }}" class="link-success fs-15">
-                                                        <i class="ri-edit-2-line"></i>
-                                                    </a>
+                                                    <a href="javascript:void(0);" class="link-success fs-15"><i
+                                                            class="ri-edit-2-line"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
-                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
-                            {{ $order->links() }}
                         </div>
                     </div>
                 </div>
