@@ -94,6 +94,7 @@ class LoginController extends Controller
                     'facebook_id' => null,
                     'github_id' => null
                 ])->first();
+
                 if (!$check_email) {
                     $user = User::create([
                         'name' => $user_google->name,
@@ -124,19 +125,17 @@ class LoginController extends Controller
 
                     $user = User::where([
                         'email' => $user_google->email,
-                        'google_id' => $user_google->id,
-                        'facebook_id' => null,
-                        'github_id' => null
+                        'google_id' => $user_google->id
                     ])->first();
-
-                    if ($user->status == false) {
-                        return redirect()->route('preventAccount');
-                    }
                 }
             }
         }
-        Auth::login($user, true);
-        return redirect()->route('home');
+        if ($user->status == false) {
+            return redirect()->route('preventAccount');
+        } else {
+            Auth::login($user, true);
+            return redirect()->route('home');
+        }
     }
 
     public function facebookLogin()

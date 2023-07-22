@@ -17,6 +17,7 @@ class Book_service extends Model
         'book_time',
         'description',
         'admin_note',
-        'status'
+        'status',
+        'total_price'
     ];
 }

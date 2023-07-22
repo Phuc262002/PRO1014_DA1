@@ -11,11 +11,7 @@ class BookServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        if (auth()->user()->is_admin == true) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 
     /**
@@ -42,7 +38,7 @@ class BookServiceRequest extends FormRequest
         
             'service_id.required' => 'Vui lòng chọn dịch vụ',
 
-            'pet_name.required' => 'Vui lòng chọn dịch vụ',
+            'pet_name.required' => 'Vui lòng nhập tên thú cưng',
 
         ];
     }

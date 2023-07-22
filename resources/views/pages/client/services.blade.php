@@ -37,7 +37,15 @@
                             <div class="icon"><i class="{{$item->icon}}"></i></div> 
                             <h4><a href="services-detail.html">{{$item->name}}</a></h4>
                             <p>{{$item->description}}</p>
-                            <p>Giá : {{number_format($item->price)}}</p>
+                            <p><span class="price">
+                                @if ($item->discount_price > 0)
+                                    <strong
+                                        class="new">{{ number_format($item->discount_price) }} đ</strong>
+                                    <del class="old">{{ number_format($item->price) }} đ</del>
+                                @else
+                                    <span class="new">{{ number_format($item->price) }} đ</span>
+                                @endif
+                            </span></p>
                                <a href="{{route('dich-vu.create')}}?service_id={{$item->id}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
                         </div>
                     </div>

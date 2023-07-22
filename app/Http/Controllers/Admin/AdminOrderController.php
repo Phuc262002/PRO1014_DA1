@@ -14,40 +14,37 @@ class AdminOrderController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý đơn hàng';
-        $order = Order::with('user', 'address', 'payment', 'order_detail')->paginate(10);
+        $order = Order::with('user', 'address', 'payment', 'order_detail');
         
 
-        $status = request()->input('status');
+        $status = request()->input('status') ? request()->input('status') : 'ALL';
+        $search = request()->input('search');
+        $calendar = request()->input('calendar');
 
-        if($status == '') {
-            return view('pages.admin.order_all', compact('title', 'order'));
-
-
-        } else if($status == "PENDING") {
-            $order = Order::where('status', 'PENDING')->with('user', 'address', 'payment', 'order_detail')->paginate(10);
-            return view('pages.admin.order_all', compact('title', 'order'));
-
-
-        } else if($status == "HOLDING") {
-            $order = Order::where('status', 'HOLDING')->with('user', 'address', 'payment', 'order_detail')->paginate(10);
-            return view('pages.admin.order_all', compact('title', 'order'));
-
-        } else if($status == "ACCEPTED") {
-            $order = Order::where('status', 'ACCEPTED')->with('user', 'address', 'payment', 'order_detail')->paginate(10);
-            return view('pages.admin.order_all', compact('title', 'order'));
-
-        } else if($status == "COMPLETED") {
-            $order = Order::where('status', 'COMPLETED')->with('user', 'address', 'payment', 'order_detail')->paginate(10);
-            return view('pages.admin.order_all', compact('title', 'order'));
-
-        } else if($status == "CANCELED") {
-        $order = Order::where('status', 'CANCELED')->with('user', 'address', 'payment', 'order_detail')->paginate(10);
-        return view('pages.admin.order_all', compact('title', 'order'));
-
-        }else{
-            $order = Order::with('user', 'address', 'payment', 'order_detail')->paginate(10);
-        return view('pages.admin.order_all', compact('title', 'order'));
+        if($search != '') {
+            $order->where('order_hash_id', 'like', "%$search%");
         }
+
+        if($calendar != '') {
+            $calendar_ = explode(' đến ', $calendar);
+
+            $calendar_start = str_replace(["Tháng ", ",", " "], ["", "", "-"], $calendar_[0]);
+            $calendar_start = date("Y-m-d", strtotime($calendar_start));
+
+            $calendar_end = str_replace(["Tháng ", ",", " "], ["", "", "-"], $calendar_[1]);
+            $calendar_end = date("Y-m-d", strtotime($calendar_end));
+
+        $order = Order::with('user', 'address', 'payment', 'order_detail');
+            $order->whereBetween('created_at', [$calendar_start, $calendar_end]);
+        }
+
+        if($status != 'ALL') {
+            $order->where('status', $status);
+        }
+
+        $order = $order->paginate(10);
+
+        return view('pages.admin.order_all', compact('title', 'order', 'status', 'search', 'calendar'));
     }
 
     /**

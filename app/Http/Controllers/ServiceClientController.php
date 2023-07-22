@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Book_service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookServiceRequest;
@@ -33,9 +34,29 @@ class ServiceClientController extends Controller
      */
     public function store(BookServiceRequest $request)
     {
-        // $name_services = Service::all();
-        // return view('pages.client.book-services',compact('name_services'));
-        dd($request->all());
+        if(auth()->check()){
+            $user_id = auth()->user()->id;
+            $service = Service::where('id', $request->service_id)->first();
+            $book_service = Book_service::create([
+                'user_id' => $user_id,
+                'service_id' => $request->service_id,
+                'pet_name' => $request->pet_name,
+                'book_date' => $request->book_date,
+                'book_time' => $request->book_time,
+                'description' => $request->description,
+                'total_price' => $service->discount_price != 0 ? $service->discount_price : $service->price,
+            ]);
+
+            if($book_service){
+                return redirect()->route('dich-vu-ca-nhan.index')->with('success', 'Đặt lịch dịch vụ thành công');
+            }else{
+                return back()->with('error', 'Đặt lịch dịch vụ thất bại');
+            }
+        }else{
+            return back()->with('error', 'Bạn cần đăng nhập để đặt lịch dịch vụ');
+        }
+
+        
         
     }
 

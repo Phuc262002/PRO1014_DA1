@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="section breadcrumb-area bg-name-bright">
         <div class="container">
@@ -32,8 +34,10 @@
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
                                     <a href="{{ route('index') }}"><i class="fa fa-user"></i> Tài khoản</a>
-                                    <a href="{{ route('don-hang.index') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
-                                    <a href="{{ route('dich-vu.index') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
+                                    <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
+                                        Đơn hàng</a>
+                                    <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
+                                        Dịch
                                         vụ</a>
                                     <a href="{{ route('dia-chi.index') }}"><i class="fa fa-map-marker"></i> Địa
                                         chỉ</a>
@@ -62,47 +66,36 @@
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
                                                         <tr>
-                                                            <th>Đơn hàng</th>
+                                                            <th>Mã đơn hàng</th>
                                                             <th>Ngày</th>
-                                                            <th>Trạng thái</th>
                                                             <th>Số lượng</th>
-                                                            <th>Tổng</th>
+                                                            {{-- <th>Mã giảm giá</th> --}}
+                                                            <th>Tổng phải trả</th>
+                                                            <th>Trạng thái</th>
                                                             <th>Hành động</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td> 22.02.2018</td>
-                                                            <td>Pending</td>
-                                                            <td>5</td>
-                                                            <td>$3000</td>
-                                                            <td><a href="{{ route('bill-detail') }}"
-                                                                    class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>22.7.2018</td>
-                                                            <td>Approved</td>
-                                                            <td>5</td>
-                                                            <td>$200</td>
-                                                            <td><a href="{{ route('bill-detail') }}"
-                                                                    class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>12.9.2019</td>
-                                                            <td>On Hold</td>
-                                                            <td>5</td>
-                                                            <td>$990</td>
-                                                            <td><a href="{{ route('bill-detail') }}"
-                                                                    class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
-                                                            </td>
-                                                        </tr>
+                                                        @foreach ($order as $item)
+                                                            <tr>
+                                                                <td>{{$item->order_hash_id}}</td>
+                                                                <td>{{$item->created_at}}</td>
+                                                                <td>{{count($item->order_detail)}}</td>
+                                                                {{-- <td>{{$item->coupon != null ? $item->coupon->coupon_hash_id.' - '.number_format($item->coupon->discount) : ''}}</td> --}}
+                                                                <td>{{number_format($item->total)}}</td>
+                                                                <td>{{$item->status}}</td>
+                                                                <td><a href="{{ route('hoa-don.index') }}?bill_id={{$item->order_hash_id}}"
+                                                                        class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <div class="pagination-wrap hstack gap-2">
+                                                    {{ $order->links() }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +103,6 @@
                                 </div>
                             </div>
                             <!-- My Account Tab Content End -->
-
                         </div>
                     </div>
                     <!-- My Account Page End -->

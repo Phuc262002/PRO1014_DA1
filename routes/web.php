@@ -28,6 +28,7 @@ use App\Http\Controllers\BillController;
 use App\Http\Controllers\CartClientController;
 use App\Http\Controllers\ServiceUserController;
 use App\Http\Controllers\MapClientController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::get('san-pham/{slug}', [ProductController::class, 'getProductDetail'])->n
 
 Route::resource('dich-vu', ServiceClientController::class);
 
+Route::resource('binh-luan', CommentController::class);
+
 Route::resource('bai-viet', PostController::class);
 Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 
@@ -63,8 +66,8 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
 
     Route::resources([
         '/' => UserController::class,
-        'don-hang' => CartClientController::class,
-        'dich-vu' => ServiceUserController::class,
+        'don-hang-ca-nhan' => CartClientController::class,
+        'dich-vu-ca-nhan' => ServiceUserController::class,
         'dia-chi' => MapClientController::class,
 
     ]);

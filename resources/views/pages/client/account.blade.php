@@ -32,8 +32,8 @@
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
                                     <a href="{{ route('index') }}"><i class="fa fa-user"></i> Tài khoản</a>
-                                    <a href="{{ route('don-hang.index') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
-                                    <a href="{{ route('dich-vu.index') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
+                                    <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
+                                    <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
                                         vụ</a>
                                     <a href="{{ route('dia-chi.index') }}"><i class="fa fa-map-marker"></i> Địa chỉ</a>
                                     @if (Auth::user()->is_admin == true)

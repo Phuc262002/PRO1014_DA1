@@ -13,6 +13,15 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products_all = Product::all();
+
+        foreach ($products_all as $product) {
+            if($product->discount_end < date('Y-m-d')){
+                $product->discount_price = 0;
+                $product->save();
+            }
+        }
+
         $title = "Pets Care - Luôn đồng hành cùng thú cưng của bạn";
         $categories = Category::where('type_category', 'PRODUCT')->with('product')->get();
         $query = request()->query();

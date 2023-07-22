@@ -146,32 +146,32 @@
                                 <div class="card-body bg-soft-light border border-dashed border-start-0 border-end-0">
                                     <form action="{{route('orders.index')}}">
                                         <div class="row g-3">
-                                            <div class="col-xxl-5 col-sm-12">
+                                            <div class="col-xxl-4 col-sm-12">
                                                 <div class="search-box">
-                                                    <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm theo ID, tên người mua, tổng tiền,... ">
+                                                    <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm theo ID" value="{{$search}}">
                                                     <i class="ri-search-line search-icon"></i>
                                                 </div>
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-3 col-sm-4">
-                                                <input type="text" class="form-control bg-light border-light" name="calendar" id="datepicker-range" placeholder="Chọn ngày">
+                                                <input type="text" class="form-control bg-light border-light" data-date-format="d-m-y" value="{{$calendar}}" name="calendar" id="datepicker-range" placeholder="Chọn ngày">
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-3 col-sm-4">
                                                 <div class="input-light">
                                                     <select class="form-control" data-choices data-choices-search-false name="status" id="idStatus">
-                                                        <option value="ALL" selected>Tất cả đơn hàng</option>
-                                                        <option value="COMPLETED">Đơn hàng hoàn thành</option>
-                                                        <option value="ACCEPTED">Đơn hàng chấp nhận</option>
-                                                        <option value="CANCELED">Đơn hàng hủy</option>
-                                                        <option value="PENDING">Chờ thanh toán</option>
-                                                        <option value="HOLDING">Đơn hàng tạm giữ</option>
+                                                        <option {{$status == "ALL" ? 'selected' : ''}} value="ALL" selected>Tất cả đơn hàng</option>
+                                                        <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Đơn hàng hoàn thành</option>
+                                                        <option {{$status == "ACCEPTED" ? 'selected' : ''}} value="ACCEPTED">Đơn hàng chấp nhận</option>
+                                                        <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Đơn hàng hủy</option>
+                                                        <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Chờ thanh toán</option>
+                                                        <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Đơn hàng tạm giữ</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <!--end col-->
 
-                                            <div class="col-xxl-1 col-sm-4">
+                                            <div class="col-xxl-2 col-sm-4">
                                                 <button class="btn btn-primary w-100" type="submit">
                                                     <i class="ri-equalizer-fill me-0 align-bottom"></i> Áp dụng
                                                 </button>
@@ -206,7 +206,7 @@
                                                     <tr>
                                                         <th scope="row">
                                                            <div class="form-check">
-                                                              <input class="form-check-input" type="checkbox" name="chk_child" value="#{{$item->order_hash_id}}">
+                                                              <input class="form-check-input" type="checkbox" name="chk_child" value="{{$item->order_hash_id}}">
                                                            </div>
                                                         </th>
                                                         <td class="id"><a href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="{{$item->order_hash_id}}" class="fw-medium link-primary">{{$item->order_hash_id}}</a>
@@ -384,4 +384,3 @@
             </footer>
         </div>
         @endsection
-     
