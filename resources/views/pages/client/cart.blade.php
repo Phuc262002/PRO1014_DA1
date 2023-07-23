@@ -70,7 +70,7 @@
 
                         <!-- Cart Button left Side Start -->
                         <div class="cart-btn-lef-side m-b-20">
-                            <a href="{{ route('san-pham') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua
+                            <a href="{{ route('san-pham.index') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua
                                 hàng</a>
                         </div>
                         <!-- Cart Button left Side End -->
