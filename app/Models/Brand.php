@@ -12,7 +12,8 @@ class Brand extends Model
         'id',
         'name',
         'nation',
-        'slug'
+        'slug',
+        'image_brand',
     ];
     public function products()
     {

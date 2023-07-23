@@ -33,6 +33,9 @@ class AdminBrandController extends Controller
      */
     public function store(BrandRequest $request)
     {
+        if ($request->image_brand == 'Chưa có ảnh nào được chọn...') {
+            return back()->with('error', "Vui lòng chọn ảnh thương hiệu.");
+        }
         $brands = Brand::create($request->all());
         if ($brands) {
             if ($request->save_action == 'save_and_back') {

@@ -17,8 +17,9 @@ class HomeController extends Controller
         $products_all = Product::all();
 
         foreach ($products_all as $product) {
-            if($product->discount_end < date('Y-m-d')){
+            if ($product->discount_end <= date('Y-m-d h:i:s')) {
                 $product->discount_price = 0;
+                $product->discount_end = null;
                 $product->save();
             }
         }
@@ -61,6 +62,5 @@ class HomeController extends Controller
                     ->get();
                    
         return view('home', compact('title', 'topnew', 'topsale', 'slider','banner_sale','blog'));
-        
     }
 }

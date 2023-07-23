@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -35,6 +36,10 @@ class CommentController extends Controller
                 $comment->post_id = $request->post_id;
                 $comment->content = $request->content;
                 $comment->save();
+
+                $post = Post::find($request->post_id);
+                $post->comment_count = $post->comment_count + 1;
+                $post->save();
 
                 $comment = Comment::where([
                     'post_id' => $request->post_id,

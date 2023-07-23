@@ -921,6 +921,13 @@
 <script src="{{ asset('assets/js/jquery.js') }}"></script>
 <script src="{{asset('assets/js/toast.js')}}"></script>
  <script>
+    function formatVietnamDong(amount) {
+         return amount.toLocaleString('vi-VN', {
+             style: 'currency',
+             currency: 'VND'
+         });
+     }
+
      function Success(message) {
          toastNotif({
              text: message,

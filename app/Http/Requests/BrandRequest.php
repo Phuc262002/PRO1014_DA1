@@ -42,7 +42,8 @@ class BrandRequest extends FormRequest
                 Rule::unique('brands')->ignore($brandID),
                 'max:255',
             ],
-            'nation' => 'required'
+            'nation' => 'required',
+            'image_brand' => 'required|max:255',
         ];
     }
     public function messages(): array
@@ -51,8 +52,8 @@ class BrandRequest extends FormRequest
             'name.required' => 'Vui lòng nhập tên thương hiệu.',
             'name.unique' => 'Tên thương hiệu đã tồn tại.',
             'nation.required' => 'Vui lòng nhập quốc gia.',
-            'image_service.required' => 'Vui lòng chọn hình ảnh sản phẩm.',
-            'image_service.unique' => 'Hình ảnh sản phẩm đã tồn tại.',
+            'image_brand.required' => 'Vui lòng chọn hình ảnh sản phẩm.',
+            'image_brand.max' => 'Độ dài tối đa của hình ảnh là 255 ký tự.',
             'slug.required' => 'Vui lòng nhập slug.',
             'slug.unique' => 'slug đã tồn tại.',
             

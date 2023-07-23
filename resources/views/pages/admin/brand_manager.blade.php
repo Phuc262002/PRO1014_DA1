@@ -63,7 +63,7 @@
                                             <td>
                                                 <div class="d-flex gap-2 align-items-center">
                                                     <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/avatar-3.jpg" alt=""
+                                                        <img src="{{$item->image_brand}}" alt=""
                                                             class="avatar-xs rounded-circle">
                                                     </div>
                                                 </div>

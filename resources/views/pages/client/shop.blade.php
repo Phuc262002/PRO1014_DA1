@@ -204,7 +204,7 @@
                                 <h3 class="widget-title m-b-30">Loại sản phẩm</h3>
                                 <div class="sidebar-body">
                                     <ul class="sidebar-list">
-                                        <li><a href="">Tất cả sản phẩm</a></li>
+                                        <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => ""])) }}">Tất cả sản phẩm</a></li>
                                         @foreach ($categories as $item)
                                         <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => $item->slug])) }}">{{ $item->name }} ({{ count($item->product) }})</a></li>
 

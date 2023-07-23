@@ -20,4 +20,14 @@ class Book_service extends Model
         'status',
         'total_price'
     ];
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'service_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

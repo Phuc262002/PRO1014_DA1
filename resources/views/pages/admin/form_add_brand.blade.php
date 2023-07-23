@@ -48,8 +48,8 @@
                                                 <div class="input-group">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="inputGroupFileAddon03">Thêm ảnh</button>
-                                                    <input type="text" class="form-control" id="ckfinder-product_img" name="" readonly
-                                                        value="Chọn ảnh...">
+                                                    <input type="text" class="form-control" id="ckfinder-product_img" name="image_brand"
+                                                        value="Chưa có ảnh nào được chọn...">
                                                 </div>
                                             </div>
                                         </div>

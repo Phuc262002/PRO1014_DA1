@@ -40,6 +40,14 @@ class AdminProductController extends Controller
     {
         if ($request->discount_price > 0 && $request->discount_end == null) {
             return back()->with('error', "Vui lòng nhập ngày kết thúc khuyến mãi.");
+        } else if ($request->discount_price == 0 && $request->discount_end != null) {
+            return back()->with('error', "Vui lòng nhập giá khuyến mãi.");
+        } else if ($request->discount_price > 0 && $request->discount_end != null) {
+            if ($request->discount_price >= $request->price) {
+                return back()->with('error', "Giá khuyến mãi phải nhỏ hơn giá gốc.");
+            } else if ($request->discount_end <= date('Y-m-d')) {
+                return back()->with('error', "Ngày kết thúc khuyến mãi phải lớn hơn ngày hiện tại.");
+            }
         }
         if ($request->image_main == 'Chưa có ảnh nào được chọn...') {
             return back()->with('error', "Vui lòng chọn ảnh chính.");
@@ -94,6 +102,17 @@ class AdminProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
+        if ($request->discount_price > 0 && $request->discount_end == null) {
+            return back()->with('error', "Vui lòng nhập ngày kết thúc khuyến mãi.");
+        } else if ($request->discount_price == 0 && $request->discount_end != null) {
+            return back()->with('error', "Vui lòng nhập giá khuyến mãi.");
+        } else if ($request->discount_price > 0 && $request->discount_end != null) {
+            if ($request->discount_price >= $request->price) {
+                return back()->with('error', "Giá khuyến mãi phải nhỏ hơn giá gốc.");
+            } else if ($request->discount_end <= date('Y-m-d')) {
+                return back()->with('error', "Ngày kết thúc khuyến mãi phải lớn hơn ngày hiện tại.");
+            }
+        }
         $update_product = Product::updateOrCreate([
             'id' => $product->id,
         ], $request->all());
