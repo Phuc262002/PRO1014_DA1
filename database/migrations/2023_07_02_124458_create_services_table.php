@@ -19,8 +19,8 @@ class CreateServicesTable extends Migration
             $table->string('name', 200);
             $table->text('description');
             $table->string('icon', 200);
-            $table->integer('price')->default(0);
-            $table->integer('discount_price')->default(0);
+            $table->bigInteger('price')->default(0);
+            $table->bigInteger('discount_price')->default(0);
             $table->timestamps();
         });
     }

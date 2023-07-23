@@ -18,8 +18,8 @@ class CreateOrdersTable extends Migration
             $table->unique('order_hash_id', 50);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('coupon_id')->nullable();
-            $table->integer('pre_total');
-            $table->integer('total');
+            $table->bigInteger('pre_total');
+            $table->bigInteger('total');
             $table->unsignedBigInteger('payment_id');
             $table->enum('status', ['PENDING', 'HOLDING', 'ACCEPTED', 'COMPLETED', 'CANCELED'])->default('PENDING');
             $table->timestamps();

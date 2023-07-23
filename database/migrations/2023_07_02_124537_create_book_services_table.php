@@ -22,7 +22,7 @@ class CreateBookServicesTable extends Migration
             $table->time('book_time');
             $table->text('description')->nullable();
             $table->text('admin_note')->nullable();
-            $table->integer('total_price');
+            $table->bigInteger('total_price');
             $table->enum('status', ['PENDING', 'HOLDING', 'ACCEPTED', 'COMPLETED', 'CANCELED'])->default('PENDING');
             $table->timestamps();
 
