@@ -33,7 +33,7 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('index') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài khoản</a>
                                     <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
                                         Đơn hàng</a>
                                     <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
@@ -85,7 +85,9 @@
                                                                 <td>{{number_format($item->total)}}</td>
                                                                 <td>{{$item->status}}</td>
                                                                 <td><a href="{{ route('hoa-don.index') }}?bill_id={{$item->order_hash_id}}"
-                                                                        class="btn btn btn-dark btn-hover-primary btn-sm rounded-0">Xem</a>
+                                                                        class="btn btn-dark btn-hover-primary btn-sm rounded-0">Bill</a>
+                                                                    <a href="{{ route('don-hang-ca-nhan.bill_id', ['bill_id' => $item->order_hash_id]) }}"
+                                                                        class="btn btn-dark btn-hover-primary btn-sm rounded-0">Chi tiết Bill</a>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

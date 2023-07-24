@@ -115,57 +115,6 @@
 @endsection
 @section('js')
     <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'), {
-                ckfinder: {
-                    uploadUrl: 'assets/vendor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-    <script>
-        function save_and_edit() {
-            $('#save_action').val('save_and_edit');
-            $('form').submit();
-        }
-
-        function save_and_new() {
-            $('#save_action').val('save_and_new');
-            $('form').submit();
-        }
-    </script>
-
-
-
-
-    <script>
-        $(document).ready(function() {
-            $("#inputGroupFileAddon03").click(function() {
-                CKFinder.modal({
-                    chooseFiles: true,
-                    width: 800,
-                    height: 600,
-                    onInit: function(finder) {
-                        finder.on('files:choose', function(evt) {
-                            var file = evt.data.files.first();
-                            var output = document.getElementById(
-                                'ckfinder-product_img');
-                            output.value = file.getUrl();
-                        });
-
-                        finder.on('file:choose:resizedImage', function(evt) {
-                            var output = document.getElementById(
-                                'ckfinder-product_img');
-                            output.value = evt.data.resizedUrl;
-                        });
-                    }
-                });
-            })
-        });
-    </script>
-    <script>
         function generateRandomCoupon() {
             var charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             var coupon = '';
