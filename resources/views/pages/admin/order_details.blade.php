@@ -1,5 +1,7 @@
 @extends('layouts.admin.master')
-
+@section('title')
+    {{$title}}
+@endsection
 @section('content')
 <div class="main-content">
 
@@ -12,10 +14,11 @@
 
             <div class="row">
                 <div class="col-xl-9">
+                    
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-items-center">
-                                <h5 class="card-title flex-grow-1 mb-0">Order #VL2667</h5>
+                                <h5 class="card-title flex-grow-1 mb-0">{{$order->order_hash_id}}</h5>
                                 <div class="flex-shrink-0">
                                     <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i class="ri-download-2-fill align-middle me-1"></i> Invoice</a>
                                 </div>
@@ -26,22 +29,22 @@
                                 <table class="table table-nowrap align-middle table-borderless mb-0">
                                     <thead class="table-light text-muted">
                                         <tr>
-                                            <th scope="col">Product Details</th>
-                                            <th scope="col">Item Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Rating</th>
-                                            <th scope="col" class="text-end">Total Amount</th>
+                                            <th scope="col">Chi tiết đơn hàng</th>
+                                            <th scope="col">Giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col" class="text-end">Tổng cộng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($order_detail_list as $item)
                                         <tr>
                                             <td>
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
-                                                        <img src="assets/images/products/img-8.png" alt="" class="img-fluid d-block">
+                                                        <img src="{{$item->product->image_main}}" alt="" class="img-fluid d-block">
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
-                                                        <h5 class="fs-15"><a href="apps-ecommerce-product-details.html" class="link-primary">Sweatshirt for Men (Pink)</a></h5>
+                                                        <h5 class="fs-15"><a href="apps-ecommerce-product-details.html" class="link-primary">dfsfs</a></h5>
                                                         <p class="text-muted mb-0">Color: <span class="fw-medium">Pink</span></p>
                                                         <p class="text-muted mb-0">Size: <span class="fw-medium">M</span></p>
                                                     </div>
@@ -49,63 +52,12 @@
                                             </td>
                                             <td>$119.99</td>
                                             <td>02</td>
-                                            <td>
-                                                <div class="text-warning fs-15">
-                                                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
-                                                </div>
-                                            </td>
+                                            
                                             <td class="fw-medium text-end">
                                                 $239.98
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
-                                                        <img src="assets/images/products/img-7.png" alt="" class="img-fluid d-block">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-3">
-                                                        <h5 class="fs-15"><a href="apps-ecommerce-product-details.html" class="link-primary">Noise NoiseFit Endure Smart Watch</a></h5>
-                                                        <p class="text-muted mb-0">Color: <span class="fw-medium">Black</span></p>
-                                                        <p class="text-muted mb-0">Size: <span class="fw-medium">32.5mm</span></p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>$94.99</td>
-                                            <td>01</td>
-                                            <td>
-                                                <div class="text-warning fs-15">
-                                                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
-                                                </div>
-                                            </td>
-                                            <td class="fw-medium text-end">
-                                                $94.99
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 avatar-md bg-light rounded p-1">
-                                                        <img src="assets/images/products/img-3.png" alt="" class="img-fluid d-block">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-3">
-                                                        <h5 class="fs-15"><a href="apps-ecommerce-product-details.html" class="link-primary">350 ml Glass Grocery Container</a></h5>
-                                                        <p class="text-muted mb-0">Color: <span class="fw-medium">White</span></p>
-                                                        <p class="text-muted mb-0">Size: <span class="fw-medium">350 ml</span></p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>$24.99</td>
-                                            <td>01</td>
-                                            <td>
-                                                <div class="text-warning fs-15">
-                                                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i><i class="ri-star-line"></i><i class="ri-star-line"></i>
-                                                </div>
-                                            </td>
-                                            <td class="fw-medium text-end">
-                                                $24.99
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                         <tr class="border-top border-top-dashed">
                                             <td colspan="3"></td>
                                             <td colspan="2" class="fw-medium p-0">
@@ -136,10 +88,12 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
                     </div>
+                    
                     <!--end card-->
                     <div class="card">
                         <div class="card-header">

@@ -16,6 +16,7 @@ class AdminBrandController extends Controller
      */
     public function index()
     {
+        
         $brands = Brand::all();
         return view('pages.admin.brand_manager', compact('brands'));
     }

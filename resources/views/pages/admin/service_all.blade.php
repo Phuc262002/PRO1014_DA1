@@ -141,7 +141,7 @@
                         <div class="card" id="invoiceList">
                             <div class="card-header border-0">
                                 <div class="d-flex align-items-center">
-                                    <h5 class="card-title mb-0 flex-grow-1">Invoices</h5>
+                                    <h5 class="card-title mb-0 flex-grow-1">Quản lý dịch vụ </h5>
                                     <div class="flex-shrink-0">
                                         <div class="d-flex gap-2 flex-wrap">
                                             <button class="btn btn-danger" id="remove-actions" onClick="deleteMultiple()"><i
@@ -158,26 +158,26 @@
                                         <div class="col-xxl-5 col-sm-12">
                                             <div class="search-box">
                                                 <input type="text" class="form-control search bg-light border-light"
-                                                    placeholder="Search for customer, email, country, status or something...">
+                                                    placeholder="Tìm dịch vụ theo ID...">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-sm-4">
                                             <input type="text" class="form-control bg-light border-light"
-                                                id="datepicker-range" placeholder="Select date">
+                                                id="datepicker-range" placeholder="Chọn ngày ">
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-sm-4">
                                             <div class="input-light">
                                                 <select class="form-control" data-choices data-choices-search-false
                                                     name="choices-single-default" id="idStatus">
-                                                    <option value="">Status</option>
-                                                    <option value="all" selected>All</option>
-                                                    <option value="Unpaid">Unpaid</option>
-                                                    <option value="Paid">Paid</option>
-                                                    <option value="Cancel">Cancel</option>
-                                                    <option value="Refund">Refund</option>
+                                                    <option {{$status == "ALL" ? 'selected' : ''}} value="ALL" selected>Tất cả dịch vụ</option>
+                                                    <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Dịch vụ hoàn thành</option>
+                                                    <option {{$status == "ACCEPTED" ? 'selected' : ''}}  value="ACCEPTED">Dịch vụ được chấp nhận</option>
+                                                    <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Dịch vụ đã hủy</option>
+                                                    <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Dịch vụ đang xữ lý</option>
+                                                    <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Dịch vụ tạm giữ</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -185,7 +185,7 @@
 
                                         <div class="col-xxl-1 col-sm-4">
                                             <button type="button" class="btn btn-primary w-100" onclick="SearchData();">
-                                                <i class="ri-equalizer-fill me-1 align-bottom"></i> Filters
+                                                <i class="ri-equalizer-fill me-1 align-bottom"></i> Áp dụng
                                             </button>
                                         </div>
                                         <!--end col-->
@@ -205,69 +205,83 @@
                                                                 id="checkAll" value="option">
                                                         </div>
                                                     </th>
-                                                    <th class="sort text-uppercase" data-sort="invoice_id">ID</th>
-                                                    <th class="sort text-uppercase" data-sort="customer_name">Customer
-                                                    </th>
-                                                    <th class="sort text-uppercase" data-sort="email">Email</th>
-                                                    <th class="sort text-uppercase" data-sort="country">Country</th>
-                                                    <th class="sort text-uppercase" data-sort="date">Date</th>
-                                                    <th class="sort text-uppercase" data-sort="invoice_amount">Amount</th>
-                                                    <th class="sort text-uppercase" data-sort="status">Payment Status</th>
-                                                    <th class="sort text-uppercase" data-sort="action">Action</th>
+                                                    <th  data-sort="id">ID</th>
+                                                    <th  data-sort="customer_name">Khách hàng</th>
+                                                    <th  data-sort="sdt">số điện thoại</th>
+                                                    <th  data-sort="service_id">Dịch vụ</th>
+                                                    <th  data-sort="book-date">Ngày</th>
+                                                    <th  data-sort="book-time">Giờ</th>
+                                                    <th  data-sort="pet_name">Tên Pet</th>
+                                                    <th  data-sort="description">Ghi chú</th>
+                                                    <th  data-sort="status"> Status</th>
+                                                    <th  data-sort="action">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="list form-check-all" id="invoice-list-data">
-
+                                                @foreach ($book_service  as $item)
                                                 <tr>
                                                     <th scope="row">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                name="chk_child" ">
+                                                                name="chk_child" >
                                                                    </div>
                                                                 </th>
-                                                                <td class="id"><a href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="" class="fw-medium link-primary"></a>
+                                                                <td class="id">
+                                                                    {{ $item-> id}}
                                                                 </td>
-                                                                <td class="customer_name">
+                                                                <td class="user_id ">
                                                                    <div class="d-flex align-items-center">
-                                                                   
+                                                                    {{ $item-> user_id}}
                                                                    </div>
                                                                 </td>
                                                                 <td class="email">
-                                                                    123
+                                                                   123
                                                                 </td>
-                                                                <td class="country">USA</td>
-                                                                <td class="date"><small class="text-muted"></small></td>
-                                                                <td class="invoice_amount">123</td>
-                                                                <td class="status"><span class="badge badge-soft-info text-uppercase">123</span></td>
-                                                                <td>
-                                                                   <div class="dropdown">
-                                                                      <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                      <i class="ri-more-fill align-middle"></i>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu dropdown-menu-end">
-                                                                         <li><button class="dropdown-item" href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="" ><i class="ri-eye-fill align-bottom me-2 text-muted"></i>
-                                                                            View</button>
-                                                                         </li>
-                                                                         <li><button class="dropdown-item" href="javascript:void(0);" onclick="EditInvoice(this);" data-id=""><i class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                                                            Edit</button>
-                                                                         </li>
-                                                                         <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-line align-bottom me-2 text-muted"></i>
-                                                                            Download</a>
-                                                                         </li>
-                                                                         <li class="dropdown-divider"></li>
-                                                                         <li>
-                                                                            <a class="dropdown-item remove-item-btn" data-bs-toggle="modal" href="#deleteOrder">
-                                                                            <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                                            Delete
-                                                                            </a>
-                                                                         </li>
-                                                                      </ul>
-                                                                   </div>
-                                                                </td>
-                                                             </tr>
+                                                                <td class="service">{{$item->service_id}}</td>
+                                                                <td class="book_date"><small class="text-muted"></small>{{$item->book_date}}</td>
+                                                                <td class="book_time">{{$item -> book_time}}</td>
+                                                                <td class="pet_name">{{$item -> pet_name}}</td>
+                                                                <td class="description">{{$item -> description}}</td>
+                                                                <td class="status">
                                                             
-                                                        </tbody>
-                                                    </table>
+                                                                    @if ($item->status == 'PENDING')
+                                                                        <span class="badge bg-primary opacity-75">{{$item->status}}</span>
+                                                                    @elseif($item->status == 'HOLDING')
+                                                                        <span class="badge bg-warning">{{$item->status}}</span>
+                                                                    @elseif($item->status == 'ACCEPTED')
+                                                                        <span class="badge bg-info">{{$item->status}}</span>
+                                                                    @elseif($item->status == 'COMPLETED')
+                                                                        <span class="badge bg-success">{{$item->status}}</span>
+                                                                    @elseif($item->status == 'CANCELED')
+                                                                        <span class="badge bg-danger">{{$item->status}}</span>
+                                                                    @endif
+                                                                
+                                                            </td>                       
+                                                               
+                                                                <td>
+                                                                    <ul class="list-inline hstack gap-2 mb-0">
+                                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
+                                                                            <a class="text-success d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
+                                                                                <i class="ri-eye-line fs-16"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
+                                                                            <a href="#showModal" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
+                                                                                <i class="ri-pencil-fill fs-16"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
+                                                                            <a class="text-danger d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
+                                                                                <i class="ri-delete-bin-5-fill fs-16"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                                
+                                                </tr>
+                                                 @endforeach         
+                                            </tbody>
+                                        </table>
                                                     <div class="noresult" style="display: none">
                                                         <div class="text-center">
                                                             <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
@@ -276,6 +290,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            
+                                                
                                                 <div class="d-flex justify-content-end mt-3">
                                                 
                                                 </div>
@@ -296,7 +312,7 @@
                                                                     <button class="btn btn-danger" id="delete-record">Yes, Delete It</button>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>  
                                                     </div>
                                                 </div>
                                             </div>
