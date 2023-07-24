@@ -14,9 +14,9 @@ class AdminServiceController extends Controller
      */
     public function index()
     {
-     
+        $title = 'Pets Care - Quản lý dịch vụ';
         $services = Service::all();
-        return view('pages.admin.service_manager', compact('services'));
+        return view('pages.admin.service_manager', compact('title','services'));
     }
 
     /**

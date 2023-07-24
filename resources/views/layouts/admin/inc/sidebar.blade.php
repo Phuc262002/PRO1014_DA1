@@ -320,7 +320,7 @@
                     <div class="collapse menu-dropdown" id="sidebarSV">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.service_all') }}" class="nav-link" data-key="t-starter">
+                                <a href="{{ route('book-service.index') }}" class="nav-link" data-key="t-starter">
                                     Tất cả dịch vụ
                                 </a>
                             </li>
