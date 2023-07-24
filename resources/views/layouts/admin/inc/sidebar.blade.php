@@ -188,11 +188,11 @@
                                     Tất cả mã giảm giá
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a href="{{ route('coupon.create') }}" class="nav-link" data-key="t-team">
                                     Thêm mã giảm giá
                                 </a>
-                            </li> --}}
+                            </li>
                         </ul>
                     </div>
                 </li>

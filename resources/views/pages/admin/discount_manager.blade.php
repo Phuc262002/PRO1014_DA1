@@ -143,8 +143,12 @@
                                                                 <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                                     data-bs-trigger="hover" data-bs-placement="top"
                                                                     title="Edit">
-                                                                    <a href="#showModal{{ $item->id }}"
+                                                                    {{-- <a href="#showModal{{ $item->id }}"
                                                                         data-bs-toggle="modal"
+                                                                        class="text-primary d-inline-block edit-item-btn">
+                                                                        <i class="ri-pencil-fill fs-16"></i>
+                                                                    </a> --}}
+                                                                    <a href="{{ route('coupon.edit', ['coupon' => $item->id]) }}"
                                                                         class="text-primary d-inline-block edit-item-btn">
                                                                         <i class="ri-pencil-fill fs-16"></i>
                                                                     </a>
