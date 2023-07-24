@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Order_detail;
 
 class AdminOrderController extends Controller
 {
@@ -14,7 +15,7 @@ class AdminOrderController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý đơn hàng';
-        $order = Order::with('user', 'address', 'payment', 'order_detail');
+        $order = Order::with('user', 'address', 'payment', 'order_detail','coupon');
         
 
         $status = request()->input('status') ? request()->input('status') : 'ALL';
@@ -60,7 +61,7 @@ class AdminOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -68,11 +69,16 @@ class AdminOrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $title = 'Pets Care - Thông tin đơn hàng';
+        $order = Order::where('id', $order->id)->with('user', 'address', 'payment', 'order_detail', 'coupon')->first();
+        $order_detail_list = Order_detail::where('order_id', $order->id)->with('product', 'order')->get();
+        return view('pages.admin.order_details', compact('title','order', 'order_detail_list'));
+       
     }
 
     /**
      * Show the form for editing the specified resource.
+     * ->with('brand', 'category', 'image_list')->paginate(10)
      */
     public function edit(Order $order)
     {
@@ -84,7 +90,17 @@ class AdminOrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $order = Order::updateOrCreate([
+            'id' => $order->id,
+        ], $request->all());
+        
+        if ($order) {
+            
+            return back()->with('success', "Thay đổi thành công.");
+ 
+        } else {
+            return back()->with('error', "Thay đổi thất bại.");
+        }
     }
 
     /**

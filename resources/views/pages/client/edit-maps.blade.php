@@ -31,7 +31,7 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('index') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài khoản</a>
                                     <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
                                     <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
                                         vụ</a>
@@ -85,7 +85,7 @@
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Địa chỉ</label>
                                                         <input type="email" id="email" placeholder="Địa chỉ"
-                                                            value="" />
+                                                            value="{{ Auth::user()->address }}" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Số điện thoại</label>

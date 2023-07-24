@@ -217,7 +217,7 @@
                                                            </div>
                                                         </td>
                                                         <td class="email">
-                                                            {{$item->coupon_id}}
+                                                            {{$item->coupon!=null?number_format($item->coupon->discount):'' }}
                                                         </td>
                                                         <td class="date"><small class="text-muted">{{$item->created_at}}</small></td>
                                                         <td class="invoice_amount">{{number_format($item->total)}} VNĐ</td>
@@ -240,19 +240,14 @@
                                                                 
                                                         <td>
                                                             <ul class="list-inline hstack gap-2 mb-0">
-                                                                <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
-                                                                    <a class="text-success d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
+                                                                <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Xem thông tin">
+                                                                    <a class="text-success d-inline-block remove-item-btn"  href="{{route('orders.show', ['order' => $item->id])}}">
                                                                         <i class="ri-eye-line fs-16"></i>
                                                                     </a>
                                                                 </li>
-                                                                <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
-                                                                    <a href="#showModal" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
+                                                                <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Chỉnh sửa">
+                                                                    <a href="#showModal{{$item->id}}" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
                                                                         <i class="ri-pencil-fill fs-16"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
-                                                                    <a class="text-danger d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
-                                                                        <i class="ri-delete-bin-5-fill fs-16"></i>
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -307,80 +302,62 @@
                 </div><!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-            <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+            @foreach ($order as $item)
+            <div class="modal fade" id="showModal{{$item->id}}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <h5 class="modal-title" id="exampleModalLabel"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                         </div>
-                        <form class="tablelist-form" autocomplete="off">
+
+                        <form class="tablelist-form" autocomplete="off" action="{{ route('orders.update', ['order' => $item->id]) }}" method="post" enctype="multipart/form-data">
+
+                        @csrf
+                        @method('put')
                             <div class="modal-body">
                                 <input type="hidden" id="id-field" />
 
-                                <div class="mb-3" id="modal-id" style="display: none;">
-                                    <label for="id-field1" class="form-label">ID</label>
-                                    <input type="text" id="id-field1" class="form-control" placeholder="ID" readonly />
+                                <div class="mb-3">
+                                    <label for="customername-field" class="form-label">Tên khách hàng</label>
+                                    <input type="text" class="form-control" placeholder="{{$item->user->name}}" disabled />
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="customername-field" class="form-label">Customer Name</label>
-                                    <input type="text" id="customername-field" class="form-control" placeholder="Enter name" required />
-                                    <div class="invalid-feedback">Please enter a customer name.</div>
+                                    <label for="email-field" class="form-label">Giảm giá</label>
+                                    <input type="text" class="form-control" placeholder="{{$item->coupon!=null?number_format($item->coupon->discount):'' }} " disabled />
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email-field" class="form-label">Email</label>
-                                    <input type="email" id="email-field" class="form-control" placeholder="Enter email" required />
-                                    <div class="invalid-feedback">Please enter an email.</div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phone-field" class="form-label">Phone</label>
-                                    <input type="text" id="phone-field" class="form-control" placeholder="Enter phone no." required />
-                                    <div class="invalid-feedback">Please enter a phone.</div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="date-field" class="form-label">Joining Date</label>
-                                    <input type="date" id="date-field" class="form-control" data-provider="flatpickr" data-date-format="d M, Y" required placeholder="Select date" />
-                                    <div class="invalid-feedback">Please select a date.</div>
+                                    <label for="customername-field" class="form-label">Tổng tiền</label>
+                                    <input type="text" class="form-control" placeholder="{{number_format($item->total)}} VNĐ" disabled />
                                 </div>
 
                                 <div>
-                                    <label for="status-field" class="form-label">Status</label>
-                                    <select class="form-control" data-choices data-choices-search-false name="status-field" id="status-field"  required>
-                                        <option value="">Status</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Block">Block</option>
+                                    <label for="status-field" class="form-label">Tình trạng</label>
+                                    <select class="form-control" data-choices data-choices-search-false name="status" id="status-field"  required>
+                                        <option {{$status == "ACCEPTED" ? 'selected' : ''}} value="ACCEPTED">Chấp nhận đơn</option>
+                                        <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Hoàn thành đơn</option>
+                                        <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Hủy đơn</option>
+                                        <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Chờ thanh toán</option>
+                                        <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Tạm giữ</option>
                                     </select>
                                 </div>
                             </div>
+                          
                             <div class="modal-footer">
                                 <div class="hstack gap-2 justify-content-end">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-success" id="add-btn">Add Customer</button>
-                                    <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="submit"  class="btn btn-success" id="add-btn">Cập nhật thông tin</button>
                                 </div>
-                            </div>
-                        </form>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            @endforeach
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Velzon.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            
         </div>
         @endsection

@@ -36,13 +36,9 @@ class AdminCouponController extends Controller
         $coupon = Coupon::create($request->all());
 
         if ($coupon) {
-            if ($request->save_action == 'save_and_back') {
-                return redirect()->route('coupon.index')->with('success', "Thêm thành công.");
-            } else if ($request->save_action == 'save_and_edit') {
-                return redirect()->route('coupon.edit', $coupon->id)->with('success', "Thêm thành công.");
-            } else if ($request->save_action == 'save_and_new') {
-                return redirect()->route('coupon.create')->with('success', "Thêm thành công.");
-            }
+
+            return back()->with('success', "Thêm thành công.");
+
         } else {
             return back()->with('error', "Thêm thất bại.");
         }
