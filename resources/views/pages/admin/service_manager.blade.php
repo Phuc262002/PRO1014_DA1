@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="main-content">
         <div class="page-content">
