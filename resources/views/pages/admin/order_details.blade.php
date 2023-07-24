@@ -44,9 +44,9 @@
                                                         <img src="{{$item->product->image_main}}" alt="" class="img-fluid d-block">
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
-                                                        <h5 class="fs-15"><a href="apps-ecommerce-product-details.html" class="link-primary">dfsfs</a></h5>
-                                                        <p class="text-muted mb-0">Color: <span class="fw-medium">Pink</span></p>
-                                                        <p class="text-muted mb-0">Size: <span class="fw-medium">M</span></p>
+                                                        <h5 class="fs-15 my-1"><a href="{{ route('san-pham.detail', ['slug' => $item->product->slug]) }}"
+                                                            class="d-inline-block text-truncate" style="width: 600px;">{{$item->product->name}}</a>
+                                                        </h5>
                                                     </div>
                                                 </div>
                                             </td>
