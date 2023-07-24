@@ -45,7 +45,7 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('index') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài khoản</a>
                                     <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
                                         Đơn hàng</a>
                                     <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>

@@ -65,13 +65,16 @@ Route::get('gio-hang', function () {
 Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
 
     Route::resources([
-        '/' => UserController::class,
+        'thong-tin-ca-nhan' => UserController::class,
         'don-hang-ca-nhan' => CartClientController::class,
         'dich-vu-ca-nhan' => ServiceUserController::class,
         'dia-chi' => MapClientController::class,
 
     ]);
+    Route::get('don-hang-ca-nhan/{bill_id}', [CartClientController::class, 'getBillDetail'])->name('don-hang-ca-nhan.bill_id');
+    
 });
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
