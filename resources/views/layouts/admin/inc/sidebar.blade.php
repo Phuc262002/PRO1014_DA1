@@ -188,11 +188,11 @@
                                     Tất cả mã giảm giá
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('coupon.create') }}" class="nav-link" data-key="t-team">
                                     Thêm mã giảm giá
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -325,7 +325,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('admin.service_pending') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ chưa xác nhận
                                 </a>
@@ -350,7 +350,7 @@
                                 <a href="{{ route('admin.service_canceled') }}" class="nav-link" data-key="t-team">
                                     Dịch vụ đã hủy
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
