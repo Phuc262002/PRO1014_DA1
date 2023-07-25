@@ -25,11 +25,11 @@
                                         <div class="d-flex flex-wrap align-items-start gap-2">
                                             <button class="btn btn-soft-danger" id="remove-actions"
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
+                                            {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
                                                     class="ri-add-line align-bottom me-1"></i> Add Customer</button>
                                             <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -129,8 +129,7 @@
                                                             </div>
                                                         </th>
                                                         <td><a href="{{ route('bai-viet.detail', ['slug' => $item->post->slug]) }}"
-                                                            class="d-inline-block text-truncate"
-                                                            style="width: 200px;">{{ $item->post->title }}</a></td>
+                                                            class="d-inline-block">{{ $item->post->title }}</a></td>
                                                         <td>{{ $item->content }}</td>
                                                         <td>{{ $item->user->name }}</a></td>
                                                         <td> @if ($item->status == true)
