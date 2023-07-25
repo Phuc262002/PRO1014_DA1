@@ -80,17 +80,17 @@
                                                         <label for="display-name" class="required m-b-10">Tên hiển
                                                             thị</label>
                                                         <input type="text" id="display-name" placeholder="Tên hiển thị"
-                                                            value="{{ Auth::user()->name }}" />
+                                                            value="{{ Auth::User()->name }}" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Địa chỉ</label>
                                                         <input type="email" id="email" placeholder="Địa chỉ"
-                                                            value="{{ Auth::user()->address }}" />
+                                                            value="{{ Auth::User()->address }}" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Số điện thoại</label>
                                                         <input type="email" id="email" placeholder="Số điện thoại"
-                                                            value="" />
+                                                        value="{{ Auth::User()->phone }}"  />
                                                     </div>
 
                                                     <div class="single-input-item single-item-button m-t-30">

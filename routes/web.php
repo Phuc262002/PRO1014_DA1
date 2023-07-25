@@ -15,9 +15,6 @@ use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
-
-use App\Http\Controllers\Admin\AdminBookServiceController;
-
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminOrderController;
@@ -72,6 +69,7 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
         'don-hang-ca-nhan' => CartClientController::class,
         'dich-vu-ca-nhan' => ServiceUserController::class,
         'dia-chi' => MapClientController::class,
+        'chinh-sua-dia-chi' => MapClientController::class,
 
     ]);
     Route::get('don-hang-ca-nhan/{bill_id}', [CartClientController::class, 'getBillDetail'])->name('don-hang-ca-nhan.bill_id');
@@ -93,8 +91,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'brands' => AdminBrandController::class,
         'orders' => AdminOrderController::class,
         'coupon' => AdminCouponController::class,
-        'book-service' => AdminBookServiceController::class,
-
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');

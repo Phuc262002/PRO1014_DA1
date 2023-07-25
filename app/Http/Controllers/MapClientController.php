@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Information_user;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class MapClientController extends Controller
@@ -12,7 +14,12 @@ class MapClientController extends Controller
      */
     public function index()
     {
-        return view('pages.client.maps');
+        //return view('pages.client.maps');
+        $title = 'Pets Care - Chỉnh sửa địa chỉ';
+        //$inforUser = Information_user::where('user_id',Client()->user()->id)->with('id','name','address','phone');
+        return view('pages.client.edit-maps', compact('title','inforUser'));
+
+        //$infor_user = Information_user::where('id', '=', Client::Information_user()->id);
     }
 
     /**
