@@ -39,6 +39,7 @@ class ServiceClientController extends Controller
             $service = Service::where('id', $request->service_id)->first();
             $book_service = Book_service::create([
                 'user_id' => $user_id,
+                'book_service_hash_id' => 'DV'.time().rand(1000,9999),
                 'service_id' => $request->service_id,
                 'pet_name' => $request->pet_name,
                 'book_date' => $request->book_date,
