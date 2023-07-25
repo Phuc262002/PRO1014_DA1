@@ -153,7 +153,7 @@
                                 </div>
                             </div>
                             <div class="card-body bg-soft-light border border-dashed border-start-0 border-end-0">
-                                <form>
+                                <form action="{{route('book-service.index')}}">
                                     <div class="row g-3">
                                         <div class="col-xxl-5 col-sm-12">
                                             <div class="search-box">
@@ -171,12 +171,12 @@
                                         <div class="col-xxl-3 col-sm-4">
                                             <div class="input-light">
                                                 <select class="form-control" data-choices data-choices-search-false
-                                                    name="choices-single-default" id="idStatus">
+                                                    name="status" id="idStatus">
                                                     <option {{$status == "ALL" ? 'selected' : ''}} value="ALL" selected>Tất cả dịch vụ</option>
                                                     <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Dịch vụ hoàn thành</option>
                                                     <option {{$status == "ACCEPTED" ? 'selected' : ''}}  value="ACCEPTED">Dịch vụ được chấp nhận</option>
                                                     <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Dịch vụ đã hủy</option>
-                                                    <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Dịch vụ đang xữ lý</option>
+                                                    <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Dịch vụ đang xử lý</option>
                                                     <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Dịch vụ tạm giữ</option>
                                                 </select>
                                             </div>
@@ -184,7 +184,7 @@
                                         <!--end col-->
 
                                         <div class="col-xxl-1 col-sm-4">
-                                            <button type="button" class="btn btn-primary w-100" onclick="SearchData();">
+                                            <button type="submit" class="btn btn-primary w-100">
                                                 <i class="ri-equalizer-fill me-1 align-bottom"></i> Áp dụng
                                             </button>
                                         </div>
@@ -207,7 +207,7 @@
                                                     </th>
                                                     <th  data-sort="id">ID</th>
                                                     <th  data-sort="customer_name">Khách hàng</th>
-                                                    <th  data-sort="sdt">số điện thoại</th>
+                                                    <th  data-sort="sdt">Email</th>
                                                     <th  data-sort="service_id">Dịch vụ</th>
                                                     <th  data-sort="book-date">Ngày</th>
                                                     <th  data-sort="book-time">Giờ</th>
@@ -231,13 +231,13 @@
                                                                 </td>
                                                                 <td class="user_id ">
                                                                    <div class="d-flex align-items-center">
-                                                                    {{ $item-> user_id}}
+                                                                    {{ $item-> user->name}}
                                                                    </div>
                                                                 </td>
                                                                 <td class="email">
-                                                                   123
+                                                                    {{ $item-> user->email}}
                                                                 </td>
-                                                                <td class="service">{{$item->service_id}}</td>
+                                                                <td class="service">{{$item->service->name}}</td>
                                                                 <td class="book_date"><small class="text-muted"></small>{{$item->book_date}}</td>
                                                                 <td class="book_time">{{$item -> book_time}}</td>
                                                                 <td class="pet_name">{{$item -> pet_name}}</td>
@@ -258,26 +258,20 @@
                                                                 
                                                             </td>                       
                                                                
-                                                                <td>
-                                                                    <ul class="list-inline hstack gap-2 mb-0">
-                                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
-                                                                            <a class="text-success d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
-                                                                                <i class="ri-eye-line fs-16"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
-                                                                            <a href="#showModal" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
-                                                                                <i class="ri-pencil-fill fs-16"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
-                                                                            <a class="text-danger d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
-                                                                                <i class="ri-delete-bin-5-fill fs-16"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                                
+                                                            <td>
+                                                                <ul class="list-inline hstack gap-2 mb-0">
+                                                                    <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Xem thông tin">
+                                                                        <a class="text-success d-inline-block remove-item-btn"  href="#">
+                                                                            <i class="ri-eye-line fs-16"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Chỉnh sửa">
+                                                                        <a href="#showModal{{$item->id}}" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
+                                                                            <i class="ri-pencil-fill fs-16"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
                                                 </tr>
                                                  @endforeach         
                                             </tbody>
@@ -293,6 +287,7 @@
                                             
                                                 
                                                 <div class="d-flex justify-content-end mt-3">
+                                                    {{$book_service->appends(request()->query())->links() }}
                                                 
                                                 </div>
                                             </div>
@@ -329,22 +324,66 @@
                     </div>
                     <!-- End Page-content -->
 
-                    <footer class="footer">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <script>
-                                        document.write(new Date().getFullYear())
-                                    </script> © Velzon.
+             @foreach ($book_service as $item)
+            <div class="modal fade" id="showModal{{$item->id}}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-light p-3">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                        </div>
+
+                        <form class="tablelist-form" autocomplete="off" action="{{ route('book-service.update', ['book_service' => $item->id]) }}" method="post" enctype="multipart/form-data">
+
+                        @csrf
+                        @method('put')
+                            <div class="modal-body">
+                                <input type="hidden" id="id-field" />
+
+                                <div class="mb-3">
+                                    <label for="customername-field" class="form-label">Tên khách hàng</label>
+                                    <input type="text" class="form-control" placeholder="{{$item->user->name}}" disabled />
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="text-sm-end d-none d-sm-block">
-                                        Design & Develop by Themesbrand
-                                    </div>
+
+                                <div class="mb-3">
+                                    <label for="customername-field" class="form-label">Email:</label>
+                                    <input type="text" class="form-control" placeholder="{{$item->user->email}}" disabled />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Dịch vụ</label>
+                                    <input type="text" class="form-control" placeholder="{{$item->service->name}} " disabled />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="customername-field" class="form-label">Tổng tiền</label>
+                                    <input type="text" class="form-control" placeholder="{{number_format($item->total)}} VNĐ" disabled />
+                                </div>
+
+                                <div>
+                                    <label for="status-field" class="form-label">Tình trạng</label>
+                                    <select class="form-control" data-choices data-choices-search-false name="status" id="status-field"  required>
+                                        <option {{$status == "ACCEPTED" ? 'selected' : ''}} value="ACCEPTED">Chấp nhận đơn</option>
+                                        <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Hoàn thành đơn</option>
+                                        <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Hủy đơn</option>
+                                        <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Chờ thanh toán</option>
+                                        <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Tạm giữ</option>
+                                    </select>
                                 </div>
                             </div>
+                          
+                            <div class="modal-footer">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="submit"  class="btn btn-success" id="add-btn">Cập nhật thông tin</button>
+                                </div>
+                                </div>
+                            </form>
                         </div>
-                    </footer>
+                    </div>
+                </div>
+            </div>
+            @endforeach
                 </div>
 @endsection
      
