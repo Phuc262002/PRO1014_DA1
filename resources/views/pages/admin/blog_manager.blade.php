@@ -21,9 +21,12 @@
                                         <div class="d-flex flex-wrap align-items-start gap-2">
                                             <button class="btn btn-soft-danger" id="remove-actions"
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
+                                            {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
-                                                    class="ri-add-line align-bottom me-1"></i> Add Customer</button>
+                                                    class="ri-add-line align-bottom me-1"></i> Add Customer</button> --}}
+                                            <a href="{{ route('post.create') }}" class="btn btn-success add-btn"
+                                                id="create-btn"><i class="ri-add-line align-bottom me-1"></i> Thêm bài
+                                                viết</a>
                                             <button type="button" class="btn btn-info"><i
                                                     class="ri-file-download-line align-bottom me-1"></i> Import</button>
                                         </div>
@@ -109,7 +112,6 @@
                                                     </th>
                                                     <th data-ordering="false">Tiêu đề</th>
                                                     <th data-ordering="false">Hình ảnh</th>
-                                                    <th>Mô tả</th>
                                                     <th data-ordering="false">Danh mục</th>
                                                     <th>Người đăng</th>
                                                     <th>Số lượng bình luận</th>
@@ -132,7 +134,6 @@
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{!! $item->description !!}</td>
                                                         <td>{{ $item->category->name }}</td>
                                                         <td>{{ $item->user_post->name }}</td>
                                                         <td>{{ $item->comment_count }}</td>

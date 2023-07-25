@@ -16,8 +16,8 @@ class AdminBrandController extends Controller
      */
     public function index()
     {
-        
-        $brands = Brand::all();
+
+        $brands = Brand::paginate(10);
         return view('pages.admin.brand_manager', compact('brands'));
     }
 
@@ -39,15 +39,17 @@ class AdminBrandController extends Controller
         }
         $brands = Brand::create($request->all());
         if ($brands) {
-            if ($request->save_action == 'save_and_back') {
-                return redirect()->route('brands.index')->with('success', "Thêm thương hiệu thành công.");
-            } else if ($request->save_action == 'save_and_edit') {
-                return redirect()->route('brands.edit', $brands->id)->with('success', "Thêm thương hiệu thành công.");
-            } else if ($request->save_action == 'save_and_new') {
-                return redirect()->route('brands.create')->with('success', "Thêm thương hiệu thành công.");
-            }
+            // if ($request->save_action == 'save_and_back') {
+            //     return redirect()->route('brands.index')->with('success', "Thêm thương hiệu thành công.");
+            // } else if ($request->save_action == 'save_and_edit') {
+            //     return redirect()->route('brands.edit', $brands->id)->with('success', "Thêm thương hiệu thành công.");
+            // } else if ($request->save_action == 'save_and_new') {
+            //     return redirect()->route('brands.create')->with('success', "Thêm thương hiệu thành công.");
+            // }
+
+            return redirect()->route('brands.index')->with('success', "Thêm thương hiệu thành công.");
         } else {
-            return back()->with('error', "Thêm thương hiệu thất bại.");
+            return redirect()->route('brands.index')->with('error', "Thêm thương hiệu thất bại.");
         }
 
 
@@ -80,15 +82,16 @@ class AdminBrandController extends Controller
         ], $request->all());
 
         if ($update_brand) {
-            if ($request->save_action == 'save_and_back') {
-                return redirect()->route('brands.index')->with('success', "Cập nhật thành công.");
-            } else if ($request->save_action == 'save_and_edit') {
-                return redirect()->route('brands.edit', $brand->id)->with('success', "Cập nhật thành công.");
-            } else if ($request->save_action == 'save_and_new') {
-                return redirect()->route('brands.create')->with('success', "Cập nhật thành công.");
-            }
+            // if ($request->save_action == 'save_and_back') {
+            //     return redirect()->route('brands.index')->with('success', "Cập nhật thành công.");
+            // } else if ($request->save_action == 'save_and_edit') {
+            //     return redirect()->route('brands.edit', $brand->id)->with('success', "Cập nhật thành công.");
+            // } else if ($request->save_action == 'save_and_new') {
+            //     return redirect()->route('brands.create')->with('success', "Cập nhật thành công.");
+            // }
+            return redirect()->route('brands.index')->with('success', "Cập nhật thương hiệu thành công.");
         } else {
-            return back()->with('error', "Cập nhật thất bại.");
+            return redirect()->route('brands.index')->with('error', "Cập nhật thương hiệu thất bại.");
         }
     }
 
