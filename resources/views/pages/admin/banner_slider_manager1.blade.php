@@ -14,9 +14,9 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Quản lý dịch vụ
+                                    Quản Lý Banner
                                 </h4>
-                                <form class="app-search d-none d-md-block">
+                                <form class="app-search d-none d-md-block p-0">
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="Tìm kiếm" autocomplete="off"
                                             id="search-options" value="" />
@@ -51,67 +51,62 @@
                                         <table class="table table-bordered dt-responsive nowrap table-striped align-middle">
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col" style="width: 42px">
+                                                    <th scope="col" style="width: 46px">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck"></label>
+                                                                id="cardtableCheck" />
+                                                            <label class="form-check-label" for="cardtableCheck"></label>
                                                         </div>
                                                     </th>
-                                                    <th scope="col">Tên dịch vụ</th>
-                                                    <th scope="col">Hình Ảnh</th>
-                                                    <th scope="col">Icon</th>
-                                                    <th scope="col">Mô Tả</th>
-                                                    <th scope="col">Giá</th>
-                                                    <th scope="col">Giảm giá</th>
-
-                                                    <th scope="col">Chức Năng</th>
+                                                    <th scope="col">Ảnh</th>
+                                                    <th scope="col">Giới thiệu</th>
+                                                    <th scope="col">Tiêu đề</th>
+                                                    <th scope="col">Phân loại</th>
+                                                    <th scope="col">Trạng thái</th>
+                                                    <th scope="col" style="width: 150px">Chức năng</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($services as $item)
+                                                @foreach ($banner as $item)
                                                     <tr>
-                                                        <th scope="row">
+                                                        <td>
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    value="" id="responsivetableCheck01" />
+                                                                    value="" id="cardtableCheck01" />
                                                                 <label class="form-check-label"
-                                                                    for="responsivetableCheck01"></label>
+                                                                    for="cardtableCheck01"></label>
                                                             </div>
-                                                        </th>
-                                                        <td>{{ $item->name }}</td>
+                                                        </td>
                                                         <td>
                                                             <div class="flex-shrink-0">
-                                                                <img src="{{ $item->image_service }}" alt=""
+                                                                <img src="{{ $item->img_banner }}" alt=""
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{{ $item->icon }}</td>
-                                                        <td>{{ $item->description }}</td>
-                                                        <td>{{ number_format($item->price) }} VNĐ</td>
+                                                        <td>{!! $item->introduction !!}</td>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->banner_type }}</td>
                                                         <td>
-                                                            @if($item->discount_price > 0)
-                                                                {{ number_format($item->discount_price) }} VNĐ
+                                                            @if ($item->status == true)
+                                                                <span class="badge bg-success">Active</span>
                                                             @else
-                                                                {{ number_format($item->discount_price) }}
+                                                                <span class="badge bg-danger">Disabled</span>
                                                             @endif
                                                         </td>
                                                         <td>
-                                                         
-                                                                <a href="{{ route('service.edit', ['service' => $item->id]) }}"
+                                                            <div class="hstack gap-3 flex-wrap">
+                                                                <a href="{{ route('banner.edit', ['banner' => $item->id]) }}"
                                                                     class="link-success fs-15"><i
                                                                         class="ri-edit-2-line"></i></a>
-                                                                <a href="javascript:deleteService({{ $item->id }});"
+                                                                <a href="javascript:deleteBanner({{ $item->id }});"
                                                                     class="link-danger fs-15"><i
                                                                         class="ri-delete-bin-line"></i></a>
                                                                 <form id="delete_form_{{ $item->id }}"
-                                                                    action="{{ route('service.destroy', ['service' => $item->id] ) }}"
+                                                                    action="{{ route('banner.destroy', ['banner' => $item->id]) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                 </form>
-                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -120,6 +115,9 @@
                                         <!-- end table -->
                                     </div>
                                     <!-- end table responsive -->
+                                </div>
+                                <div>
+                                    {{ $banner->links() }}
                                 </div>
                             </div>
                             <!-- end card-body -->
@@ -136,9 +134,10 @@
     </div>
     <!-- end main content-->
 @endsection
+
 @section('js')
     <script>
-        function deleteService(id) {
+        function deleteBanner(id) {
             Swal.fire({
                 title: "Bạn có chắc muốn xóa?",
                 text: "Dữ liệu sẽ bị xóa và không khôi phục lại được.",
@@ -155,16 +154,6 @@
                     document.getElementById('delete_form_' + id).submit();
                     // window.location.reload();
                 }
-
-                // t.value &&
-                //     Swal.fire({
-                //         title: "Đã xóa!",
-                //         text: "Sản phẩm đã được xóa.",
-                //         icon: "success",
-                //         confirmButtonClass: "btn btn-primary w-xs mt-2",
-                //         buttonsStyling: !1,
-                //     });
-
 
             });
         }

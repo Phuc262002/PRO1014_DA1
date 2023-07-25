@@ -15,6 +15,11 @@ use App\Http\Controllers\Admin\AdminCategoryProductController;
 use App\Http\Controllers\Admin\AdminCategoryBlogController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
+
+use App\Http\Controllers\Admin\AdminBookServiceController;
+use App\Http\Controllers\Admin\AdminCommentController;
+
+
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminOrderController;
@@ -90,6 +95,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'brands' => AdminBrandController::class,
         'orders' => AdminOrderController::class,
         'coupon' => AdminCouponController::class,
+        'book-service' => AdminBookServiceController::class,
+        'comment' => AdminCommentController::class,
+
     ]);
 
     Route::delete('product/img-collection/{id}', [AdminProductController::class, 'destroyImgCollection'])->name('product.destroyImgCollection');

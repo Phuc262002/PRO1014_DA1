@@ -64,7 +64,7 @@ class AdminPostController extends Controller
      */
     public function show(Post $post)
     {
-        $title = 'Pets Care -  $post->title';
+        $title = 'Pets Care - '.$post->title;
         return view('pages.admin.blog_detail', compact('title', 'post'));
     }
 

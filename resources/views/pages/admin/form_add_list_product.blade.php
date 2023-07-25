@@ -34,7 +34,7 @@
                                             <div class="col-lg-6">
                                                 <label for="name" class="form-label">Tên danh mục</label>
                                                 <input type="text" class="form-control" id="name" name="name"
-                                                     onchange="ChangeToSlug()">
+                                                    onchange="ChangeToSlug()">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="slug" class="form-label">Slug</label>
@@ -43,13 +43,12 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="type_category" class="form-label">Thể loại</label>
-                                                <input type="text" class="form-control" id="type_category" name="type_category"
-                                                    value="PRODUCT" readonly>
+                                                <input type="text" class="form-control" id="type_category"
+                                                    name="type_category" value="PRODUCT" readonly>
                                             </div>
                                             <div class="col-lg-12 mt-3">
                                                 <label for="description" class="form-label">Mô tả</label>
-                                                <textarea class="w-100 form-control" id="description" cols="30" rows="5"
-                                                    name="description"></textarea>
+                                                <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description"></textarea>
                                             </div>
                                             <div class="col-lg-3 mt-3">
                                                 <input type="hidden" id="save_action" name="save_action"
@@ -59,19 +58,21 @@
                                                     <button class="btn btn-success shadow-none">Lưu và Quay lại</button>
                                                     <div class="btn-group" role="group">
                                                         <button id="btnGroupDrop1" type="button"
-                                                            class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
+                                                            class="btn btn-success dropdown-toggle"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                                             <li><a data-value="save_and_edit"
                                                                     href="javascript:save_and_edit();"
                                                                     class="dropdown-item">Lưu và Tiếp tục sửa</a></li>
-                                                            <li><a data-value="save_and_new" href="javascript:save_and_new();"
+                                                            <li><a data-value="save_and_new"
+                                                                    href="javascript:save_and_new();"
                                                                     class="dropdown-item">Lưu và Thêm mới</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <a href="{{ route('category-product.index') }}" class="btn btn-danger shadow-none">Hủy
+                                                <a href="{{ route('category-product.index') }}"
+                                                    class="btn btn-danger shadow-none">Hủy
                                                     bỏ</a>
                                             </div>
                                         </div>
@@ -123,7 +124,7 @@
             document.getElementById('slug').value = slug;
         }
     </script>
-     <script>
+    <script>
         function save_and_edit() {
             $('#save_action').val('save_and_edit');
             $('form').submit();

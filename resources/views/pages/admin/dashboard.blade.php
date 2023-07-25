@@ -74,8 +74,8 @@
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         <span class="counter-value"
-                                                            data-target="{{ $revenue_ }}">{{ number_format($revenue_) }}</span>
-                                                        đ
+                                                            data-target="{{ $revenue_ }}">0</span>
+                                                        VNĐ
                                                     </h4>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
@@ -110,7 +110,7 @@
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         <span class="counter-value"
-                                                            data-target="{{ count($order) }}">{{ count($order) }}</span>
+                                                            data-target="{{ count($order) }}">0</span>
                                                     </h4>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
@@ -145,7 +145,7 @@
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         <span class="counter-value"
-                                                            data-target="{{ count($user) }}">{{ count($user) }}</span>
+                                                            data-target="{{ count($user) }}">0</span>
                                                     </h4>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
@@ -178,7 +178,7 @@
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                         <span class="counter-value"
-                                                            data-target="{{ count($book_service) }}">{{ count($book_service) }}</span>
+                                                            data-target="{{ count($book_service) }}">0</span>
                                                     </h4>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">

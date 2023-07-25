@@ -1,5 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
+    {{$title}}
 @endsection
 @section('content')
     <div class="main-content">
@@ -25,12 +26,12 @@
                                         <div class="d-flex flex-wrap align-items-start gap-2">
                                             <button class="btn btn-soft-danger" id="remove-actions"
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                            {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
-                                                    class="ri-add-line align-bottom me-1"></i>Thêm mã giảm giá</button> --}}
-                                            <a href="{{ route('category-product.create') }}"
+                                                    class="ri-add-line align-bottom me-1"></i>Thêm mã giảm giá</button>
+                                            {{-- <a href="{{ route('category-product.create') }}"
                                                 class="btn btn-success add-btn"><i
-                                                    class="ri-add-line align-bottom me-1"></i>Thêm danh mục bài viết</a>
+                                                    class="ri-add-line align-bottom me-1"></i>Thêm danh mục bài viết</a> --}}
                                             <button type="button" class="btn btn-info"><i
                                                     class="ri-file-download-line align-bottom me-1"></i> Import</button>
                                         </div>
@@ -178,6 +179,51 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-light p-3">
+                                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close" id="close-modal"></button>
+                                            </div>
+                                            <form action="{{ route('category-blog.store') }}" method="post"
+                                                enctype="multipart/form-data" class="tablelist-form" autocomplete="off">
+                                                @csrf
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="name" class="form-label">Tên danh mục</label>
+                                                        <input type="text" class="form-control" id="name"
+                                                            name="name" onchange="ChangeToSlug()">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="slug" class="form-label">Slug</label>
+                                                        <input type="text" class="form-control" id="slug"
+                                                            name="slug" slug>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="type_category" class="form-label">Thể loại</label>
+                                                        <input type="text" class="form-control" id="type_category"
+                                                            name="type_category" value="POST" readonly>
+                                                    </div>
+                                                    <div class="col-lg-12 mt-3">
+                                                        <label for="description" class="form-label">Mô tả</label>
+                                                        <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="hstack gap-2 justify-content-end">
+                                                        <button type="button" class="btn btn-light"
+                                                            data-bs-dismiss="modal">Hủy</button>
+                                                        <button type="submit" class="btn btn-success"
+                                                            id="add-btn">Thêm danh mục bài viết</button>
+                                                        <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 @foreach ($categories as $item)
                                     <div class="modal fade" id="showModal{{ $item->id }}" tabindex="-1"
                                         aria-hidden="true">
@@ -283,6 +329,37 @@
     </div>
 @endsection
 @section('js')
+    <script type="text/javascript">
+        function ChangeToSlug() {
+            var slug;
+            //Lấy text từ thẻ input title 
+            slug = document.getElementById("name").value;
+            slug = slug.toLowerCase();
+            //Đổi ký tự có dấu thành không dấu
+            slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+            slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+            slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+            slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+            slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+            slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+            slug = slug.replace(/đ/gi, 'd');
+            //Xóa các ký tự đặt biệt
+            slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+            //Đổi khoảng trắng thành ký tự gạch ngang
+            slug = slug.replace(/ /gi, "-");
+            //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+            //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+            slug = slug.replace(/\-\-\-\-\-/gi, '-');
+            slug = slug.replace(/\-\-\-\-/gi, '-');
+            slug = slug.replace(/\-\-\-/gi, '-');
+            slug = slug.replace(/\-\-/gi, '-');
+            //Xóa các ký tự gạch ngang ở đầu và cuối
+            slug = '@' + slug + '@';
+            slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+            //In slug ra textbox có id “slug”
+            document.getElementById('slug').value = slug;
+        }
+    </script>
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'), {

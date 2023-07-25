@@ -14,8 +14,9 @@ class AdminCategoryProductController extends Controller
      */
     public function index()
     {
+        $title = 'Pets Care - Quản lý danh mục sản phẩm';
         $categories = Category::where(['type_category' => 'PRODUCT'])->paginate(10);
-        return view('pages.admin.list_product', compact('categories'));
+        return view('pages.admin.list_product', compact('title','categories'));
     }
 
     /**
@@ -34,18 +35,20 @@ class AdminCategoryProductController extends Controller
     {
         $category = Category::create($request->all());
         if ($category) {
-            if($request->save_action == 'save_and_back'){
-                return redirect()->route('category-product.index')->with('success', "Thêm danh mục sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return back()->with('success', "Cập nhật danh mục sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('category-product.create')->with('success', "Cập nhật danh mục sản phẩm thành công.");
-            }
+            // if ($request->save_action == 'save_and_back') {
+            //     return redirect()->route('category-product.index')->with('success', "Thêm danh mục sản phẩm thành công.");
+            // } else if ($request->save_action == 'save_and_edit') {
+            //     return back()->with('success', "Cập nhật danh mục sản phẩm thành công.");
+            // } else if ($request->save_action == 'save_and_new') {
+            //     return redirect()->route('category-product.create')->with('success', "Cập nhật danh mục sản phẩm thành công.");
+            // }
+            return redirect()->route('category-product.index')->with('success', "Thêm danh mục sản phẩm thành công.");
         } else {
-            return back()->with('error', "Cập nhật danh mục sản phẩm thất bại.");
+            // return back()->with('error', "Cập nhật danh mục sản phẩm thất bại.");
+            return redirect()->route('category-product.index')->with('error', "Thêm danh mục sản phẩm thất bại.");
         }
 
-        
+
 
     }
 
@@ -54,7 +57,7 @@ class AdminCategoryProductController extends Controller
      */
     public function show(Category $category)
     {
-        
+
     }
 
     /**
@@ -77,15 +80,15 @@ class AdminCategoryProductController extends Controller
         ], $request->all());
 
         if ($update_product_category) {
-            if($request->save_action == 'save_and_back'){
-                return redirect()->route('category-product.index')->with('success', "Cập nhật danh mục sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return back()->with('success', "Cập nhật danh mục sản phẩm thành công.");
-            } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('category-product.create')->with('success', "Cập nhật danh mục sản phẩm thành công.");
-            }
+            // if($request->save_action == 'save_and_back'){
+            //     return redirect()->route('category-product.index')->with('success', "Cập nhật danh mục sản phẩm thành công.");
+            // } else if ($request->save_action == 'save_and_edit'){
+            //     return back()->with('success', "Cập nhật danh mục sản phẩm thành công.");
+            // } else if ($request->save_action == 'save_and_new'){
+            //   }
+            return redirect()->route('category-product.index')->with('success', "Cập nhật danh mục sản phẩm thành công.");
         } else {
-            return back()->with('error', "Cập nhật danh mục sản phẩm thất bại.");
+            return redirect()->route('category-product.index')->with('error', "Cập nhật danh mục sản phẩm thất bại.");
         }
     }
 

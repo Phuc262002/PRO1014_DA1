@@ -1,7 +1,4 @@
 @extends('layouts.admin.master')
-@section('title')
-    {{ $title }}
-@endsection
 @section('content')
     <div class="main-content">
         <div class="page-content">
@@ -14,18 +11,8 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">
-                                    Quản lý dịch vụ
+                                    Quản lý danh mục sản phẩm
                                 </h4>
-                                <form class="app-search d-none d-md-block">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm" autocomplete="off"
-                                            id="search-options" value="" />
-                                        <span class="mdi mdi-magnify search-widget-icon"></span>
-                                        <span
-                                            class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
-                                            id="search-close-options"></span>
-                                    </div>
-                                </form>
                                 <div class="flex-shrink-0"></div>
                             </div>
                             <!-- end card header -->
@@ -59,18 +46,14 @@
                                                                 for="responsivetableCheck"></label>
                                                         </div>
                                                     </th>
-                                                    <th scope="col">Tên dịch vụ</th>
-                                                    <th scope="col">Hình Ảnh</th>
-                                                    <th scope="col">Icon</th>
-                                                    <th scope="col">Mô Tả</th>
-                                                    <th scope="col">Giá</th>
-                                                    <th scope="col">Giảm giá</th>
-
-                                                    <th scope="col">Chức Năng</th>
+                                                    <th scope="col">Tên danh mục</th>
+                                                    <th scope="col">Mô tả</th>
+                                                    <th scope="col">Slug</th>
+                                                    <th scope="col">Chức năng</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($services as $item)
+                                                @foreach ($categories as $item)
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
@@ -81,32 +64,18 @@
                                                             </div>
                                                         </th>
                                                         <td>{{ $item->name }}</td>
-                                                        <td>
-                                                            <div class="flex-shrink-0">
-                                                                <img src="{{ $item->image_service }}" alt=""
-                                                                    width="100" height="100" />
-                                                            </div>
-                                                        </td>
-                                                        <td>{{ $item->icon }}</td>
                                                         <td>{{ $item->description }}</td>
-                                                        <td>{{ number_format($item->price) }} VNĐ</td>
+                                                        <td>{{ $item->slug }}</td>
                                                         <td>
-                                                            @if($item->discount_price > 0)
-                                                                {{ number_format($item->discount_price) }} VNĐ
-                                                            @else
-                                                                {{ number_format($item->discount_price) }}
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                         
-                                                                <a href="{{ route('service.edit', ['service' => $item->id]) }}"
+                                                            <div class="hstack gap-3 flex-wrap">
+                                                                <a href="{{ route('category-product.edit', ['category_product' => $item->id]) }}"
                                                                     class="link-success fs-15"><i
                                                                         class="ri-edit-2-line"></i></a>
-                                                                <a href="javascript:deleteService({{ $item->id }});"
+                                                                <a href="javascript:deleteCategoryProduct({{ $item->id }});"
                                                                     class="link-danger fs-15"><i
                                                                         class="ri-delete-bin-line"></i></a>
                                                                 <form id="delete_form_{{ $item->id }}"
-                                                                    action="{{ route('service.destroy', ['service' => $item->id] ) }}"
+                                                                    action="{{ route('category-product.destroy', ['category_product' => $item->id]) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -134,14 +103,13 @@
         </div>
         <!-- End Page-content -->
     </div>
-    <!-- end main content-->
 @endsection
 @section('js')
     <script>
-        function deleteService(id) {
+        function deleteCategoryProduct(id) {
             Swal.fire({
                 title: "Bạn có chắc muốn xóa?",
-                text: "Dữ liệu sẽ bị xóa và không khôi phục lại được.",
+                text: "Bạn có thể lấy lại danh mục sản phẩm này ở thùng rác.",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",

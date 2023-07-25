@@ -258,7 +258,7 @@
                                                     </span>
                                                     <span class="price">
                                                         <span
-                                                            class="new">{{ number_format($item->discount_price) }}</span>
+                                                            class="new">{{ number_format($item->discount_price) }} </span>
                                                         <span class="old">{{ number_format($item->price) }}</span>
                                                     </span>
                                                 </div>

@@ -28,9 +28,10 @@ class AdminProductController extends Controller
      */
     public function create()
     {
+        $title = 'Pets Care - Thêm sản phẩm mới';
         $brands = Brand::all();
         $categories = Category::where('type_category', '=', 'PRODUCT')->get();
-        return view('pages.admin.form_add_product', compact('brands', 'categories'));
+        return view('pages.admin.form_add_product', compact('title','brands', 'categories'));
     }
 
     /**
@@ -80,8 +81,9 @@ class AdminProductController extends Controller
      */
     public function show(Product $product)
     {
+        $title = 'Pets Care - Chi tiết sản phẩm';
         $products = Product::where('id', $product->id)->with('brand', 'category', 'image_list')->paginate(10);
-        return view('pages.admin.product_detail', compact('product'));
+        return view('pages.admin.product_detail', compact('title','product'));
     }
 
     /**

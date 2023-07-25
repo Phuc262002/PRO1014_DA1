@@ -11,6 +11,7 @@ class Book_service extends Model
     protected $fillable = [
         'id',
         'user_id',
+        'book_service_hash_id',
         'service_id',
         'pet_name',
         'book_date',
