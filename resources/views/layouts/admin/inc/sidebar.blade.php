@@ -255,7 +255,7 @@
                     <div class="collapse menu-dropdown" id="sidebarCmt">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.comment_manager') }}" class="nav-link"
+                                <a href="{{ route('comment.index') }}" class="nav-link"
                                     data-key="t-starter">
                                     Bình luận mới nhất
                                 </a>
