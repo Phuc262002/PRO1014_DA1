@@ -44,7 +44,7 @@
                                             <th>Hình ảnh</th>
                                             <td>
                                                 <div class="flex-shrink-0">
-                                                    <img src="{{ $post->image_post }}" alt="" width="100"
+                                                    <img src="{{ $post->img_post }}" alt="" width="100"
                                                         height="100" />
                                                 </div>
 
@@ -53,7 +53,7 @@
                                         <tr>
                                             <th>Nội dung</th>
                                             <td>
-                                                {{ $post->content }}
+                                                {!! $post->content !!}
                                             </td>
                                         </tr>
                                         <tr>
