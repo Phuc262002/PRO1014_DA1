@@ -63,13 +63,17 @@
                                         <tr>
                                             <th>Giá</th>
                                             <td>
-                                                {{ number_format($product->price) }}
+                                                {{ number_format($product->price) }} VNĐ
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Giá giảm</th>
                                             <td>
-                                                {{ number_format($product->discount_price) }}
+                                                @if($product->discount_price > 0)
+                                                    {{ number_format($product->discount_price) }} VNĐ
+                                                @else
+                                                    {{ number_format($product->discount_price) }}
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>

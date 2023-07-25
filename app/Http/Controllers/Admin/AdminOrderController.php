@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Order_detail;
+use App\Models\User;
 
 class AdminOrderController extends Controller
 {
@@ -16,7 +17,9 @@ class AdminOrderController extends Controller
     {
         $title = 'Pets Care - Quản lý đơn hàng';
         $order = Order::with('user', 'address', 'payment', 'order_detail','coupon');
-        
+        $order_complete = Order::with('user', 'address', 'payment', 'order_detail','coupon');
+        $order_cancel = Order::with('user', 'address', 'payment', 'order_detail','coupon');
+        $order_pending = Order::with('user', 'address', 'payment', 'order_detail','coupon');
 
         $status = request()->input('status') ? request()->input('status') : 'ALL';
         $search = request()->input('search');
@@ -35,17 +38,24 @@ class AdminOrderController extends Controller
             $calendar_end = str_replace(["Tháng ", ",", " "], ["", "", "-"], $calendar_[1]);
             $calendar_end = date("Y-m-d", strtotime($calendar_end));
 
-        $order = Order::with('user', 'address', 'payment', 'order_detail');
+            $order = Order::with('user', 'address', 'payment', 'order_detail');
             $order->whereBetween('created_at', [$calendar_start, $calendar_end]);
+            $order_complete->whereBetween('created_at', [$calendar_start, $calendar_end]);
+            $order_cancel->whereBetween('created_at', [$calendar_start, $calendar_end]);
+            $order_pending->whereBetween('created_at', [$calendar_start, $calendar_end]);
         }
 
         if($status != 'ALL') {
             $order->where('status', $status);
         }
-
+        $order_count = $order->get();
         $order = $order->paginate(10);
 
-        return view('pages.admin.order_all', compact('title', 'order', 'status', 'search', 'calendar'));
+        $order_complete = $order_complete->where('status', 'COMPLETED')->get();
+        $order_cancel = $order_cancel->where('status', 'CANCELED')->get();
+        $order_pending = $order_pending->where('status', 'PENDING')->get();
+
+        return view('pages.admin.order_all', compact('title', 'order', 'status', 'search', 'calendar', 'order_count','order_complete', 'order_cancel','order_pending'));
     }
 
     /**
@@ -73,6 +83,7 @@ class AdminOrderController extends Controller
         $order = Order::where('id', $order->id)->with('user', 'address', 'payment', 'order_detail', 'coupon')->first();
         $order_detail_list = Order_detail::where('order_id', $order->id)->with('product', 'order')->get();
         return view('pages.admin.order_details', compact('title','order', 'order_detail_list'));
+        // dd($order, $order_detail_list);
        
     }
 

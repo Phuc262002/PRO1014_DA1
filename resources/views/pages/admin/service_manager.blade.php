@@ -89,8 +89,14 @@
                                                         </td>
                                                         <td>{{ $item->icon }}</td>
                                                         <td>{{ $item->description }}</td>
-                                                        <td>{{ $item->price }}</td>
-                                                        <td>{{ $item->discount_price }}</td>
+                                                        <td>{{ number_format($item->price) }} VNĐ</td>
+                                                        <td>
+                                                            @if($item->discount_price > 0)
+                                                                {{ number_format($item->discount_price) }} VNĐ
+                                                            @else
+                                                                {{ number_format($item->discount_price) }}
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                          
                                                                 <a href="{{ route('service.edit', ['service' => $item->id]) }}"

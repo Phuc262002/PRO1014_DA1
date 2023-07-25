@@ -134,7 +134,7 @@
                                                         </th>
                                                         <td>{{ $item->coupon_hash_id }}</a></td>
                                                         <td>{{ $item->coupon_name }}</td>
-                                                        <td>{{ $item->discount }}</td>
+                                                        <td>{{number_format ($item->discount) }} VNĐ</td>
                                                         <td>{{ $item->start_at }}</td>
                                                         <td>{{ $item->end_at }}</td>
 
