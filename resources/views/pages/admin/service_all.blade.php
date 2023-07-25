@@ -328,11 +328,7 @@
                                     <label for="customername-field" class="form-label">Email:</label>
                                     <input type="text" class="form-control" placeholder="{{$item->user->email}}" disabled />
                                 </div>
-
-                                <div class="mb-3">
-                                    <label for="email-field" class="form-label">Dịch vụ</label>
-                                    <input type="text" class="form-control" placeholder="{{$item->service->name}} " disabled />
-                                </div>
+                                
 
                                 <div class="mb-3">
                                     <label for="customername-field" class="form-label">Tổng tiền</label>
@@ -342,13 +338,18 @@
                                 <div>
                                     <label for="status-field" class="form-label">Tình trạng</label>
                                     <select class="form-control" data-choices data-choices-search-false name="status" id="status-field"  required>
-                                        <option {{$status == "ACCEPTED" ? 'selected' : ''}} value="ACCEPTED">Chấp nhận đơn</option>
-                                        <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Hoàn thành đơn</option>
-                                        <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Hủy đơn</option>
+                                        <option {{$status == "ACCEPTED" ? 'selected' : ''}} value="ACCEPTED">Dịch vụ được chấp nhận</option>
+                                        <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Dịch vụ hoàn thành</option>
+                                        <option {{$status == "CANCELED" ? 'selected' : ''}} value="CANCELED">Hủy dịch vụ</option>
                                         <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Chờ thanh toán</option>
                                         <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Tạm giữ</option>
                                     </select>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Ghi chú</label>
+                                    <textarea type="text" name="admin_note"></textarea>
+                                </div>
+                                
                             </div>
                           
                             <div class="modal-footer">
