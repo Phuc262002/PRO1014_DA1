@@ -332,7 +332,7 @@
 
                                 <div class="mb-3">
                                     <label for="customername-field" class="form-label">Tổng tiền</label>
-                                    <input type="text" class="form-control" placeholder="{{number_format($item->total)}} VNĐ" disabled />
+                                    <input type="text" class="form-control" placeholder="{{number_format($item->total_price)}} VNĐ" disabled />
                                 </div>
 
                                 <div>
@@ -345,9 +345,13 @@
                                         <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Tạm giữ</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mt-3">
+                                    <label for="email-field" class="form-label">Ghi chú khách hàng</label>
+                                    <textarea type="text" class="form-control" rows="5" name="description" disabled >{{$item->description}}</textarea>
+                                </div>
+                                <div class="mt-3">
                                     <label for="email-field" class="form-label">Ghi chú</label>
-                                    <textarea type="text" name="admin_note"></textarea>
+                                    <textarea type="text" class="form-control" rows="5" name="admin_note" >{{$item->admin_note}}</textarea>
                                 </div>
                                 
                             </div>
