@@ -69,7 +69,6 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
         'don-hang-ca-nhan' => CartClientController::class,
         'dich-vu-ca-nhan' => ServiceUserController::class,
         'dia-chi' => MapClientController::class,
-        'chinh-sua-dia-chi' => MapClientController::class,
 
     ]);
     Route::get('don-hang-ca-nhan/{bill_id}', [CartClientController::class, 'getBillDetail'])->name('don-hang-ca-nhan.bill_id');
