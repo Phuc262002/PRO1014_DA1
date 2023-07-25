@@ -57,6 +57,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user, $thong_tin_ca_nhan = null)
     {
+        
         $user = User::find($thong_tin_ca_nhan);
         // dd($request->all(), $user);
 
@@ -112,6 +113,8 @@ class UserController extends Controller
         } else {
             return back()->with('error', 'Cập nhật thông tin thất bại');
         }
+
+        // Ca
     }
 
     /**

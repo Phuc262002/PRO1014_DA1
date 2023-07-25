@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminServiceController;
 
 use App\Http\Controllers\Admin\AdminBookServiceController;
+use App\Http\Controllers\Admin\AdminCommentController;
+
 
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminUserController;
@@ -94,6 +96,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         'orders' => AdminOrderController::class,
         'coupon' => AdminCouponController::class,
         'book-service' => AdminBookServiceController::class,
+        'comment' => AdminCommentController::class,
 
     ]);
 

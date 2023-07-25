@@ -16,9 +16,11 @@ class AdminCategoryBlogController extends Controller
     public function index()
     {
         $categories = Category::where(['type_category' => 'POST'])->paginate(10);
-        return view('pages.admin.list_blog', compact('categories')
-    );
-        
+        return view(
+            'pages.admin.list_blog',
+            compact('categories')
+        );
+
     }
 
     /**
@@ -37,15 +39,17 @@ class AdminCategoryBlogController extends Controller
     {
         $category = Category::create($request->all());
         if ($category) {
-            if($request->save_action == 'save_and_back'){
-                return redirect()->route('category-blog.index')->with('success', "Thêm danh mục Blog thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return back()->with('success', "Cập nhật danh mục Blog thành công.");
-            } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('category-blog.create')->with('success', "Cập nhật danh mục Blog thành công.");
-            }
+            // if ($request->save_action == 'save_and_back') {
+            //     return redirect()->route('category-blog.index')->with('success', "Thêm danh mục Blog thành công.");
+            // } else if ($request->save_action == 'save_and_edit') {
+            //     return back()->with('success', "Cập nhật danh mục Blog thành công.");
+            // } else if ($request->save_action == 'save_and_new') {
+            //     return redirect()->route('category-blog.create')->with('success', "Cập nhật danh mục Blog thành công.");
+            // }
+            return redirect()->route('category-blog.index')->with('success', "Thêm danh mục Blog thành công.");
         } else {
-            return back()->with('error', "Cập nhật danh mục Blog thất bại.");
+            // return back()->with('error', "Cập nhật danh mục Blog thất bại.");
+            return redirect()->route('category-blog.index')->with('error', "Thêm danh mục Blog thất bại.");
         }
     }
 
@@ -77,15 +81,17 @@ class AdminCategoryBlogController extends Controller
         ], $request->all());
 
         if ($update_blog_category) {
-            if($request->save_action == 'save_and_back'){
-                return redirect()->route('category-blog.index')->with('success', "Cập nhật danh mục Blog thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return back()->with('success', "Cập nhật danh mục Blog thành công.");
-            } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('category-blog.create')->with('success', "Cập nhật danh mục Blog thành công.");
-            }
+            // if($request->save_action == 'save_and_back'){
+            //     return redirect()->route('category-blog.index')->with('success', "Cập nhật danh mục Blog thành công.");
+            // } else if ($request->save_action == 'save_and_edit'){
+            //     return back()->with('success', "Cập nhật danh mục Blog thành công.");
+            // } else if ($request->save_action == 'save_and_new'){
+            //     return redirect()->route('category-blog.create')->with('success', "Cập nhật danh mục Blog thành công.");
+            // }
+            return redirect()->route('category-blog.index')->with('success', "Cập nhật danh mục Blog thành công.");
         } else {
-            return back()->with('error', "Cập nhật danh mục Blog thất bại.");
+            // return back()->with('error', "Cập nhật danh mục Blog thất bại.");
+            return redirect()->route('category-blog.index')->with('error', "Cập nhật danh mục Blog thất bại.");
         }
     }
 
@@ -106,5 +112,5 @@ class AdminCategoryBlogController extends Controller
             return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
         }
     }
-    
+
 }

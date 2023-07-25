@@ -14,7 +14,7 @@ class AdminBookServiceController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý dịch vụ';
-        $book_service = Book_service::paginate(10);
+        $book_service = Book_service::with('service','user');
         $search = request()->input('search');
         if($search != '') {
             $book_service->where('user_id', 'like', "%$search%");
@@ -23,6 +23,7 @@ class AdminBookServiceController extends Controller
         if($status != 'ALL') {
             $book_service->where('status', $status);
         }
+        $book_service =  $book_service->paginate(10);
         return view('pages.admin.service_all',compact('book_service','status','search'));
     }
 
@@ -47,7 +48,9 @@ class AdminBookServiceController extends Controller
      */
     public function show(Book_service $book_service)
     {
-        //
+        // $book_service = Book_service::where('id', $book_service->id)->with('user_id', 'service_id', 'pet_name', 'description', 'status')->first();
+        // $book_service_detail_list = Order_detail::where('order_id', $order->id)->with('product', 'order')->get();
+        // return view('pages.admin.order_details', compact('title','order', 'order_detail_list'));
     }
 
     /**
@@ -63,7 +66,19 @@ class AdminBookServiceController extends Controller
      */
     public function update(Request $request, Book_service $book_service)
     {
-        //
+        {
+            $book_service = Book_service::updateOrCreate([
+                'id' => $book_service->id,
+            ], $request->all());
+            
+            if ($book_service) {
+                
+                return back()->with('success', "Thay đổi thành công.");
+     
+            } else {
+                return back()->with('error', "Thay đổi thất bại.");
+            }
+        }
     }
 
     /**

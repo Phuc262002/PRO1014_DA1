@@ -119,11 +119,11 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('category-product.create') }}" class="nav-link" data-key="t-team">
                                     Thêm danh mục
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -140,11 +140,11 @@
                                     Tất cả thương hiệu
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('brands.create') }}" class="nav-link" data-key="t-starter">
                                     Thêm thương hiệu
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -215,11 +215,11 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('post.create') }}" class="nav-link" data-key="t-team">
                                     Thêm bài viết
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -238,11 +238,11 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('category-blog.create') }}" class="nav-link" data-key="t-team">
                                     Thêm danh mục
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -255,7 +255,7 @@
                     <div class="collapse menu-dropdown" id="sidebarCmt">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.comment_manager') }}" class="nav-link"
+                                <a href="{{ route('comment.index') }}" class="nav-link"
                                     data-key="t-starter">
                                     Bình luận mới nhất
                                 </a>
