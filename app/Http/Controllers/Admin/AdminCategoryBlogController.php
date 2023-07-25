@@ -16,10 +16,7 @@ class AdminCategoryBlogController extends Controller
     public function index()
     {
         $categories = Category::where(['type_category' => 'POST'])->paginate(10);
-        return view(
-            'pages.admin.list_blog',
-            compact('categories')
-        );
+        return view('pages.admin.list_blog',compact('categories'));
 
     }
 
