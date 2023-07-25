@@ -18,18 +18,14 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Invoices Sent</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">Tổng đơn</p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-success fs-14 mb-0">
-                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +89.24 %
-                                            </h5>
-                                        </div>
+                                        
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k</h4>
-                                            <span class="badge bg-warning me-1">2,258</span> <span class="text-muted"> Invoices sent</span>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{$order_count->sum('total')}}">0</span> VNĐ</h4>
+                                            <span class="badge bg-warning me-1">{{count($order_count)}}</span> <span class="text-muted">Đơn hàng</span>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded fs-3">
@@ -47,18 +43,17 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Paid Invoices</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">Đơn chờ xác nhận</p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> +8.09 %
-                                            </h5>
-                                        </div>
+                                        
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="409.66">0</span>k</h4>
-                                            <span class="badge bg-warning me-1">1,958</span> <span class="text-muted"> Paid by clients</span>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" 
+                                                data-target="{{$order_pending->sum('total')}}">0</span> VNĐ</h4>
+
+                                            <span class="badge bg-warning me-1">{{count($order_pending)}}</span>
+                                            <span class="text-muted">Đơn chờ xác nhận</span>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded fs-3">
@@ -76,22 +71,18 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Unpaid Invoices</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">Đơn đã hủy</p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> +9.01 %
-                                            </h5>
-                                        </div>
+                                        
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="136.98">0</span>k</h4>
-                                            <span class="badge bg-warning me-1">338</span> <span class="text-muted"> Unpaid by clients</span>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{$order_cancel->sum('total')}}">0</span> VNĐ</h4>
+                                            <span class="badge bg-warning me-1">{{count($order_cancel)}}</span> <span class="text-muted">Đơn đã hủy</span>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded fs-3">
-                                                <i data-feather="clock" class="text-success icon-dual-success"></i>
+                                                <i data-feather="x-octagon" class="text-danger icon-dual-success"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -105,22 +96,18 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Cancelled Invoices</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">Doanh thu</p>
                                         </div>
-                                        <div class="flex-shrink-0">
-                                            <h5 class="text-success fs-14 mb-0">
-                                                <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +7.55 %
-                                            </h5>
-                                        </div>
+                                        
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="84.20">0</span>k</h4>
-                                            <span class="badge bg-warning me-1">502</span> <span class="text-muted"> Cancelled by clients</span>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{$order_complete->sum('total')}}">0</span> VNĐ</h4>
+                                            <span class="badge bg-warning me-1">{{count($order_complete)}}</span> <span class="text-muted"> Đơn hàng</span>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded fs-3">
-                                                <i data-feather="x-octagon" class="text-success icon-dual-success"></i>
+                                                <i data-feather="trending-up" class="text-success icon-dual-success"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -144,6 +131,21 @@
                                     </div>
                                 </div>
                                 <div class="card-body bg-soft-light border border-dashed border-start-0 border-end-0">
+                                    @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                    @endif
+                                    @if (session('error'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $errors->first() }}
+                                        </div>
+                                    @endif
                                     <form action="{{route('orders.index')}}">
                                         <div class="row g-3">
                                             <div class="col-xxl-4 col-sm-12">
@@ -261,8 +263,8 @@
                                             <div class="noresult" style="display: none">
                                                 <div class="text-center">
                                                     <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ invoices We did not find any invoices for you search.</p>
+                                                    <h3 class="mt-2">Ops! Không tìm thấy thông tin</h3>
+                                                    <h4><p class="text-muted mb-0">Chúng tôi không tìm thấy đơn hàng từ thông tin bạn cung cấp.</p></h4>
                                                 </div>
                                             </div>
                                         </div>
