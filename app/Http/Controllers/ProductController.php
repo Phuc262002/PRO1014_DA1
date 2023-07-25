@@ -104,7 +104,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $title = "Pets Care - Luôn đồng hành cùng thú cưng của bạn";
     }
 
     /**
