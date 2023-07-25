@@ -15,16 +15,30 @@ class AdminBookServiceController extends Controller
     {
         $title = 'Pets Care - Quản lý dịch vụ';
         $book_service = Book_service::with('service','user');
+
         $search = request()->input('search');
         if($search != '') {
             $book_service->where('user_id', 'like', "%$search%");
         }
+
         $status = request()->input('status') ? request()->input('status') : 'ALL';
         if($status != 'ALL') {
             $book_service->where('status', $status);
         }
+
+        $calendar = request()->input('calendar');
+        if($calendar != '') {
+            $calendar_ = explode(' đến ', $calendar);
+
+            $calendar_start = str_replace(["Tháng ", ",", " "], ["", "", "-"], $calendar_[0]);
+            $calendar_start = date("Y-m-d", strtotime($calendar_start));
+
+            $calendar_end = str_replace(["Tháng ", ",", " "], ["", "", "-"], $calendar_[1]);
+            $calendar_end = date("Y-m-d", strtotime($calendar_end));
+        }
+        
         $book_service =  $book_service->paginate(10);
-        return view('pages.admin.service_all',compact('book_service','status','search'));
+        return view('pages.admin.service_all',compact('book_service','status','search','calendar'));
     }
 
     /**

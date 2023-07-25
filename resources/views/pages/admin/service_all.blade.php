@@ -157,15 +157,14 @@
                                     <div class="row g-3">
                                         <div class="col-xxl-5 col-sm-12">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search bg-light border-light"
-                                                    placeholder="Tìm dịch vụ theo ID...">
+                                                <input name="search" type="text" class="form-control search bg-light border-light"
+                                                    placeholder="Tìm dịch vụ theo khách hàng..."value="{{$search}}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-sm-4">
-                                            <input type="text" class="form-control bg-light border-light"
-                                                id="datepicker-range" placeholder="Chọn ngày ">
+                                            <input type="text" class="form-control bg-light border-light" data-date-format="d-m-y" value="{{$calendar}}" name="calendar" id="datepicker-range" placeholder="Chọn ngày">
                                         </div>
                                         <!--end col-->
                                         <div class="col-xxl-3 col-sm-4">
