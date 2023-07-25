@@ -155,10 +155,9 @@
                             <div class="card-body bg-soft-light border border-dashed border-start-0 border-end-0">
                                 <form action="{{route('book-service.index')}}">
                                     <div class="row g-3">
-                                        <div class="col-xxl-5 col-sm-12">
+                                        <div class="col-xxl-4 col-sm-12">
                                             <div class="search-box">
-                                                <input name="search" type="text" class="form-control search bg-light border-light"
-                                                    placeholder="Tìm dịch vụ theo khách hàng..."value="{{$search}}">
+                                                <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm theo ID" value="{{$search}}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
@@ -225,9 +224,8 @@
                                                                 name="chk_child" >
                                                                    </div>
                                                                 </th>
-                                                                <td class="id">
-                                                                    {{ $item-> id}}
-                                                                </td>
+                                                                <td class="id"><a href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="{{$item->book_service_hash_id}}" class="fw-medium link-primary">{{$item->book_service_hash_id}}</a>
+
                                                                 <td class="user_id ">
                                                                    <div class="d-flex align-items-center">
                                                                     {{ $item-> user->name}}
@@ -259,16 +257,13 @@
                                                                
                                                             <td>
                                                                 <ul class="list-inline hstack gap-2 mb-0">
-                                                                    <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Xem thông tin">
-                                                                        <a class="text-success d-inline-block remove-item-btn"  href="#">
-                                                                            <i class="ri-eye-line fs-16"></i>
-                                                                        </a>
-                                                                    </li>
+                                                                    
                                                                     <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Chỉnh sửa">
                                                                         <a href="#showModal{{$item->id}}" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
                                                                             <i class="ri-pencil-fill fs-16"></i>
                                                                         </a>
                                                                     </li>
+                                                                   
                                                                 </ul>
                                                             </td>
                                                 </tr>
@@ -385,4 +380,6 @@
             @endforeach
                 </div>
 @endsection
+
+
      

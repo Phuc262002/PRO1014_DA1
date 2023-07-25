@@ -18,7 +18,7 @@ class AdminBookServiceController extends Controller
 
         $search = request()->input('search');
         if($search != '') {
-            $book_service->where('user_id', 'like', "%$search%");
+            $book_service->where('book_service_hash_id', 'like', "%$search%");
         }
 
         $status = request()->input('status') ? request()->input('status') : 'ALL';
