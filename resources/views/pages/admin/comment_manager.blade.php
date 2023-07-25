@@ -136,7 +136,7 @@
                                                             <span class="badge bg-success"><option selected value="1">Hoạt động</option></span>
                                                              
                                                         @else
-                                                        <span class="badge bg-danger"> <option selected value="0">Bị chặn</option></span>
+                                                            <span class="badge bg-danger"> <option selected value="0">Bị chặn</option></span>
                                                         @endif</td>
 
                                                         
