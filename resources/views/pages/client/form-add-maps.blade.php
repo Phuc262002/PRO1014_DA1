@@ -89,48 +89,37 @@
                                     
                                     <div class="tab-pane fade show active" id="account-info" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3 class="title">Chỉnh sửa địa chỉ</h3>
+                                            <h3 class="title">Thêm địa chỉ</h3>
                                             <div class="account-details-form">
                                                 
                                                 <form method="POST" enctype="multipart/form-data"
-                                                action="{{route('dia-chi.update',['dia_chi' => $inforUser->id])}}">
+                                                    action="{{route('dia-chi.store')}}">
                                                     @csrf
-                                                    @method('PUT')
                                                     <div class="row">
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="display-name" class="required m-b-10">Tên hiển
                                                             thị</label>
                                                         <input type="text" id="display-name" placeholder="Tên hiển thị"
-                                                            value="{{ $inforUser->fullname }}" name="fullname"/>
+                                                             name="fullname"/>
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Địa chỉ</label>
                                                         <input type="text" id="email" placeholder="Địa chỉ"
-                                                            value="{{ $inforUser->address }}" name="address"/>
+                                                            name="address"/>
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Số điện thoại</label>
                                                         <input type="number" id="email" placeholder="Số điện thoại"
-                                                        value="{{ $inforUser->phone }}"  name="phone"/>
+                                                          name="phone"/>
                                                     </div>
 
                                                     <div class="single-input-item single-item-button m-t-30">
-                                                        <button class="btn btn btn-primary btn-hover-dark rounded-0">Lưu
-                                                            thay đổi</button>
+                                                        <button class="btn btn btn-primary btn-hover-dark rounded-0">
+                                                            Thêm địa chỉ</button>
                                                     </div>                                                                                                   
                                                 </form>
-                                                <div class="single-input-item single-item-button m-t-30">
-                                                    <a href="javascript:deletePost({{ $inforUser->id }});"
-                                                        class="link-danger fs-15">
-                                                    <button class="btn btn btn-primary btn-hover-dark rounded-0">Xóa</button></a>
-                                                    <form id="delete_form_{{ $inforUser->id }}"
-                                                        action="{{ route('dia-chi.destroy', ['dia_chi' => $inforUser->id]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    </form>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div> <!-- Single Tab Content End -->
@@ -155,29 +144,4 @@
 
     <!-- Modal Start  -->
 @endsection
-@section('js')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-   
-    function deletePost(id) {
-        document.getElementById('delete_form_' + id).submit();
-        // Swal.fire({
-        //     title: "Bạn có chắc muốn xóa?",
-        //     text: "Bạn có thể lấy lại bài Blog này ở thùng rác.",
-        //     icon: "warning",
-        //     showCancelButton: !0,
-        //     confirmButtonClass: "btn btn-primary w-xs me-2 mt-2",
-        //     cancelButtonClass: "btn btn-danger w-xs mt-2",
-        //     confirmButtonText: "Có, xóa nó",
-        //     cancelButtonText: "Hủy",
-        //     buttonsStyling: !1,
-        //     showCloseButton: !0,
-        // }).then(function(t) {
-        //     if (t.value) {
-        //         document.getElementById('delete_form_' + id).submit();
-        //     }
-        // });
-    }
-</script>
 
-@endsection
