@@ -43,6 +43,8 @@ class AdminPostController extends Controller
             'user_post_id' => Auth::user()->id,
             'category_id' => $request->category_id,
             'slug' => $request->slug,
+            'status' => $request->status,
+
         ]);
 
 
@@ -93,6 +95,7 @@ class AdminPostController extends Controller
             'user_post_id' => $post->user_post_id,
             'category_id' => $request->category_id,
             'slug' => $request->slug,
+            'status' => $request->status,
         ]);
 
         if ($update_post) {
@@ -106,6 +109,7 @@ class AdminPostController extends Controller
         } else {
             return back()->with('error', "Cập nhật Blog thất bại.");
         }
+        
     }
 
     /**

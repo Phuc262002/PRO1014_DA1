@@ -39,6 +39,7 @@
                             <!-- Blog Thumb End -->
 
                             <!-- Blog Content Start -->
+
                             <div class="blog-content">
                                 <div class="blog-meta">
                                     <ul>

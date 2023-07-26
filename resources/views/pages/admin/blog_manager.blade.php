@@ -14,7 +14,7 @@
                                 <div class="row g-4 align-items-center">
                                     <div class="col-sm">
                                         <div>
-                                            <h5 class="card-title mb-0">Tất cả người dùng</h5>
+                                            <h5 class="card-title mb-0">Tất cả bài viết </h5>
                                         </div>
                                     </div>
                                     <div class="col-sm-auto">
@@ -27,8 +27,7 @@
                                             <a href="{{ route('post.create') }}" class="btn btn-success add-btn"
                                                 id="create-btn"><i class="ri-add-line align-bottom me-1"></i> Thêm bài
                                                 viết</a>
-                                            <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -115,6 +114,7 @@
                                                     <th data-ordering="false">Danh mục</th>
                                                     <th>Người đăng</th>
                                                     <th>Số lượng bình luận</th>
+                                                    <th>Trạng thái</th>
                                                     <th>Chức năng</th>
                                                 </tr>
                                             </thead>
@@ -127,17 +127,24 @@
                                                                     name="chk_child" value="option1">
                                                             </div>
                                                         </th>
-                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->title}}</td>
                                                         <td>
                                                             <div class="flex-shrink-0">
                                                                 <img src="{{ $item->img_post }}" alt=""
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{{ $item->category->name }}</td>
-                                                        <td>{{ $item->user_post->name }}</td>
-                                                        <td>{{ $item->comment_count }}</td>
-                                                        <td>
+                                                        <td>{{ $item->category->name}}</td>
+                                                        <td>{{ $item->user_post->name}}</td>
+                                                        <td>{{ $item->comment_count}}</td>
+                                                        <td> 
+                                                            @if ($item->status == true)
+                                                                <span class="badge bg-success"><option selected value="1">Hoạt động</option></span> 
+                                                            @else
+                                                                <span class="badge bg-danger"> <option selected value="0">Đã Ẩn</option></span>
+                                                             @endif
+                                                        </td>
+                                                        <td>    
                                                             <ul class="list-inline hstack gap-2 mb-0">
                                                                 <li class="list-inline-item" data-bs-toggle="tooltip"
                                                                     data-bs-trigger="hover" data-bs-placement="top"

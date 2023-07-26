@@ -13,8 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
+    
         $title = 'Pets Care - Blog';
-        $posts = Post::with('category', 'user_post')->paginate(9);
+        $posts = Post::with('category', 'user_post')->where('status',true)->paginate(9);
         return view('pages.client.blog', compact('title', 'posts'));
     }
 
@@ -44,6 +45,7 @@ class PostController extends Controller
 
     public function show(Post $post, $slug = null)
     {
+        
         $post = Post::where('slug', $slug)->with('category', 'user_post', 'comments')->first();
         $title = 'Pets Care - '.$post->title;
         $comments = Comment::where([
