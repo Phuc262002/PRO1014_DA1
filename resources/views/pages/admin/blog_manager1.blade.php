@@ -47,6 +47,7 @@
                                                     <th data-ordering="false">Danh mục</th>
                                                     <th>Người đăng</th>
                                                     <th>Số lượng bình luận</th>
+                                                    
                                                     <th>Chức năng</th>
                                                 </tr>
                                             </thead>

@@ -19,7 +19,7 @@ class Post extends Model
         'category_id',
         'comment_count',
         'slug',
-        'status'
+        'status',
     ];
 
     public function category()

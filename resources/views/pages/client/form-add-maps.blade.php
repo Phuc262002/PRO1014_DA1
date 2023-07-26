@@ -113,7 +113,10 @@
                                                         <input type="number" id="email" placeholder="Số điện thoại"
                                                           name="phone"/>
                                                     </div>
-
+                                                    <div>
+                                                        <input type="checkbox" id="select" name="is_default" />
+                                                        <label for="select" class="required m-b-5">Chọn làm địa chỉ mặc định</label>
+                                                    </div> 
                                                     <div class="single-input-item single-item-button m-t-30">
                                                         <button class="btn btn btn-primary btn-hover-dark rounded-0">
                                                             Thêm địa chỉ</button>

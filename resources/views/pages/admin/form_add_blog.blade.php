@@ -49,6 +49,14 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
+                                                <label for="inputState" class="form-label">Trạng thái</label>
+                                                <select id="inputState" class="form-select" data-choices name="status"
+                                                    data-choices-sorting="true">
+                                                    <option selected value="1">Hoạt động</option>
+                                                    <option value="0">Bị chặn</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-6">
                                                 <label for="image_main" class="form-label">Thêm hình ảnh</label>
                                                 <div class="input-group">
                                                     <button class="btn btn-outline-primary shadow-none" type="button"

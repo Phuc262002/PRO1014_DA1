@@ -1,5 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
+{{$title}}
 @endsection
 @section('content')
     <div class="main-content">
@@ -52,24 +53,18 @@
                                 @endif
                                 <form>
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-8">
                                             <div class="search-box">
                                                 <input type="text" class="form-control search" placeholder="Tìm kiếm">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-4">
                                             <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
+                                                
                                                 <!--end col-->
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
                                                             data-choices-search-false name="choices-single-default"
@@ -83,7 +78,7 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
                                                         <button type="button" class="btn btn-primary w-100"
                                                             onclick="SearchData();"> <i
@@ -113,6 +108,7 @@
                                                     <th scope="col">Tên bài viết</th>
                                                     <th scope="col">Nội dung</th>
                                                     <th scope="col">Người gửi</th>
+                                                    <th scope="col">Ngày tạo</th>
                                                     <th scope="col">Trạng thái</th>
                                                     <th scope="col" style="width: 150px">
                                                         Chức năng
@@ -132,12 +128,15 @@
                                                             class="d-inline-block">{{ $item->post->title }}</a></td>
                                                         <td>{{ $item->content }}</td>
                                                         <td>{{ $item->user->name }}</a></td>
-                                                        <td> @if ($item->status == true)
-                                                            <span class="badge bg-success"><option selected value="1">Hoạt động</option></span>
+                                                        <td>{{ $item->created_at }}</a></td>
+                                                        <td>
+                                                         @if ($item->status == true)
+                                                            <span class="badge bg-success">Hoạt động</span>
                                                              
                                                         @else
-                                                            <span class="badge bg-danger"> <option selected value="0">Bị chặn</option></span>
-                                                        @endif</td>
+                                                            <span class="badge bg-danger">Bị chặn</span>
+                                                        @endif
+                                                         </td>
 
                                                         
 

@@ -45,6 +45,19 @@ class MapClientController extends Controller
                 'address'=> $request->address
             ]);
 
+            if($request->is_default) {
+                $address = Information_user::all();
+                foreach($address as $item) {
+                    if($item->id == $add_address->id) {
+                        $item->is_default = true;
+                        $item->save();
+                    } else {
+                        $item->is_default = false;
+                        $item->save();
+                    }
+                }
+            }
+
             if($add_address){
                 return redirect()->route('dia-chi.index')->with('success', 'Thêm địa chỉ thành công');
             }else{
@@ -52,6 +65,7 @@ class MapClientController extends Controller
             }
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -85,12 +99,24 @@ class MapClientController extends Controller
             'address'=> $request->address
         ]);
 
+        if($request->is_default) {
+            $address_all = Information_user::all();
+            foreach($address_all as $item) {
+                if($item->id == $dia_chi) {
+                    $item->is_default = true;
+                    $item->save();
+                } else {
+                    $item->is_default = false;
+                    $item->save();
+                }
+            }
+        }
+
         if ($update_infor_user) {
             return back()->with('success', 'Cập nhật thông tin địa chỉ thành công');
         } else {
             return back()->with('error', 'Cập nhật thông tin địa chỉ thất bại');
         }
-        //dd($information_user, $dia_chi);
     }
 
     /**

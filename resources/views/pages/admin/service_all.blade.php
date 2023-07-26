@@ -127,12 +127,7 @@
                                 <div class="d-flex align-items-center">
                                     <h5 class="card-title mb-0 flex-grow-1">Quản lý dịch vụ </h5>
                                     <div class="flex-shrink-0">
-                                        <div class="d-flex gap-2 flex-wrap">
-                                            <button class="btn btn-danger" id="remove-actions" onClick="deleteMultiple()"><i
-                                                    class="ri-delete-bin-2-line"></i></button>
-                                            <a href="apps-invoices-create.html" class="btn btn-success"><i
-                                                    class="ri-add-line align-bottom me-1"></i> Create Invoice</a>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +211,7 @@
                                                                    <div class="d-flex align-items-center">
                                                                     {{ $item-> user->name}}
                                                                    </div>
-                                                                </td>
+                                                                </td>`
                                                               
                                                                 <td class="service">{{$item->service->name}}</td>
                                                                 <td class="service">{{number_format($item->total_price)}} VNĐ</td>
@@ -272,24 +267,7 @@
                                             </div>
 
                                             <!-- Modal -->
-                                            <div class="modal fade flip" id="deleteOrder" tabindex="-1" aria-labelledby="deleteOrderLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body p-5 text-center">
-                                                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#405189,secondary:#f06548" style="width:90px;height:90px">
-                                                            </lord-icon>
-                                                            <div class="mt-4 text-center">
-                                                                <h4>You are about to delete a order ?</h4>
-                                                                <p class="text-muted fs-15 mb-4">Deleting your order will remove all of your information from our database.</p>
-                                                                <div class="hstack gap-2 justify-content-center remove">
-                                                                    <button class="btn btn-link link-success fw-medium text-decoration-none" id="deleteRecord-close" data-bs-dismiss="modal"><i class="ri-close-line me-1 align-middle"></i> Close</button>
-                                                                    <button class="btn btn-danger" id="delete-record">Yes, Delete It</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>  
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                             <!--end modal -->
                                         </div>
                                     </div>
@@ -305,7 +283,7 @@
 
              @foreach ($book_service as $item)
             <div class="modal fade" id="showModal{{$item->id}}" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-light p-3">
                             <h5 class="modal-title" id="exampleModalLabel"></h5>
@@ -335,8 +313,16 @@
                                     <input type="text" class="form-control" placeholder="{{number_format($item->total_price)}} VNĐ" disabled />
                                 </div>
 
-                                <div>
-                                    <label for="status-field" class="form-label">Tình trạng</label>
+                                <div class="mt-3">
+                                    <label for="email-field" class="form-label">Ghi chú khách hàng</label>
+                                    <textarea type="text" class="form-control" rows="5" name="description" disabled >{{$item->description}}</textarea>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="email-field" class="form-label">Ghi chú của quản lý</label>
+                                    <textarea type="text" class="form-control" rows="5" name="admin_note" >{{$item->admin_note}}</textarea>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="status-field" class="form-label">Tình trạng dịch vụ</label>
                                     <select class="form-control" data-choices data-choices-search-false name="status" id="status-field"  required>
                                         <option {{$status == "ACCEPTED" ? 'selected' : ''}} value="ACCEPTED">Dịch vụ được chấp nhận</option>
                                         <option {{$status == "COMPLETED" ? 'selected' : ''}} value="COMPLETED">Dịch vụ hoàn thành</option>
@@ -344,14 +330,6 @@
                                         <option {{$status == "PENDING" ? 'selected' : ''}} value="PENDING">Chờ thanh toán</option>
                                         <option {{$status == "HOLDING" ? 'selected' : ''}} value="HOLDING">Tạm giữ</option>
                                     </select>
-                                </div>
-                                <div class="mt-3">
-                                    <label for="email-field" class="form-label">Ghi chú khách hàng</label>
-                                    <textarea type="text" class="form-control" rows="5" name="description" disabled >{{$item->description}}</textarea>
-                                </div>
-                                <div class="mt-3">
-                                    <label for="email-field" class="form-label">Ghi chú</label>
-                                    <textarea type="text" class="form-control" rows="5" name="admin_note" >{{$item->admin_note}}</textarea>
                                 </div>
                                 
                             </div>

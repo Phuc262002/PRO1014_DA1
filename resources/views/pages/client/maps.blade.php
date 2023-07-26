@@ -69,9 +69,9 @@
 
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade show active" id="address-edit" role="tabpanel">
-                                        <div class="myaccount-content">                                     
-                                                <h3 class="title">Địa chỉ thanh toán</h3>
-                                                
+                                        <div class="myaccount-content">
+                                            <h3 class="title">Địa chỉ thanh toán</h3>
+
                                             <div class="row">
                                                 @foreach ($inforUser as $item)
                                                     <div class="col-lg-6 col-sm-12">
@@ -81,17 +81,21 @@
                                                                 <p><strong>Địa chỉ : </strong>{{ $item->address }}</p>
                                                                 <p><strong>Số điện thoại : </strong>{{ $item->phone }}</p>
                                                             </address>
+                                                            @if ($item->is_default == true)
+                                                                <p class="text-danger"><strong>*</strong> Địa chỉ mặc định
+                                                                </p>
+                                                            @endif
                                                             <a href="{{ route('dia-chi.edit', ['dia_chi' => $item->id]) }}"
-                                                                class="btn btn btn-dark btn-hover-primary rounded-0"><i
+                                                                class="btn btn btn-dark btn-hover-primary rounded-4"><i
                                                                     class="fa fa-edit m-r-10"></i>Chỉnh sửa địa chỉ</a>
                                                         </div>
                                                     </div>
                                                 @endforeach
-                                                
+
                                             </div>
-                                            <a href="{{ route('dia-chi.create', ['dia_chi' => $item->id]) }}"
-                                                class="btn btn-primary btn-sm">Thêm địa chỉ</a>
-                                        </div>                                  
+                                            <a href="{{ route('dia-chi.create') }}" class="btn btn-primary btn-sm">Thêm địa
+                                                chỉ</a>
+                                        </div>
                                     </div>
 
                                     <!-- Single Tab Content End -->

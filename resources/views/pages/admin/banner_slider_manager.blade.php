@@ -1,5 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
+    {{$title}}
 @endsection
 @section('content')
     <div class="main-content">
@@ -203,16 +204,16 @@
                                                     aria-label="Close" id="close-modal"></button>
                                             </div>
                                             <form action="{{ route('banner.store') }}" method="post"
-                                                enctype="multipart/form-data" class="tablelist-form" autocomplete="off">
+                                                enctype="multipart/form-data" class="tablelist-form " autocomplete="off">
                                                 @csrf
                                                 <div class="modal-body">
-                                                    <div class="row g-3">
-                                                        <div class="mb-3">
+                                                    <div class="row g-4">
+                                                        <div class="mb-0">
                                                             <label for="basiInput" class="form-label">Tiêu đề</label>
                                                             <input type="text" class="form-control"
                                                                 id="basiInput"name="title">
                                                         </div>
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="img_banner" class="form-label">Thêm hình
                                                                 ảnh</label>
                                                             <div class="input-group">
@@ -224,7 +225,7 @@
                                                                     value="Chưa có ảnh nào được chọn...">
                                                             </div>
                                                         </div>
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="exampleFormControlTextarea5"
                                                                 class="form-label">Trạng
                                                                 thái</label>
@@ -234,7 +235,7 @@
                                                                 <option value="0">Disabled</option>
                                                             </select>
                                                         </div>
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="exampleFormControlTextarea5"
                                                                 class="form-label">Loại
                                                                 banner</label>
@@ -245,7 +246,7 @@
                                                             </select>
                                                         </div>
 
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="formFile" class="form-lable">Nội dung</label>
                                                             <textarea id="editor" name="introduction"></textarea>
                                                         </div>
@@ -281,12 +282,12 @@
                                                 @method('PUT')
                                                 <div class="modal-body">
                                                     <div class="row g-3">
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="basiInput" class="form-label">Tiêu đề</label>
                                                             <input type="text" class="form-control" id="basiInput"
                                                                 name="title" value="{{ $item->title }}">
                                                         </div>
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="image_main" class="form-label">Thêm hình
                                                                 ảnh</label>
                                                             <div class="input-group">
@@ -300,7 +301,7 @@
                                                                     name="img_banner" value="{{ $item->img_banner }}">
                                                             </div>
                                                         </div>
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="exampleFormControlTextarea5"
                                                                 class="form-label">Trạng
                                                                 thái</label>
@@ -315,7 +316,7 @@
                                                                 @endif
                                                             </select>
                                                         </div>
-                                                        <div class="mb-3">
+                                                        <div class="mb-0">
                                                             <label for="exampleFormControlTextarea5"
                                                                 class="form-label">Loại
                                                                 banner</label>
