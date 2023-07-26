@@ -186,7 +186,7 @@
                                                     <tr>
                                                         <th scope="col" style="width: 50px;">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                               
                                                             </div>
                                                         </th>
                                                         <th class="sort text-uppercase">ID</th>
@@ -203,10 +203,10 @@
                                                     <tr>
                                                         <th scope="row">
                                                            <div class="form-check">
-                                                              <input class="form-check-input" type="checkbox" name="chk_child" value="{{$item->order_hash_id}}">
+                                                              
                                                            </div>
                                                         </th>
-                                                        <td class="id"><a href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="{{$item->order_hash_id}}" class="fw-medium link-primary">{{$item->order_hash_id}}</a>
+                                                        <td class="id"><a href="{{route('orders.show', ['order' => $item->id])}}" onclick="ViewInvoice(this);" data-id="{{$item->order_hash_id}}" class="fw-medium link-primary">{{$item->order_hash_id}}</a>
                                                         </td>
                                                         <td class="customer_name">
                                                            <div class="d-flex align-items-center">

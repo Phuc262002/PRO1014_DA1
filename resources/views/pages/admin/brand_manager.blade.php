@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -29,8 +29,8 @@
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm thương hiệu</button>
-                                            <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            {{-- <button type="button" class="btn btn-info"><i
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -51,49 +51,22 @@
                                         {{ $errors->first() }}
                                     </div>
                                 @endif
-                                <form>
+                                <form action="{{ route('brands.index') }}">
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-10">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search" name="search"
+                                                    value="{{ $search }}" placeholder="Tìm kiếm thương hiệu">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
-                                        <!--end col-->
-                                        <div class="col-xl-6">
-                                            <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
-                                                            id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <button type="button" class="btn btn-primary w-100"
-                                                            onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                            </div>
+                                        <div class="col-xxl-2 col-sm-4">
+                                            <button class="btn btn-primary w-100" type="submit">
+                                                <i class="ri-equalizer-fill me-0 align-bottom"></i> Áp dụng
+                                            </button>
                                         </div>
+                                        <!--end col-->
+
                                     </div>
                                     <!--end row-->
                                 </form>
@@ -126,8 +99,14 @@
                                                                     name="checkAll" value="option1" />
                                                             </div>
                                                         </th>
+                                                        </th>
+                                                        <td class="id"><a href="javascript:void(0);"
+                                                                onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
+                                                                class="fw-medium link-primary">{{ $item->name }}</a>
+                                                        </td>
 
-                                                        <td>{{ $item->name }}</td>
+                                                        {{-- <td class="">{{ $item->name }}</td> --}}
+
                                                         <td>
                                                             <div class="d-flex gap-2 align-items-center">
                                                                 <div class="flex-shrink-0">
@@ -175,9 +154,12 @@
                                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
                                                     colors="primary:#121331,secondary:#08a88a"
                                                     style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ customer We did
-                                                    not find any customer for you search.</p>
+                                                <h3 class="mt-2">Ops! Không tìm thấy thông tin</h3>
+                                                <h4>
+                                                    <p class="text-muted mb-0">Chúng tôi không tìm thấy thương hiệu từ
+                                                        thông
+                                                        tin bạn cung cấp.</p>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +215,7 @@
                                                             <button type="button" class="btn btn-light"
                                                                 data-bs-dismiss="modal">Hủy</button>
                                                             <button type="submit" class="btn btn-success"
-                                                                id="add-btn">Thêm danh mục sản phẩm</button>
+                                                                id="add-btn">Thêm thương hiệu</button>
                                                             <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                         </div>
                                                     </div>
@@ -310,34 +292,7 @@
                                     </div>
                                 @endforeach
                                 <!-- Modal -->
-                                <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="btn-close" id="deleteRecord-close"
-                                                    data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mt-2 text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                                        colors="primary:#f7b84b,secondary:#f06548"
-                                                        style="width:100px;height:100px"></lord-icon>
-                                                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                        <h4>Are you sure ?</h4>
-                                                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove
-                                                            this record ?</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                    <button type="button" class="btn w-sm btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn w-sm btn-danger"
-                                                        id="delete-record">Yes, Delete It!</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <!--end modal -->
                             </div>
                         </div>
@@ -452,6 +407,30 @@
             });
 
         };
+
+        $(document).ready(function() {
+            $("#inputGroupFileAddon03").click(function() {
+                CKFinder.modal({
+                    chooseFiles: true,
+                    width: 800,
+                    height: 600,
+                    onInit: function(finder) {
+                        finder.on('files:choose', function(evt) {
+                            var file = evt.data.files.first();
+                            var output = document.getElementById(
+                                'ckfinder-product_img');
+                            output.value = file.getUrl();
+                        });
+
+                        finder.on('file:choose:resizedImage', function(evt) {
+                            var output = document.getElementById(
+                                'ckfinder-product_img');
+                            output.value = evt.data.resizedUrl;
+                        });
+                    }
+                });
+            })
+        });
     </script>
     <script>
         function deleteBrand(id) {

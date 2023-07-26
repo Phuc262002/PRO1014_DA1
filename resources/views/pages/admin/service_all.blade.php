@@ -177,10 +177,7 @@
                                             <thead class="text-muted">
                                                 <tr>
                                                     <th scope="col" style="width: 50px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="checkAll" value="option">
-                                                        </div>
+                                                       
                                                     </th>
                                                     <th  data-sort="id">ID</th>
                                                     <th  data-sort="customer_name">Khách hàng</th>
@@ -201,17 +198,15 @@
                                                 <tr>
                                                     <th scope="row">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="chk_child" >
-                                                                   </div>
+                                                            
                                                                 </th>
-                                                                <td class="id"><a href="javascript:void(0);" onclick="ViewInvoice(this);" data-id="{{$item->book_service_hash_id}}" class="fw-medium link-primary">{{$item->book_service_hash_id}}</a>
+                                                                <td class="id"><a href="" onclick="ViewInvoice(this);" data-id="{{$item->book_service_hash_id}}" class="fw-medium link-primary">{{$item->book_service_hash_id}}</a>
 
                                                                 <td class="user_id ">
                                                                    <div class="d-flex align-items-center">
                                                                     {{ $item-> user->name}}
                                                                    </div>
-                                                                </td>`
+                                                                </td>
                                                               
                                                                 <td class="service">{{$item->service->name}}</td>
                                                                 <td class="service">{{number_format($item->total_price)}} VNĐ</td>

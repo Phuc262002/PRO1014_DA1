@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Information_user;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MapClientController extends Controller
 {
@@ -37,6 +38,22 @@ class MapClientController extends Controller
     public function store(Request $request)
     {
         //dd(auth()->user()->id);
+        $validator = Validator::make($request->all(), [
+            'fullname' => 'required|max:50',
+            'address' => 'required|max:255',
+            'phone' => 'required|numeric|max:15'
+        ],[
+            'fullname.required' => 'Tên không được để trống',
+            'fullname.max' => 'Tên không dài quá 50 kí tự',
+            'address.required' => 'Địa chỉ không được để trống',
+            'address.max' => 'Địa chỉ không dài quá 255 kí tự',
+            'phone.required' => 'Số điện thoại không được để trống',
+            'phone.max' => 'Số điện thoại không dài quá 15 kí tự',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error', $validator->errors()->first());
+        }
         if(auth()->check()){
             $add_address = Information_user::create([
                 'user_id' => auth()->user()->id,
@@ -56,6 +73,9 @@ class MapClientController extends Controller
                         $item->save();
                     }
                 }
+            } else{
+                $add_address->is_default = false;
+                $add_address->save();
             }
 
             if($add_address){
@@ -64,6 +84,7 @@ class MapClientController extends Controller
                 return back()->with('error', 'Thêm địa chỉ thất bại');
             }
         }
+
     }
 
 
@@ -91,6 +112,22 @@ class MapClientController extends Controller
      */
     public function update(Request $request, Information_user $information_user, $dia_chi = null)
     {
+        $validator = Validator::make($request->all(), [
+            'fullname' => 'required|max:50',
+            'address' => 'required|max:255',
+            'phone' => 'required|numeric|max:15'
+        ],[
+            'fullname.required' => 'Tên không được để trống',
+            'fullname.max' => 'Tên không dài quá 50 kí tự',
+            'address.required' => 'Địa chỉ không được để trống',
+            'address.max' => 'Địa chỉ không dài quá 255 kí tự',
+            'phone.required' => 'Số điện thoại không được để trống',
+            'phone.max' => 'Số điện thoại không dài quá 15 kí tự',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error', $validator->errors()->first());
+        }
         $update_infor_user = Information_user::updateOrCreate([
             'id' => $dia_chi,
         ], [
@@ -124,6 +161,11 @@ class MapClientController extends Controller
      */
     public function destroy(Information_user $Information_user, $dia_chi = null)
     {
+        $Information_user = Information_user::find($dia_chi);
+        if($Information_user->is_default == true) {
+            return redirect()->route('dia-chi.index')->with('error', "Bạn vui lòng không xóa địa chỉ mặc định.");
+        }
+
         try {
             $delete_info_user = Information_user::destroy($dia_chi);
 

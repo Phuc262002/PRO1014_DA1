@@ -1,6 +1,6 @@
 @extends('layouts.client.master')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="section breadcrumb-area bg-name-bright">
@@ -48,9 +48,12 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài khoản</a>
-                                    <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
-                                    <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i> Dịch
+                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài
+                                        khoản</a>
+                                    <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
+                                        Đơn hàng</a>
+                                    <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
+                                        Dịch
                                         vụ</a>
                                     <a href="{{ route('dia-chi.index') }}"><i class="fa fa-map-marker"></i> Địa
                                         chỉ</a>
@@ -86,14 +89,14 @@
                                     <!-- Single Tab Content End -->
 
                                     <!-- Single Tab Content Start -->
-                                    
+
                                     <div class="tab-pane fade show active" id="account-info" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3 class="title">Thêm địa chỉ</h3>
                                             <div class="account-details-form">
-                                                
+
                                                 <form method="POST" enctype="multipart/form-data"
-                                                    action="{{route('dia-chi.store')}}">
+                                                    action="{{ route('dia-chi.store') }}">
                                                     @csrf
                                                     <div class="row">
                                                     </div>
@@ -101,28 +104,39 @@
                                                         <label for="display-name" class="required m-b-10">Tên hiển
                                                             thị</label>
                                                         <input type="text" id="display-name" placeholder="Tên hiển thị"
-                                                             name="fullname"/>
+                                                            name="fullname" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Địa chỉ</label>
                                                         <input type="text" id="email" placeholder="Địa chỉ"
-                                                            name="address"/>
+                                                            name="address" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
                                                         <label for="email" class="required m-b-5">Số điện thoại</label>
                                                         <input type="number" id="email" placeholder="Số điện thoại"
-                                                          name="phone"/>
+                                                            name="phone" />
                                                     </div>
                                                     <div>
                                                         <input type="checkbox" id="select" name="is_default" />
-                                                        <label for="select" class="required m-b-5">Chọn làm địa chỉ mặc định</label>
-                                                    </div> 
-                                                    <div class="single-input-item single-item-button m-t-30">
-                                                        <button class="btn btn btn-primary btn-hover-dark rounded-0">
-                                                            Thêm địa chỉ</button>
-                                                    </div>                                                                                                   
+                                                        <label for="select" class="required m-b-5">Chọn làm địa chỉ mặc
+                                                            định</label>
+                                                    </div>
+                                                    <div class="single-input-item w-100 single-item-button m-t-30">
+                                                        <div class="row w-100">
+                                                            <div class="col-3">
+                                                                <button class="btn btn rounded-4"
+                                                                    style="color: #fff;
+                                                        background-color: #28a745;">
+                                                                    Thêm địa chỉ</button>
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <a href="{{ route('dia-chi.index') }}" class="btn btn-danger rounded-4">
+                                                                    Quay lại</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </form>
-                                                
+
                                             </div>
                                         </div>
                                     </div> <!-- Single Tab Content End -->
@@ -147,4 +161,3 @@
 
     <!-- Modal Start  -->
 @endsection
-

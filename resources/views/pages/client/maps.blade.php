@@ -75,25 +75,30 @@
                                             <div class="row">
                                                 @foreach ($inforUser as $item)
                                                     <div class="col-lg-6 col-sm-12">
-                                                        <div class="shadow p-3 mb-4 bg-white rounded">
+                                                        <div class="shadow p-3 mb-4 bg-white rounded" style="position: relative;">
                                                             <address>
                                                                 <p><strong>Họ tên : </strong> {{ $item->fullname }}</p>
                                                                 <p><strong>Địa chỉ : </strong>{{ $item->address }}</p>
                                                                 <p><strong>Số điện thoại : </strong>{{ $item->phone }}</p>
                                                             </address>
                                                             @if ($item->is_default == true)
-                                                                <p class="text-danger"><strong>*</strong> Địa chỉ mặc định
-                                                                </p>
+                                                            <span class="badges" style="position: absolute; top: 10px; right: 10px; ">
+                                                                <span class="badge badge-success" style="color: #fff;
+                                                                background-color: #dc3545;">Mặc định</span>
+                                                            </span>
+                                                               
                                                             @endif
                                                             <a href="{{ route('dia-chi.edit', ['dia_chi' => $item->id]) }}"
-                                                                class="btn btn btn-dark btn-hover-primary rounded-4"><i
+                                                                class="btn btn btn-hover-primary rounded-4" style="color: #f3f6f9;
+                                                                background-color: #212529;"><i
                                                                     class="fa fa-edit m-r-10"></i>Chỉnh sửa địa chỉ</a>
                                                         </div>
                                                     </div>
                                                 @endforeach
 
                                             </div>
-                                            <a href="{{ route('dia-chi.create') }}" class="btn btn-primary btn-sm">Thêm địa
+                                            <a href="{{ route('dia-chi.create') }}" class="btn btn-primary btn-sm" style="color: #fff;
+                                            background-color: #28a745;">Thêm địa
                                                 chỉ</a>
                                         </div>
                                     </div>

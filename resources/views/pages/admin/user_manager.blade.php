@@ -53,55 +53,71 @@
                                         <div class="col-xl-4">
                                             <div class="search-box">
                                                 <input type="text" class="form-control search"
-                                                    placeholder="Tìm kiếm theo tên" name="search" value="{{$search}}">
+                                                    placeholder="Tìm kiếm theo tên" name="search"
+                                                    value="{{ $search }}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xl-8">
                                             <div class="row g-3">
-                                                    <div class="col-sm-3">
-                                                        <div>
-                                                            <select class="form-control" data-plugin="choices" data-choices
-                                                                data-choices-search-false name="confirm"
-                                                                id="idStatus">
-                                                                <option value="ALL" {{$confirm == 'UNCONFIRMED' ? 'selected' : ''}}>Xác thực</option>
-                                                                <option value="CONFIRMED" {{$confirm == 'CONFIRMED' ? 'selected' : ''}}>Đã xác thực</option>
-                                                                <option value="UNCONFIRMED" {{$confirm == 'UNCONFIRMED' ? 'selected' : ''}}>Chưa xác thực</option>
-                                                            </select>
-                                                        </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <select class="form-control" data-plugin="choices" data-choices
+                                                            data-choices-search-false name="confirm" id="idStatus">
+                                                            <option value="ALL"
+                                                                {{ $confirm == 'UNCONFIRMED' ? 'selected' : '' }}>Xác thực
+                                                            </option>
+                                                            <option value="CONFIRMED"
+                                                                {{ $confirm == 'CONFIRMED' ? 'selected' : '' }}>Đã xác thực
+                                                            </option>
+                                                            <option value="UNCONFIRMED"
+                                                                {{ $confirm == 'UNCONFIRMED' ? 'selected' : '' }}>Chưa xác
+                                                                thực</option>
+                                                        </select>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-sm-3">
-                                                        <div>
-                                                            <select class="form-control" data-plugin="choices" data-choices
-                                                                data-choices-search-false name="user_type"
-                                                                id="idStatus">
-                                                                <option value="ALL" {{$user_type == 'UNCONFIRMED' ? 'selected' : ''}}>Vai trò</option>
-                                                                <option value="ADMIN" {{$user_type == 'UNCONFIRMED' ? 'selected' : ''}}>Admin</option>
-                                                                <option value="USER" {{$user_type == 'UNCONFIRMED' ? 'selected' : ''}}>User</option>
-                                                            </select>
-                                                        </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <select class="form-control" data-plugin="choices" data-choices
+                                                            data-choices-search-false name="user_type" id="idStatus">
+                                                            <option value="ALL"
+                                                                {{ $user_type == 'UNCONFIRMED' ? 'selected' : '' }}>Vai trò
+                                                            </option>
+                                                            <option value="ADMIN"
+                                                                {{ $user_type == 'UNCONFIRMED' ? 'selected' : '' }}>Admin
+                                                            </option>
+                                                            <option value="USER"
+                                                                {{ $user_type == 'UNCONFIRMED' ? 'selected' : '' }}>User
+                                                            </option>
+                                                        </select>
                                                     </div>
-                                                    <!--end col-->
-                                                    <div class="col-sm-3">
-                                                        <div>
-                                                            <select class="form-control" data-plugin="choices" data-choices
-                                                                data-choices-search-false name="status"
-                                                                id="idStatus">
-                                                                <option value="ALL" {{$status == 'UNCONFIRMED' ? 'selected' : ''}}>Trạng thái</option>
-                                                                <option value="ACTIVE" {{$status == 'UNCONFIRMED' ? 'selected' : ''}}>Hoạt động</option>
-                                                                <option value="INACTIVE" {{$status == 'UNCONFIRMED' ? 'selected' : ''}}>Bị chặn</option>
-                                                            </select>
-                                                        </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <select class="form-control" data-plugin="choices" data-choices
+                                                            data-choices-search-false name="status" id="idStatus">
+                                                            <option value="ALL"
+                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Trạng thái
+                                                            </option>
+                                                            <option value="ACTIVE"
+                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Hoạt động
+                                                            </option>
+                                                            <option value="INACTIVE"
+                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Bị chặn
+                                                            </option>
+                                                        </select>
                                                     </div>
-                                                    <div class="col-sm-3">
-                                                        <div>
-                                                            <button type="submit" class="btn btn-primary w-100"> <i
-                                                                    class="ri-equalizer-fill me-2 align-bottom"></i>Áp
-                                                                dụng</button>
-                                                        </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-primary w-100"> <i
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp
+                                                            dụng</button>
                                                     </div>
+                                                </div>
                                                 <!--end col-->
                                             </div>
                                         </div>
@@ -212,7 +228,8 @@
                                                     colors="primary:#121331,secondary:#08a88a"
                                                     style="width:75px;height:75px"></lord-icon>
                                                 <h5 class="mt-2">Xin lỗi! Không tìm thấy kết quả</h5>
-                                                <p class="text-muted mb-0">Bạn vui lòng ấn áp dụng đề tìm kiếm trên toàn hện thống.</p>
+                                                <p class="text-muted mb-0">Bạn vui lòng ấn áp dụng đề tìm kiếm trên toàn
+                                                    hện thống.</p>
                                             </div>
                                         </div>
                                     </div>
