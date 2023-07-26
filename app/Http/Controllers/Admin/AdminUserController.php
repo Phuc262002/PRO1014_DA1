@@ -11,12 +11,49 @@ class AdminUserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $title = 'Pets Care - Quản trị người dùng';
-        $users = User::paginate(10);
-        return view('pages.admin.user_manager', compact('title', 'users'));
+public function index()
+{
+    $title = 'Pets Care - Quản trị người dùng';
+    $users = User::query();
+
+    $search = request()->query('search');
+    $confirm = request()->query('confirm');
+    $user_type = request()->query('user_type');
+    $status = request()->query('status');
+
+    // dd($search, $confirm, $user_type, $status);
+
+    if ($search) {
+        $users = $users->where('name', 'LIKE', "%{$search}%");
     }
+
+    if ($confirm && $confirm !== 'ALL') {
+        if($confirm === 'CONFIRMED'){
+            $users = $users->where(['confirm' => true]);
+        }else if($confirm === 'UNCONFIRMED'){
+            $users = $users->where(['confirm' => false]);
+        }
+    }
+
+    if ($user_type && $user_type !== 'ALL') {
+        if($user_type === 'ADMIN'){
+            $users = $users->where(['is_admin' => true]);
+        }else if($user_type === 'USER'){
+            $users = $users->where(['is_admin' => false]);
+        }
+    }
+
+    if ($status && $status !== 'ALL') {
+        if ($status === 'INACTIVE') {
+            $users = $users->where(['status' => false]);
+        } else if ($status === 'ACTIVE') {
+            $users = $users->where(['status' => true]);
+        }
+    }
+    $users = $users->orderBy('id', 'DESC')->paginate(10)->withQueryString();
+    return view('pages.admin.user_manager', compact('title', 'users', 'search', 'confirm', 'user_type', 'status'));
+}
+
 
     /**
      * Show the form for creating a new resource.
