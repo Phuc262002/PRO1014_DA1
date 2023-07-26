@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
                                 <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header bg-light p-3">
                                                 <h5 class="modal-title" id="exampleModalLabel"></h5>
@@ -267,7 +267,7 @@
                             @foreach ($banner as $item)
                                 <div class="modal fade" id="showModal{{ $item->id }}" tabindex="-1"
                                     aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header bg-light p-3">
                                                 <h5 class="modal-title" id="exampleModalLabel"></h5>

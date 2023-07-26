@@ -15,8 +15,9 @@ class AdminCategoryBlogController extends Controller
      */
     public function index()
     {
+        $title = 'Pets Care - Quản lý danh mục bài viết';
         $categories = Category::where(['type_category' => 'POST'])->paginate(10);
-        return view('pages.admin.list_blog',compact('categories'));
+        return view('pages.admin.list_blog', compact('title', 'categories'));
 
     }
 
@@ -55,7 +56,9 @@ class AdminCategoryBlogController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $title = 'Pets Care - Quản lý danh mục bài viết';
+        $categories = Category::where(['type_category' => 'POST'])->paginate(10);
+        return view('pages.admin.list_blog', compact('title', 'categories'));
     }
 
     /**

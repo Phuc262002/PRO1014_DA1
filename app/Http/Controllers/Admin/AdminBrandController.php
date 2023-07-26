@@ -17,8 +17,13 @@ class AdminBrandController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý thương hiệu';
-        $brands = Brand::paginate(10);
-        return view('pages.admin.brand_manager', compact('title','brands'));
+        $brands = Brand::query();
+        $search = request()->input('search');
+        if ($search != '') {
+            $brands = $brands->where('name', 'like', "%$search%");
+        }
+        $brands = $brands->orderBy('created_at', 'asc')->paginate(10);
+        return view('pages.admin.brand_manager', compact('title', 'brands', 'search'));
     }
 
     /**
