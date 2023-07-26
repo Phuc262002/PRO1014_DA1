@@ -20,13 +20,13 @@
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title flex-grow-1 mb-0">{{$order->order_hash_id}}</h5>
                                 
-                                <div class="flex-shrink-0 mx-3">
-                                    <a href="{{ route('orders.index') }}" class="btn btn-danger btn-sm">Trở về</a>
+                                <div class="d-flex gap-2 flex-wrap mx-3">
+                                    <button class="btn btn-danger" id="remove-actions" onClick="deleteMultiple()"><i
+                                            class="ri-delete-bin-2-line"></i></button>
+                                    <a href="{{route('orders.index')}}" class="btn btn-danger btn-sm"><i
+                                            class="ri-arrow-go-back-line align-bottom me-1"></i>Quay lại</a>
                                 </div>
                                 
-                                <div class="flex-shrink-0">
-                                    <a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i class="ri-download-2-fill align-middle me-1"></i> Invoice</a>
-                                </div>
                             </div>
                         </div>
                         <div class="card-body">
