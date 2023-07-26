@@ -30,17 +30,13 @@ class CouponRequest extends FormRequest
     {
         $CouponID = $this->route('coupon');
         return [
-            'coupon_name' => [
-                'required',
-                Rule::unique('coupons')->ignore($CouponID),
-                'max:255',
-            ],
+            'coupon_name' => 'required',
             'coupon_hash_id' => [
                 'required',
                 Rule::unique('coupons')->ignore($CouponID),
                 'max:255',
             ],
-            'discount' => 'required',
+            'discount' => 'required|numeric',
         ];
     }
     public function messages(): array
@@ -51,6 +47,7 @@ class CouponRequest extends FormRequest
             'coupon_name.required' => 'Vui lòng nhập tên phiếu giảm giá.',
             'coupon_name.unique' => 'Tên phiếu giảm giá đã tồn tại.',
             'discount.required' => 'Vui lòng nhập số tiền giảm giá.',
+            'discount.numeric' => 'Vui lòng nhập giá tiền bằng số.',
         ];
     }
 }

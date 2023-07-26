@@ -31,8 +31,8 @@
                                                     class="ri-add-line align-bottom me-1"></i>Thêm mã giảm giá</button> --}}
                                             <a href="{{ route('coupon.create') }}" class="btn btn-success add-btn"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm mã giảm giá</a>
-                                            <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            {{-- <button type="button" class="btn btn-info"><i
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                                         </th>
                                                         <td>{{ $item->coupon_hash_id }}</a></td>
                                                         <td>{{ $item->coupon_name }}</td>
-                                                        <td>{{number_format ($item->discount) }} VNĐ</td>
+                                                        <td>{{ number_format($item->discount) }} VNĐ</td>
                                                         <td>{{ $item->start_at }}</td>
                                                         <td>{{ $item->end_at }}</td>
 
@@ -226,7 +226,7 @@
 
                                                     <div class="mb-3">
                                                         <label for="phone-field" class="form-label">Giảm giá</label>
-                                                        <input type="text" id="phone-field" class="form-control"
+                                                        <input type="number" id="phone-field" class="form-control"
                                                             name="discount" placeholder="Nhập giảm giá" required />
                                                     </div>
 
@@ -305,7 +305,7 @@
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="discount" class="form-label">Giảm giá</label>
-                                                                <input type="text" name="discount"
+                                                                <input type="number" name="discount"
                                                                     class="form-control" value="{{ $item->discount }}"
                                                                     id="discount">
                                                             </div>

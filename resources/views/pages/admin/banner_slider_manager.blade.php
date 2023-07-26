@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -29,8 +29,8 @@
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm Banner</button>
-                                            <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            {{-- <button type="button" class="btn btn-info"><i
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -255,7 +255,7 @@
                                                                 <button type="button" class="btn btn-light"
                                                                     data-bs-dismiss="modal">Hủy</button>
                                                                 <button type="submit" class="btn btn-success"
-                                                                    id="add-btn">Thêm danh mục sản phẩm</button>
+                                                                    id="add-btn">Thêm banner</button>
                                                                 <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                             </div>
                                                         </div>

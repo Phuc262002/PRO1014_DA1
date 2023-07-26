@@ -53,7 +53,7 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="discount" class="form-label">Giảm giá</label>
-                                                <input type="text" name="discount" class="form-control"
+                                                <input type="number" name="discount" class="form-control"
                                                     value="{{ $coupon->discount }}" id="discount">
                                             </div>
                                             <div class="col-lg-6">

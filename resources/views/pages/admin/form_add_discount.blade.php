@@ -49,7 +49,7 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Giảm giá</label>
-                                                <input type="text" name="discount" class="form-control" id="slug">
+                                                <input type="number" name="discount" class="form-control" id="slug">
                                             </div>
                                             <div class="col-lg-6">
                                                 <div>

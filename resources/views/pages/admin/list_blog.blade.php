@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -32,8 +32,8 @@
                                             {{-- <a href="{{ route('category-product.create') }}"
                                                 class="btn btn-success add-btn"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm danh mục bài viết</a> --}}
-                                            <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            {{-- <button type="button" class="btn btn-info"><i
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>

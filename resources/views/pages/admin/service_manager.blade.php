@@ -282,11 +282,13 @@
                                                             <label for="formFile" class="form-label">Thêm hình ảnh</label>
                                                             <div class="input-group">
                                                                 <button class="btn btn-outline-primary shadow-none"
-                                                                    type="button" id="inputGroupFileAddon03">Thêm
+                                                                    type="button"
+                                                                    onclick="uploadImage({{ $item->id }})">Thêm
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
-                                                                    id="ckfinder-product_img" name="image_service"
-                                                                    readonly value="{{ $item->image_service }}">
+                                                                    id="ckfinder-product_img{{ $item->id }}"
+                                                                    name="image_service" readonly
+                                                                    value="{{ $item->image_service }}">
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
@@ -385,6 +387,29 @@
             });
     </script>
     <script>
+        function uploadImage(id) {
+
+            CKFinder.modal({
+                chooseFiles: true,
+                width: 800,
+                height: 600,
+                onInit: function(finder) {
+                    finder.on('files:choose', function(evt) {
+                        var file = evt.data.files.first();
+                        var output = document.getElementById(
+                            'ckfinder-product_img' + id);
+                        output.value = file.getUrl();
+                    });
+
+                    finder.on('file:choose:resizedImage', function(evt) {
+                        var output = document.getElementById(
+                            'ckfinder-product_img' + id);
+                        output.value = evt.data.resizedUrl;
+                    });
+                }
+            });
+
+        };
         $(document).ready(function() {
             $("#inputGroupFileAddon03").click(function() {
                 CKFinder.modal({

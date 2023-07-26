@@ -31,8 +31,8 @@
                                             <a href="{{ route('product.create') }}" type="button"
                                                 class="btn btn-success add-btn" id="create-btn"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm sản phẩm</a>
-                                            <button type="button" class="btn btn-info"><i
-                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            {{-- <button type="button" class="btn btn-info"><i
+                                                    class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -146,10 +146,10 @@
                                                         </td>
                                                         <td>{{ number_format($item->price) }} VNĐ</td>
                                                         <td>
-                                                            @if($item->discount_price > 0)
+                                                            @if ($item->discount_price > 0)
                                                                 {{ number_format($item->discount_price) }} VNĐ
                                                             @else
-                                                                    {{ number_format($item->discount_price) }}
+                                                                {{ number_format($item->discount_price) }}
                                                             @endif
                                                         </td>
                                                         <td>{{ $item->quantity }}</td>

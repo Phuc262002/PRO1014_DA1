@@ -33,6 +33,23 @@ class AdminCouponController extends Controller
      */
     public function store(CouponRequest $request, Coupon $coupon)
     {
+        // Lấy ngày và giờ hiện tại
+        $currentDateTime = date('Y.m.d H:i');
+
+
+        // dd($currentDateTime, $request->start_at, $request->end_at);
+
+        // So sánh ngày bắt đầu giảm giá với ngày hiện tại
+        if ($request->start_at < $currentDateTime) {
+            return back()->with('error', "Ngày bắt đầu giảm giá không được nhỏ hơn ngày hiện tại.");
+        }
+
+        // So sánh ngày kết thúc giảm giá với ngày bắt đầu giảm giá
+        if ($request->end_at <= $request->start_at) {
+            return back()->with('error', "Ngày kết thúc giảm giá không được nhỏ hơn hoặc bằng ngày bắt đầu giảm giá.");
+        }
+
+
         $coupon = Coupon::create($request->all());
 
         if ($coupon) {
