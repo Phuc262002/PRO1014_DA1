@@ -70,9 +70,8 @@
                                                             data-choices-search-false name="choices-single-default"
                                                             id="idStatus">
                                                             <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
+                                                            <option value="Active"selected>Hoạt động</option>
+                                                            <option value="Block">Đã chặn</option>
                                                         </select>
                                                     </div>
                                                 </div>
