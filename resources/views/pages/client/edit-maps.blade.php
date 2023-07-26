@@ -114,7 +114,10 @@
                                                         <input type="number" id="email" placeholder="Số điện thoại"
                                                         value="{{ $inforUser->phone }}"  name="phone"/>
                                                     </div>
-
+                                                    <div>
+                                                        <input type="checkbox" id="select" name="is_default" {{$inforUser->is_default == 1 ? 'checked' : ''}}/>
+                                                        <label for="select" class="required m-b-5">Chọn làm địa chỉ mặc định</label>
+                                                    </div>                                                   
                                                     <div class="single-input-item single-item-button m-t-30">
                                                         <button class="btn btn btn-primary btn-hover-dark rounded-0">Lưu
                                                             thay đổi</button>
