@@ -286,7 +286,7 @@
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
                                                                     id="ckfinder-product_img" name="image_service"
-                                                                    readonly value="{{ $item->image_service }}">
+                                                                     readonly value="{{ $item->image_service }}">
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
