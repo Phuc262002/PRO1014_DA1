@@ -16,8 +16,9 @@ class AdminPostController extends Controller
      */
     public function index()
     {
+        $title = 'Pets Care - Quản lý bài viết';
         $posts = Post::with('category', 'user_post')->paginate(10);
-        return view('pages.admin.blog_manager', compact('posts'));
+        return view('pages.admin.blog_manager', compact('title','posts'));
     }
 
     /**

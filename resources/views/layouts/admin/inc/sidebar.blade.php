@@ -372,12 +372,12 @@
                                     Quản lý banner và slider
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('admin.form_add_banner_slider') }}" class="nav-link"
                                     data-key="t-team">
                                     Thêm banner và slider
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
