@@ -53,42 +53,35 @@
                                 @endif
                                 <form>
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-8">
                                             <div class="search-box">
                                                 <input type="text" class="form-control search" placeholder="Tìm kiếm">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-4">
                                             <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
+                                                
                                                 <!--end col-->
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
                                                             data-choices-search-false name="choices-single-default"
                                                             id="idStatus">
                                                             <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
+                                                            <option value="Active"selected>Hoạt động</option>
+                                                            <option value="Block">Đã Ẩn</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
                                                         <button type="button" class="btn btn-primary w-100"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -142,9 +135,9 @@
                                                         <td>{{ $item->comment_count}}</td>
                                                         <td> 
                                                             @if ($item->status == true)
-                                                                <span class="badge bg-success"><option selected value="1">Hoạt động</option></span> 
+                                                                <span class="badge bg-success">Hoạt động</span> 
                                                             @else
-                                                                <span class="badge bg-danger"> <option selected value="0">Đã Ẩn</option></span>
+                                                                <span class="badge bg-danger"> Đã Ẩn</span>
                                                              @endif
                                                         </td>
                                                         <td>    
