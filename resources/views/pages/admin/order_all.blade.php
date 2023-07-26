@@ -149,7 +149,7 @@
                                 @endif
                                 <form action="{{ route('orders.index') }}">
                                     <div class="row g-3">
-                                        <div class="col-xxl-12 col-sm-12">
+                                        <div class="col-xxl-4 col-sm-12">
                                             <div class="search-box">
                                                 <input type="text" class="form-control search bg-light border-light"
                                                     name="search" placeholder="Tìm kiếm theo ID"
@@ -203,8 +203,7 @@
                                                 <tr>
                                                     <th scope="col" style="width: 50px;">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="checkAll" value="option">
+
                                                         </div>
                                                     </th>
                                                     <th class="sort text-uppercase">ID</th>
@@ -221,11 +220,11 @@
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="{{ $item->order_hash_id }}">
+
                                                             </div>
                                                         </th>
-                                                        <td class="id"><a href="javascript:void(0);"
+                                                        <td class="id"><a
+                                                                href="{{ route('orders.show', ['order' => $item->id]) }}"
                                                                 onclick="ViewInvoice(this);"
                                                                 data-id="{{ $item->order_hash_id }}"
                                                                 class="fw-medium link-primary">{{ $item->order_hash_id }}</a>

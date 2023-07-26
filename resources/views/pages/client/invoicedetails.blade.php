@@ -218,6 +218,12 @@
                                             <div class="hstack gap-2 justify-content-end d-print-none mt-4">
                                                 <a href="javascript:printCode()" class="btn btn-primary"><i
                                                         class="ri-printer-line align-bottom me-1"></i>In hóa đơn</a>
+                                                        <a href="{{ route('don-hang-ca-nhan.index') }}"
+                                                        class="btn btn-danger rounded-4">
+                                                        Quay lại</a>
+                                                        {{-- <div class="col-3">
+                                                           
+                                                        </div> --}}
                                             </div>
                                         </div>
                                         <!--end card-body-->
