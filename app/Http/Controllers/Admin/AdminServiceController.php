@@ -15,8 +15,8 @@ class AdminServiceController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý dịch vụ';
-        $services = Service::all();
-        return view('pages.admin.service_manager', compact('title','services'));
+        $services = Service::paginate(10);
+        return view('pages.admin.service_manager', compact('title', 'services'));
     }
 
     /**
@@ -32,23 +32,24 @@ class AdminServiceController extends Controller
      */
     public function store(ServiceRequest $request)
     {
-        if($request -> image_service == 'Chọn ảnh...' ){
+        if ($request->image_service == 'Chọn ảnh...') {
             return back()->with('error', "Vui lòng chọn ảnh .");
         }
 
         $service = Service::create($request->all());
         if ($service) {
-            if($request->save_action == 'save_and_back'){
-                return redirect()->route('service.index')->with('success', "Thêm dịch vụ thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return redirect()->route('service.edit', $service->id)->with('success', "Thêm dịch vụ thành công.");
-            } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('service.create')->with('success', "Thêm dịch vụ thành công.");
-            }
+            // if ($request->save_action == 'save_and_back') {
+            //     return redirect()->route('service.index')->with('success', "Thêm dịch vụ thành công.");
+            // } else if ($request->save_action == 'save_and_edit') {
+            //     return redirect()->route('service.edit', $service->id)->with('success', "Thêm dịch vụ thành công.");
+            // } else if ($request->save_action == 'save_and_new') {
+            //     return redirect()->route('service.create')->with('success', "Thêm dịch vụ thành công.");
+            // }
+            return redirect()->route('service.index')->with('success', "Thêm dịch vụ thành công.");
         } else {
-            return back()->with('error', "Thêm dịch vụ thất bại.");
+            return redirect()->route('service.index')->with('error', "Thêm dịch vụ thất bại.");
         }
-        
+
 
     }
 
@@ -75,40 +76,40 @@ class AdminServiceController extends Controller
     public function update(ServiceRequest $request, Service $service)
     {
 
-        if($request -> image_service == 'Chọn ảnh...' ){
+        if ($request->image_service == 'Chọn ảnh...') {
             return back()->with('error', "Vui lòng chọn ảnh .");
         }
 
 
         $update_service = Service::updateOrCreate([
             'id' => $service->id,
-        ],$request->all());
+        ], $request->all());
 
 
         if ($update_service) {
-            if($request->save_action == 'save_and_back'){
-                return redirect()->route('service.index')->with('success', "Thêm dịch vụ thành công.");
-            } else if ($request->save_action == 'save_and_edit'){
-                return redirect()->route('service.edit', $service->id)->with('success', "Thêm dịch vụ thành công.");
-            } else if ($request->save_action == 'save_and_new'){
-                return redirect()->route('service.create')->with('success', "Thêm dịch vụ thành công.");
-            }
+            // if ($request->save_action == 'save_and_back') {
+            //     return redirect()->route('service.index')->with('success', "Thêm dịch vụ thành công.");
+            // } else if ($request->save_action == 'save_and_edit') {
+            //     return redirect()->route('service.edit', $service->id)->with('success', "Thêm dịch vụ thành công.");
+            // } else if ($request->save_action == 'save_and_new') {
+            //     return redirect()->route('service.create')->with('success', "Thêm dịch vụ thành công.");
+            // }
+            return redirect()->route('service.index')->with('success', "Thêm dịch vụ thành công.");
         } else {
-            return back()->with('error', "Thêm dịch vụ thất bại.");
+            return redirect()->route('service.index')->with('error', "Thêm dịch vụ thất bại.");
         }
-        
-       
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Service $service)
-    {
-        {
+    { {
             try {
                 $delete_service = Service::destroy($service->id);
-    
+
                 if ($delete_service) {
                     return back()->with('success', "Xóa dịch vụ thành công.");
                 } else {
