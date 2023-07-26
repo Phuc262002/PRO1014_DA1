@@ -65,6 +65,7 @@ class AdminServiceController extends Controller
      */
     public function edit(Service $service)
     {
+        
         return view('pages.admin.edit_service_s', compact('service'));
     }
 

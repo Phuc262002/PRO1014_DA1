@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -24,9 +24,10 @@
                                     </div>
                                     <div class="col-sm-auto">
                                         <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button class="btn btn-soft-danger" id="remove-actions" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add Customer</button>
-                                            <button type="button" class="btn btn-info"><i class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                            <button class="btn btn-soft-danger" id="remove-actions"
+                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                            {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add Customer</button>
+                                            <button type="button" class="btn btn-info"><i class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -49,44 +50,58 @@
                                 @endif
                                 <form>
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-4">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search"
+                                                    placeholder="Tìm kiếm theo tên" name="search" value="{{$search}}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-8">
                                             <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
+                                                    <div class="col-sm-3">
+                                                        <div>
+                                                            <select class="form-control" data-plugin="choices" data-choices
+                                                                data-choices-search-false name="confirm"
+                                                                id="idStatus">
+                                                                <option value="ALL" {{$confirm == 'UNCONFIRMED' ? 'selected' : ''}}>Xác thực</option>
+                                                                <option value="CONFIRMED" {{$confirm == 'CONFIRMED' ? 'selected' : ''}}>Đã xác thực</option>
+                                                                <option value="UNCONFIRMED" {{$confirm == 'UNCONFIRMED' ? 'selected' : ''}}>Chưa xác thực</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
-                                                            id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
-                                                        </select>
+                                                    <!--end col-->
+                                                    <div class="col-sm-3">
+                                                        <div>
+                                                            <select class="form-control" data-plugin="choices" data-choices
+                                                                data-choices-search-false name="user_type"
+                                                                id="idStatus">
+                                                                <option value="ALL" {{$user_type == 'UNCONFIRMED' ? 'selected' : ''}}>Vai trò</option>
+                                                                <option value="ADMIN" {{$user_type == 'UNCONFIRMED' ? 'selected' : ''}}>Admin</option>
+                                                                <option value="USER" {{$user_type == 'UNCONFIRMED' ? 'selected' : ''}}>User</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <button type="button" class="btn btn-primary w-100"
-                                                            onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
+                                                    <!--end col-->
+                                                    <div class="col-sm-3">
+                                                        <div>
+                                                            <select class="form-control" data-plugin="choices" data-choices
+                                                                data-choices-search-false name="status"
+                                                                id="idStatus">
+                                                                <option value="ALL" {{$status == 'UNCONFIRMED' ? 'selected' : ''}}>Trạng thái</option>
+                                                                <option value="ACTIVE" {{$status == 'UNCONFIRMED' ? 'selected' : ''}}>Hoạt động</option>
+                                                                <option value="INACTIVE" {{$status == 'UNCONFIRMED' ? 'selected' : ''}}>Bị chặn</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="col-sm-3">
+                                                        <div>
+                                                            <button type="submit" class="btn btn-primary w-100"> <i
+                                                                    class="ri-equalizer-fill me-2 align-bottom"></i>Áp
+                                                                dụng</button>
+                                                        </div>
+                                                    </div>
                                                 <!--end col-->
                                             </div>
                                         </div>
@@ -196,9 +211,8 @@
                                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
                                                     colors="primary:#121331,secondary:#08a88a"
                                                     style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ customer We did
-                                                    not find any customer for you search.</p>
+                                                <h5 class="mt-2">Xin lỗi! Không tìm thấy kết quả</h5>
+                                                <p class="text-muted mb-0">Bạn vui lòng ấn áp dụng đề tìm kiếm trên toàn hện thống.</p>
                                             </div>
                                         </div>
                                     </div>

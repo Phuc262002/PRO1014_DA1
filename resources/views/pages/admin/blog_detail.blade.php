@@ -16,16 +16,12 @@
                                 <h4 class="card-title mb-0 flex-grow-1">
                                     Bài viết chi tiết
                                 </h4>
-                                <form class="app-search d-none d-md-block p-0">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm" autocomplete="off"
-                                            id="search-options" value="" />
-                                        <span class="mdi mdi-magnify search-widget-icon"></span>
-                                        <span
-                                            class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
-                                            id="search-close-options"></span>
-                                    </div>
-                                </form>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <button class="btn btn-danger" id="remove-actions" onClick="deleteMultiple()"><i
+                                            class="ri-delete-bin-2-line"></i></button>
+                                    <a href="{{route('post.index')}}" class="btn btn-danger"><i
+                                            class="ri-arrow-go-back-line align-bottom me-1"></i>Quay lại</a>
+                                </div>
                                 <div class="flex-shrink-0"></div>
                             </div>
                             <div class="card-body">
@@ -35,7 +31,7 @@
 
                                     <tbody>
                                         <tr>
-                                            <th>Tiêu đề</th>
+                                            <th class="w-25">Tiêu đề</th>
                                             <td>
                                                 {{ $post->title }}
                                             </td>
