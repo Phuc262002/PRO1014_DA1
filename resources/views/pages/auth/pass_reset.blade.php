@@ -1,5 +1,7 @@
 @extends('layouts.auth.master')
-
+@section('title')
+    Pets Care - Quên mật khẩu
+@endsection
 @section('content')
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
@@ -54,11 +56,10 @@
                                     </div>
                                 @endif
                                 @if (session('error'))
-                                        <div class="alert alert-borderless alert-danger text-center mb-2 mx-2"
-                                            role="alert">
-                                            {{ session('error') }}
-                                        </div>
-                                    @endif
+                                    <div class="alert alert-borderless alert-danger text-center mb-2 mx-2" role="alert">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
                                 <div class="p-2">
                                     <form action="{{ route('password.reset') }}" method="POST"
                                         enctype="multipart/form-data">

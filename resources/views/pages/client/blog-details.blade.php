@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Chi tiết bài viết</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ route('home') }}">Trang chủ</a></li>
                             <li>Chi tiết bài viết</li>
                         </ul>
                     </div>
@@ -67,7 +67,7 @@
                                 <!-- Social Shear Start -->
                                 <div class="social-share m-b-20">
                                     <div class="widget-social">
-                                        <span>Share: </span>
+                                        <span>Chia sẻ: </span>
                                         <a title="Twitter" href="#/"><i class="icon-social-twitter"></i></a>
                                         <a title="Instagram" href="#/"><i class="icon-social-instagram"></i></a>
                                         <a title="Linkedin" href="#/"><i class="icon-social-linkedin"></i></a>
@@ -84,7 +84,8 @@
 
                         <!-- Blog Details Comments area Start -->
                         <div class="blog-details-comment-area m-b-n30">
-                            <h2 class="blog-desc-title m-b-30 m-t-40">Bình luận (<span id="comments_count">{{ count($comments) }}</span>)</h2>
+                            <h2 class="blog-desc-title m-b-30 m-t-40">Bình luận (<span
+                                    id="comments_count">{{ count($comments) }}</span>)</h2>
                             <div id="comments_container">
                                 @foreach ($comments as $item)
                                     <div class="blog-details-comment-wrapper m-b-30">

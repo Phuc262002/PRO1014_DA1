@@ -24,8 +24,7 @@
                                     </div>
                                     <div class="col-sm-auto">
                                         <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button class="btn btn-soft-danger" id="remove-actions"
-                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+
                                             {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm mã giảm giá</button> --}}
@@ -106,13 +105,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 46px">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="cardtableCheck" />
-                                                            <label class="form-check-label" for="cardtableCheck"></label>
-                                                        </div>
-                                                    </th>
                                                     <th scope="col">Mã giảm giá</th>
                                                     <th scope="col">Tên phiếu giảm giá</th>
                                                     <th scope="col">Giảm giá</th>
@@ -126,12 +118,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($counpon as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
                                                         <td>{{ $item->coupon_hash_id }}</a></td>
                                                         <td>{{ $item->coupon_name }}</td>
                                                         <td>{{ number_format($item->discount) }} VNĐ</td>

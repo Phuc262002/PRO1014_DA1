@@ -27,7 +27,7 @@
                                             <button class="btn btn-soft-danger" id="remove-actions"
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
-                                                id="create-btn" data-bs-target="#showModal"><i
+                                                id="create-btn" data-bs-target="#showModalBrand"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm thương hiệu</button>
                                             {{-- <button type="button" class="btn btn-info"><i
                                                     class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
@@ -77,12 +77,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 10px">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input fs-15" type="checkbox"
-                                                                id="checkAll" value="option" />
-                                                        </div>
-                                                    </th>
 
                                                     <th data-ordering="false">Tên thương hiệu</th>
                                                     <th data-ordering="false">Ảnh thương hiệu</th>
@@ -93,12 +87,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($brands as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input fs-15" type="checkbox"
-                                                                    name="checkAll" value="option1" />
-                                                            </div>
-                                                        </th>
 
                                                         <td class="id"><a href="javascript:void(0);"
                                                                 onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
@@ -169,7 +157,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal fade" id="showModalBrand" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header bg-light p-3">
