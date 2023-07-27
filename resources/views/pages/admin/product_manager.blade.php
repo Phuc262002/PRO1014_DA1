@@ -133,7 +133,7 @@
                                                             </div>
                                                         </th>
                                                         <td class="id"><a
-                                                            href="{{ route('product.show', ['product' => $item->sku]) }}"
+                                                            href="{{ route('product.show', ['product' => $item->id]) }}"
                                                             onclick="ViewInvoice(this);"
                                                             data-id="{{ $item->sku }}"
                                                             class="fw-medium link-primary">{{ $item->sku }}</a>
