@@ -285,8 +285,9 @@
                         if (data.status == 'success') {
                             Success(data.message);
                             $('#discount_price').html(formatVietnamDong(data.data.discount));
-                            $('#amount_final').html(formatVietnamDong(total - parseInt(data.data.discount)));
-                            $('#total').attr('value', total - parseInt(data.data.discount));
+                            $('#amount_final').html(formatVietnamDong(((total - parseInt(data.data.discount)) < 0 ? 0 : (total - parseInt(data.data.discount)))));
+                            $('#total').attr('value', ((total - parseInt(data.data.discount)) < 0 ? 0 : (total - parseInt(data.data.discount))));
+
                             $('#form_checkout').append(
                                 `<input type="hidden" name="coupon_id" value="${data.data.id}">`
                             );
