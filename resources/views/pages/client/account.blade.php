@@ -8,7 +8,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Tài khoản</h2>
                         <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="{{ route('home') }}">Trang chủ</a></li>
                             <li>Tài khoản của tôi</li>
                         </ul>
                     </div>
