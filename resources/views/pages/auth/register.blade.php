@@ -1,5 +1,7 @@
 @extends('layouts.auth.master')
-
+@section('title')
+    Pets Care - Đăng ký
+@endsection
 @section('content')
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
@@ -40,7 +42,8 @@
                                     <p class="text-muted">Tạo tài khoản Pets Care cho riêng bạn</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form id="register_form" class="needs-validation" enctype="multipart/form-data" novalidate>
+                                    <form id="register_form" class="needs-validation" enctype="multipart/form-data"
+                                        novalidate>
                                         @csrf
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Họ và Tên <span
@@ -62,10 +65,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="password-input">Mật khẩu<span
-                                                class="text-danger">*</span></label>
+                                                    class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup">
-                                                <input type="password" name="password" class="form-control pe-5 password-input"
-                                                    onpaste="return false" placeholder="Nhập mật khẩu" id="password-input"
+                                                <input type="password" name="password"
+                                                    class="form-control pe-5 password-input" onpaste="return false"
+                                                    placeholder="Nhập mật khẩu" id="password-input"
                                                     aria-describedby="passwordInput"
                                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                 <button
@@ -79,10 +83,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="password-input1">Nhập lại mật khẩu<span
-                                                class="text-danger">*</span></label>
+                                                    class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup">
-                                                <input type="password" name="password_confirmation" class="form-control pe-5 password-input"
-                                                    onpaste="return false" placeholder="Nhập mật khẩu" id="password-input1"
+                                                <input type="password" name="password_confirmation"
+                                                    class="form-control pe-5 password-input" onpaste="return false"
+                                                    placeholder="Nhập mật khẩu" id="password-input1"
                                                     aria-describedby="passwordInput"
                                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                                 <button
@@ -95,7 +100,7 @@
                                             </div>
                                         </div>
 
-                                       
+
 
                                         <div id="password-contain" class="p-3 bg-light mb-2 rounded">
                                             <h5 class="fs-13">Mật khẩu phải có:</h5>

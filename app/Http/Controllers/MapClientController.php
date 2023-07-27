@@ -15,17 +15,17 @@ class MapClientController extends Controller
     public function index()
     {
         $title = 'Pets Care - Chỉnh sửa địa chỉ';
-        $inforUser = Information_user::where('user_id',Auth()->user()->id)->get();
-        return view('pages.client.maps', compact('title','inforUser'));
+        $inforUser = Information_user::where('user_id', Auth()->user()->id)->get();
+        return view('pages.client.maps', compact('title', 'inforUser'));
         //dd($inforUser);
-        
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {       
+    {
         $title = 'Pets Care - Thêm địa chỉ';
         $user_id = request()->input('service_id');
         $inforUser = Information_user::all();
@@ -43,30 +43,32 @@ class MapClientController extends Controller
             'address' => 'required|max:255',
             'phone' => 'required|regex:/^[0-9]{10,15}$/'
             // 'phone' => 'required|numeric|max:15'
-        ],[
+        ], [
             'fullname.required' => 'Tên không được để trống',
             'fullname.max' => 'Tên không dài quá 50 kí tự',
             'address.required' => 'Địa chỉ không được để trống',
             'address.max' => 'Địa chỉ không dài quá 255 kí tự',
             'phone.required' => 'Số điện thoại không được để trống',
             'phone.max' => 'Số điện thoại không dài quá 15 kí tự',
+            'phone.regex' => 'Số điện thoại không đúng định dạng',
+
         ]);
 
         if ($validator->fails()) {
             return back()->with('error', $validator->errors()->first());
         }
-        if(auth()->check()){
+        if (auth()->check()) {
             $add_address = Information_user::create([
                 'user_id' => auth()->user()->id,
-                'fullname'=> $request->fullname,
-                'phone'=> $request->phone,
-                'address'=> $request->address
+                'fullname' => $request->fullname,
+                'phone' => $request->phone,
+                'address' => $request->address
             ]);
 
-            if($request->is_default) {
+            if ($request->is_default) {
                 $address = Information_user::all();
-                foreach($address as $item) {
-                    if($item->id == $add_address->id) {
+                foreach ($address as $item) {
+                    if ($item->id == $add_address->id) {
                         $item->is_default = true;
                         $item->save();
                     } else {
@@ -74,14 +76,14 @@ class MapClientController extends Controller
                         $item->save();
                     }
                 }
-            } else{
+            } else {
                 $add_address->is_default = false;
                 $add_address->save();
             }
 
-            if($add_address){
+            if ($add_address) {
                 return redirect()->route('dia-chi.index')->with('success', 'Thêm địa chỉ thành công');
-            }else{
+            } else {
                 return back()->with('error', 'Thêm địa chỉ thất bại');
             }
         }
@@ -104,7 +106,7 @@ class MapClientController extends Controller
     {
         $title = 'Pets Care - Chỉnh sửa địa chỉ';
         $inforUser = Information_user::where('id', $dia_chi)->first();
-        return view('pages.client.edit-maps', compact('title','inforUser'));
+        return view('pages.client.edit-maps', compact('title', 'inforUser'));
         //dd($inforUser,$dia_chi);
     }
 
@@ -118,7 +120,7 @@ class MapClientController extends Controller
             'address' => 'required|max:255',
             'phone' => 'required|regex:/^[0-9]{10,15}$/'
             // 'phone' => 'required|numeric|max:15'
-        ],[
+        ], [
             'fullname.required' => 'Tên không được để trống',
             'fullname.max' => 'Tên không dài quá 50 kí tự',
             'address.required' => 'Địa chỉ không được để trống',
@@ -133,15 +135,15 @@ class MapClientController extends Controller
         $update_infor_user = Information_user::updateOrCreate([
             'id' => $dia_chi,
         ], [
-            'fullname'=> $request->fullname,
-            'phone'=> $request->phone,
-            'address'=> $request->address
+            'fullname' => $request->fullname,
+            'phone' => $request->phone,
+            'address' => $request->address
         ]);
 
-        if($request->is_default) {
+        if ($request->is_default) {
             $address_all = Information_user::all();
-            foreach($address_all as $item) {
-                if($item->id == $dia_chi) {
+            foreach ($address_all as $item) {
+                if ($item->id == $dia_chi) {
                     $item->is_default = true;
                     $item->save();
                 } else {
@@ -164,7 +166,7 @@ class MapClientController extends Controller
     public function destroy(Information_user $Information_user, $dia_chi = null)
     {
         $Information_user = Information_user::find($dia_chi);
-        if($Information_user->is_default == true) {
+        if ($Information_user->is_default == true) {
             return redirect()->route('dia-chi.index')->with('error', "Bạn vui lòng không xóa địa chỉ mặc định.");
         }
 
@@ -179,7 +181,7 @@ class MapClientController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('dia-chi.index')->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
         }
-        
+
     }
-    
+
 }

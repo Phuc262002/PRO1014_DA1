@@ -18,7 +18,8 @@
 
     <!-- Filepond css -->
     <link rel="stylesheet" href="{{ asset('assets/admin/libs/filepond/filepond.min.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('assets/admin/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/admin/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}">
     <!-- jsvectormap css -->
     <link href="{{ asset('assets/admin/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet"
         type="text/css" />
@@ -594,10 +595,10 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
                                 <h6 class="dropdown-header">Chào {{ Auth::user()->name }}!</h6>
-                                <a class="dropdown-item" href="pages-profile.html"><i
+                                <a class="dropdown-item" href="{{ route('thong-tin-ca-nhan.index') }}"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle">Profile</span></a>
-                                <a class="dropdown-item" href="apps-chat.html"><i
+                                    <span class="align-middle">Trang cá nhân</span></a>
+                                {{-- <a class="dropdown-item" href="apps-chat.html"><i
                                         class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
                                     <span class="align-middle">Messages</span></a>
                                 <a class="dropdown-item" href="apps-tasks-kanban.html"><i
@@ -616,8 +617,8 @@
                                     <span class="align-middle">Settings</span></a>
                                 <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
                                         class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle">Lock screen</span></a>
-                                <a class="dropdown-item" href="auth-logout-basic.html"><i
+                                    <span class="align-middle">Lock screen</span></a> --}}
+                                <a class="dropdown-item" href="{{ route('logout') }}"><i
                                         class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                                     <span class="align-middle" data-key="t-logout">Logout</span></a>
                             </div>

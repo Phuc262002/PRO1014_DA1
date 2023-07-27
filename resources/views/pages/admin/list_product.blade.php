@@ -24,8 +24,7 @@
                                     </div>
                                     <div class="col-sm-auto">
                                         <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button class="btn btn-soft-danger" id="remove-actions"
-                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModalCreate"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm danh mục sản
@@ -82,12 +81,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 10px">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input fs-15" type="checkbox"
-                                                                id="checkAll" value="option" />
-                                                        </div>
-                                                    </th>
                                                     <th scope="col">Tên danh mục</th>
                                                     <th scope="col">Mô tả</th>
                                                     <th scope="col">Slug</th>
@@ -97,12 +90,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($categories as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input fs-15" type="checkbox"
-                                                                    name="checkAll" value="option1" />
-                                                            </div>
-                                                        </th>
                                                         <td class="id"><a href="javascript:void(0);"
                                                                 onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
                                                                 class="fw-medium link-primary">{{ $item->name }}</a>
