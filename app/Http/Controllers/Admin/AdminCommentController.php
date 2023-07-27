@@ -14,11 +14,32 @@ class AdminCommentController extends Controller
     public function index()
     {
             $title = 'Pets Care - Quản lý bình luận';
-            $comment = Comment::with('user','post')->paginate(10);
-            // $comment = $comment->paginate(10);
-            return view('pages.admin.comment_manager',compact('title','comment'));
+            $comment = Comment::with('user','post');
+            $status = request()->query('status');
+            $search = request()->input('search');
 
-            // dd($comment);
+
+
+            if ($search != '') {
+                $comment->whereHas('post', function ($query) use ($search) {
+                    $query->where('title', 'like', "%$search%");
+                });
+            }
+            if ($status && $status !== 'ALL') {
+                if ($status === 'INACTIVE') {
+                    $comment = $comment->where(['status' => false]);
+                } else if ($status === 'ACTIVE') {
+                    $comment = $comment->where(['status' => true]);
+                }
+            }
+            $comment = $comment->orderBy('created_at', 'DESC')->paginate(10)->withQueryString();
+
+
+            return view('pages.admin.comment_manager',compact('title','comment','status','search'));
+
+            
+
+           
     }
 
     /**
