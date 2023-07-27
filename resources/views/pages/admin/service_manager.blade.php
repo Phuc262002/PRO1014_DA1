@@ -55,7 +55,7 @@
                                     <div class="row g-3">
                                         <div class="col-xl-6">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm dịch vụ" value="{{$search}}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
@@ -86,9 +86,9 @@
 
                                                 <div class="col-sm-4">
                                                     <div>
-                                                        <button type="button" class="btn btn-primary w-100"
+                                                        <button type="submit" class="btn btn-primary w-100"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->

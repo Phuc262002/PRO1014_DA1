@@ -17,8 +17,26 @@ class AdminPostController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý bài viết';
-        $posts = Post::with('category', 'user_post')->paginate(10);
-        return view('pages.admin.blog_manager', compact('title','posts'));
+        $posts = Post::with('category', 'user_post');
+
+        $status = request()->query('status');
+        $search = request()->input('search');
+
+        if($search != '') {
+            $posts->where('title', 'like', "%$search%");
+        }
+
+        if ($status && $status !== 'ALL') {
+            if ($status === 'INACTIVE') {
+                $posts = $posts->where(['status' => false]);
+            } else if ($status === 'ACTIVE') {
+                $posts = $posts->where(['status' => true]);
+            }
+        }
+
+        $posts = $posts->orderBy('created_at', 'DESC')->paginate(10)->withQueryString();;
+
+        return view('pages.admin.blog_manager', compact('title','posts','status','search'));
     }
 
     /**

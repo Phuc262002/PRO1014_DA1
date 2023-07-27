@@ -18,8 +18,31 @@ class AdminProductController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý sản phẩm';
-        $products = Product::orderBy('created_at', 'desc')->with('brand', 'category', 'image_list')->paginate(10);
-        return view('pages.admin.product_manager', compact('title', 'products'));
+        // $brands = Brand::query();
+        $products = Product::orderBy('created_at', 'desc')->with('brand', 'category', 'image_list');
+        $products_active = Product::orderBy('created_at', 'desc')->with('brand', 'category', 'image_list');
+        $products_disable = Product::orderBy('created_at', 'desc')->with('brand', 'category', 'image_list');
+
+        $status = request()->input('status') ? request()->input('status') : 'ALL';
+        $search = request()->input('search');
+
+        if ($search != '') {
+            $products->where('sku', 'like', "%$search%");
+        }
+
+        if ($status != 'ALL') {
+            if ($status == 'ACTIVE') {
+                $products->where('status', true);
+            } else if ($status == 'INACTIVE') {
+                $products->where('status', false);
+            }
+        }
+
+        $products = $products->paginate(10);
+
+
+        // $products = Product::orderBy('created_at', 'desc')->with('brand', 'category', 'image_list')->paginate(10);
+        return view('pages.admin.product_manager', compact('title', 'products', 'search', 'status', 'products_active', 'products_disable'));
         // dd($products);
     }
 
@@ -31,7 +54,7 @@ class AdminProductController extends Controller
         $title = 'Pets Care - Thêm sản phẩm mới';
         $brands = Brand::all();
         $categories = Category::where('type_category', '=', 'PRODUCT')->get();
-        return view('pages.admin.form_add_product', compact('title','brands', 'categories'));
+        return view('pages.admin.form_add_product', compact('title', 'brands', 'categories'));
     }
 
     /**
@@ -83,7 +106,7 @@ class AdminProductController extends Controller
     {
         $title = 'Pets Care - Chi tiết sản phẩm';
         $products = Product::where('id', $product->id)->with('brand', 'category', 'image_list')->paginate(10);
-        return view('pages.admin.product_detail', compact('title','product'));
+        return view('pages.admin.product_detail', compact('title', 'product'));
     }
 
     /**
@@ -174,5 +197,4 @@ class AdminProductController extends Controller
             return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
         }
     }
-
 }

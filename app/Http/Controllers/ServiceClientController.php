@@ -34,6 +34,13 @@ class ServiceClientController extends Controller
      */
     public function store(BookServiceRequest $request)
     {
+        $currentDateTime = date('Y.m.d H:i');
+        if ($request->start_at < $currentDateTime) {
+            return back()->with('error', "Vui lòng nhập thời gian hiện tại.");
+        } else{
+            redirect()->route('dich-vu-ca-nhan.index')->with('success', 'Đặt lịch dịch vụ thành công');
+        }
+        
         if(auth()->check()){
             $user_id = auth()->user()->id;
             $service = Service::where('id', $request->service_id)->first();
