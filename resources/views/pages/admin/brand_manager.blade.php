@@ -89,7 +89,7 @@
                                                     <tr>
 
                                                         <td class="id"><a href="javascript:void(0);"
-                                                                onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
+                                                                data-id="{{ $item->name }}"
                                                                 class="fw-medium link-primary">{{ $item->name }}</a>
                                                         </td>
 

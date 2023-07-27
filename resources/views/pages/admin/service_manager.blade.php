@@ -53,47 +53,21 @@
                                 @endif
                                 <form>
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xxl-10 col-sm-12">
                                             <div class="search-box">
                                                 <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm dịch vụ" value="{{$search}}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
-                                            <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
-                                                            id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <button type="submit" class="btn btn-primary w-100"
-                                                            onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                            </div>
+                                        <div class="col-xxl-2 col-sm-4">
+                                             <div>
+                                                    <button type="submit" class="btn btn-primary w-100"
+                                                     onclick="SearchData();"> <i
+                                                    class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
+                                             </div>
                                         </div>
+                                        <!--end col-->
                                     </div>
                                     <!--end row-->
                                 </form>
@@ -104,14 +78,7 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 42px">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck"></label>
-                                                        </div>
-                                                    </th>
+                                                   
                                                     <th scope="col">Tên dịch vụ</th>
                                                     <th scope="col">Hình Ảnh</th>
                                                     <th scope="col">Icon</th>
@@ -125,17 +92,8 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($services as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="" id="responsivetableCheck01" />
-                                                                <label class="form-check-label"
-                                                                    for="responsivetableCheck01"></label>
-                                                            </div>
-                                                        </th>
-                                                        
-                                                        <td class="name" onclick="ViewInvoice(this);" data-id="{{$item->name}}" class="fw-medium link-primary">{{$item->name}}</td>
-
+                                                     
+                                                        <td>{{ $item->name }}</td>
                                                         <td>
                                                             <div class="flex-shrink-0">
                                                                 <img src="{{ $item->image_service }}" alt=""
