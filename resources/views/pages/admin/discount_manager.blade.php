@@ -55,42 +55,36 @@
                                 @endif
                                 <form>
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search" placeholder="Tìm kiếm" name="search">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-4">
                                             <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
+                                                
                                                 <!--end col-->
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
+                                                            data-choices-search-false name="status"
                                                             id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
+                                                            <option value="ALL" selected>Tất cả</option>
+                                                            <option value="VALIDATE">Còn hạn sử dụng</option>
+                                                            <option value="INVALIDATE">Hết hạn sử dụng</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
-                                                        <button type="button" class="btn btn-primary w-100"
+                                                        <button type="submit" class="btn btn-primary w-100"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp
+                                                            dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -108,8 +102,7 @@
                                                 <tr>
                                                     <th scope="col" style="width: 46px">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="cardtableCheck" />
+
                                                             <label class="form-check-label" for="cardtableCheck"></label>
                                                         </div>
                                                     </th>
@@ -128,11 +121,14 @@
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
+
                                                             </div>
                                                         </th>
-                                                        <td>{{ $item->coupon_hash_id }}</a></td>
+                                                        <td class="id"><a href="javascript:void(0);"
+                                                                onclick="ViewInvoice(this);" data-id="{{ $item->coupon_hash_id }}"
+                                                                class="fw-medium link-primary">{{ $item->coupon_hash_id }}</a>
+                                                        </td>
+                                                        {{-- <td>{{ $item->coupon_hash_id }}</a></td> --}}
                                                         <td>{{ $item->coupon_name }}</td>
                                                         <td>{{ number_format($item->discount) }} VNĐ</td>
                                                         <td>{{ $item->start_at }}</td>
