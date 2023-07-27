@@ -58,6 +58,12 @@ Route::middleware('auth')->resource('thanh-toan', OrderController::class);
 Route::get('gio-hang', function () {
     return view('pages.client.cart');
 })->name('cart');
+Route::get('ve-chung-toi', function () {
+    return view('pages.client.about');
+})->name('about');
+Route::get('lien-he', function () {
+    return view('pages.client.contact');
+})->name('contact');
 
 Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
     Route::resources([
