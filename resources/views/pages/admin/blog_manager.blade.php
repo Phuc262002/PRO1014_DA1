@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -30,7 +30,7 @@
                                             <a href="{{ route('post.create') }}" class="btn btn-success add-btn"
                                                 id="create-btn"><i class="ri-add-line align-bottom me-1"></i> Thêm bài
                                                 viết</a>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -55,23 +55,29 @@
                                     <div class="row g-3">
                                         <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm tiêu đề" value="{{$search}}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xl-4">
                                             <div class="row g-3">
-                                                
+
                                                 <!--end col-->
                                                 <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
+                                                            data-choices-search-false name="status"
                                                             id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="Active"selected>Hoạt động</option>
-                                                            <option value="Block">Đã Ẩn</option>
+                                                            <option value="ALL"
+                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Trạng thái
+                                                            </option>
+                                                            <option value="ACTIVE"
+                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Hoạt động
+                                                            </option>
+                                                            <option value="INACTIVE"
+                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Bị chặn
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -79,9 +85,10 @@
 
                                                 <div class="col-sm-6">
                                                     <div>
-                                                        <button type="button" class="btn btn-primary w-100"
+                                                        <button type="submit" class="btn btn-primary w-100"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp
+                                                            dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -123,24 +130,29 @@
                                                                     name="chk_child" value="option1">
                                                             </div>
                                                         </th>
-                                                        <td>{{ $item->title}}</td>
+                                                        <td class="title"><a href="" onclick="ViewInvoice(this);" data-id="{{$item->title}}" class="fw-medium link-primary">{{$item->title}}</a>
+
                                                         <td>
                                                             <div class="flex-shrink-0">
                                                                 <img src="{{ $item->img_post }}" alt=""
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{{ $item->category->name}}</td>
-                                                        <td>{{ $item->user_post->name}}</td>
-                                                        <td>{{ $item->comment_count}}</td>
-                                                        <td> 
-                                                            @if ($item->status == true)
-                                                                <span class="badge bg-success">Hoạt động</span> 
-                                                            @else
-                                                                <span class="badge bg-danger"> Đã Ẩn</span>
-                                                             @endif
-                                                        </td>
-                                                        <td>    
+                                                        <td>{{ $item->category->name }}</td>
+                                                        <td>{{ $item->user_post->name }}</td>
+                                                        <td>{{ $item->comment_count }}</td>
+
+                                                        @if ($item->status == true)
+                                                            <td class="text-success">
+                                                                <span class="badge bg-success">Hoạt động</span>
+                                                            </td>
+                                                        @else
+                                                            <td class="text-danger">
+                                                                <span class="badge bg-danger">Bị chặn</span>
+                                                            </td>
+                                                        @endif
+
+                                                        <td>
                                                             <ul class="list-inline hstack gap-2 mb-0">
                                                                 <li class="list-inline-item" data-bs-toggle="tooltip"
                                                                     data-bs-trigger="hover" data-bs-placement="top"
@@ -182,9 +194,9 @@
                                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
                                                     colors="primary:#121331,secondary:#08a88a"
                                                     style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ customer We did
-                                                    not find any customer for you search.</p>
+                                                <h5 class="mt-2">Xin lỗi! Không tìm thấy kết quả</h5>
+                                                <p class="text-muted mb-0">Bạn vui lòng ấn áp dụng đề tìm kiếm trên toàn
+                                                    hện thống.</p>
                                             </div>
                                         </div>
                                     </div>

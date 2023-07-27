@@ -16,7 +16,11 @@ class AdminServiceController extends Controller
     {
         $title = 'Pets Care - Quản lý dịch vụ';
         $services = Service::paginate(10);
-        return view('pages.admin.service_manager', compact('title', 'services'));
+        $search = request()->input('search');
+        if($search != '') {
+            $services->where('name', 'like', "%$search%");
+        }
+        return view('pages.admin.service_manager', compact('title', 'services','search'));
     }
 
     /**

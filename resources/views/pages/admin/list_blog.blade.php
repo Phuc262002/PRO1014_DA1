@@ -85,8 +85,7 @@
                                                 <tr>
                                                     <th scope="col" style="width: 46px">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="cardtableCheck" />
+
                                                             <label class="form-check-label" for="cardtableCheck"></label>
                                                         </div>
                                                     </th>
@@ -101,8 +100,7 @@
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
+
                                                             </div>
                                                         </th>
                                                         <td class="id"><a href="javascript:void(0);"

@@ -17,12 +17,12 @@ class AdminCategoryBlogController extends Controller
     {
         $title = 'Pets Care - Quản lý danh mục bài viết';
         $search = request()->input('search');
-        $categories = Category::query();
+        $category = Category::query();       
         if ($search != '') {
-            $categories = $categories->where('name', 'like', "%$search%");
+            $category = $category->where('name', 'like', "%$search%");
         }
-        $categories = $categories->where(['type_category' => 'POST'])->paginate(10);
-        return view('pages.admin.list_blog', compact('title', 'categories', 'search'));
+        $categories =  $category->where(['type_category' => 'POST'])->paginate(10);
+        return view('pages.admin.list_blog', compact('title', 'categories','search','category'));
 
     }
 
