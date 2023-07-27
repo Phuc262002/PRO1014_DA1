@@ -16,8 +16,27 @@ class AdminCouponController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý mã giảm giá';
-        $counpon = Coupon::paginate(10);
-        return view('pages.admin.discount_manager', compact('title', 'counpon'));
+        $counpon = Coupon::query();
+        $status = request()->input('status') ? request()->input('status') : 'ALL';
+        $search = request()->input('search');
+        
+
+        if($search != '') {
+            $counpon->where('coupon_hash_id', 'like', "%$search%");
+        }
+
+        if($status != 'ALL'){
+            if($status == 'VALIDATE'){
+                $counpon->where('start_at', '<=', date('Y-m-d h:i:s'));
+                $counpon->where('end_at', '>=', date('Y-m-d h:i:s'));
+            }else if($status == 'INVALIDATE'){
+                $counpon->where('start_at', '<', date('Y-m-d h:i:s'));
+                $counpon->where('end_at', '<', date('Y-m-d h:i:s'));
+            }
+        }
+
+        $counpon =  $counpon->paginate(10);
+        return view('pages.admin.discount_manager', compact('title', 'counpon','search','status'));
     }
 
     /**
@@ -91,6 +110,20 @@ class AdminCouponController extends Controller
      */
     public function update(CouponRequest $request, Coupon $coupon)
     {
+        $currentDateTime = date('Y.m.d H:i');
+
+
+        // dd($currentDateTime, $request->start_at, $request->end_at);
+
+        // So sánh ngày bắt đầu giảm giá với ngày hiện tại
+        if ($request->start_at < $currentDateTime) {
+            return back()->with('error', "Ngày bắt đầu giảm giá không được nhỏ hơn ngày hiện tại.");
+        }
+
+        // So sánh ngày kết thúc giảm giá với ngày bắt đầu giảm giá
+        if ($request->end_at <= $request->start_at) {
+            return back()->with('error', "Ngày kết thúc giảm giá không được nhỏ hơn hoặc bằng ngày bắt đầu giảm giá.");
+        }
         $update_coupon = Coupon::updateOrCreate([
             'id' => $coupon->id,
         ], $request->all());
