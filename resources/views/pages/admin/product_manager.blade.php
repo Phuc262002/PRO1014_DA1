@@ -135,7 +135,7 @@
                                                         <td class="id"><a
                                                             href="{{ route('product.show', ['product' => $item->sku]) }}"
                                                             onclick="ViewInvoice(this);"
-                                                            data-id="{{ $item->order_hash_id }}"
+                                                            data-id="{{ $item->sku }}"
                                                             class="fw-medium link-primary">{{ $item->sku }}</a>
                                                     </td>
                                                         {{-- <td><a href="#" class="fw-medium">{{ $item->sku }}</a> --}}
