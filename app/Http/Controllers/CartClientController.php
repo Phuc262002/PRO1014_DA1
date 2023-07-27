@@ -19,7 +19,7 @@ class CartClientController extends Controller
         $title = 'Pets Care - Đơn hàng của tôi';
         $order = Order::where('user_id', auth()->user()->id)->with('user', 'address', 'payment', 'order_detail', 'coupon')->paginate(10);
         return view('pages.client.cart-detail', compact('title', 'order'));
-        // dd($order);
+        //dd($order);
     }
 
     /**

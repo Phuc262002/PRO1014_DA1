@@ -176,9 +176,11 @@
                                                         value="ACCEPTED">Đơn hàng chấp nhận</option>
                                                     <option {{ $status == 'CANCELED' ? 'selected' : '' }}
                                                         value="CANCELED">Đơn hàng hủy</option>
-                                                    <option {{ $status == 'PENDING' ? 'selected' : '' }} value="PENDING">
+                                                    <option {{ $status == 'PENDING' ? 'selected' : '' }} 
+                                                        value="PENDING">
                                                         Chờ thanh toán</option>
-                                                    <option {{ $status == 'HOLDING' ? 'selected' : '' }} value="HOLDING">
+                                                    <option {{ $status == 'HOLDING' ? 'selected' : '' }} 
+                                                        value="HOLDING">
                                                         Đơn hàng tạm giữ</option>
                                                 </select>
                                             </div>
@@ -248,8 +250,7 @@
                                                         <td class="status">
 
                                                             @if ($item->status == 'PENDING')
-                                                                <span
-                                                                    class="badge bg-primary opacity-75">{{ $item->status }}</span>
+                                                                <span class="badge bg-primary opacity-75">{{ $item->status }}</span>
                                                             @elseif($item->status == 'HOLDING')
                                                                 <span class="badge bg-warning">{{ $item->status }}</span>
                                                             @elseif($item->status == 'ACCEPTED')

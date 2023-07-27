@@ -126,14 +126,14 @@
                                                     <div class="single-input-item w-100 single-item-button m-t-30">
                                                         <div class="row w-100">
                                                             <div class="col-3">
-                                                                <button class="btn btn btn-primary rounded-4"
-                                                                    style="color: #fff;
-                                                        background-color: #28a745;">Lưu
-                                                                    thay đổi</button>
+                                                                <button class="btn btn btn-primary btn-hover-dark rounded-4">
+                                                                    Lưu thay đổi
+                                                                </button>
+                                                                    
                                                             </div>
                                                             <div class="col-3">
                                                                 <a href="{{ route('dia-chi.index') }}"
-                                                                    class="btn btn-danger rounded-4">
+                                                                    class="btn btn btn-danger btn-hover-dark rounded-4">
                                                                     Quay lại</a>
                                                             </div>
                                                         </div>
@@ -144,9 +144,10 @@
                                                         <div class="col-3">
                                                             <a href="javascript:deletePost({{ $inforUser->id }});"
                                                                 class="link-danger fs-15">
-                                                                <button class="btn btn btn-primary btn-hover-dark rounded-4"
-                                                                    style="color: #fff;
-                                                    background-color: #dc3545;">Xóa</button></a>
+                                                                <button class="btn btn btn-danger btn-hover-dark rounded-4">
+                                                                    Xóa địa chỉ
+                                                                </button>
+                                                            </a>
                                                             <form id="delete_form_{{ $inforUser->id }}"
                                                                 action="{{ route('dia-chi.destroy', ['dia_chi' => $inforUser->id]) }}"
                                                                 method="POST">

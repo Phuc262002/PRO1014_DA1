@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book_service;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,10 @@ class ServiceUserController extends Controller
      */
     public function index()
     {
-        return view('pages.client.service-detail');
+        $title = 'Pets Care - Quản lý dịch vụ';
+        $service_book = Book_service::with('user', 'service')->paginate(10);
+        return view('pages.client.service-detail', compact('title', 'service_book'));
+        //dd($service_book);
     }
 
     /**
@@ -34,7 +38,7 @@ class ServiceUserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(Book_service $service)
     {
         //
     }
@@ -42,7 +46,7 @@ class ServiceUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Book_service $service)
     {
         //
     }
@@ -50,7 +54,7 @@ class ServiceUserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Book_service $service)
     {
         //
     }
@@ -58,7 +62,7 @@ class ServiceUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(Book_service $service)
     {
         //
     }

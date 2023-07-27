@@ -16,14 +16,12 @@
                                 <h4 class="card-title mb-0 flex-grow-1">
                                     Sản phẩm chi tiết
                                 </h4>
+                                <a href="{{route('product.index')}}" class="btn btn-danger btn me-4"><i
+                                    class="ri-arrow-go-back-line align-bottom me-1"></i>Quay lại</a>
+                                    
                                 <form class="app-search d-none d-md-block p-0">
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="Tìm kiếm" autocomplete="off"
-                                            id="search-options" value="" />
-                                        <span class="mdi mdi-magnify search-widget-icon"></span>
-                                        <span
-                                            class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
-                                            id="search-close-options"></span>
+                                        
                                     </div>
                                 </form>
                                 <div class="flex-shrink-0"></div>

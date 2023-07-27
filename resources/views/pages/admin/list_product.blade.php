@@ -27,7 +27,7 @@
                                             <button class="btn btn-soft-danger" id="remove-actions"
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
-                                                id="create-btn" data-bs-target="#showModal"><i
+                                                id="create-btn" data-bs-target="#showModalCreate"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm danh mục sản
                                                 phẩm</button>
                                             {{-- <button type="button" class="btn btn-info"><i
@@ -52,11 +52,12 @@
                                         {{ $errors->first() }}
                                     </div>
                                 @endif
-                                <form>
+                                <form action="{{ route('category-product.index') }}">
                                     <div class="row g-3">
                                         <div class="col-xxl-10 col-sm-12">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search" name="search"
+                                                    value="{{ $search }}" placeholder="Tìm kiếm danh mục sản phẩm">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
@@ -64,10 +65,9 @@
 
                                         <div class="col-xxl-2 col-sm-4">
                                             <div>
-                                                <button type="button" class="btn btn-primary w-100"
-                                                    onclick="SearchData();"> <i
-                                                        class="ri-equalizer-fill me-2 align-bottom"></i>Áp
-                                                    dụng</button>
+                                                <button class="btn btn-primary w-100" type="submit">
+                                                    <i class="ri-equalizer-fill me-0 align-bottom"></i> Áp dụng
+                                                </button>
                                             </div>
                                         </div>
 
@@ -82,12 +82,10 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 42px">
+                                                    <th scope="col" style="width: 10px">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck"></label>
+                                                            <input class="form-check-input fs-15" type="checkbox"
+                                                                id="checkAll" value="option" />
                                                         </div>
                                                     </th>
                                                     <th scope="col">Tên danh mục</th>
@@ -101,13 +99,15 @@
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="" id="responsivetableCheck01" />
-                                                                <label class="form-check-label"
-                                                                    for="responsivetableCheck01"></label>
+                                                                <input class="form-check-input fs-15" type="checkbox"
+                                                                    name="checkAll" value="option1" />
                                                             </div>
                                                         </th>
-                                                        <td>{{ $item->name }}</td>
+                                                        <td class="id"><a href="javascript:void(0);"
+                                                                onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
+                                                                class="fw-medium link-primary">{{ $item->name }}</a>
+                                                        </td>
+                                                        {{-- <td>{{ $item->name }}</td> --}}
                                                         <td>{{ $item->description }}</td>
                                                         <td>{{ $item->slug }}</td>
 
@@ -147,9 +147,12 @@
                                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
                                                     colors="primary:#121331,secondary:#08a88a"
                                                     style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ customer We did
-                                                    not find any customer for you search.</p>
+                                                <h3 class="mt-2">Ops! Không tìm thấy thông tin</h3>
+                                                <h4>
+                                                    <p class="text-muted mb-0">Chúng tôi không tìm thấy thương hiệu từ
+                                                        thông
+                                                        tin bạn cung cấp.</p>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +162,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal fade" id="showModalCreate" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header bg-light p-3">
@@ -268,34 +271,7 @@
                                     </div>
                                 @endforeach
                                 <!-- Modal -->
-                                <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="btn-close" id="deleteRecord-close"
-                                                    data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mt-2 text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                                        colors="primary:#f7b84b,secondary:#f06548"
-                                                        style="width:100px;height:100px"></lord-icon>
-                                                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                        <h4>Are you sure ?</h4>
-                                                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove
-                                                            this record ?</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                    <button type="button" class="btn w-sm btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn w-sm btn-danger"
-                                                        id="delete-record">Yes, Delete It!</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <!--end modal -->
                             </div>
                         </div>
