@@ -54,7 +54,7 @@ Route::resource('binh-luan', CommentController::class);
 Route::resource('bai-viet', PostController::class);
 Route::get('bai-viet/{slug}', [PostController::class, 'getPosttDetail'])->name('bai-viet.detail');
 Route::resource('hoa-don', BillController::class);
-Route::middleware('auth')->resource('thanh-toan', OrderController::class);
+Route::middleware('auth', 'checkUserStatus')->resource('thanh-toan', OrderController::class);
 Route::get('gio-hang', function () {
     return view('pages.client.cart');
 })->name('cart');
@@ -65,13 +65,12 @@ Route::get('lien-he', function () {
     return view('pages.client.contact');
 })->name('contact');
 
-Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth', 'checkUserStatus']], function () {
     Route::resources([
         'thong-tin-ca-nhan' => UserController::class,
         'don-hang-ca-nhan' => CartClientController::class,
         'dich-vu-ca-nhan' => ServiceUserController::class,
         'dia-chi' => MapClientController::class,
-
     ]);
 
     Route::get('don-hang-ca-nhan/{bill_id}', [CartClientController::class, 'getBillDetail'])->name('don-hang-ca-nhan.bill_id');

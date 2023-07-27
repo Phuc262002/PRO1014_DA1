@@ -103,12 +103,14 @@ class LoginController extends Controller
                         'google_id' => $user_google->id,
                         'email_verified_at' => now(),
                         'image' => $user_google->avatar,
+                        'status' => 1,
+                        'remember_token' => $user_google->token,
                         'confirm' => 1,
                         'confirmation_code' => Str::random(6),
                         'confirmation_code_expired_in' => now()
                     ]);
                 } else {
-                    User::where([
+                    $user = User::where([
                         'email' => $user_google->email,
                         'google_id' => null,
                         'facebook_id' => null,
@@ -122,11 +124,6 @@ class LoginController extends Controller
                         'confirmation_code_expired_in' => now(),
                         'remember_token' => $user_google->token
                     ]);
-
-                    $user = User::where([
-                        'email' => $user_google->email,
-                        'google_id' => $user_google->id
-                    ])->first();
                 }
             }
         }

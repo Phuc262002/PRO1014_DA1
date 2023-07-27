@@ -15,8 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unique('order_hash_id', 50);
+            $table->string('order_hash_id', 50)->unique();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('address_id');
             $table->unsignedBigInteger('coupon_id')->nullable();
             $table->bigInteger('pre_total');
             $table->bigInteger('total');
