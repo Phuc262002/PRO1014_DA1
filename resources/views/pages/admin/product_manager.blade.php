@@ -1,5 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -53,44 +54,46 @@
                                         {{ $errors->first() }}
                                     </div>
                                 @endif
-                                <form>
+                                <form action="{{ route('product.index') }}">
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search" placeholder="Tìm kiếm sản phẩm"
+                                                value="{{ $search }}"  name="search">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-4">
                                             <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
+                                                
                                                 <!--end col-->
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
-                                                            id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
+                                                            data-choices-search-false name="status" id="idStatus">
+
+                                                            <option {{ $status == 'ALL' ? 'selected' : '' }} value="ALL"selected>
+                                                                Tất cả
+                                                            </option>
+                                                            <option {{ $status == 'ACTIVE' ? 'selected' : '' }}
+                                                                value="ACTIVE">Active
+                                                            </option>
+                                                            <option {{ $status == 'INACTIVE' ? 'selected' : '' }}
+                                                                value="INACTIVE">Disabled
+                                                            </option>
+                                                            {{-- <option value="Active">Hoạt động</option>
+                                                            <option value="Block">Chặn</option> --}}
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div>
-                                                        <button type="button" class="btn btn-primary w-100"
+                                                        <button class="btn btn-primary w-100" type="submit"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -106,12 +109,9 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 42px">
+                                                    <th scope="col" >
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck"></label>
+                                                            
                                                         </div>
                                                     </th>
                                                     <th scope="col">Sku</th>
@@ -129,15 +129,19 @@
                                                     <tr>
                                                         <th scope="row">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="" id="responsivetableCheck01" />
-                                                                <label class="form-check-label"
-                                                                    for="responsivetableCheck01"></label>
+                                                                    
                                                             </div>
                                                         </th>
-                                                        <td><a href="#" class="fw-medium">{{ $item->sku }}</a>
+                                                        <td class="id"><a
+                                                            href="{{ route('product.show', ['product' => $item->sku]) }}"
+                                                            onclick="ViewInvoice(this);"
+                                                            data-id="{{ $item->order_hash_id }}"
+                                                            class="fw-medium link-primary">{{ $item->sku }}</a>
+                                                    </td>
+                                                        {{-- <td><a href="#" class="fw-medium">{{ $item->sku }}</a> --}}
                                                         </td>
-                                                        <td>{{ $item->name }}</td>
+                                                        <td style="width: 700px;"><div class="d-inline-block text-wrap"
+                                                            style="width: 600px;">{{ $item->name }}</div></td>
                                                         <td>
                                                             <div class="flex-shrink-0">
                                                                 <img src="{{ $item->image_main }}" alt=""
@@ -148,16 +152,15 @@
                                                         <td>
                                                             @if ($item->discount_price > 0)
                                                                 {{ number_format($item->discount_price) }} VNĐ
-                                                            @else
-                                                                {{ number_format($item->discount_price) }}
+                                                            
                                                             @endif
                                                         </td>
                                                         <td>{{ $item->quantity }}</td>
-                                                        @if ($item->status == true)
+                                                        @if ($item->status == 1)
                                                             <td class="text-success">
                                                                 <span class="badge bg-success">Active</span>
                                                             </td>
-                                                        @else
+                                                            @else
                                                             <td class="text-danger">
                                                                 <span class="badge bg-danger">Disabled</span>
                                                             </td>
