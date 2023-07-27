@@ -41,7 +41,8 @@ class MapClientController extends Controller
         $validator = Validator::make($request->all(), [
             'fullname' => 'required|max:50',
             'address' => 'required|max:255',
-            'phone' => 'required|numeric|max:15'
+            'phone' => 'required|regex:/^[0-9]{10,15}$/'
+            // 'phone' => 'required|numeric|max:15'
         ],[
             'fullname.required' => 'Tên không được để trống',
             'fullname.max' => 'Tên không dài quá 50 kí tự',
@@ -115,7 +116,8 @@ class MapClientController extends Controller
         $validator = Validator::make($request->all(), [
             'fullname' => 'required|max:50',
             'address' => 'required|max:255',
-            'phone' => 'required|numeric|max:15'
+            'phone' => 'required|regex:/^[0-9]{10,15}$/'
+            // 'phone' => 'required|numeric|max:15'
         ],[
             'fullname.required' => 'Tên không được để trống',
             'fullname.max' => 'Tên không dài quá 50 kí tự',
