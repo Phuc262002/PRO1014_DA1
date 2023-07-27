@@ -15,8 +15,13 @@ class AdminCategoryProductController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý danh mục sản phẩm';
-        $categories = Category::where(['type_category' => 'PRODUCT'])->paginate(10);
-        return view('pages.admin.list_product', compact('title', 'categories'));
+        $search = request()->input('search');
+        $categories = Category::query();
+        if ($search != '') {
+            $categories = $categories->where('name', 'like', "%$search%");
+        }
+        $categories = $categories->where(['type_category' => 'PRODUCT'])->paginate(10);
+        return view('pages.admin.list_product', compact('title', 'categories', 'search'));
     }
 
     /**
