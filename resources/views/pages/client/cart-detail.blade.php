@@ -21,10 +21,10 @@
 
     <!-- My Account Section Start -->
     <div class="section section-margin">
-        <div class="container">
+        <div class="container-lg">
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-16">
 
                     <!-- My Account Page Start -->
                     <div class="myaccount-page-wrapper">
@@ -85,9 +85,9 @@
                                                                 <td>{{number_format($item->total)}}</td>
                                                                 <td>{{$item->status}}</td>
                                                                 <td><a href="{{ route('hoa-don.index') }}?bill_id={{$item->order_hash_id}}"
-                                                                        class="btn btn-dark btn-hover-primary btn-sm rounded-4">Bill</a>
+                                                                        class="btn btn-dark btn-hover-primary btn-sm rounded-4">Hóa đơn</a>
                                                                     <a href="{{ route('don-hang-ca-nhan.bill_id', ['bill_id' => $item->order_hash_id]) }}"
-                                                                        class="btn btn-dark btn-hover-primary btn-sm rounded-4">Chi tiết Bill</a>
+                                                                        class="btn btn-dark btn-hover-primary btn-sm rounded-4">Chi tiết hóa đơn</a>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

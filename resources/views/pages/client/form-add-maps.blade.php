@@ -107,13 +107,13 @@
                                                             name="fullname" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
-                                                        <label for="email" class="required m-b-5">Địa chỉ</label>
-                                                        <input type="text" id="email" placeholder="Địa chỉ"
+                                                        <label for="address" class="required m-b-5">Địa chỉ</label>
+                                                        <input type="text" id="address" placeholder="Địa chỉ"
                                                             name="address" />
                                                     </div>
                                                     <div class="single-input-item m-b-15">
-                                                        <label for="email" class="required m-b-5">Số điện thoại</label>
-                                                        <input type="number" id="email" placeholder="Số điện thoại"
+                                                        <label for="phone" class="required m-b-5">Số điện thoại</label>
+                                                        <input type="number" id="phone" placeholder="Số điện thoại"
                                                             name="phone" />
                                                     </div>
                                                     <div>
@@ -121,12 +121,25 @@
                                                         <label for="select" class="required m-b-5">Chọn làm địa chỉ mặc
                                                             định</label>
                                                     </div>
-                                                    <div class="single-input-item w-100 single-item-button m-t-30">
+                                                    <div class="m-t-30">
+                                                        <button class="btn btn btn-primary btn-hover-dark rounded-4" href="{{ route('dia-chi.index') }}">
+                                                            Lưu thay đổi
+                                                        </button>
+
+                                                        <a href="{{ route('dia-chi.index') }}">
+                                                            <div class="btn btn btn-danger btn-hover-dark rounded-4 ms-3">Quay lại </div>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                    
+                                                    {{-- <div class="single-input-item w-100 single-item-button m-t-30">
                                                         <div class="row w-100">
                                                             <div class="col-3">
                                                                 <button class="btn btn rounded-4"
                                                                     style="color: #fff;
                                                         background-color: #28a745;">
+                                                        f6ab49
+                                                        
                                                                     Thêm địa chỉ</button>
                                                             </div>
                                                             <div class="col-3">
@@ -134,7 +147,7 @@
                                                                     Quay lại</a>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </form>
 
                                             </div>

@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="section breadcrumb-area bg-name-bright">
         <div class="container">
@@ -23,21 +25,6 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                    @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-                    @if ($errors->any())
-                        <div class="alert alert-danger" role="alert">
-                            {{ $errors->first() }}
-                        </div>
-                    @endif
                     <!-- My Account Page Start -->
                     <div class="myaccount-page-wrapper">
                         <div class="row">
@@ -90,41 +77,26 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    @foreach ($service_book as $item)
                                                         <tr>
-                                                            <td>1</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Poodle</td>
-                                                            <td>12.8.2023</td>
-                                                            <td>13:00</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Đợi xử lý</td>
-                                                            <td>200.000</td>
-                                                            <td>Pending</td>
+                                                            <td>{{$item->book_service_hash_id}}</td>
+                                                            <td>{{$item->service->name}}</td>
+                                                            <td>{{$item->pet_name}}</td>
+                                                            <td>1{{$item->book_date}}</td>
+                                                            <td>{{$item->book_time}}</td>
+                                                            <td>{{$item->service->description}}</td>
+                                                            <td>{{$item->description}}</td>
+                                                            <td>{{$item->total_price}}</td>
+                                                            <td>{{$item->status}}</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Mèo Mun</td>
-                                                            <td>12.8.2023</td>
-                                                            <td>8:00</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Đặt thành công</td>
-                                                            <td>200.000</td>
-                                                            <td>Approve</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Poodle</td>
-                                                            <td>12.8.2023</td>
-                                                            <td>13:00</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Đợi xử lý</td>
-                                                            <td>200.000</td>
-                                                            <td>Pending</td>
-                                                        </tr>
+                                                    @endforeach                                                        
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <div class="pagination-wrap hstack gap-2">
+                                                    {{ $service_book->links() }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
