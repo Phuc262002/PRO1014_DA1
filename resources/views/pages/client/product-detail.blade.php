@@ -11,7 +11,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Chi Tiết Sản Phẩm</h2>
                         <ul>
-                            <li><a href="index.html">Trang Chủ</a></li>
+                            <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                             <li>Chi Tiết Sản Phẩm</li>
                         </ul>
                     </div>

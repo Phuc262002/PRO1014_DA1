@@ -16,8 +16,13 @@ class AdminCategoryBlogController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý danh mục bài viết';
-        $categories = Category::where(['type_category' => 'POST'])->paginate(10);
-        return view('pages.admin.list_blog', compact('title', 'categories'));
+        $search = request()->input('search');
+        $category = Category::query();       
+        if ($search != '') {
+            $category = $category->where('name', 'like', "%$search%");
+        }
+        $categories =  $category->where(['type_category' => 'POST'])->paginate(10);
+        return view('pages.admin.list_blog', compact('title', 'categories','search','category'));
 
     }
 

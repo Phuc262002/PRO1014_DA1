@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Chi tiết bài viết</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li>Chi tiết bài viết</li>
                         </ul>
                     </div>
