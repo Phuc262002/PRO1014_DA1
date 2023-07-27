@@ -12,7 +12,8 @@ class ServiceUserController extends Controller
      */
     public function index()
     {
-        return view('pages.client.service-detail');
+        $title = 'Pets Care - Quản lý dịch vụ';
+        return view('pages.client.service-detail', compact('title'));
     }
 
     /**

@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    {{ $title }}
+@endsection
 @section('content')
     <div class="section breadcrumb-area bg-name-bright">
         <div class="container">
@@ -100,29 +102,7 @@
                                                             <td>Đợi xử lý</td>
                                                             <td>200.000</td>
                                                             <td>Pending</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Mèo Mun</td>
-                                                            <td>12.8.2023</td>
-                                                            <td>8:00</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Đặt thành công</td>
-                                                            <td>200.000</td>
-                                                            <td>Approve</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Poodle</td>
-                                                            <td>12.8.2023</td>
-                                                            <td>13:00</td>
-                                                            <td>Cắt, tỉa</td>
-                                                            <td>Đợi xử lý</td>
-                                                            <td>200.000</td>
-                                                            <td>Pending</td>
-                                                        </tr>
+                                                        </tr>                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
