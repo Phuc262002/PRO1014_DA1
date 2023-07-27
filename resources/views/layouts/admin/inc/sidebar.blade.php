@@ -164,11 +164,11 @@
                                     Tất cả dịch vụ
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('service.create') }}" class="nav-link" data-key="t-team">
                                     Thêm dịch vụ
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -255,8 +255,7 @@
                     <div class="collapse menu-dropdown" id="sidebarCmt">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('comment.index') }}" class="nav-link"
-                                    data-key="t-starter">
+                                <a href="{{ route('comment.index') }}" class="nav-link" data-key="t-starter">
                                     Bình luận mới nhất
                                 </a>
                             </li>

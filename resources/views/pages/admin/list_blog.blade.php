@@ -28,10 +28,9 @@
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
-                                                    class="ri-add-line align-bottom me-1"></i>Thêm mã giảm giá</button>
-                                            {{-- <a href="{{ route('category-product.create') }}"
-                                                class="btn btn-success add-btn"><i
-                                                    class="ri-add-line align-bottom me-1"></i>Thêm danh mục bài viết</a> --}}
+                                                    class="ri-add-line align-bottom me-1"></i>Thêm danh mục bài
+                                                viết</button>
+
                                             {{-- <button type="button" class="btn btn-info"><i
                                                     class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
                                         </div>
@@ -54,49 +53,26 @@
                                         {{ $errors->first() }}
                                     </div>
                                 @endif
-                                <form>
+                                <form action="{{ route('category-blog.index') }}">
                                     <div class="row g-3">
-                                        <div class="col-xl-6">
+                                        <div class="col-xxl-10 col-sm-12">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm">
+                                                <input type="text" class="form-control search" name="search"
+                                                    value="{{ $search }}" placeholder="Tìm kiếm danh mục bài viết">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
-                                        <div class="col-xl-6">
-                                            <div class="row g-3">
-                                                <div class="col-sm-4">
-                                                    <div class="">
-                                                        <input type="text" class="form-control" id="datepicker-range"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            data-range-date="true" placeholder="Select date">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="choices-single-default"
-                                                            id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
 
-                                                <div class="col-sm-4">
-                                                    <div>
-                                                        <button type="button" class="btn btn-primary w-100"
-                                                            onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
+                                        <div class="col-xxl-2 col-sm-4">
+                                            <div>
+                                                <button class="btn btn-primary w-100" type="submit">
+                                                    <i class="ri-equalizer-fill me-0 align-bottom"></i> Áp dụng
+                                                </button>
                                             </div>
                                         </div>
+
+
                                     </div>
                                     <!--end row-->
                                 </form>
@@ -129,7 +105,11 @@
                                                                     name="chk_child" value="option1">
                                                             </div>
                                                         </th>
-                                                        <td>{{ $item->name }}</td>
+                                                        <td class="id"><a href="javascript:void(0);"
+                                                                onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
+                                                                class="fw-medium link-primary">{{ $item->name }}</a>
+                                                        </td>
+                                                        {{-- <td>{{ $item->name }}</td> --}}
                                                         <td>{{ $item->description }}</td>
                                                         <td>{{ $item->slug }}</td>
                                                         <td>
@@ -167,9 +147,12 @@
                                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
                                                     colors="primary:#121331,secondary:#08a88a"
                                                     style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ customer We did
-                                                    not find any customer for you search.</p>
+                                                <h3 class="mt-2">Ops! Không tìm thấy thông tin</h3>
+                                                <h4>
+                                                    <p class="text-muted mb-0">Chúng tôi không tìm thấy thương hiệu từ
+                                                        thông
+                                                        tin bạn cung cấp.</p>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
