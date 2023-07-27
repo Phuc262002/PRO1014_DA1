@@ -1,5 +1,7 @@
 @extends('layouts.auth.master')
-
+@section('title')
+    Pets Care - Xác thực email
+@endsection
 @section('content')
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->

@@ -22,7 +22,21 @@
     <!-- My Account Section Start -->
     <div class="section section-margin">
         <div class="container">
-
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    {{ $errors->first() }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-12">
                     <!-- My Account Page Start -->
@@ -32,7 +46,8 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài
+                                        khoản</a>
                                     <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
                                         Đơn hàng</a>
                                     <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
@@ -77,19 +92,19 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach ($service_book as $item)
-                                                        <tr>
-                                                            <td>{{$item->book_service_hash_id}}</td>
-                                                            <td>{{$item->service->name}}</td>
-                                                            <td>{{$item->pet_name}}</td>
-                                                            <td>1{{$item->book_date}}</td>
-                                                            <td>{{$item->book_time}}</td>
-                                                            <td>{{$item->service->description}}</td>
-                                                            <td>{{$item->description}}</td>
-                                                            <td>{{$item->total_price}}</td>
-                                                            <td>{{$item->status}}</td>
-                                                        </tr>
-                                                    @endforeach                                                        
+                                                        @foreach ($service_book as $item)
+                                                            <tr>
+                                                                <td>{{ $item->book_service_hash_id }}</td>
+                                                                <td>{{ $item->service->name }}</td>
+                                                                <td>{{ $item->pet_name }}</td>
+                                                                <td>1{{ $item->book_date }}</td>
+                                                                <td>{{ $item->book_time }}</td>
+                                                                <td>{{ $item->service->description }}</td>
+                                                                <td>{{ $item->description }}</td>
+                                                                <td>{{ $item->total_price }}</td>
+                                                                <td>{{ $item->status }}</td>
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>

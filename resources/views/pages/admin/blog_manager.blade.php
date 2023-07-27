@@ -22,8 +22,8 @@
                                     </div>
                                     <div class="col-sm-auto">
                                         <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button class="btn btn-soft-danger" id="remove-actions"
-                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                            {{-- <button class="btn btn-soft-danger" id="remove-actions"
+                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> --}}
                                             {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
                                                     class="ri-add-line align-bottom me-1"></i> Add Customer</button> --}}
@@ -55,7 +55,9 @@
                                     <div class="row g-3">
                                         <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm tiêu đề" value="{{$search}}">
+                                                <input type="text" class="form-control search bg-light border-light"
+                                                    name="search" placeholder="Tìm kiếm tiêu đề"
+                                                    value="{{ $search }}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
@@ -67,8 +69,7 @@
                                                 <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="status"
-                                                            id="idStatus">
+                                                            data-choices-search-false name="status" id="idStatus">
                                                             <option value="ALL"
                                                                 {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Trạng thái
                                                             </option>
@@ -104,14 +105,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 42px">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="responsivetableCheck" />
-                                                            <label class="form-check-label"
-                                                                for="responsivetableCheck"></label>
-                                                        </div>
-                                                    </th>
                                                     <th data-ordering="false">Tiêu đề</th>
                                                     <th data-ordering="false">Hình ảnh</th>
                                                     <th data-ordering="false">Danh mục</th>
@@ -124,13 +117,9 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($posts as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
-                                                        <td class="title"><a href="" onclick="ViewInvoice(this);" data-id="{{$item->title}}" class="fw-medium link-primary">{{$item->title}}</a>
+                                                        <td class="title"><a href="" onclick="ViewInvoice(this);"
+                                                                data-id="{{ $item->title }}"
+                                                                class="fw-medium link-primary">{{ $item->title }}</a>
 
                                                         <td>
                                                             <div class="flex-shrink-0">

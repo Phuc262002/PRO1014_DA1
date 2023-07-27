@@ -27,7 +27,7 @@
                                             <button class="btn btn-soft-danger" id="remove-actions"
                                                 onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                             <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
-                                                id="create-btn" data-bs-target="#showModal"><i
+                                                id="create-btn" data-bs-target="#showModalBlog"><i
                                                     class="ri-add-line align-bottom me-1"></i>Thêm danh mục bài
                                                 viết</button>
 
@@ -83,12 +83,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 46px">
-                                                        <div class="form-check">
-
-                                                            <label class="form-check-label" for="cardtableCheck"></label>
-                                                        </div>
-                                                    </th>
                                                     <th scope="col">Tên danh mục</th>
                                                     <th scope="col">Mô tả</th>
                                                     <th scope="col">Slug</th>
@@ -98,11 +92,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($categories as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-
-                                                            </div>
-                                                        </th>
                                                         <td class="id"><a href="javascript:void(0);"
                                                                 onclick="ViewInvoice(this);" data-id="{{ $item->name }}"
                                                                 class="fw-medium link-primary">{{ $item->name }}</a>
@@ -160,7 +149,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal fade" id="showModalBlog" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header bg-light p-3">
@@ -172,24 +161,26 @@
                                                 enctype="multipart/form-data" class="tablelist-form" autocomplete="off">
                                                 @csrf
                                                 <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label for="name" class="form-label">Tên danh mục</label>
-                                                        <input type="text" class="form-control" id="name"
-                                                            name="name" onchange="ChangeToSlug()">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="slug" class="form-label">Slug</label>
-                                                        <input type="text" class="form-control" id="slug"
-                                                            name="slug" slug>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="type_category" class="form-label">Thể loại</label>
-                                                        <input type="text" class="form-control" id="type_category"
-                                                            name="type_category" value="POST" readonly>
-                                                    </div>
-                                                    <div class="col-lg-12 mt-3">
-                                                        <label for="description" class="form-label">Mô tả</label>
-                                                        <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description"></textarea>
+                                                    <div class="row g-3">
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Tên danh mục</label>
+                                                            <input type="text" class="form-control" id="name"
+                                                                name="name" onchange="ChangeToSlug()">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="slug" class="form-label">Slug</label>
+                                                            <input type="text" class="form-control" id="slug"
+                                                                name="slug" slug>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="type_category" class="form-label">Thể loại</label>
+                                                            <input type="text" class="form-control" id="type_category"
+                                                                name="type_category" value="POST" readonly>
+                                                        </div>
+                                                        <div class="col-lg-12 mt-3">
+                                                            <label for="description" class="form-label">Mô tả</label>
+                                                            <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description"></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -226,14 +217,16 @@
                                                             <div class="mb-3">
                                                                 <label for="name" class="form-label">Tên tiêu đề
                                                                     Blog</label>
-                                                                <input type="text" class="form-control" id="name"
-                                                                    name="name" value="{{ $item->name }}"
-                                                                    onchange="ChangeToSlug()">
+                                                                <input type="text" class="form-control"
+                                                                    id="name{{ $item->id }}" name="name"
+                                                                    value="{{ $item->name }}"
+                                                                    onchange="ChangeToSlugEdit({{ $item->id }})">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="slug" class="form-label">Slug</label>
-                                                                <input type="text" class="form-control" id="slug"
-                                                                    name="slug" value="{{ $item->slug }}"slug>
+                                                                <input type="text" class="form-control"
+                                                                    id="slug{{ $item->id }}" name="slug"
+                                                                    value="{{ $item->slug }}"slug>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="type_category" class="form-label">Thể
@@ -326,6 +319,36 @@
             slug = slug.replace(/đ/gi, 'd');
             //Xóa các ký tự đặt biệt
             slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+        //Đổi khoảng trắng thành ký tự gạch ngang
+        slug = slug.replace(/ /gi, "-");
+        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-/gi, '-');
+        //Xóa các ký tự gạch ngang ở đầu và cuối
+        slug = '@' + slug + '@';
+        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+        //In slug ra textbox có id “slug”
+        document.getElementById('slug').value = slug;
+    }
+
+    function ChangeToSlugEdit(id) {
+        var slug;
+        //Lấy text từ thẻ input title 
+        slug = document.getElementById("name" + id).value;
+        slug = slug.toLowerCase();
+        //Đổi ký tự có dấu thành không dấu
+        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+        slug = slug.replace(/đ/gi, 'd');
+        //Xóa các ký tự đặt biệt
+        slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
             //Đổi khoảng trắng thành ký tự gạch ngang
             slug = slug.replace(/ /gi, "-");
             //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
@@ -338,7 +361,7 @@
             slug = '@' + slug + '@';
             slug = slug.replace(/\@\-|\-\@|\@/gi, '');
             //In slug ra textbox có id “slug”
-            document.getElementById('slug').value = slug;
+            document.getElementById('slug' + id).value = slug;
         }
     </script>
     <script>
