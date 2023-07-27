@@ -21,10 +21,10 @@
 
     <!-- My Account Section Start -->
     <div class="section section-margin">
-        <div class="container">
+        <div class="container-lg">
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-16">
 
                     <!-- My Account Page Start -->
                     <div class="myaccount-page-wrapper">

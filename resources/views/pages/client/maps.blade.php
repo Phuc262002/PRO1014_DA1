@@ -83,23 +83,22 @@
                                                             </address>
                                                             @if ($item->is_default == true)
                                                             <span class="badges" style="position: absolute; top: 10px; right: 10px; ">
-                                                                <span class="badge badge-success" style="color: #fff;
-                                                                background-color: #dc3545;">Mặc định</span>
+                                                                <span class="badge badge-success bg-danger" >Mặc định</span>
                                                             </span>
                                                                
                                                             @endif
                                                             <a href="{{ route('dia-chi.edit', ['dia_chi' => $item->id]) }}"
-                                                                class="btn btn btn-hover-primary rounded-4" style="color: #f3f6f9;
-                                                                background-color: #212529;"><i
-                                                                    class="fa fa-edit m-r-10"></i>Chỉnh sửa địa chỉ</a>
+                                                                class="btn btn btn-primary btn-hover-dark rounded-4">
+                                                                <i class="fa fa-edit m-r-10"></i>Chỉnh sửa địa chỉ</a>
                                                         </div>
                                                     </div>
                                                 @endforeach
 
                                             </div>
-                                            <a href="{{ route('dia-chi.create') }}" class="btn btn-primary btn-sm" style="color: #fff;
-                                            background-color: #28a745;">Thêm địa
-                                                chỉ</a>
+                                           
+                                            <a href="{{ route('dia-chi.create') }}" class="btn btn btn-primary btn-hover-dark rounded-4" >
+                                                Thêm địa chỉ
+                                            </a>
                                         </div>
                                     </div>
 
