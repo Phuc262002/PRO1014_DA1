@@ -70,14 +70,14 @@
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
                                                             data-choices-search-false name="status" id="idStatus">
-                                                            <option value="ALL"
-                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Trạng thái
+                                                            <option value="ALL" {{ $status == 'ALL' ? 'selected' : '' }}>
+                                                                Trạng thái
                                                             </option>
                                                             <option value="ACTIVE"
-                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Hoạt động
+                                                                {{ $status == 'ACTIVE' ? 'selected' : '' }}>Hoạt động
                                                             </option>
                                                             <option value="INACTIVE"
-                                                                {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Bị chặn
+                                                                {{ $status == 'INACTIVE' ? 'selected' : '' }}>Bị chặn
                                                             </option>
                                                         </select>
                                                     </div>

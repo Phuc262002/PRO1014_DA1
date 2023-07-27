@@ -56,23 +56,26 @@
                                     <div class="row g-3">
                                         <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm" name="search">
+                                                <input type="text" class="form-control search" placeholder="Tìm kiếm"
+                                                    name="search">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xl-4">
                                             <div class="row g-3">
-                                                
+
                                                 <!--end col-->
                                                 <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="status"
-                                                            id="idStatus">
-                                                            <option value="ALL" selected>Tất cả</option>
-                                                            <option value="VALIDATE">Còn hạn sử dụng</option>
-                                                            <option value="INVALIDATE">Hết hạn sử dụng</option>
+                                                            data-choices-search-false name="status" id="idStatus">
+                                                            <option {{ $status == 'ALL' ? 'selected' : '' }} value="ALL"
+                                                                selected>Tất cả</option>
+                                                            <option {{ $status == 'VALIDATE' ? 'selected' : '' }}
+                                                                value="VALIDATE">Còn hạn sử dụng</option>
+                                                            <option {{ $status == 'INVALIDATE' ? 'selected' : '' }}
+                                                                value="INVALIDATE">Hết hạn sử dụng</option>
                                                         </select>
                                                     </div>
                                                 </div>

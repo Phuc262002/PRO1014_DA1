@@ -27,7 +27,7 @@ class AdminProductController extends Controller
         $search = request()->input('search');
 
         if ($search != '') {
-            $products->where('sku', 'like', "%$search%");
+            $products->where('name', 'like', "%$search%");
         }
 
         if ($status != 'ALL') {
