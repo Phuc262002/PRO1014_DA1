@@ -133,7 +133,9 @@
                                                                     for="responsivetableCheck01"></label>
                                                             </div>
                                                         </th>
-                                                        <td>{{ $item->name }}</td>
+                                                        
+                                                        <td class="name" onclick="ViewInvoice(this);" data-id="{{$item->name}}" class="fw-medium link-primary">{{$item->name}}</td>
+
                                                         <td>
                                                             <div class="flex-shrink-0">
                                                                 <img src="{{ $item->image_service }}" alt=""

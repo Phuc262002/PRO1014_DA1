@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 @section('title')
-{{$title}}
+    {{ $title }}
 @endsection
 @section('content')
     <div class="main-content">
@@ -24,8 +24,8 @@
                                     </div>
                                     <div class="col-sm-auto">
                                         <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button class="btn btn-soft-danger" id="remove-actions"
-                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                            {{-- <button class="btn btn-soft-danger" id="remove-actions"
+                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> --}}
                                             {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
                                                 id="create-btn" data-bs-target="#showModal"><i
                                                     class="ri-add-line align-bottom me-1"></i> Add Customer</button>
@@ -55,20 +55,21 @@
                                     <div class="row g-3">
                                         <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search bg-light border-light" name="search" placeholder="Tìm kiếm tiêu đề" value="{{$search}}">
+                                                <input type="text" class="form-control search bg-light border-light"
+                                                    name="search" placeholder="Tìm kiếm tiêu đề"
+                                                    value="{{ $search }}">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xl-4">
                                             <div class="row g-3">
-                                                
+
                                                 <!--end col-->
                                                 <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-false name="status"
-                                                            id="idStatus">
+                                                            data-choices-search-false name="status" id="idStatus">
                                                             <option value="ALL"
                                                                 {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Trạng thái
                                                             </option>
@@ -78,7 +79,7 @@
                                                             <option value="INACTIVE"
                                                                 {{ $status == 'UNCONFIRMED' ? 'selected' : '' }}>Bị chặn
                                                             </option>
-                                                            
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -88,7 +89,8 @@
                                                     <div>
                                                         <button type="submit" class="btn btn-primary w-100"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp
+                                                            dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -104,13 +106,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 50px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="checkAll"
-                                                                value="option">
-                                                        </div>
-                                                    </th>
-
                                                     <th scope="col">Tên bài viết</th>
                                                     <th scope="col">Nội dung</th>
                                                     <th scope="col">Người gửi</th>
@@ -124,20 +119,14 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($comment as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
                                                         <td><a href="{{ route('bai-viet.detail', ['slug' => $item->post->slug]) }}"
-                                                            class="d-inline-block">{{ $item->post->title }}</a></td>
+                                                                class="d-inline-block">{{ $item->post->title }}</a></td>
                                                         <td>{{ $item->content }}</td>
                                                         <td>{{ $item->user->name }}</a></td>
                                                         <td>{{ $item->created_at }}</a></td>
 
 
-                                                        
+
                                                         @if ($item->status == true)
                                                             <td class="text-success">
                                                                 <span class="badge bg-success">Hoạt động</span>
@@ -147,12 +136,12 @@
                                                                 <span class="badge bg-danger">Bị chặn</span>
                                                             </td>
                                                         @endif
-                                                        </td>   
-                                                        
-                                                        
+                                                        </td>
 
 
-                                                        
+
+
+
                                                         <td>
                                                             <ul class="list-inline hstack gap-2 mb-0">
                                                                 <li class="list-inline-item edit" data-bs-toggle="tooltip"
@@ -216,15 +205,15 @@
                                                     @csrf
                                                     @method ( 'put' )
                                                     <div class="modal-body">
-                                                      
+
                                                         <!--end col-->
-                                                        
+
 
                                                         <div class="mb-3">
                                                             <label for="inputState" class="form-label">Trạng thái</label>
                                                             <select id="inputState" class="form-select" data-choices
                                                                 name="status" data-choices-sorting="true">
-                                                                
+
                                                                 @if ($item->status == true)
                                                                     <option selected value="1">Hoạt động</option>
                                                                     <option value="0">Bị chặn</option>
@@ -235,7 +224,7 @@
 
                                                             </select>
                                                         </div>
-                                                
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <div class="hstack gap-2 justify-content-end">

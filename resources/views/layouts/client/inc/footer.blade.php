@@ -24,10 +24,10 @@
                      <div class="single-footer-widget">
                          <h2 class="widget-title">Liên kết</h2>
                          <ul class="widget-list">
-                             <li><a href="wishlist.html">Liên hệ chúng tôi</a></li>
-                             <li><a href="contact.html">Chính sách đổi trả</a></li>
-                             <li><a href="contact.html">Cửa hàng trực tuyến</a></li>
-                             <li><a href="contact.html">Điều khoản dịch vụ</a></li>
+                             <li><a href="{{ route('contact') }}">Liên hệ chúng tôi</a></li>
+                             <li><a href="#">Chính sách đổi trả</a></li>
+                             <li><a href="#">Cửa hàng trực tuyến</a></li>
+                             <li><a href="#">Điều khoản dịch vụ</a></li>
                          </ul>
                      </div>
                  </div>
@@ -35,10 +35,10 @@
                      <div class="single-footer-widget">
                          <h2 class="widget-title">Trợ giúp</h2>
                          <ul class="widget-list">
-                             <li><a href="wishlist.html">Danh sách yêu thích</a></li>
-                             <li><a href="contact.html">Các gói giá</a></li>
-                             <li><a href="contact.html">Tra cứu đơn hàng</a></li>
-                             <li><a href="contact.html">Hỗ trợ hoàn tiền</a></li>
+                             <li><a href="#">Danh sách yêu thích</a></li>
+                             <li><a href="#">Các gói giá</a></li>
+                             <li><a href="#">Tra cứu đơn hàng</a></li>
+                             <li><a href="#">Hỗ trợ hoàn tiền</a></li>
                          </ul>
                      </div>
                  </div>

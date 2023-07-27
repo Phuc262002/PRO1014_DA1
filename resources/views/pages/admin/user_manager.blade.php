@@ -22,14 +22,6 @@
                                             <h5 class="card-title mb-0">Tất cả người dùng</h5>
                                         </div>
                                     </div>
-                                    <div class="col-sm-auto">
-                                        <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button class="btn btn-soft-danger" id="remove-actions"
-                                                onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                            {{-- <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add Customer</button>
-                                            <button type="button" class="btn btn-info"><i class="ri-file-download-line align-bottom me-1"></i> Import</button> --}}
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="card-body border-bottom-dashed border-bottom">
@@ -131,13 +123,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 50px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="checkAll"
-                                                                value="option">
-                                                        </div>
-                                                    </th>
-
                                                     <th>ID</th>
                                                     <th>Người dùng</th>
                                                     <th>Email</th>
@@ -151,12 +136,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($users as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
                                                         <td>{{ $item->id }}</a></td>
                                                         <td>
                                                             <div class="d-flex gap-2 align-items-center">

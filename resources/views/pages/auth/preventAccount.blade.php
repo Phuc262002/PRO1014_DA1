@@ -1,14 +1,16 @@
 @extends('layouts.auth.master')
-
+@section('title')
+    Pets Care - Tài khoản bị chặn
+@endsection
 @section('content')
-
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
         <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
             <div class="bg-overlay"></div>
 
             <div class="shape">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 1440 120">
                     <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
                 </svg>
             </div>
@@ -22,7 +24,7 @@
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
                                 <a href="index.html" class="d-inline-block auth-logo">
-                                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="" height="200">
+                                    <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="200">
                                 </a>
                             </div>
                         </div>
@@ -43,7 +45,8 @@
                                     <h4>Tài khoản này đã bị khóa!</h4>
                                     <p class="text-muted mx-4">Vui lòng liên hệ quản trị viên Petscare để kháng cáo.</p>
                                     <div class="mt-4">
-                                        <a href="{{route('home')}}" class="btn btn-danger w-100">Quay lại trang trang chủ</a>
+                                        <a href="{{ route('home') }}" class="btn btn-danger w-100">Quay lại trang trang
+                                            chủ</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,5 +61,4 @@
             <!-- end container -->
         </div>
         <!-- end auth page content -->
-
-        @endsection
+    @endsection

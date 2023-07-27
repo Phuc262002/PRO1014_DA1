@@ -1,7 +1,7 @@
 @extends('layouts.client.master')
-<link href="{{asset('assets/css/services/style.css')}}" rel="stylesheet">
-<link href="{{asset('assets/css/services/reponsive.css')}}" rel="stylesheet">
-<link href="{{asset('assets/css/services/bootstrap.css')}}" rel="stylesheet">
+<link href="{{ asset('assets/css/services/style.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/services/reponsive.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/services/bootstrap.css') }}" rel="stylesheet">
 
 @section('title')
     {{ $title }}
@@ -16,7 +16,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="breadcrumb-title">Dịch Vụ</h2>
                         <ul>
-                            <li><a href="{{route('home')}}">Trang Chủ</a></li>
+                            <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                             <li>Dịch vụ</li>
                         </ul>
                     </div>
@@ -29,29 +29,29 @@
             <!-- Breadcrumb Area End -->
             <div class="row">
                 @foreach ($data_services as $item)
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service hvr-float-shadow">
-                        <figure><a href="services-detail.html"><img src="{{$item->image_service}}" alt="Images"></a>
-                        </figure>
-                        <div class="service-text">
-                            <div class="icon"><i class="{{$item->icon}}"></i></div> 
-                            <h4><a href="services-detail.html">{{$item->name}}</a></h4>
-                            <p>{{$item->description}}</p>
-                            <p><span class="price">
-                                @if ($item->discount_price > 0)
-                                    <strong
-                                        class="new">{{ number_format($item->discount_price) }} đ</strong>
-                                    <del class="old">{{ number_format($item->price) }} đ</del>
-                                @else
-                                    <span class="new">{{ number_format($item->price) }} đ</span>
-                                @endif
-                            </span></p>
-                               <a href="{{route('dich-vu.create')}}?service_id={{$item->id}}"><button  type="button" class="btn btn-warning">Đặt lịch</button></a>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service hvr-float-shadow">
+                            <figure><a href="#"><img src="{{ $item->image_service }}" alt="Images"></a>
+                            </figure>
+                            <div class="service-text">
+                                <div class="icon"><i class="{{ $item->icon }}"></i></div>
+                                <h4><a href="#">{{ $item->name }}</a></h4>
+                                <p>{{ $item->description }}</p>
+                                <p><span class="price">
+                                        @if ($item->discount_price > 0)
+                                            <strong class="new">{{ number_format($item->discount_price) }} đ</strong>
+                                            <del class="old">{{ number_format($item->price) }} đ</del>
+                                        @else
+                                            <span class="new">{{ number_format($item->price) }} đ</span>
+                                        @endif
+                                    </span></p>
+                                <a href="{{ route('dich-vu.create') }}?service_id={{ $item->id }}"><button
+                                        type="button" class="btn btn-warning">Đặt lịch</button></a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-                
+
                 {{-- <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="service hvr-float-shadow">
                         <figure><a href="services-detail.html"><img src="assets/images/services/2.jpg" alt="Images"></a>
@@ -151,24 +151,23 @@
                     </div>
                 </div> --}}
             </div>
-            
-            
+
+
         </div>
     </section>
- 
+
     <!--/service_area-->
     <div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
 
-    <script src="{{asset('assets/js/services/jquery.js')}}"></script>
-    <script src="{{asset('assets/js/services/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/services/jquery.countTo.js')}}"></script>
-    <script src="{{asset('assets/js/services/isotope.js')}}"></script>
-    <script src="{{asset('assets/js/services/jquery.appear.js')}}"></script>
-    <script src="{{asset('assets/js/services/html5lightbox/html5lightbox.js')}}"></script>
-    <script src="{{asset('assets/js/services/owl.js')}}"></script>
-    <script src="{{asset('assets/js/services/validate.js')}}"></script>
-    <script src="{{asset('assets/js/services/wow.js')}}"></script>
+    <script src="{{ asset('assets/js/services/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/services/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/services/jquery.countTo.js') }}"></script>
+    <script src="{{ asset('assets/js/services/isotope.js') }}"></script>
+    <script src="{{ asset('assets/js/services/jquery.appear.js') }}"></script>
+    <script src="{{ asset('assets/js/services/html5lightbox/html5lightbox.js') }}"></script>
+    <script src="{{ asset('assets/js/services/owl.js') }}"></script>
+    <script src="{{ asset('assets/js/services/validate.js') }}"></script>
+    <script src="{{ asset('assets/js/services/wow.js') }}"></script>
 
-    <script src="{{asset('assets/js/services/custom.js')}}"></script>
-
+    <script src="{{ asset('assets/js/services/custom.js') }}"></script>
 @endsection
