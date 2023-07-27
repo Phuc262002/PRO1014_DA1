@@ -87,6 +87,7 @@
                                                             <th>Giờ đặt</th>
                                                             <th>Mô tả</th>
                                                             <th>Ghi chú</th>
+                                                            <th>Ghi chú của Pets Care</th>
                                                             <th>Tổng tiền</th>
                                                             <th>Trạng thái</th>
                                                         </tr>
@@ -101,6 +102,7 @@
                                                                 <td>{{ $item->book_time }}</td>
                                                                 <td>{{ $item->service->description }}</td>
                                                                 <td>{{ $item->description }}</td>
+                                                                <td>{{ $item->admin_note }}</td>
                                                                 <td>{{ $item->total_price }}</td>
                                                                 <td>{{ $item->status }}</td>
                                                             </tr>

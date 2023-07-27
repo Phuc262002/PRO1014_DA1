@@ -57,7 +57,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user, $thong_tin_ca_nhan = null)
     {
-        
+        if ($request->name == null) {
+            return back()->with('error', 'Vui lòng nhập tên của bạn');
+        }
+
         $user = User::find($thong_tin_ca_nhan);
         // dd($request->all(), $user);
 

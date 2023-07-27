@@ -177,7 +177,7 @@ class AdminProductController extends Controller
                 return redirect()->route('product.index')->with('error', "Xóa sản phẩm thất bại.");
             }
         } catch (\Exception $e) {
-            return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+            return back()->with('error', "Đã xảy ra lỗi: Hiện sản phẩm này không thể xóa. Bạn vui lòng thay đổi trạng thái sản phẩm thành DISABLED.");
         }
     }
 
@@ -194,7 +194,7 @@ class AdminProductController extends Controller
                 return back()->with('error', "Xóa ảnh thất bại.");
             }
         } catch (\Exception $e) {
-            return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+            return back()->with('error', "Đã xảy ra lỗi: Hiện ảnh này không thể xóa.");
         }
     }
 }

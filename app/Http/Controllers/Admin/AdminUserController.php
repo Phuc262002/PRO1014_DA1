@@ -11,48 +11,48 @@ class AdminUserController extends Controller
     /**
      * Display a listing of the resource.
      */
-public function index()
-{
-    $title = 'Pets Care - Quản trị người dùng';
-    $users = User::query();
+    public function index()
+    {
+        $title = 'Pets Care - Quản trị người dùng';
+        $users = User::query();
 
-    $search = request()->query('search');
-    $confirm = request()->query('confirm');
-    $user_type = request()->query('user_type');
-    $status = request()->query('status');
+        $search = request()->query('search');
+        $confirm = request()->query('confirm');
+        $user_type = request()->query('user_type');
+        $status = request()->query('status');
 
-    // dd($search, $confirm, $user_type, $status);
+        // dd($search, $confirm, $user_type, $status);
 
-    if ($search) {
-        $users = $users->where('name', 'LIKE', "%{$search}%");
-    }
-
-    if ($confirm && $confirm !== 'ALL') {
-        if($confirm === 'CONFIRMED'){
-            $users = $users->where(['confirm' => true]);
-        }else if($confirm === 'UNCONFIRMED'){
-            $users = $users->where(['confirm' => false]);
+        if ($search) {
+            $users = $users->where('name', 'LIKE', "%{$search}%");
         }
-    }
 
-    if ($user_type && $user_type !== 'ALL') {
-        if($user_type === 'ADMIN'){
-            $users = $users->where(['is_admin' => true]);
-        }else if($user_type === 'USER'){
-            $users = $users->where(['is_admin' => false]);
+        if ($confirm && $confirm !== 'ALL') {
+            if ($confirm === 'CONFIRMED') {
+                $users = $users->where(['confirm' => true]);
+            } else if ($confirm === 'UNCONFIRMED') {
+                $users = $users->where(['confirm' => false]);
+            }
         }
-    }
 
-    if ($status && $status !== 'ALL') {
-        if ($status === 'INACTIVE') {
-            $users = $users->where(['status' => false]);
-        } else if ($status === 'ACTIVE') {
-            $users = $users->where(['status' => true]);
+        if ($user_type && $user_type !== 'ALL') {
+            if ($user_type === 'ADMIN') {
+                $users = $users->where(['is_admin' => true]);
+            } else if ($user_type === 'USER') {
+                $users = $users->where(['is_admin' => false]);
+            }
         }
+
+        if ($status && $status !== 'ALL') {
+            if ($status === 'INACTIVE') {
+                $users = $users->where(['status' => false]);
+            } else if ($status === 'ACTIVE') {
+                $users = $users->where(['status' => true]);
+            }
+        }
+        $users = $users->orderBy('id', 'DESC')->paginate(10)->withQueryString();
+        return view('pages.admin.user_manager', compact('title', 'users', 'search', 'confirm', 'user_type', 'status'));
     }
-    $users = $users->orderBy('id', 'DESC')->paginate(10)->withQueryString();
-    return view('pages.admin.user_manager', compact('title', 'users', 'search', 'confirm', 'user_type', 'status'));
-}
 
 
     /**
@@ -118,7 +118,7 @@ public function index()
                 return back()->with('error', "Xóa thất bại.");
             }
         } catch (\Exception $e) {
-            return back()->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+            return back()->with('error', "Đã xảy ra lỗi: Hiện tài khoản không thể xóa. Bạn vui lòng thay đổi trạng thái người dùng thành BỊ CHẶN.");
         }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use Illuminate\Support\Facades\Validator;
 
 class AdminBannerController extends Controller
 {
@@ -31,6 +32,26 @@ class AdminBannerController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'img_banner' => 'required',
+            'introduction' => 'required|max:255',
+            'title' => 'required|max:255'
+            // 'phone' => 'required|numeric|max:15'
+        ], [
+            'img_banner.required' => 'Ảnh không được để trống',
+            'introduction.required' => 'Nội dung không được để trống',
+            'introduction.max' => 'Nội dung không dài quá 255 kí tự',
+            'title.required' => 'Tiêu đề không được để trống',
+            'title.max' => 'Tiêu đề không dài quá 255 kí tự',
+
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error', $validator->errors()->first());
+        }
+        if ($request->img_banner == 'Chưa có ảnh nào được chọn...') {
+            return back()->with('error', "Vui lòng chọn ảnh.");
+        }
         $banner = Banner::create($request->all());
 
         if ($banner) {
@@ -48,7 +69,7 @@ class AdminBannerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Diplay the specified resource.
      */
     public function show(Banner $banner)
     {
@@ -69,6 +90,23 @@ class AdminBannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
+        $validator = Validator::make($request->all(), [
+            'img_banner' => 'required',
+            'introduction' => 'required|max:255',
+            'title' => 'required|max:255'
+            // 'phone' => 'required|numeric|max:15'
+        ], [
+            'img_banner.required' => 'Ảnh không được để trống',
+            'introduction.required' => 'Nội dung không được để trống',
+            'introduction.max' => 'Nội dung không dài quá 255 kí tự',
+            'title.required' => 'Tiêu đề không được để trống',
+            'title.max' => 'Tiêu đề không dài quá 255 kí tự',
+
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error', $validator->errors()->first());
+        }
         $update_banner = Banner::updateOrCreate([
             'id' => $banner->id,
         ], $request->all());

@@ -65,21 +65,30 @@ class MapClientController extends Controller
                 'address' => $request->address
             ]);
 
-            if ($request->is_default) {
-                $address = Information_user::all();
-                foreach ($address as $item) {
-                    if ($item->id == $add_address->id) {
-                        $item->is_default = true;
-                        $item->save();
-                    } else {
-                        $item->is_default = false;
-                        $item->save();
-                    }
-                }
-            } else {
-                $add_address->is_default = false;
+            $user_address_list = Information_user::where('user_id', auth()->user()->id)->count();
+            if ($user_address_list == 1) {
+                $add_address->is_default = true;
                 $add_address->save();
+            } else {
+                if ($request->is_default) {
+                    $address = Information_user::all();
+                    foreach ($address as $item) {
+                        if ($item->id == $add_address->id) {
+                            $item->is_default = true;
+                            $item->save();
+                        } else {
+                            $item->is_default = false;
+                            $item->save();
+                        }
+                    }
+                } else {
+                    $add_address->is_default = false;
+                    $add_address->save();
+                }
+
             }
+
+
 
             if ($add_address) {
                 return redirect()->route('dia-chi.index')->with('success', 'Thêm địa chỉ thành công');

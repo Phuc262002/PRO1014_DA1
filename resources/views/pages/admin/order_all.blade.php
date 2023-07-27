@@ -176,11 +176,9 @@
                                                         value="ACCEPTED">Đơn hàng chấp nhận</option>
                                                     <option {{ $status == 'CANCELED' ? 'selected' : '' }}
                                                         value="CANCELED">Đơn hàng hủy</option>
-                                                    <option {{ $status == 'PENDING' ? 'selected' : '' }} 
-                                                        value="PENDING">
+                                                    <option {{ $status == 'PENDING' ? 'selected' : '' }} value="PENDING">
                                                         Chờ thanh toán</option>
-                                                    <option {{ $status == 'HOLDING' ? 'selected' : '' }} 
-                                                        value="HOLDING">
+                                                    <option {{ $status == 'HOLDING' ? 'selected' : '' }} value="HOLDING">
                                                         Đơn hàng tạm giữ</option>
                                                 </select>
                                             </div>
@@ -250,7 +248,8 @@
                                                         <td class="status">
 
                                                             @if ($item->status == 'PENDING')
-                                                                <span class="badge bg-primary opacity-75">{{ $item->status }}</span>
+                                                                <span
+                                                                    class="badge bg-primary opacity-75">{{ $item->status }}</span>
                                                             @elseif($item->status == 'HOLDING')
                                                                 <span class="badge bg-warning">{{ $item->status }}</span>
                                                             @elseif($item->status == 'ACCEPTED')
@@ -365,15 +364,18 @@
                                     <label for="status-field" class="form-label">Tình trạng</label>
                                     <select class="form-control" data-choices data-choices-search-false name="status"
                                         id="status-field" required>
-                                        <option {{ $status == 'ACCEPTED' ? 'selected' : '' }} value="ACCEPTED">Chấp nhận
-                                            đơn</option>
-                                        <option {{ $status == 'COMPLETED' ? 'selected' : '' }} value="COMPLETED">Hoàn
+                                        <option {{ $item->status == 'ACCEPTED' ? 'selected' : '' }} value="ACCEPTED">Chấp
+                                            nhận đơn</option>
+                                        <option {{ $item->status == 'COMPLETED' ? 'selected' : '' }} value="COMPLETED">
+                                            Hoàn
                                             thành đơn</option>
-                                        <option {{ $status == 'CANCELED' ? 'selected' : '' }} value="CANCELED">Hủy đơn
+                                        <option {{ $item->status == 'CANCELED' ? 'selected' : '' }} value="CANCELED">Hủy
+                                            đơn
                                         </option>
-                                        <option {{ $status == 'PENDING' ? 'selected' : '' }} value="PENDING">Chờ thanh
+                                        <option {{ $item->status == 'PENDING' ? 'selected' : '' }} value="PENDING">Chờ
+                                            thanh
                                             toán</option>
-                                        <option {{ $status == 'HOLDING' ? 'selected' : '' }} value="HOLDING">Tạm giữ
+                                        <option {{ $item->status == 'HOLDING' ? 'selected' : '' }} value="HOLDING">Tạm giữ
                                         </option>
                                     </select>
                                 </div>

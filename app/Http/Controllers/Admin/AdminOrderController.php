@@ -16,20 +16,21 @@ class AdminOrderController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý đơn hàng';
-        $order = Order::with('user', 'address', 'payment', 'order_detail','coupon');
-        $order_complete = Order::with('user', 'address', 'payment', 'order_detail','coupon');
-        $order_cancel = Order::with('user', 'address', 'payment', 'order_detail','coupon');
-        $order_pending = Order::with('user', 'address', 'payment', 'order_detail','coupon');
+        $order = Order::with('user', 'address', 'payment', 'order_detail', 'coupon');
+        $order_count = Order::with('user', 'address', 'payment', 'order_detail', 'coupon')->get();
+        $order_complete = Order::with('user', 'address', 'payment', 'order_detail', 'coupon');
+        $order_cancel = Order::with('user', 'address', 'payment', 'order_detail', 'coupon');
+        $order_pending = Order::with('user', 'address', 'payment', 'order_detail', 'coupon');
 
         $status = request()->input('status') ? request()->input('status') : 'ALL';
         $search = request()->input('search');
         $calendar = request()->input('calendar');
 
-        if($search != '') {
+        if ($search != '') {
             $order->where('order_hash_id', 'like', "%$search%");
         }
 
-        if($calendar != '') {
+        if ($calendar != '') {
             $calendar_ = explode(' đến ', $calendar);
 
             $calendar_start = str_replace(["Tháng ", ",", " "], ["", "", "-"], $calendar_[0]);
@@ -45,17 +46,17 @@ class AdminOrderController extends Controller
             $order_pending->whereBetween('created_at', [$calendar_start, $calendar_end]);
         }
 
-        if($status != 'ALL') {
+        if ($status != 'ALL') {
             $order->where('status', $status);
         }
-        $order_count = $order->get();
         $order = $order->paginate(10);
 
         $order_complete = $order_complete->where('status', 'COMPLETED')->get();
         $order_cancel = $order_cancel->where('status', 'CANCELED')->get();
         $order_pending = $order_pending->where('status', 'PENDING')->get();
 
-        return view('pages.admin.order_all', compact('title', 'order', 'status', 'search', 'calendar', 'order_count','order_complete', 'order_cancel','order_pending'));
+
+        return view('pages.admin.order_all', compact('title', 'order', 'status', 'search', 'calendar', 'order_count', 'order_complete', 'order_cancel', 'order_pending'));
     }
 
     /**
@@ -71,7 +72,7 @@ class AdminOrderController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -82,9 +83,9 @@ class AdminOrderController extends Controller
         $title = 'Pets Care - Thông tin đơn hàng';
         $order = Order::where('id', $order->id)->with('user', 'address', 'payment', 'order_detail', 'coupon')->first();
         $order_detail_list = Order_detail::where('order_id', $order->id)->with('product', 'order')->get();
-        return view('pages.admin.order_details', compact('title','order', 'order_detail_list'));
+        return view('pages.admin.order_details', compact('title', 'order', 'order_detail_list'));
         // dd($order, $order_detail_list);
-       
+
     }
 
     /**
@@ -104,11 +105,11 @@ class AdminOrderController extends Controller
         $order = Order::updateOrCreate([
             'id' => $order->id,
         ], $request->all());
-        
+
         if ($order) {
-            
+
             return back()->with('success', "Thay đổi thành công.");
- 
+
         } else {
             return back()->with('error', "Thay đổi thất bại.");
         }
