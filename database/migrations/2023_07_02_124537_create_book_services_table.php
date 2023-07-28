@@ -16,7 +16,7 @@ class CreateBookServicesTable extends Migration
         Schema::create('book_services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unique('book_service_hash_id', 50);
+            $table->string('book_service_hash_id', 50)->unique();
             $table->unsignedBigInteger('service_id');
             $table->string('pet_name', 50);
             $table->date('book_date');

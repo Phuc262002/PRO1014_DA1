@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title')</title>
+    <meta name="description" content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
+    <meta property="og:url" content="{{ asset('assets/images/logo/logo.png') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pets Care | Chúng tôi luôn đồng hành cùng bạn" />
+    <meta property="og:description" content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
+    <meta property="og:image" content="{{ asset('assets/images/logo/logo.png') }}" />
+
+    <meta property="twitter:card" content="Pets Care | Chúng tôi luôn đồng hành cùng bạn" />
+    <meta property="twitter:title" content="Pets Care | Chúng tôi luôn đồng hành cùng bạn" />
+    <meta property="twitter:description" content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
+    <meta property="twitter:image" content="{{ asset('assets/images/logo/logo.png') }}" />
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
@@ -56,8 +67,8 @@
                 <div class="row align-items-center">
 
                     <!-- Header Top Message Start -->
-                    <div class="col-12 col-lg-6">
-                        <div class="header-top-msg-wrapper">
+                    <div class="col-12 col-lg-12">
+                        <div class="header-top-msg-wrapper text-center">
                             <p class="header-top-message">Chào mừng đến với Pets Care !</p>
                         </div>
                     </div>
@@ -133,9 +144,10 @@
                                     <form class="header-search-form" action="{{ route('san-pham.index') }}">
                                         <input type="text" class="header-search-input" name="search"
                                             placeholder="Nhập tên sản phẩm">
-                                            @foreach(request()->query() as $key => $value)
-                                            @if($key != 'search')
-                                                <input type="hidden" name="{{$key}}" value="{{$value}}">
+                                        @foreach (request()->query() as $key => $value)
+                                            @if ($key != 'search')
+                                                <input type="hidden" name="{{ $key }}"
+                                                    value="{{ $value }}">
                                             @endif
                                         @endforeach
                                         <button class="header-search-button"><i

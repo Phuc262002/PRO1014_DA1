@@ -295,10 +295,10 @@
                                                                 ảnh</label>
                                                             <div class="input-group">
                                                                 <button class="btn btn-outline-primary shadow-none"
-                                                                    type="button" id="image_main" id="image_main">Thêm
+                                                                    type="button" onclick="uploadImage({{ $item->id }})">Thêm
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
-                                                                    id="ckfinder-product_img" name="image"
+                                                                    id="ckfinder-product_img{{ $item->id }}" name="image"
                                                                     value="{{ $item->image }}">
                                                             </div>
 
@@ -316,13 +316,14 @@
                                                                             </div>
                                                                             <div class="flex-grow-1">
                                                                                 <div class="pt-1">
-                                                                                    <h5 class="fs-14 mb-1  data-dz-name>
-                                                                        {{ $item->image }}</h5>
-                                                                    <p class="fs-13
-                                                                                        text-muted mb-0" data-dz-size>
-                                                                                        </p>
-                                                                                        <strong class="error text-danger"
-                                                                                            data-dz-errormessage></strong>
+                                                                                    <h5 class="fs-14 mb-1  data-dz-name">
+                                                                                        {{ $item->image }}</h5>
+                                                                                    <p class="fs-13
+                                                                                        text-muted mb-0"
+                                                                                        data-dz-size>
+                                                                                    </p>
+                                                                                    <strong class="error text-danger"
+                                                                                        data-dz-errormessage></strong>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -427,6 +428,30 @@
                 });
             })
         });
+
+        function uploadImage(id) {
+
+            CKFinder.modal({
+                chooseFiles: true,
+                width: 800,
+                height: 600,
+                onInit: function(finder) {
+                    finder.on('files:choose', function(evt) {
+                        var file = evt.data.files.first();
+                        var output = document.getElementById(
+                            'ckfinder-product_img' + id);
+                        output.value = file.getUrl();
+                    });
+
+                    finder.on('file:choose:resizedImage', function(evt) {
+                        var output = document.getElementById(
+                            'ckfinder-product_img' + id);
+                        output.value = evt.data.resizedUrl;
+                    });
+                }
+            });
+
+        };
     </script>
     <script>
         function deleteUser(id) {
