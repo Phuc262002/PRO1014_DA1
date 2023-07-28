@@ -21,7 +21,7 @@
 
     <!-- My Account Section Start -->
     <div class="section section-margin">
-        <div class="container">
+        <div class="container-xxl">
             @if (session('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
@@ -77,7 +77,7 @@
                                         <div class="myaccount-content">
                                             <h3 class="title">Đơn hàng dịch vụ</h3>
                                             <div class="myaccount-table table-responsive text-center">
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered ">
                                                     <thead class="thead-light">
                                                         <tr>
                                                             <th>Đơn hàng</th>
@@ -86,7 +86,7 @@
                                                             <th>Ngày đặt</th>
                                                             <th>Giờ đặt</th>
                                                             <th>Mô tả</th>
-                                                            <th>Ghi chú</th>
+                                                            <th>Ghi chú của bạn</th>
                                                             <th>Ghi chú của Pets Care</th>
                                                             <th>Tổng tiền</th>
                                                             <th>Trạng thái</th>
@@ -98,11 +98,11 @@
                                                                 <td>{{ $item->book_service_hash_id }}</td>
                                                                 <td>{{ $item->service->name }}</td>
                                                                 <td>{{ $item->pet_name }}</td>
-                                                                <td>1{{ $item->book_date }}</td>
+                                                                <td>{{ $item->book_date }}</td>
                                                                 <td>{{ $item->book_time }}</td>
-                                                                <td>{{ $item->service->description }}</td>
-                                                                <td>{{ $item->description }}</td>
-                                                                <td>{{ $item->admin_note }}</td>
+                                                                <td><div class="text-wrap text-start" style="width: 300px">{{ $item->service->description }}</div></td>
+                                                                <td><div class="text-wrap text-start" style="width: 300px">{{ $item->description }}</div></td>
+                                                                <td><div class="text-wrap text-start" style="width: 300px">{{ $item->admin_note }}</div></td>
                                                                 <td>{{ $item->total_price }}</td>
                                                                 <td>{{ $item->status }}</td>
                                                             </tr>

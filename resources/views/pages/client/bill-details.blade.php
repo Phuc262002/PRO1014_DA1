@@ -94,7 +94,7 @@
 
                     <!-- Cart Button left Side Start -->
                     <div class="cart-btn-lef-side m-b-20">
-                        <a href="{{ route('don-hang-ca-nhan.index') }}" class="btn btn btn-gray-deep btn-hover-primary">
+                        <a href="{{ route('don-hang-ca-nhan.index') }}" class="btn btn btn-danger btn-hover-dark rounded-4">
                         Quay lại</a>
                     </div>
                     <!-- Cart Button left Side End -->
@@ -156,7 +156,7 @@
                     <!-- Cart Calculate Items End -->
 
                     <!-- Cart Checktout Button Start -->
-                    <a href="{{ route('don-hang-ca-nhan.index') }}" class="btn btn btn-gray-deep btn-hover-primary m-t-30">
+                    <a href="{{ route('don-hang-ca-nhan.index') }}" class="btn btn btn-danger btn-hover-dark rounded-4 m-t-30">
                         Quay lại</a>
                     <!-- Cart Checktout Button End -->
 

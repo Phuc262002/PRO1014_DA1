@@ -19,7 +19,7 @@
 
     <!-- My Account Section Start -->
     <div class="section section-margin">
-        <div class="container">
+        <div class="container-xxl">
             @if (session('success'))
                         <div class="alert alert-success" role="alert">
                             {{ session('success') }}
@@ -39,11 +39,11 @@
                 <div class="col-lg-12">
 
                     <!-- My Account Page Start -->
-                    <div class="myaccount-page-wrapper">
+                    <div class="myaccount-page-wrapper ">
                         <div class="row">
 
                             <!-- My Account Tab Menu Start -->
-                            <div class="col-lg-3 col-md-4">
+                            <div class="col-lg-3 col-md-4  ">
                                 <div class="myaccount-tab-menu nav" role="tablist">
                                     <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài
                                         khoản</a>
@@ -133,7 +133,7 @@
                                                         </fieldset>
                                                     @endif
                                                     <div class="single-input-item single-item-button m-t-30">
-                                                        <button class="btn btn btn-primary btn-hover-dark rounded-0">Lưu
+                                                        <button class="btn btn btn-primary btn-hover-dark rounded-4">Lưu
                                                             thay đổi</button>
                                                     </div>
                                                 </form>

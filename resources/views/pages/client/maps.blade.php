@@ -20,7 +20,7 @@
 
     <!-- My Account Section Start -->
     <div class="section section-margin">
-        <div class="container">
+        <div class="container-xxl">
 
             <div class="row">
                 <div class="col-lg-12">
