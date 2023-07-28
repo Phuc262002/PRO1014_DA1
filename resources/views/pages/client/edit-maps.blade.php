@@ -52,7 +52,7 @@
                                         khoản</a>
                                     <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
                                         Đơn hàng</a>
-                                    <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
+                                    <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa-solid fa-shield-dog"></i>
                                         Dịch
                                         vụ</a>
                                     <a href="{{ route('dia-chi.index') }}"><i class="fa fa-map-marker"></i> Địa

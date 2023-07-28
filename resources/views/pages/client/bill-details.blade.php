@@ -55,7 +55,7 @@
                                 <th class="pro-title">Sản phẩm</th>
                                 <th class="pro-price">Đơn giá</th>
                                 <th class="pro-quantity">Số lượng</th>
-                                <th class="pro-subtotal">Tổng cộng</th>
+                                <th class="pro-price">Tổng cộng</th>
                             </tr>
                         </thead>
                         <!-- Table Head End -->
@@ -67,12 +67,8 @@
                                     <td scope="row">{{ $key + 1 }}</td>
                                     <td class="pro-thumbnail"><a href="{{ route('home') }}/san-pham/{{ $item->product->slug }}"><img class="fit-image"
                                         src="{{$item->product->image_main}}" alt="Product" /></a></td>
-                                    {{-- <td><img class="fit-image" src="{{ $item->product->image_main }}" alt="Product"></td> --}}
-                                    {{-- <td class="pro-title"><a href="{{ route('home') }}/san-pham/${item.slug}">${item.name}</a></td> --}}
                                     <td class="pro-title">
                                         <a href="{{ route('home') }}/san-pham/{{ $item->product->slug }}">{{ $item->product->name }}</a>
-                                        {{-- <span
-                                            class="fw-medium">{{ $item->product->name }}</span> --}}
                                         <p class="text-muted mb-0"></p>
                                     </td>
                                     <td>{{ number_format($item->price) }}</td>

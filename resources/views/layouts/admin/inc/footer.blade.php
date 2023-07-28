@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Thiết kế & Phát triền bởi PetsCare
+                    Thiết kế & Phát triển bởi PetsCare
                 </div>
             </div>
         </div>
@@ -741,7 +741,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-01" value="img-1" />
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-01">
-                                <img src="assets/images/sidebar/img-1.jpg" alt=""
+                                <img src="{{ asset('assets/images/sidebar/img-1.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover" />
                             </label>
                         </div>
@@ -750,7 +750,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-02" value="img-2" />
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-02">
-                                <img src="assets/images/sidebar/img-2.jpg" alt=""
+                                <img src="{{ asset('assets/images/sidebar/img-2.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover" />
                             </label>
                         </div>
@@ -758,7 +758,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-03" value="img-3" />
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-03">
-                                <img src="assets/images/sidebar/img-3.jpg" alt=""
+                                <img src="{{ asset('assets/images/sidebar/img-3.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover" />
                             </label>
                         </div>
@@ -766,7 +766,7 @@
                             <input class="form-check-input" type="radio" name="data-sidebar-image"
                                 id="sidebarimg-04" value="img-4" />
                             <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-04">
-                                <img src="assets/images/sidebar/img-4.jpg" alt=""
+                                <img src="{{ asset('assets/images/sidebar/img-4.jpg') }}" alt=""
                                     class="avatar-md w-auto object-cover" />
                             </label>
                         </div>
@@ -894,67 +894,72 @@
 <script src="{{ asset('assets/admin/libs/dropzone/dropzone-min.js') }}"></script>
 <!-- filepond js -->
 <script src="{{ asset('assets/admin/libs/filepond/filepond.min.js') }}"></script>
-<script src="{{ asset('assets/admin/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}"></script>
-<script src="{{ asset('assets/admin/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}"></script>
-<script src="{{ asset('assets/admin/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}">
+</script>
+<script
+    src="{{ asset('assets/admin/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}">
+</script>
+<script
+    src="{{ asset('assets/admin/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}">
+</script>
 <script src="{{ asset('assets/admin/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
 
 <script src="{{ asset('assets/admin/js/pages/form-file-upload.init.js') }}"></script>
- <!-- list.js min js -->
- <script src="{{ asset('assets/admin/libs/list.js/list.min.js') }}"></script>
+<!-- list.js min js -->
+<script src="{{ asset('assets/admin/libs/list.js/list.min.js') }}"></script>
 
- <!--list pagination js-->
- <script src="{{ asset('assets/admin/libs/list.pagination.js/list.pagination.min.js') }}"></script>
+<!--list pagination js-->
+<script src="{{ asset('assets/admin/libs/list.pagination.js/list.pagination.min.js') }}"></script>
 
- <!-- invoicelist init js -->
- <script src="{{ asset('assets/admin/js/pages/invoiceslist.init.js') }}"></script>
+<!-- invoicelist init js -->
+<script src="{{ asset('assets/admin/js/pages/invoiceslist.init.js') }}"></script>
 
- <script src="{{ asset('assets/admin/js/pages/ecommerce-customer-list.init.js') }}"></script>
+<script src="{{ asset('assets/admin/js/pages/ecommerce-customer-list.init.js') }}"></script>
 
- <!-- Sweet Alerts js -->
- <script src="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+<!-- Sweet Alerts js -->
+<script src="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
 <!-- App js -->
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>
 
 <script src="{{ asset('assets/admin/js/pages/form-editor.init.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.js') }}"></script>
-<script src="{{asset('assets/js/toast.js')}}"></script>
- <script>
+<script src="{{ asset('assets/js/toast.js') }}"></script>
+<script>
     function formatVietnamDong(amount) {
-         return amount.toLocaleString('vi-VN', {
-             style: 'currency',
-             currency: 'VND'
-         });
-     }
+        return amount.toLocaleString('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        });
+    }
 
-     function Success(message) {
-         toastNotif({
-             text: message,
-             color: '#5bc83f',
-             timeout: 5000,
-             icon: 'valid'
-         });
-     }
+    function Success(message) {
+        toastNotif({
+            text: message,
+            color: '#5bc83f',
+            timeout: 5000,
+            icon: 'valid'
+        });
+    }
 
-     function Warning(message) {
-         toastNotif({
-             text: message,
-             color: '#ebb73f',
-             timeout: 5000,
-             icon: 'warring'
-         });
-     }
+    function Warning(message) {
+        toastNotif({
+            text: message,
+            color: '#ebb73f',
+            timeout: 5000,
+            icon: 'warring'
+        });
+    }
 
-     function Error(message) {
-         toastNotif({
-             text: message,
-             color: '#da4848',
-             timeout: 5000,
-             icon: 'error'
-         });
-     }
- </script>
+    function Error(message) {
+        toastNotif({
+            text: message,
+            color: '#da4848',
+            timeout: 5000,
+            icon: 'error'
+        });
+    }
+</script>
 </body>
 
 </html>
