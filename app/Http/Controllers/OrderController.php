@@ -41,6 +41,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $cart = json_decode($request->cart);
+        if (empty($cart)) {
+            return redirect()->route('cart')->with('error', 'Giỏ hàng hiện đang trống. Bạn vui lòng thêm sản phẩm vào giỏ hàng để tiến hành thanh toán.');
+        } 
 
         $checkQuantity = true;
 
