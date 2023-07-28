@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Thiết kế & Phát triền bởi PetsCare
+                    Thiết kế & Phát triển bởi PetsCare
                 </div>
             </div>
         </div>
