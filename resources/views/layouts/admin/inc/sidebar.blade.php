@@ -49,15 +49,6 @@
                         <i class="mdi mdi-account-circle-outline"></i>
                         <span data-key="t-authentication">Quản lý tài khoản</span>
                     </a>
-                    {{-- <div class="collapse menu-dropdown" id="sidebarAuth">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.admin_manager') }}" class="nav-link" data-key="t-starter">
-                                    Tài khoản quản trị
-                                </a>
-                            </li>
-                        </ul>
-                    </div> --}}
                     <div class="collapse menu-dropdown" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -67,15 +58,6 @@
                             </li>
                         </ul>
                     </div>
-                    {{-- <div class="collapse menu-dropdown" id="sidebarAuth">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('user.create') }}" class="nav-link" data-key="t-starter">
-                                    Thêm tài khoản
-                                </a>
-                            </li>
-                        </ul>
-                    </div> --}}
                 </li>
                 <li class="menu-title">
                     <i class="ri-more-fill"></i>
@@ -119,11 +101,6 @@
                                 </a>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('category-product.create') }}" class="nav-link" data-key="t-team">
-                                    Thêm danh mục
-                                </a>
-                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -140,11 +117,7 @@
                                     Tất cả thương hiệu
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('brands.create') }}" class="nav-link" data-key="t-starter">
-                                    Thêm thương hiệu
-                                </a>
-                            </li> --}}
+
                         </ul>
                     </div>
                 </li>
@@ -164,11 +137,7 @@
                                     Tất cả dịch vụ
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('service.create') }}" class="nav-link" data-key="t-team">
-                                    Thêm dịch vụ
-                                </a>
-                            </li> --}}
+
                         </ul>
                     </div>
                 </li>
@@ -215,11 +184,6 @@
                                 </a>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('post.create') }}" class="nav-link" data-key="t-team">
-                                    Thêm bài viết
-                                </a>
-                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -238,11 +202,7 @@
                                 </a>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('category-blog.create') }}" class="nav-link" data-key="t-team">
-                                    Thêm danh mục
-                                </a>
-                            </li> --}}
+
                         </ul>
                     </div>
                 </li>
@@ -281,32 +241,7 @@
                                 </a>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('orders.index') }}?status=PENDING" class="nav-link" data-key="t-team">
-                                    Đơn hàng chưa xác nhận
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a href="{{ route('orders.index') }}?status=HOLDING" class="nav-link" data-key="t-team">
-                                    Đơn hàng giữ lại
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.index') }}?status=ACCEPTED" class="nav-link" data-key="t-team">
-                                    Đơn hàng đã chấp nhận
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.index') }}?status=COMPLETED" class="nav-link" data-key="t-team">
-                                    Đơn hàng đã hoàn thành
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('orders.index') }}?status=CANCELED" class="nav-link" data-key="t-team">
-                                    Đơn hàng đã hủy
-                                </a>
-                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -324,32 +259,7 @@
                                 </a>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('admin.service_pending') }}" class="nav-link" data-key="t-team">
-                                    Dịch vụ chưa xác nhận
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a href="{{ route('admin.service_holding') }}" class="nav-link" data-key="t-team">
-                                    Dịch vụ giữ lại
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.service_accepted') }}" class="nav-link" data-key="t-team">
-                                    Dịch vụ đã chấp nhận
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.service_completed') }}" class="nav-link" data-key="t-team">
-                                    Dịch vụ đã hoàn thành
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.service_canceled') }}" class="nav-link" data-key="t-team">
-                                    Dịch vụ đã hủy
-                                </a>
-                            </li> --}}
                         </ul>
                     </div>
                 </li>
@@ -371,12 +281,7 @@
                                     Quản lý banner và slider
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('admin.form_add_banner_slider') }}" class="nav-link"
-                                    data-key="t-team">
-                                    Thêm banner và slider
-                                </a>
-                            </li> --}}
+
                         </ul>
                     </div>
                 </li>
