@@ -95,7 +95,10 @@
                                                                 class="fw-medium link-primary">{{ $item->name }}</a>
                                                         </td>
                                                         {{-- <td>{{ $item->name }}</td> --}}
-                                                        <td>{{ $item->description }}</td>
+                                                        <td>
+                                                            <div class="d-inline-block text-wrap" style="width: 700px;">
+                                                                {{ $item->description }}</div>
+                                                        </td>
                                                         <td>{{ $item->slug }}</td>
 
                                                         <td>

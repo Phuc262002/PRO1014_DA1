@@ -58,22 +58,24 @@
                                     <div class="row g-3">
                                         <div class="col-xl-8">
                                             <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Tìm kiếm sản phẩm"
-                                                value="{{ $search }}"  name="search">
+                                                <input type="text" class="form-control search"
+                                                    placeholder="Tìm kiếm sản phẩm" value="{{ $search }}"
+                                                    name="search">
                                                 <i class="ri-search-line search-icon"></i>
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <div class="col-xl-4">
                                             <div class="row g-3">
-                                                
+
                                                 <!--end col-->
                                                 <div class="col-sm-6">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
                                                             data-choices-search-false name="status" id="idStatus">
 
-                                                            <option {{ $status == 'ALL' ? 'selected' : '' }} value="ALL"selected>
+                                                            <option {{ $status == 'ALL' ? 'selected' : '' }}
+                                                                value="ALL"selected>
                                                                 Tất cả
                                                             </option>
                                                             <option {{ $status == 'ACTIVE' ? 'selected' : '' }}
@@ -93,7 +95,8 @@
                                                     <div>
                                                         <button class="btn btn-primary w-100" type="submit"
                                                             onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp dụng</button>
+                                                                class="ri-equalizer-fill me-2 align-bottom"></i>Áp
+                                                            dụng</button>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -109,11 +112,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" >
-                                                        <div class="form-check">
-                                                            
-                                                        </div>
-                                                    </th>
                                                     <th scope="col">Sku</th>
                                                     <th scope="col">Tên Sản Phẩm</th>
                                                     <th scope="col">Hình Ảnh</th>
@@ -127,21 +125,17 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($products as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                    
-                                                            </div>
-                                                        </th>
                                                         <td class="id"><a
-                                                            href="{{ route('product.show', ['product' => $item->id]) }}"
-                                                            onclick="ViewInvoice(this);"
-                                                            data-id="{{ $item->sku }}"
-                                                            class="fw-medium link-primary">{{ $item->sku }}</a>
-                                                    </td>
+                                                                href="{{ route('product.show', ['product' => $item->id]) }}"
+                                                                onclick="ViewInvoice(this);" data-id="{{ $item->sku }}"
+                                                                class="fw-medium link-primary">{{ $item->sku }}</a>
+                                                        </td>
                                                         {{-- <td><a href="#" class="fw-medium">{{ $item->sku }}</a> --}}
                                                         </td>
-                                                        <td style="width: 700px;"><div class="d-inline-block text-wrap"
-                                                            style="width: 600px;">{{ $item->name }}</div></td>
+                                                        <td style="width: 700px;">
+                                                            <div class="d-inline-block text-wrap" style="width: 600px;">
+                                                                {{ $item->name }}</div>
+                                                        </td>
                                                         <td>
                                                             <div class="flex-shrink-0">
                                                                 <img src="{{ $item->image_main }}" alt=""
@@ -152,7 +146,6 @@
                                                         <td>
                                                             @if ($item->discount_price > 0)
                                                                 {{ number_format($item->discount_price) }} VNĐ
-                                                            
                                                             @endif
                                                         </td>
                                                         <td>{{ $item->quantity }}</td>
@@ -160,7 +153,7 @@
                                                             <td class="text-success">
                                                                 <span class="badge bg-success">Active</span>
                                                             </td>
-                                                            @else
+                                                        @else
                                                             <td class="text-danger">
                                                                 <span class="badge bg-danger">Disabled</span>
                                                             </td>
