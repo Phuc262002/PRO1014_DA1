@@ -38,8 +38,12 @@ class AdminServiceController extends Controller
      */
     public function store(ServiceRequest $request)
     {
-        if ($request->image_service == 'Chọn ảnh...') {
-            return back()->with('error', "Vui lòng chọn ảnh .");
+        if ($request->image_service == 'Chưa có ảnh nào được chọn...') {
+            return back()->with('error', "Vui lòng chọn ảnh.");
+        }
+
+        if($request->price < $request->discount_price) {
+            return back()->with('error', "Giá khuyến mãi không được lớn hơn giá gốc.");
         }
 
         $service = Service::create($request->all());

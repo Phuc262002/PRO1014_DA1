@@ -177,7 +177,7 @@
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
                                                                     id="ckfinder-product_img" name="image_service"
-                                                                    value="Chọn ảnh...">
+                                                                    value="Chưa có ảnh nào được chọn...">
                                                             </div>
                                                         </div>
                                                         <div class="mb-0">
@@ -187,12 +187,12 @@
                                                         </div>
                                                         <div class="mb-0">
                                                             <label for="basiInput" class="form-label">Giá dịch vụ</label>
-                                                            <input type="text" name="price" class="form-control"
+                                                            <input type="number" value="0" name="price" class="form-control"
                                                                 id="basiInput">
                                                         </div>
                                                         <div class="mb-0">
                                                             <label for="basiInput" class="form-label">Giá giảm</label>
-                                                            <input type="text" value="0" name="discount_price"
+                                                            <input type="number" value="0" name="discount_price"
                                                                 class="form-control" id="basiInput">
                                                         </div>
 
@@ -206,7 +206,7 @@
                                                                 <button type="button" class="btn btn-light"
                                                                     data-bs-dismiss="modal">Hủy</button>
                                                                 <button type="submit" class="btn btn-success"
-                                                                    id="add-btn">Thêm danh mục sản phẩm</button>
+                                                                    id="add-btn">Thêm dịch vụ</button>
                                                                 <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                             </div>
                                                         </div>
