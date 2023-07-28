@@ -102,13 +102,7 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 46px">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="cardtableCheck" />
-                                                            <label class="form-check-label" for="cardtableCheck"></label>
-                                                        </div>
-                                                    </th>
+
                                                     <th scope="col">Mã giảm giá</th>
                                                     <th scope="col">Tên phiếu giảm giá</th>
                                                     <th scope="col">Giảm giá</th>
@@ -122,12 +116,7 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($counpon as $item)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
+
                                                         <td>{{ $item->coupon_hash_id }}</a></td>
                                                         <td>{{ $item->coupon_name }}</td>
                                                         <td>{{ number_format($item->discount) }} VNĐ</td>
