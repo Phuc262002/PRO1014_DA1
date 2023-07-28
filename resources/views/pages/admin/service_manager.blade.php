@@ -102,8 +102,8 @@
                                                         </td>
                                                         <td>{{ $item->icon }}</td>
                                                         <td>{{ $item->description }}</td>
-                                                        <td>{{ $item->price }}</td>
-                                                        <td>{{ $item->discount_price }}</td>
+                                                        <td>{{ number_format($item->price) }} VNĐ</td>
+                                                        <td>{{ number_format($item->discount_price) }} VNĐ</td>
                                                         <td>
                                                             <ul class="list-inline hstack gap-2 mb-0">
                                                                 <li class="list-inline-item edit" data-bs-toggle="tooltip"
