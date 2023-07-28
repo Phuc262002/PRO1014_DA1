@@ -27,42 +27,44 @@
                                     </div>
                                 @endif
                                 <div class="live-preview">
-                                    <form id="form_edit" action="{{ route('post.update', ['post' => $post->id]) }}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form id="form_edit" action="{{ route('post.update', ['post' => $post->id]) }}"
+                                        method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row g-3">
                                             <div class="col-lg-6">
                                                 <label for="basiInput" class="form-label">Tiêu đề</label>
                                                 <input type="text" class="form-control" id="title" name="title"
-                                                value="{{$post->title}}"onchange="ChangeToSlug()">
+                                                    value="{{ $post->title }}"onchange="ChangeToSlug()">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="slug" class="form-label">Slug</label>
-                                                <input type="text" class="form-control" id="slug" name="slug" value="{{$post->slug}}">
+                                                <input type="text" class="form-control" id="slug" name="slug"
+                                                    value="{{ $post->slug }}">
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="exampleFormControlTextarea5" class="form-label">Thể loại</label>
                                                 <select class="form-select" aria-label=".form-select-sm example"
                                                     name="category_id">
                                                     @foreach ($categories as $category)
-                                                        <option {{$category->id == $post->category_id ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        <option {{ $category->id == $post->category_id ? 'selected' : '' }}
+                                                            value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="inputState" class="form-label">Trạng thái</label>
-                                                <select id="inputState" class="form-select" data-choices
-                                                name="status" data-choices-sorting="true">
-                                                
-                                                                
-                                                @if ($post->status == true)
-                                                <option selected value="1">Hoạt động</option>
-                                                <option value="0">Bị chặn</option>
-                                            @else
-                                                <option value="1">Hoạt động</option>
-                                                <option selected value="0">Bị chặn</option>
-                                            @endif
+                                                <select id="inputState" class="form-select" data-choices name="status"
+                                                    data-choices-sorting="true">
+
+
+                                                    @if ($post->status == true)
+                                                        <option selected value="1">Hoạt động</option>
+                                                        <option value="0">Bị chặn</option>
+                                                    @else
+                                                        <option value="1">Hoạt động</option>
+                                                        <option selected value="0">Bị chặn</option>
+                                                    @endif
 
 
                                                 </select>
@@ -73,16 +75,16 @@
                                                     <button class="btn btn-outline-primary shadow-none" type="button"
                                                         id="image_main" id="image_main">Thêm ảnh</button>
                                                     <input type="text" class="form-control" id="ckfinder-product_img"
-                                                        name="img_post" value="{{$post->img_post}}">
+                                                        name="img_post" value="{{ $post->img_post }}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Mô tả ngắn</label>
-                                                <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description">{{$post->description}}</textarea>
+                                                <textarea class="w-100 form-control" id="description" cols="30" rows="5" name="description">{{ $post->description }}</textarea>
                                             </div>
                                             <div class="col-lg-12">
                                                 <label for="formFile" class="form-label">Nội dung</label>
-                                                <textarea id="editor" name="content">{{$post->content}}</textarea>
+                                                <textarea id="editor" name="content">{{ $post->content }}</textarea>
                                             </div>
                                             <div class="col-lg-3 mt-3">
                                                 <input type="hidden" id="save_action" name="save_action"
@@ -105,7 +107,8 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <a href="{{ route('post.index') }}" class="btn btn-danger shadow-none">Hủy
+                                                <a href="{{ route('post.index') }}"
+                                                    class="btn btn-danger shadow-none">Hủy
                                                     bỏ</a>
                                             </div>
                                         </div>
@@ -119,7 +122,7 @@
                     <!--end col-->
                 </div>
                 <!--end row-->
-               
+
             </div> <!-- container-fluid -->
 
         </div><!-- End Page-content -->
@@ -130,7 +133,7 @@
         ClassicEditor
             .create(document.querySelector('#editor'), {
                 ckfinder: {
-                    uploadUrl: '{{route('home')}}/assets/vendor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                    uploadUrl: '{{ route('home') }}/assets/vendor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
                 }
             })
             .catch(error => {
@@ -205,5 +208,4 @@
             $('form').submit();
         }
     </script>
-
 @endsection
