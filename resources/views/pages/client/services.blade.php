@@ -151,7 +151,15 @@
                     </div>
                 </div> --}}
             </div>
+            <div class="shop_toolbar_wrapper justify-content-center m-t-50">
 
+                <!-- Shopt Top Bar Right Start -->
+                <div class="shop-top-bar-right">
+                    {{ $data_services->appends(request()->query())->links() }}
+                </div>
+                <!-- Shopt Top Bar Right End -->
+
+            </div>
 
         </div>
     </section>

@@ -177,7 +177,7 @@
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
                                                                     id="ckfinder-product_img" name="image_service"
-                                                                    readonly value="Chọn ảnh...">
+                                                                    value="Chọn ảnh...">
                                                             </div>
                                                         </div>
                                                         <div class="mb-0">
@@ -247,7 +247,7 @@
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
                                                                     id="ckfinder-product_img{{ $item->id }}"
-                                                                    name="image_service" readonly
+                                                                    name="image_service"
                                                                     value="{{ $item->image_service }}">
                                                             </div>
                                                         </div>

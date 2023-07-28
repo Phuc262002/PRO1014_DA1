@@ -11,12 +11,12 @@
                 @foreach ($slider as $item)
                     <div class="hero-slide-item swiper-slide">
                         <div class="hero-slide-bg">
-                            <img src="{{ $item->img_banner }}" alt="Slider Image" />
+                            <img src="{{ $item->img_banner }}" alt="{{ $item->title }}" />
                         </div>
                         <div class="container">
-                            <div class="hero-slide-content text-start">
+                            <div class="hero-slide-content text-center">
+                                <img class="mb-5" src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo" width="100"/>
                                 <h5 class="sub-title">{{ $item->title }}</h5>
-                                {{-- <h2 class="title m-0">Vitamins For all Pets</h2> --}}
                                 <p class="ms-0">{!! $item->introduction !!}</p>
                                 <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
                             </div>
@@ -31,9 +31,9 @@
                 <!-- Swiper Pagination End -->
 
                 <!-- Swiper Navigation Start -->
-                <div class="home-slider-prev swiper-button-prev main-slider-nav d-lg-flex d-none"><i
+                <div class="home-slider-prev swiper-button-prev main-slider-nav d-lg-flex d-none rounded-circle"><i
                         class="icon-arrow-left"></i></div>
-                <div class="home-slider-next swiper-button-next main-slider-nav d-lg-flex d-none"><i
+                <div class="home-slider-next swiper-button-next main-slider-nav d-lg-flex d-none rounded-circle"><i
                         class="icon-arrow-right"></i></div>
                 <!-- Swiper Navigation End -->
             </div>

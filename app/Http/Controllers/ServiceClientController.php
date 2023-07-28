@@ -18,7 +18,7 @@ class ServiceClientController extends Controller
     public function index()
     {
         $title="Pets Care - Luôn đồng hành cùng thú cưng của bạn";
-        $data_services = Service::all();
+        $data_services = Service::paginate(12);
         return view('pages.client.services', compact('title','data_services'));
         
     }

@@ -44,7 +44,6 @@ class HomeController extends Controller
                             'banner_type' => 'SLIDER'
                         ])         
                         ->orderBy('created_at', 'desc')
-                        ->take(5)
                         ->get();
         
         $banner_sale = Banner::where([
