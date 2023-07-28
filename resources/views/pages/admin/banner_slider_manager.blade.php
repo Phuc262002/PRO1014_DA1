@@ -59,8 +59,8 @@
                                             <thead class="table-light text-muted">
                                                 <tr>
                                                     <th scope="col">Ảnh</th>
-                                                    <th scope="col">Giới thiệu</th>
                                                     <th scope="col">Tiêu đề</th>
+                                                    <th scope="col">Nội dung</th>
                                                     <th scope="col">Phân loại</th>
                                                     <th scope="col">Trạng thái</th>
                                                     <th scope="col" style="width: 150px">Chức năng</th>
@@ -75,8 +75,12 @@
                                                                     width="100" height="100" />
                                                             </div>
                                                         </td>
-                                                        <td>{!! $item->introduction !!}</td>
                                                         <td>{{ $item->title }}</td>
+                                                        
+                                                        <td><div class="d-inline-block text-wrap"
+                                                            style="width: 600px;">{!! $item->introduction !!}</div></td>
+                                                        
+                                                        {{-- <td>{!! $item->introduction !!}</td> --}}
                                                         <td>{{ $item->banner_type }}</td>
                                                         <td>
                                                             @if ($item->status == true)
