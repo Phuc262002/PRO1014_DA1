@@ -49,25 +49,25 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box horizontal-logo">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="{{route('home')}}" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
                                         height="22" />
                                 </span>
                                 <span class="logo-lg">
                                     <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
-                                        height="17" />
+                                        height="70" />
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="{{route('home')}}" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
                                         height="22" />
                                 </span>
                                 <span class="logo-lg">
                                     <img src="{{ asset('assets/images/logo/logo.png') }}" alt=""
-                                        height="17" />
+                                        height="70" />
                                 </span>
                             </a>
                         </div>
