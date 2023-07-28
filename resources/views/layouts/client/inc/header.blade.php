@@ -67,8 +67,8 @@
                 <div class="row align-items-center">
 
                     <!-- Header Top Message Start -->
-                    <div class="col-12 col-lg-6">
-                        <div class="header-top-msg-wrapper">
+                    <div class="col-12 col-lg-12">
+                        <div class="header-top-msg-wrapper text-center">
                             <p class="header-top-message">Chào mừng đến với Pets Care !</p>
                         </div>
                     </div>
