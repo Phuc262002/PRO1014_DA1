@@ -86,10 +86,9 @@ class AdminServiceController extends Controller
     public function update(ServiceRequest $request, Service $service)
     {
 
-        if ($request->image_service == 'Chọn ảnh...') {
-            return back()->with('error', "Vui lòng chọn ảnh .");
+        if($request->price < $request->discount_price) {
+            return back()->with('error', "Giá khuyến mãi không được lớn hơn giá gốc.");
         }
-
 
         $update_service = Service::updateOrCreate([
             'id' => $service->id,
