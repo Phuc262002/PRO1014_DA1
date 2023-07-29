@@ -204,10 +204,13 @@
                                 <h3 class="widget-title m-b-30">Loại sản phẩm</h3>
                                 <div class="sidebar-body">
                                     <ul class="sidebar-list">
-                                        <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => ""])) }}">Tất cả sản phẩm</a></li>
+                                        <li><a style="color: #{{ $category == '' ? 'f6ab49' : '' }};"
+                                                href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => ''])) }}">Tất
+                                                cả sản phẩm</a></li>
                                         @foreach ($categories as $item)
-                                        <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => $item->slug])) }}">{{ $item->name }} ({{ count($item->product) }})</a></li>
-
+                                            <li><a style="color: #{{ $category == $item->slug ? 'f6ab49' : '' }};"
+                                                    href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => $item->slug])) }}">{{ $item->name }}
+                                                    ({{ count($item->product) }})</a></li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -238,13 +241,14 @@
                                 <!-- Single Product Image Start -->
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                        <a class="swiper-slide"
+                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                             <img class="w-100" src="{{ $item->image_main }}" alt="Product">
                                         </a>
                                         @foreach ($item->image_list as $img)
-                                            <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
-                                                <img class="w-100" src="{{ $img->image_collection }}"
-                                                    alt="Product">
+                                            <a class="swiper-slide"
+                                                href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                                <img class="w-100" src="{{ $img->image_collection }}" alt="Product">
                                             </a>
                                         @endforeach
                                     </div>
