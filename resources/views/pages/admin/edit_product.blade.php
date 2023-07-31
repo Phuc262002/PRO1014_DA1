@@ -104,7 +104,7 @@
                                                     min="0" value="{{ $product->price }}">
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="discount_price" class="form-label">Giá giảm</label>
+                                                <label for="discount_price" class="form-label flatpickr-input">Giá giảm</label>
                                                 <input type="number" class="form-control" id="discount_price"
                                                     min="0" name="discount_price"
                                                     value="{{ $product->discount_price }}">
