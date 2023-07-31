@@ -63,25 +63,25 @@
         }
 
         .list-group-item.active {
-                                    z-index: 2;
-                                    color: #fff;
-                                    background-color: #f6ab49;
-                                    border-color: #f6ab49;
-                                }
+            z-index: 2;
+            color: #fff;
+            background-color: #f6ab49;
+            border-color: #f6ab49;
+        }
 
-                                .btn-link:hover {
-                                    color: #f6ab49;
-                                }
+        .btn-link:hover {
+            color: #f6ab49;
+        }
 
-                                .btn.btn-link {
-                                    text-align: left;
-                                    font-weight: 500;
-                                    padding: 10px 10px;
-                                }
+        .btn.btn-link {
+            text-align: left;
+            font-weight: 500;
+            padding: 10px 10px;
+        }
 
-                                .list-group-item {
-                                    padding: 0;
-                                }
+        .list-group-item {
+            padding: 0;
+        }
     </style>
 
 
