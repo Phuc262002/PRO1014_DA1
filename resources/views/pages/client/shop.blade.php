@@ -203,11 +203,33 @@
                             <div class="widget-list m-b-50">
                                 <h3 class="widget-title m-b-30">Loại sản phẩm</h3>
                                 <div class="sidebar-body">
-                                    <ul class="sidebar-list">
-                                        <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => ""])) }}">Tất cả sản phẩm</a></li>
+                                    <ul class="list-group">
+                                        <li
+                                            class="list-group-item list-group-item-action {{ $category == '' ? 'active' : '' }}">
+                                            <form action="{{ route('san-pham.index') }}">
+                                                <input type="hidden" name="category" value="">
+                                                <button class="btn btn-link w-100 h-100 text-capitalize">Tất cả sản
+                                                    phẩm
+                                                </button>
+                                            </form>
+                                        </li>
                                         @foreach ($categories as $item)
-                                        <li><a href="?{{ (request()->has('category') ? '&' : '?') . http_build_query(array_merge(request()->except('category'), ['category' => $item->slug])) }}">{{ $item->name }} ({{ count($item->product) }})</a></li>
-
+                                            <li
+                                                class="list-group-item list-group-item-action {{ $category == $item->slug ? 'active' : '' }}">
+                                                <form action="{{ route('san-pham.index') }}">
+                                                    <input type="hidden" name="category" value="{{ $item->slug }}">
+                                                    @foreach (request()->query() as $key => $value)
+                                                        @if ($key != 'category')
+                                                            <input type="hidden" name="{{ $key }}"
+                                                                value="{{ $value }}">
+                                                        @endif
+                                                    @endforeach
+                                                    <button
+                                                        class="btn btn-link w-100 h-100 text-capitalize">{{ $item->name }}
+                                                        ({{ count($item->product) }})
+                                                    </button>
+                                                </form>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -238,10 +260,16 @@
                                 <!-- Single Product Image Start -->
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <a class="swiper-slide" href="#">
+                                        <a class="swiper-slide"
+                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                             <img class="w-100" src="{{ $item->image_main }}" alt="Product">
                                         </a>
-
+                                        @foreach ($item->image_list as $img)
+                                            <a class="swiper-slide"
+                                                href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                                <img class="w-100" src="{{ $img->image_collection }}" alt="Product">
+                                            </a>
+                                        @endforeach
                                     </div>
 
                                     <!-- Swiper Pagination Start -->

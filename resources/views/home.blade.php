@@ -379,9 +379,9 @@
                                 <!-- Swiper Pagination End -->
 
                                 <!-- Next Previous Button Start -->
-                                <div class="swiper-deal-button-next swiper-button-next swiper-nav-button"><i
+                                <div class="swiper-deal-button-next swiper-button-next swiper-nav-button rounded"><i
                                         class="ti-angle-right"></i></div>
-                                <div class="swiper-deal-button-prev swiper-button-prev swiper-nav-button"><i
+                                <div class="swiper-deal-button-prev swiper-button-prev swiper-nav-button rounded"><i
                                         class="ti-angle-left"></i></div>
                                 <!-- Next Previous Button End -->
                             </div>
@@ -467,11 +467,11 @@
                                 <!-- Single Product Image Start -->
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <a class="swiper-slide" href="#">
+                                        <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                             <img class="w-100" src="{{ $item->image_main }}" alt="Product">
                                         </a>
                                         @foreach ($item->image_list as $img)
-                                            <a class="swiper-slide" href="#">
+                                            <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                                 <img class="w-100" src="{{ $img->image_collection }}"
                                                     alt="Product">
                                             </a>
@@ -596,11 +596,11 @@
                                 <!-- Single Product Image Start -->
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <a class="swiper-slide" href="#">
+                                        <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                             <img class="w-100" src="{{ $item->image_main }}" alt alt="Product">
                                         </a>
                                         @foreach ($item->image_list as $img)
-                                            <a class="swiper-slide" href="#">
+                                            <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                                 <img class="w-100" src="{{ $img->image_collection }}"
                                                     alt="Product">
                                             </a>

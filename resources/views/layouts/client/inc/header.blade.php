@@ -10,12 +10,14 @@
     <meta property="og:url" content="{{ asset('assets/images/logo/logo.png') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pets Care | Chúng tôi luôn đồng hành cùng bạn" />
-    <meta property="og:description" content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
+    <meta property="og:description"
+        content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
     <meta property="og:image" content="{{ asset('assets/images/logo/logo.png') }}" />
 
     <meta property="twitter:card" content="Pets Care | Chúng tôi luôn đồng hành cùng bạn" />
     <meta property="twitter:title" content="Pets Care | Chúng tôi luôn đồng hành cùng bạn" />
-    <meta property="twitter:description" content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
+    <meta property="twitter:description"
+        content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
     <meta property="twitter:image" content="{{ asset('assets/images/logo/logo.png') }}" />
 
     <!-- Favicons -->
@@ -52,7 +54,35 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/toast.css') }}">
 
+    <style>
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #f6ab49;
+            border-color: #f6ab49;
+        }
 
+        .list-group-item.active {
+            z-index: 2;
+            color: #fff;
+            background-color: #f6ab49;
+            border-color: #f6ab49;
+        }
+
+        .btn-link:hover {
+            color: #f6ab49;
+        }
+
+        .btn.btn-link {
+            text-align: left;
+            font-weight: 500;
+            padding: 10px 10px;
+        }
+
+        .list-group-item {
+            padding: 0;
+        }
+    </style>
 
 
 </head>

@@ -141,9 +141,9 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-unstyled vstack gap-2 fs-13 mb-0">
-                                <li class="fw-medium fs-14">{{$order->address->fullname}}</li>
-                                <li>{{$order->address->phone}}</li>
-                                <li>{{$order->address->address}}</li>
+                                <li class="fw-medium fs-14"><i class="ri-account-circle-line me-2 align-middle text-muted fs-16"></i>{{$order->address->fullname}}</li>
+                                <li><i class="ri-phone-line me-2 align-middle text-muted fs-16"></i>{{$order->address->phone}}</li>
+                                <li><i class=" ri-map-pin-user-line me-2 align-middle text-muted fs-16"></i>{{$order->address->address}}</li>
                             </ul>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ class ServiceUserController extends Controller
     public function index()
     {
         $title = 'Pets Care - Quản lý dịch vụ';
-        $service_book = Book_service::with('user', 'service')->paginate(10);
+        $service_book = Book_service::where('user_id', auth()->user()->id)->with('user', 'service')->paginate(10);
         return view('pages.client.service-detail', compact('title', 'service_book'));
         //dd($service_book);
     }
