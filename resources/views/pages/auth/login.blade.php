@@ -57,12 +57,16 @@
                                     </div>
                                 @endif
                                 <div class="p-2 mt-4">
-                                    <form id="login_form" enctype="multipart/form-data">
+                                    <form id="login_form" class="needs-validation" enctype="multipart/form-data" novalidate>
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Tên đăng nhập</label>
+                                            <label for="username" class="form-label">Email <span
+                                                    class="text-danger">*</span></label>
                                             <input type="email" name="email" class="form-control" id="username"
                                                 placeholder="Nhập tên đăng nhập">
+                                            <div class="invalid-feedback">
+                                                Hãy nhập Email của bạn.
+                                            </div>
                                         </div>
 
                                         <div class="mb-3">
@@ -70,7 +74,8 @@
                                                 <a href="{{ route('password.reset') }}" class="text-muted">Quên mật
                                                     khẩu?</a>
                                             </div>
-                                            <label class="form-label" for="password-input">Mật khẩu</label>
+                                            <label class="form-label" for="password-input">Mật khẩu <span
+                                                    class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                 <input type="password" name="password"
                                                     class="form-control pe-5 password-input" placeholder="Nhập mật khẩu"
@@ -79,6 +84,9 @@
                                                     class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon"
                                                     type="button" id="password-addon"><i
                                                         class="ri-eye-fill align-middle"></i></button>
+                                                <div class="invalid-feedback">
+                                                    Hãy nhập mật khẩu của bạn.
+                                                </div>
                                             </div>
                                         </div>
 
@@ -136,6 +144,10 @@
                 $('#login_form').submit(function(e) {
                     e.preventDefault();
                     var formData = new FormData(this);
+                    if($('input[name="email"]').val() == '' || $('input[name="password"]').val() == ''){
+                        Error('Vui lòng nhập đầy đủ thông tin.');
+                        return false;
+                    }
                     $.ajax({
                         url: "{{ route('login') }}",
                         type: 'POST',

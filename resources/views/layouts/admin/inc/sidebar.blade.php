@@ -249,7 +249,7 @@
                     <a class="nav-link menu-link" href="#sidebarSV" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarBlog">
                         <i class="bx bx-shopping-bag fs-22"></i>
-                        <span data-key="t-pages">Quản lý dịch vụ</span>
+                        <span data-key="t-pages">Quản lý dịch vụ đã đặt</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarSV">
                         <ul class="nav nav-sm flex-column">

@@ -64,7 +64,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="password-input">Mật khẩu<span
+                                            <label class="form-label" for="password-input">Mật khẩu <span
                                                     class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup">
                                                 <input type="password" name="password"
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="password-input1">Nhập lại mật khẩu<span
+                                            <label class="form-label" for="password-input1">Nhập lại mật khẩu <span
                                                     class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup">
                                                 <input type="password" name="password_confirmation"
@@ -162,6 +162,10 @@
             $(document).ready(function() {
                 $('#register_form').submit(function(e) {
                     e.preventDefault();
+                    if($('input[name="name"]').val() == '' || $('input[name="email"]').val() == '' || $('input[name="password"]').val() == '' || $('input[name="password_confirmation"]').val() == ''){
+                        Error('Vui lòng nhập đầy đủ thông tin.');
+                        return false;
+                    }
                     Warning('Đang xử lý. Vui lòng chờ trong giây lát');
                     var formData = new FormData(this);
                     $.ajax({

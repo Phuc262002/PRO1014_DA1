@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id')->default(2);
             $table->integer('comment_count')->default(0);
             $table->string('slug')->unique();
+            $table->boolean('status')->default(1);
             $table->timestamps();
 
             $table->foreign('user_post_id')->references('id')->on('users');

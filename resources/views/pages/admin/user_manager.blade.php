@@ -123,10 +123,10 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th>ID</th>
                                                     <th>Người dùng</th>
                                                     <th>Email</th>
                                                     <th>Ngày tạo</th>
+                                                    <th>Loại tài khoản</th>
                                                     <th>Xác thực</th>
                                                     <th>Vai trò</th>
                                                     <th>Trạng thái</th>
@@ -136,7 +136,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($users as $item)
                                                     <tr>
-                                                        <td>{{ $item->id }}</a></td>
                                                         <td>
                                                             <div class="d-flex gap-2 align-items-center">
                                                                 <div class="flex-shrink-0">
@@ -148,6 +147,17 @@
                                                         </td>
                                                         <td>{{ $item->email }}</td>
                                                         <td>{{ $item->created_at }}</td>
+                                                        <td>
+                                                            @if ($item->google_id != null)
+                                                                <span class="badge badge-soft-secondary"><i class="text-secondary ri-google-line align-middle me-1"></i>Google</span>
+                                                            @elseif($item->facebook_id != null)
+                                                                <span class="badge badge-soft-info"><i class="text-info ri-facebook-line align-middle me-1"></i>Facebook</span>
+                                                            @elseif($item->github_id != null)
+                                                                <span class="badge badge-soft-dark"><i class="text-dark ri-github-line align-middle me-1"></i>Github</span>
+                                                            @else 
+                                                                <span class="badge badge-soft-success"><i class="text-success ri-user-line align-middle me-1"></i>Thông thường</span>
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             @if ($item->confirm == true)
                                                                 <span class="badge badge-soft-info">Đã xác thực</span>
@@ -295,11 +305,12 @@
                                                                 ảnh</label>
                                                             <div class="input-group">
                                                                 <button class="btn btn-outline-primary shadow-none"
-                                                                    type="button" onclick="uploadImage({{ $item->id }})">Thêm
+                                                                    type="button"
+                                                                    onclick="uploadImage({{ $item->id }})">Thêm
                                                                     ảnh</button>
                                                                 <input type="text" class="form-control"
-                                                                    id="ckfinder-product_img{{ $item->id }}" name="image"
-                                                                    value="{{ $item->image }}">
+                                                                    id="ckfinder-product_img{{ $item->id }}"
+                                                                    name="image" value="{{ $item->image }}">
                                                             </div>
 
                                                             <ul class="list-unstyled mb-0">

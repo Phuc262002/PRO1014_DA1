@@ -143,27 +143,38 @@ class LoginController extends Controller
     public function facebookCallback() {
         $user_facebook = Socialite::driver('facebook')->user();
 
-        dd($user_facebook);
+        if(!$user_facebook) {
+            return redirect()->route('login')->with('error', 'Đã có lỗi xảy ra!');
+        } else {
+            $user = User::where([
+                'facebook_id' => $user_facebook->id,
+                'email' => $user_facebook->email
+            ])->first();
 
-        // if(!$user_facebook) {
-        //     return redirect()->route('login')->with('status', 'Something went wrong');
-        // } else {
-        //     $user = User::where('email', $user_facebook->email)->first();
+            if(!$user) {
+                $user = User::create([
+                    'name' => $user_facebook->name,
+                    'email' => $user_facebook->email,
+                    'password' => bcrypt(Str::random(20)),
+                    'facebook_id' => $user_facebook->id,
+                    'email_verified_at' => now(),
+                    'image' => $user_facebook->avatar,
+                    'confirm' => 1,
+                    'confirmation_code' => Str::random(6),
+                    'confirmation_code_expired_in' => now()
+                ]);
 
-        //     if(!$user) {
-        //         $user = User::create([
-        //             'name' => $user_facebook->name,
-        //             'email' => $user_facebook->email,
-        //             'password' => bcrypt(Str::random(20)),
-        //             'facebook_id' => $user_facebook->id,
-        //             'email_verified_at' => now(),
-        //             'image' => $user_facebook->avatar
-        //         ]);
-        //     }
-        // }
-
-        // Auth::login($user, true);
-        // return redirect()->route('home');
+                Auth::login($user, true);
+                return redirect()->route('home');
+            } else {
+                if ($user->status == false) {
+                    return redirect()->route('preventAccount');
+                } else {
+                    Auth::login($user, true);
+                    return redirect()->route('home');
+                }
+            }
+        }
     }
 
     public function githubLogin()
@@ -175,7 +186,7 @@ class LoginController extends Controller
         $user_github = Socialite::driver('github')->user();
 
         if(!$user_github) {
-            return redirect()->route('login')->with('status', 'Đã có lỗi xảy ra!');
+            return redirect()->route('login')->with('error', 'Đã có lỗi xảy ra!');
         } else {
             $user = User::where([
                 'github_id' => $user_github->id,
