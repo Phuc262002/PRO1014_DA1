@@ -207,8 +207,10 @@
                                             id="collapseExample-{{ $item->id }}">
                                             <div class="card card-body rounded mb-1">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" value="{{ $item->id }}" {{ $item->id == 1 ? 'checked' : '' }}
-                                                        name="payment_id" id="payment_id{{ $item->id }}" onclick="inputPayment({{ $item->id }})"> 
+                                                    <input class="form-check-input" type="radio"
+                                                        value="{{ $item->id }}" {{ $item->id == 1 ? 'checked' : '' }}
+                                                        name="payment_id" id="payment_id{{ $item->id }}"
+                                                        onclick="inputPayment({{ $item->id }})">
                                                     <label class="form-check-label" for="payment_id{{ $item->id }}">
                                                         {{ $item->payment_name }}
                                                     </label>
@@ -285,14 +287,23 @@
                         if (data.status == 'success') {
                             Success(data.message);
                             $('#discount_price').html(formatVietnamDong(data.data.discount));
-                            $('#amount_final').html(formatVietnamDong(((total - parseInt(data.data.discount)) < 0 ? 0 : (total - parseInt(data.data.discount)))));
-                            $('#total').attr('value', ((total - parseInt(data.data.discount)) < 0 ? 0 : (total - parseInt(data.data.discount))));
+                            $('#amount_final').html(formatVietnamDong(((total - parseInt(data.data.discount)) <
+                                0 ? 0 : (total - parseInt(data.data.discount)))));
+                            $('#total').attr('value', ((total - parseInt(data.data.discount)) < 0 ? 0 : (total -
+                                parseInt(data.data.discount))));
 
                             $('#form_checkout').append(
                                 `<input type="hidden" name="coupon_id" value="${data.data.id}">`
                             );
                         } else {
                             Error(data.message);
+                        }
+                    },
+                    error: function(error) {
+                        if (error.status == 429) {
+                            Error('Bạn đã nhập sai quá 10 lần.');
+                        } else {
+                            Error('Có lỗi xảy ra, vui lòng thử lại sau.');
                         }
                     }
                 });
