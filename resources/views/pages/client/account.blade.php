@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    Pets Care - Tài khoản của tôi
+@endsection
 @section('content')
     <div class="section breadcrumb-area bg-name-bright">
         <div class="container">

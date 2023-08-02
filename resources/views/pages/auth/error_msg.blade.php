@@ -45,8 +45,7 @@
                                     <h4>Rất tiếc !</h4>
                                     <p class="text-muted mx-4">Liên kết này đã hết hạn.</p>
                                     <div class="mt-4">
-                                        <a href="{{ route('login') }}" class="btn btn-danger w-100">Quay lại trang đăng
-                                            nhập</a>
+                                        <a href="{{ route('login') }}" class="btn btn-danger w-100">Quay lại trang chủ</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    Pets Care - Thêm mã giảm giá
+@endsection
 @section('content')
     <div class="main-content">
 

@@ -1,4 +1,7 @@
 @extends('layouts.admin.master')
+@section('title')
+    Pets Care - Thêm bài viết
+@endsection
 @section('content')
     <div class="main-content">
 

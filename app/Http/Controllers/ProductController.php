@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -26,11 +27,12 @@ class ProductController extends Controller
 
         $title = "Pets Care - Luôn đồng hành cùng thú cưng của bạn";
         $categories = Category::where('type_category', 'PRODUCT')->with('product')->get();
+        $brands = Brand::with('products')->get();
         $query = request()->query();
 
         $category = isset($query['category']) ? $query['category'] : null;
         $search = isset($query['search']) ? $query['search'] : '';
-
+        $brand = isset($query['brand']) ? $query['brand'] : '';
         $filter = isset($query['filter']) ? $query['filter'] : 'filter_default';
 
         $productQuery = Product::with('image_list', 'brand', 'category');
@@ -39,6 +41,13 @@ class ProductController extends Controller
         if ($category) {
             $productQuery->whereHas('category', function ($q) use ($category) {
                 $q->where('slug', $category);
+            });
+        }
+
+        // Apply brand filter if provided
+        if ($brand) {
+            $productQuery->whereHas('brand', function ($q) use ($brand) {
+                $q->where('slug', $brand);
             });
         }
 
@@ -68,7 +77,7 @@ class ProductController extends Controller
 
         $product = $productQuery->with('image_list', 'brand', 'category')->paginate(12);
 
-        return view('pages.client.shop', compact('title', 'product', 'categories', 'search', 'category', 'filter'));
+        return view('pages.client.shop', compact('title', 'product', 'categories', 'brands', 'search', 'category', 'filter', 'brand'));
     }
 
 

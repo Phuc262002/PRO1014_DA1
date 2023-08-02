@@ -201,6 +201,42 @@
                                 </form>
                             </div>
                             <div class="widget-list m-b-50">
+                                <h3 class="widget-title m-b-30">Thương hiệu</h3>
+                                <div class="sidebar-body">
+                                    <ul class="list-group">
+                                        <li
+                                            class="list-group-item list-group-item-action {{ $brand == '' ? 'active' : '' }}">
+                                            <form action="{{ route('san-pham.index') }}">
+                                                <input type="hidden" name="category" value="">
+                                                <button class="btn btn-link w-100 h-100 text-capitalize">Tất cả thương
+                                                    hiệu</button>
+                                            </form>
+                                        </li>
+                                        @foreach ($brands as $item)
+                                            @if (count($item->products) > 0)
+                                                <li
+                                                    class="list-group-item list-group-item-action {{ $brand == $item->slug ? 'active' : '' }}">
+                                                    <form action="{{ route('san-pham.index') }}">
+                                                        <input type="hidden" name="brand"
+                                                            value="{{ $item->slug }}">
+                                                        @foreach (request()->query() as $key => $value)
+                                                            @if ($key != 'brand')
+                                                                <input type="hidden" name="{{ $key }}"
+                                                                    value="{{ $value }}">
+                                                            @endif
+                                                        @endforeach
+                                                        <button
+                                                            class="btn btn-link w-100 h-100 text-capitalize">{{ $item->name }}
+                                                            ({{ count($item->products) }})
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget-list m-b-50">
                                 <h3 class="widget-title m-b-30">Loại sản phẩm</h3>
                                 <div class="sidebar-body">
                                     <ul class="list-group">
@@ -214,22 +250,25 @@
                                             </form>
                                         </li>
                                         @foreach ($categories as $item)
-                                            <li
-                                                class="list-group-item list-group-item-action {{ $category == $item->slug ? 'active' : '' }}">
-                                                <form action="{{ route('san-pham.index') }}">
-                                                    <input type="hidden" name="category" value="{{ $item->slug }}">
-                                                    @foreach (request()->query() as $key => $value)
-                                                        @if ($key != 'category')
-                                                            <input type="hidden" name="{{ $key }}"
-                                                                value="{{ $value }}">
-                                                        @endif
-                                                    @endforeach
-                                                    <button
-                                                        class="btn btn-link w-100 h-100 text-capitalize">{{ $item->name }}
-                                                        ({{ count($item->product) }})
-                                                    </button>
-                                                </form>
-                                            </li>
+                                            @if (count($item->product) > 0)
+                                                <li
+                                                    class="list-group-item list-group-item-action {{ $category == $item->slug ? 'active' : '' }}">
+                                                    <form action="{{ route('san-pham.index') }}">
+                                                        <input type="hidden" name="category"
+                                                            value="{{ $item->slug }}">
+                                                        @foreach (request()->query() as $key => $value)
+                                                            @if ($key != 'category')
+                                                                <input type="hidden" name="{{ $key }}"
+                                                                    value="{{ $value }}">
+                                                            @endif
+                                                        @endforeach
+                                                        <button
+                                                            class="btn btn-link w-100 h-100 text-capitalize">{{ $item->name }}
+                                                            ({{ count($item->product) }})
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 </div>

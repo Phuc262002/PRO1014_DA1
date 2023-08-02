@@ -41,7 +41,7 @@ class ResetPasswordController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users,email',
             'token' => 'required',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|regex:/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[A-Za-z\d]{8,}$/',
             'password_confirmation' => 'required|same:password'
         ],[
             'email.required' => 'Email không được để trống.',
@@ -50,6 +50,7 @@ class ResetPasswordController extends Controller
             'token.required' => 'Token không được để trống.',
             'password.required' => 'Mật khẩu không được để trống.',
             'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'password.regex' => 'Mật khẩu phải có ít nhất 1 chữ hoa, 1 chữ thường và 1 số.',
             'password_confirmation.required' => 'Xác nhận mật khẩu không được để trống.',
             'password_confirmation.same' => 'Xác nhận mật khẩu không khớp.',
         ]);

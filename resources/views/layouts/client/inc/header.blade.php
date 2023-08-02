@@ -212,7 +212,7 @@
                                         <div class="cart-product-btn m-t-20">
                                             <a href="{{ route('cart') }}"
                                                 class="btn btn-outline-light btn-hover-primary w-100">Xem giỏ hàng</a>
-                                            <a href="{{ route('thanh-toan.index') }}"
+                                            <a href="javascript:redirectCheckout()"
                                                 class="btn btn-outline-light btn-hover-primary w-100 m-t-20">Thanh
                                                 toán</a>
                                         </div>
