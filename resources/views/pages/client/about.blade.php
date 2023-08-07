@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    Pets Care - Về chúng tôi
+@endsection
 @section('content')
     <!-- Breadcrumb Area Start -->
     <div class="section breadcrumb-area bg-name-bright">
@@ -72,19 +74,18 @@
 
                                     <!-- Testimonial Content Start -->
                                     <div class="testimonial-content text-center">
-                                        <p>Rất tiện</p>
+                                        <p>Pets Care là mộ website thân thiện, dễ sử dụng. Tôi rất hài lòng về các sản phẩm và dịch vụ chăm sóc thú cưng và đặt biệt là đội ngũ hỗ trợ nhiệt tình.</p>
                                     </div>
                                     <!-- Testimonial Content End -->
 
                                 </div>
                                 <!-- Single Swiper Slide End -->
-
                                 <!-- Single Swiper Slide Start -->
                                 <div class="swiper-slide">
 
                                     <!-- Testimonial Content Start -->
                                     <div class="testimonial-content text-center">
-                                        <p>Rất tiện</p>
+                                        <p>Giao diện dễ sử dụng.</p>
                                     </div>
                                     <!-- Testimonial Content End -->
 
@@ -104,26 +105,24 @@
                                 <div class="swiper-slide">
                                     <!-- Testimonial Thumb Start -->
                                     <div class="testimonial-thumb text-center">
-                                        <img src="assets/images/testimonial/1.png" alt="Testimonial Image">
-                                        <h3 class="thumb-title">An Khương</h3>
-                                        <h6 class="thumb-subtitle">Customer</h6>
+                                        <img src="https://lh3.googleusercontent.com/a/AAcHTtdXTtZeeIVJFtOaoPbgtmjoVgk04Kjec2mw_iDWPcKv1A=s96-c" alt="Testimonial Image">
+                                        <h3 class="thumb-title">Nguyen Thi Nam (FE FPL HCM)</h3>
+                                        <h6 class="thumb-subtitle">Khách hàng</h6>
                                     </div>
                                     <!-- Testimonial Thumb End -->
                                 </div>
                                 <!-- Single Swiper Slide End -->
-
                                 <!-- Single Swiper Slide Start -->
                                 <div class="swiper-slide">
                                     <!-- Testimonial Thumb Start -->
                                     <div class="testimonial-thumb text-center">
-                                        <img src="assets/images/testimonial/2.png" alt="Testimonial Image">
-                                        <h3 class="thumb-title">Hoàng</h3>
-                                        <h6 class="thumb-subtitle">Customer</h6>
+                                        <img src="{{asset('assets/images/member_avatar/3.png')}}" alt="Testimonial Image">
+                                        <h3 class="thumb-title">Ton That An Khuong (FPL HCM)</h3>
+                                        <h6 class="thumb-subtitle">Khách hàng</h6>
                                     </div>
                                     <!-- Testimonial Thumb End -->
                                 </div>
                                 <!-- Single Swiper Slide End -->
-
                             </div>
 
                             <!-- Add Pagination -->
@@ -143,27 +142,46 @@
     <!-- Team section Start -->
     <div class="section section-margin">
         <div class="container">
-            <div class="row row-cols-md-3 row-cols-sm-2 row-cols-1 m-b-n30">
+            <div class="row row-cols-md-5 row-cols-sm-2 row-cols-1 m-b-n30">
 
                 <div class="col m-b-30" data-aos="fade-up" data-aos-duration="1000">
                     <!-- Single Team Wrapper Start -->
                     <div class="single-team-wrapper">
                         <div class="thumb">
-                            <a href="contact.html">
-                                <img class="fit-image" src="assets/images/team/1.jpg" alt="Team Image">
+                            <a href="#">
+                                <img class="fit-image" src="{{asset('assets/images/member_avatar/4.png')}}" alt="Team Image">
                             </a>
                             <!-- Social Shear Start -->
                             <div class="social-share">
-                                <a title="Twitter" href="#/"><i class="ti-facebook"></i></a>
-                                <a title="Instagram" href="#/"><i class="ti-pinterest"></i></a>
-                                <a title="Linkedin" href="#/"><i class="ti-twitter-alt"></i></a>
-                                <a title="Skype" href="#/"><i class="ti-instagram"></i></a>
+                                <a title="Facebook" href="https://www.facebook.com/profile.php?id=100016468116539"><i class="ti-facebook"></i></a>
+                                <a title="Instagram" href="#/"><i class="ti-instagram"></i></a>
                             </div>
                             <!-- Social Shear End -->
                         </div>
                         <div class="content">
-                            <h4 class="title">Cristal Mile</h4>
-                            <h4 class="subtitle">Customer</h4>
+                            <h4 class="title">Huỳnh Tuấn Kiệt</h4>
+                            <h4 class="subtitle">Member</h4>
+                        </div>
+                    </div>
+                    <!-- Single Team Wrapper End -->
+                </div>
+                <div class="col m-b-30" data-aos="fade-up" data-aos-duration="1500">
+                    <!-- Single Team Wrapper Start -->
+                    <div class="single-team-wrapper">
+                        <div class="thumb">
+                            <a href="#">
+                                <img class="fit-image" src="{{asset('assets/images/member_avatar/3.png')}}" alt="Team Image">
+                            </a>
+                            <!-- Social Shear Start -->
+                            <div class="social-share">
+                                <a title="Facebook" href="https://www.facebook.com/com.3975"><i class="ti-facebook"></i></a>
+                                <a title="Instagram" href="#/"><i class="ti-instagram"></i></a>
+                            </div>
+                            <!-- Social Shear End -->
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Tôn Thất An Khương</h4>
+                            <h4 class="subtitle">Member</h4>
                         </div>
                     </div>
                     <!-- Single Team Wrapper End -->
@@ -173,21 +191,19 @@
                     <!-- Single Team Wrapper Start -->
                     <div class="single-team-wrapper">
                         <div class="thumb">
-                            <a href="contact.html">
-                                <img class="fit-image" src="assets/images/team/2.jpg" alt="Team Image">
+                            <a href="#">
+                                <img class="fit-image" src="{{asset('assets/images/member_avatar/1.png')}}" alt="Team Image">
                             </a>
                             <!-- Social Shear Start -->
                             <div class="social-share">
-                                <a title="Twitter" href="#/"><i class="ti-facebook"></i></a>
-                                <a title="Instagram" href="#/"><i class="ti-pinterest"></i></a>
-                                <a title="Linkedin" href="#/"><i class="ti-twitter-alt"></i></a>
-                                <a title="Skype" href="#/"><i class="ti-instagram"></i></a>
+                                <a title="Facebook" href="https://www.facebook.com/phucnh2610/"><i class="ti-facebook"></i></a>
+                                <a title="Instagram" href="https://www.instagram.com/phucnh2610/"><i class="ti-instagram"></i></a>
                             </div>
                             <!-- Social Shear End -->
                         </div>
                         <div class="content">
-                            <h4 class="title">Jems Prince</h4>
-                            <h4 class="subtitle">CEO</h4>
+                            <h4 class="title">Nguyễn Hoàng Phúc</h4>
+                            <h4 class="subtitle">Leader</h4>
                         </div>
                     </div>
                     <!-- Single Team Wrapper End -->
@@ -197,21 +213,40 @@
                     <!-- Single Team Wrapper Start -->
                     <div class="single-team-wrapper">
                         <div class="thumb">
-                            <a href="contact.html">
-                                <img class="fit-image" src="assets/images/team/3.jpg" alt="Team Image">
+                            <a href="#">
+                                <img class="fit-image" src="{{asset('assets/images/member_avatar/2.png')}}" alt="Team Image">
                             </a>
                             <!-- Social Shear Start -->
                             <div class="social-share">
-                                <a title="Twitter" href="#/"><i class="ti-facebook"></i></a>
-                                <a title="Instagram" href="#/"><i class="ti-pinterest"></i></a>
-                                <a title="Linkedin" href="#/"><i class="ti-twitter-alt"></i></a>
-                                <a title="Skype" href="#/"><i class="ti-instagram"></i></a>
+                                <a title="Facebook" href="https://www.facebook.com/nhan2095"><i class="ti-facebook"></i></a>
+                                <a title="Instagram" href="#/"><i class="ti-instagram"></i></a>
                             </div>
                             <!-- Social Shear End -->
                         </div>
                         <div class="content">
-                            <h4 class="title">Prety Pairy</h4>
-                            <h4 class="subtitle">Customer</h4>
+                            <h4 class="title">Nguyễn Trọng Nhân</h4>
+                            <h4 class="subtitle">Member</h4>
+                        </div>
+                    </div>
+                    <!-- Single Team Wrapper End -->
+                </div>
+                <div class="col m-b-30" data-aos="fade-up" data-aos-duration="2500">
+                    <!-- Single Team Wrapper Start -->
+                    <div class="single-team-wrapper">
+                        <div class="thumb">
+                            <a href="#">
+                                <img class="fit-image" src="{{asset('assets/images/member_avatar/5.png')}}" alt="Team Image">
+                            </a>
+                            <!-- Social Shear Start -->
+                            <div class="social-share">
+                                <a title="Facebook" href="#/"><i class="ti-facebook"></i></a>
+                                <a title="Instagram" href="#/"><i class="ti-instagram"></i></a>
+                            </div>
+                            <!-- Social Shear End -->
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Trần Quang Trung</h4>
+                            <h4 class="subtitle">Member</h4>
                         </div>
                     </div>
                     <!-- Single Team Wrapper End -->

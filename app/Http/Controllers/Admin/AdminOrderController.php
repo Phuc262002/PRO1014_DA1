@@ -49,7 +49,7 @@ class AdminOrderController extends Controller
         if ($status != 'ALL') {
             $order->where('status', $status);
         }
-        $order = $order->paginate(10);
+        $order = $order->orderBy('created_at', 'desc')->paginate(10);
 
         $order_complete = $order_complete->where('status', 'COMPLETED')->get();
         $order_cancel = $order_cancel->where('status', 'CANCELED')->get();

@@ -521,7 +521,7 @@
                                                 @foreach ($orders as $item)
                                                     <tr>
                                                         <td>
-                                                            <a href="apps-ecommerce-order-details.html"
+                                                            <a href="{{ route('orders.show', ['order' => $item->id]) }}"
                                                                 class="fw-medium link-primary">{{ $item->order_hash_id }}</a>
                                                         </td>
                                                         <td>

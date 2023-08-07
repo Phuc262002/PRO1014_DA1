@@ -63,7 +63,7 @@
                                             <label for="username" class="form-label">Email <span
                                                     class="text-danger">*</span></label>
                                             <input type="email" name="email" class="form-control" id="username"
-                                                placeholder="Nhập tên đăng nhập">
+                                                placeholder="Nhập tên đăng nhập" required>
                                             <div class="invalid-feedback">
                                                 Hãy nhập Email của bạn.
                                             </div>
@@ -79,7 +79,7 @@
                                             <div class="position-relative auth-pass-inputgroup mb-3">
                                                 <input type="password" name="password"
                                                     class="form-control pe-5 password-input" placeholder="Nhập mật khẩu"
-                                                    id="password-input">
+                                                    id="password-input" required>
                                                 <button
                                                     class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon"
                                                     type="button" id="password-addon"><i

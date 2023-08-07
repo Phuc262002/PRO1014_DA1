@@ -20,33 +20,7 @@
         content="Hãy đến Pets Care cung cấp dịch vụ mua sắm và chăm sóc thú cưng toàn diện" />
     <meta property="twitter:image" content="{{ asset('assets/images/logo/logo.png') }}" />
 
-    <!-- Favicons -->
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
-
-    <!-- Vendor CSS (Icon Font) -->
-
-    <!--
-<link rel="stylesheet" href="assets/css/vendor/fontawesome.min.css" />
-<link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
-<link rel="stylesheet" href="assets/css/vendor/simple-line-icons.min.css" />
-<link rel="stylesheet" href="assets/css/vendor/themify-icons-min.css" />
- -->
-
-    <!-- Plugins CSS (All Plugins Files) -->
-
-    <!--
-<link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
-<link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
-<link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css" />
-<link rel="stylesheet" href="assets/css/plugins/aos.min.css" />
-<link rel="stylesheet" href="assets/css/plugins/nice-select.min.css" />
--->
-
-    <!-- Main Style CSS -->
-
-    <!-- <link rel="stylesheet" href="assets/css/style.css" />  -->
-
-    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
 
 
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/vendor.min.css') }}">

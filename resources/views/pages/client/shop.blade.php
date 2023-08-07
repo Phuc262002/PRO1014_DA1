@@ -361,9 +361,18 @@
                                 <!-- Price Box End -->
 
                                 <!-- SKU Start -->
+                                <div class="sku m-b-5">
+                                    <span><strong>Mã sản phẩm: </strong>{{ $item->sku }}</span>
+                                </div>
+                                <div class="sku m-b-5">
+                                    <span><strong>Thương hiệu: </strong> <a
+                                            href="{{ route('san-pham.index') }}?brand={{ $item->brand->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->brand->name }}</a></span>
+                                </div>
                                 <div class="sku m-b-15">
-                                    <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
-                                    <span>{{ $item->sku }}</span>
+                                    <span><strong>Loại sản phẩm: </strong> <a
+                                            href="{{ route('san-pham.index') }}?category={{ $item->category->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->category->name }}</a></span>
                                 </div>
                                 <!-- SKU End -->
 

@@ -78,7 +78,6 @@ class LoginController extends Controller
     public function googleCallback()
     {
         $user_google = Socialite::driver('google')->user();
-
         if(!$user_google) {
             return redirect()->route('login')->with('error', 'Đã có lỗi xảy ra!');
         } else {
@@ -102,7 +101,7 @@ class LoginController extends Controller
                         'password' => Str::random(20),
                         'google_id' => $user_google->id,
                         'email_verified_at' => now(),
-                        'image' => $user_google->avatar,
+                        'image' => str_replace('=s96-c', '', $user_google->avatar),
                         'status' => 1,
                         'remember_token' => $user_google->token,
                         'confirm' => 1,
@@ -117,7 +116,7 @@ class LoginController extends Controller
                         'github_id' => null
                     ])->update([
                         'google_id' => $user_google->id,
-                        'image' => $user_google->avatar,
+                        'image' => str_replace('=s96-c', '', $user_google->avatar),
                         'email_verified_at' => now(),
                         'confirm' => 1,
                         'confirmation_code' => Str::random(6),

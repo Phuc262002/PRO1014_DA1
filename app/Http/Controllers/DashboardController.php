@@ -113,7 +113,7 @@ class DashboardController extends Controller
         $order_canceled_count_array_chart = json_encode($order_canceled_count_array_chart);
         $order_all_count_array_chart = json_encode($order_all_count_array_chart);
 
-        $top_10 = Order_detail::selectRaw('product_id, sum(quantity) as total_amount, sum(price) as total_price, avg(price) as avg_price')
+        $top_10 = Order_detail::selectRaw('product_id, sum(quantity) as total_amount, sum(price*quantity) as total_price, avg(price) as avg_price')
             ->whereIn('order_id', function($query) {
                 $query->select('id')
                       ->from('orders')
