@@ -15,7 +15,7 @@ class ServiceUserController extends Controller
     {
         $title = 'Pets Care - Quản lý dịch vụ';
         $service_book = Book_service::where('user_id', auth()->user()->id)->with('user', 'service');
-        $status = request()->input('status');
+        $status = request()->input('status') ? request()->input('status') : 'ALL';
         if ($status != 'ALL') {
             $service_book->where('status', $status);
         }

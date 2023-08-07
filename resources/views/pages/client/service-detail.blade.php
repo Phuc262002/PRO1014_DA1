@@ -157,7 +157,7 @@
                                             </div>
                                             <div class="d-flex justify-content-end">
                                                 <div class="pagination-wrap hstack gap-2">
-                                                    {{ $service_book->links() }}
+                                                    {{ $service_book->appends(request()->query())->links() }}
                                                 </div>
                                             </div>
                                         </div>

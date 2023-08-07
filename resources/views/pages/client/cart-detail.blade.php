@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="d-flex justify-content-end">
                                                 <div class="pagination-wrap hstack gap-2">
-                                                    {{ $order->links() }}
+                                                    {{ $order->appends(request()->query())->links() }}
                                                 </div>
                                             </div>
                                         </div>

@@ -18,7 +18,7 @@ class CartClientController extends Controller
     {
         $title = 'Pets Care - Đơn hàng của tôi';
         $order = Order::where('user_id', auth()->user()->id)->with('user', 'address', 'payment', 'order_detail', 'coupon');
-        $status = request()->input('status');
+        $status = request()->input('status') ? request()->input('status') : 'ALL';
         if ($status != 'ALL') {
             $order->where('status', $status);
         }
