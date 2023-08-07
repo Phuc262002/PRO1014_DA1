@@ -75,7 +75,39 @@
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade show active" id="orders" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3 class="title">Đơn hàng dịch vụ</h3>
+                                            <div class="row">
+                                                <div class="col-xxl-9 col-sm-4">
+                                                    <h3 class="title">Dịch vụ đã đặt</h3>
+                                                </div>
+                                                <div class="col-xxl-3 col-sm-4">
+                                                    <div class="input-light">
+                                                        <form id="form_filter"
+                                                            action="{{ route('dich-vu-ca-nhan.index') }}">
+                                                            <select class="form-control" data-choices
+                                                                data-choices-search-false name="status" id="idStatus"
+                                                                onchange="inputFilter()">
+                                                                <option {{ $status == 'ALL' ? 'selected' : '' }}
+                                                                    value="ALL" selected>Tất cả dịch vụ</option>
+                                                                <option {{ $status == 'COMPLETED' ? 'selected' : '' }}
+                                                                    value="COMPLETED">Dịch vụ hoàn thành</option>
+                                                                <option {{ $status == 'ACCEPTED' ? 'selected' : '' }}
+                                                                    value="ACCEPTED">Dịch vụ chấp nhận</option>
+                                                                <option {{ $status == 'CANCELED' ? 'selected' : '' }}
+                                                                    value="CANCELED">Dịch vụ hủy</option>
+                                                                <option {{ $status == 'PENDING' ? 'selected' : '' }}
+                                                                    value="PENDING">
+                                                                    Chờ thanh toán</option>
+                                                                <option {{ $status == 'HOLDING' ? 'selected' : '' }}
+                                                                    value="HOLDING">
+                                                                    Dịch vụ tạm giữ</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+
+
+                                            </div>
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered ">
                                                     <thead class="thead-light">
@@ -104,7 +136,20 @@
                                                                 <td><div class="text-wrap text-start" style="width: 300px">{{ $item->description }}</div></td>
                                                                 <td><div class="text-wrap text-start" style="width: 300px">{{ $item->admin_note }}</div></td>
                                                                 <td>{{ $item->total_price }}</td>
-                                                                <td>{{ $item->status }}</td>
+                                                                <td>
+                                                                    @if ($item->status == 'COMPLETED')
+                                                                        Dịch vụ hoàn thành
+                                                                    @elseif ($item->status == 'ACCEPTED')
+                                                                        Dịch vụ chấp nhận
+                                                                    @elseif ($item->status == 'CANCELED')
+                                                                        Dịch vụ bị hủy
+                                                                    @elseif ($item->status == 'PENDING')
+                                                                        Dịch vụ chờ thanh toán
+                                                                    @elseif ($item->status == 'HOLDING')
+                                                                        Dịch vụ tạm giữ
+                                                                    @endif
+
+                                                                </td>
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
@@ -146,4 +191,11 @@
     <!-- Footer Section End -->
 
     <!-- Modal Start  -->
+@endsection
+@section('js')
+    <script>
+        function inputFilter() {
+            $('#form_filter').submit();
+        }
+    </script>
 @endsection
