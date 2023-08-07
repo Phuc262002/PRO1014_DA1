@@ -39,13 +39,20 @@ class ProductController extends Controller
             'quantity' => 1,
             'in_stock' => $product->quantity,
             'slug' => $product->slug,
-
+            
         ];
+        if ($product) {
+            return [
+                'status' => 200,
+                'data' => $product_data
+            ];
+        } else {
+            return [
+                'status' => 404,
+                'message' => 'Sản phẩm không tồn tại'
+            ];
+        }
         
-        return [
-            'status' => 200,
-            'data' => $product_data
-        ];
     }
 
     /**
