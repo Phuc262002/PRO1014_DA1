@@ -109,13 +109,19 @@
 
                         <!-- SKU Start -->
                         <div class="sku m-b-15">
-                            <span>Mã hàng: {{ $product->sku }}</span>
+                            <span><strong>Mã sản phẩm: </strong>{{ $product->sku }}</span>
+                        </div>
+                        <div class="sku m-b-15">
+                            <span><strong>Thương hiệu: </strong> <a href="{{route('san-pham.index')}}?brand={{ $product->brand->slug }}" class="btn btn-link text-primary p-0">{{ $product->brand->name }}</a></span>
+                        </div>
+                        <div class="sku m-b-15">
+                            <span><strong>Loại sản phẩm: </strong> <a href="{{route('san-pham.index')}}?category={{ $product->category->slug }}" class="btn btn-link text-primary p-0">{{ $product->category->name }}</a></span>
                         </div>
                         <!-- SKU End -->
 
                         <!-- Product Inventory Start -->
                         <div class="product-inventroy m-b-15">
-                            <span class="inventroy-title"> <strong>Còn lại : </strong></span>
+                            <span class="inventroy-title"> <strong>Còn lại: </strong></span>
                             <span class="inventory-varient">{{ $product->quantity }} sản phẩm </span>
                         </div>
                         <!-- Product Inventory End -->
@@ -512,11 +518,19 @@
                                     {{-- <span class="old-price"><del>{{$item->discount_price}}</del></span> --}}
                                 </div>
                                 <!-- Price Box End -->
-
                                 <!-- SKU Start -->
+                                <div class="sku m-b-5">
+                                    <span><strong>Mã sản phẩm: </strong>{{ $item->sku }}</span>
+                                </div>
+                                <div class="sku m-b-5">
+                                    <span><strong>Thương hiệu: </strong> <a
+                                            href="{{ route('san-pham.index') }}?brand={{ $item->brand->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->brand->name }}</a></span>
+                                </div>
                                 <div class="sku m-b-15">
-                                    <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
-                                    <span class="inventory-varient">{{ $item->sku }}</span>
+                                    <span><strong>Loại sản phẩm: </strong> <a
+                                            href="{{ route('san-pham.index') }}?category={{ $item->category->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->category->name }}</a></span>
                                 </div>
                                 <!-- SKU End -->
 

@@ -17,8 +17,6 @@ class MapClientController extends Controller
         $title = 'Pets Care - Chỉnh sửa địa chỉ';
         $inforUser = Information_user::where('user_id', Auth()->user()->id)->get();
         return view('pages.client.maps', compact('title', 'inforUser'));
-        //dd($inforUser);
-
     }
 
     /**
@@ -71,7 +69,7 @@ class MapClientController extends Controller
                 $add_address->save();
             } else {
                 if ($request->is_default) {
-                    $address = Information_user::all();
+                    $address = Information_user::where('user_id', Auth()->user()->id)->get();
                     foreach ($address as $item) {
                         if ($item->id == $add_address->id) {
                             $item->is_default = true;
@@ -151,7 +149,7 @@ class MapClientController extends Controller
         ]);
 
         if ($request->is_default) {
-            $address_all = Information_user::all();
+            $address_all = Information_user::where('user_id', Auth()->user()->id)->get();
             foreach ($address_all as $item) {
                 if ($item->id == $dia_chi) {
                     $item->is_default = true;

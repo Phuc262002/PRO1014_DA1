@@ -15,10 +15,12 @@
                         </div>
                         <div class="container">
                             <div class="hero-slide-content text-center">
-                                <img class="mb-5" src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo" width="100"/>
+                                <img class="mb-5" src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo"
+                                    width="100" />
                                 <h5 class="sub-title">{{ $item->title }}</h5>
                                 <p class="ms-0">{!! $item->introduction !!}</p>
-                                <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary rounded">Mua ngay</a>
+                                <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary rounded">Mua
+                                    ngay</a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +48,7 @@
 
                     <div class="col m-b-30" data-aos="fade-up" data-aos-duration="1000">
                         <!-- Single CTA Wrapper Start -->
-                        <div class="single-cta-wrapper">
+                        <div class="single-cta-wrapper rounded-3">
 
                             <!-- CTA Icon Start -->
                             <div class="cta-icon">
@@ -67,7 +69,7 @@
 
                     <div class="col m-b-30" data-aos="fade-up" data-aos-duration="1100">
                         <!-- Single CTA Wrapper Start -->
-                        <div class="single-cta-wrapper">
+                        <div class="single-cta-wrapper rounded-3">
 
                             <!-- CTA Icon Start -->
                             <div class="cta-icon">
@@ -88,7 +90,7 @@
 
                     <div class="col m-b-30" data-aos="fade-up" data-aos-duration="1200">
                         <!-- Single CTA Wrapper Start -->
-                        <div class="single-cta-wrapper">
+                        <div class="single-cta-wrapper rounded-3">
 
                             <!-- CTA Icon Start -->
                             <div class="cta-icon">
@@ -219,7 +221,8 @@
                                             <div class="product">
                                                 <!-- Thumb Start  -->
                                                 <div class="thumb">
-                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}" class="image">
+                                                    <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}"
+                                                        class="image">
 
                                                         <img class="fit-image" src="{{ $item->image_main }}"
                                                             alt="Product" />
@@ -246,7 +249,8 @@
                                                 <!-- Content Start  -->
                                                 <div class="content">
                                                     <h5 class="title">
-                                                        <a href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                        <a
+                                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
                                                     </h5>
 
                                                     <span class="rating">
@@ -257,8 +261,8 @@
                                                         <i class="fa fa-star-half-o"></i>
                                                     </span>
                                                     <span class="price">
-                                                        <span
-                                                            class="new">{{ number_format($item->discount_price) }} </span>
+                                                        <span class="new">{{ number_format($item->discount_price) }}
+                                                        </span>
                                                         <span class="old">{{ number_format($item->price) }}</span>
                                                     </span>
                                                 </div>
@@ -414,7 +418,7 @@
                             <div class="single-blog-wrapper">
                                 <!-- Blog Thumb Start -->
                                 <div class="blog-thumb thumb-effect">
-                                    <a class="image" href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">
+                                    <a class="image" href="{{ route('bai-viet.detail', ['slug' => $item->slug]) }}">
                                         <img class="fit-image" src="{{ $item->img_post }}" alt="Blog Image">
                                     </a>
                                 </div>
@@ -425,14 +429,18 @@
                                     <div class="blog-meta">
                                         <ul>
                                             <li><span><img class="rounded-circle header-profile-user" width="30"
-                                                src="{{ $item->user_post->image }}"
-                                                alt="{{ $item->user_post->name }}"></span><a href="">{{ $item->user_post->name }}</a></li>
+                                                        src="{{ $item->user_post->image }}"
+                                                        alt="{{ $item->user_post->name }}"></span><a
+                                                    href="">{{ $item->user_post->name }}</a></li>
                                             <li><span>{{ $item->created_at->format('d/m/Y') }}</span></li>
                                         </ul>
                                     </div>
-                                    <h2 class="blog-title"><a href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">{{ $item->title }}</a></h2>
+                                    <h2 class="blog-title"><a
+                                            href="{{ route('bai-viet.detail', ['slug' => $item->slug]) }}">{{ $item->title }}</a>
+                                    </h2>
                                     <p>{{ $item->description }}</p>
-                                    <a class="more-link" href="{{route('bai-viet.detail', ['slug' => $item->slug])}}">Xem thêm...</a>
+                                    <a class="more-link"
+                                        href="{{ route('bai-viet.detail', ['slug' => $item->slug]) }}">Xem thêm...</a>
                                 </div>
                                 <!-- Blog Content End -->
                             </div>
@@ -467,11 +475,13 @@
                                 <!-- Single Product Image Start -->
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                        <a class="swiper-slide"
+                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                             <img class="w-100" src="{{ $item->image_main }}" alt="Product">
                                         </a>
                                         @foreach ($item->image_list as $img)
-                                            <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                            <a class="swiper-slide"
+                                                href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                                 <img class="w-100" src="{{ $img->image_collection }}"
                                                     alt="Product">
                                             </a>
@@ -527,9 +537,18 @@
                                 <!-- Price Box End -->
 
                                 <!-- SKU Start -->
+                                <div class="sku m-b-5">
+                                    <span><strong>Mã sản phẩm: </strong>{{ $item->sku }}</span>
+                                </div>
+                                <div class="sku m-b-5">
+                                    <span><strong>Thương hiệu: </strong> <a
+                                            href="{{ route('san-pham.index') }}?brand={{ $item->brand->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->brand->name }}</a></span>
+                                </div>
                                 <div class="sku m-b-15">
-                                    <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
-                                    <span class="inventory-varient">{{ $item->sku }}</span>
+                                    <span><strong>Loại sản phẩm: </strong> <a
+                                            href="{{ route('san-pham.index') }}?category={{ $item->category->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->category->name }}</a></span>
                                 </div>
                                 <!-- SKU End -->
 
@@ -596,11 +615,13 @@
                                 <!-- Single Product Image Start -->
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                        <a class="swiper-slide"
+                                            href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                             <img class="w-100" src="{{ $item->image_main }}" alt alt="Product">
                                         </a>
                                         @foreach ($item->image_list as $img)
-                                            <a class="swiper-slide" href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
+                                            <a class="swiper-slide"
+                                                href="{{ route('san-pham.detail', ['slug' => $item->slug]) }}">
                                                 <img class="w-100" src="{{ $img->image_collection }}"
                                                     alt="Product">
                                             </a>
@@ -656,9 +677,18 @@
                                 <!-- Price Box End -->
 
                                 <!-- SKU Start -->
+                                <div class="sku m-b-5">
+                                    <span><strong>Mã sản phẩm: </strong>{{ $item->sku }}</span>
+                                </div>
+                                <div class="sku m-b-5">
+                                    <span><strong>Thương hiệu: </strong> <a
+                                            href="{{ route('san-pham.index') }}?brand={{ $item->brand->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->brand->name }}</a></span>
+                                </div>
                                 <div class="sku m-b-15">
-                                    <span class="inventroy-title"> <strong>Mã sản phẩm:</strong></span>
-                                    <span class="inventory-varient">{{ $item->sku }}</span>
+                                    <span><strong>Loại sản phẩm: </strong> <a
+                                            href="{{ route('san-pham.index') }}?category={{ $item->category->slug }}"
+                                            class="btn btn-link text-primary p-0">{{ $item->category->name }}</a></span>
                                 </div>
                                 <!-- SKU End -->
 
