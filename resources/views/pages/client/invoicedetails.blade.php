@@ -83,7 +83,19 @@
                                                 <div class="col-lg-3 col-6">
                                                     <p class="text-muted mb-2 text-uppercase fw-semibold">Trạng thái</p>
                                                     <span class="badges">
-                                                        <span class="sale">{{ $order->status }}</span>
+                                                        <span class="sale">
+                                                            @if ($item->status == 'COMPLETED')
+                                                                Đơn hoàn thành
+                                                            @elseif ($item->status == 'ACCEPTED')
+                                                                Đơn chấp nhận
+                                                            @elseif ($item->status == 'CANCELED')
+                                                                Đơn bị hủy
+                                                            @elseif ($item->status == 'PENDING')
+                                                                Đơn chờ thanh toán
+                                                            @elseif ($item->status == 'HOLDING')
+                                                                Đơn tạm giữ
+                                                            @endif
+                                                        </span>
                                                     </span>
                                                 </div>
                                                 <!--end col-->
@@ -218,10 +230,10 @@
                                             <div class="hstack gap-2 justify-content-end  mt-4">
                                                 <a href="javascript:printCode()" class="btn btn-primary"><i
                                                         class="ri-printer-line align-bottom me-1"></i>In hóa đơn</a>
-                                                        <a href="{{ route('don-hang-ca-nhan.index') }}"
-                                                        class="btn btn btn-danger btn-hover-dark rounded-4">
-                                                        Quay lại</a>
-                                                        {{-- <div class="col-3">
+                                                <a href="{{ route('don-hang-ca-nhan.index') }}"
+                                                    class="btn btn btn-danger btn-hover-dark rounded-4">
+                                                    Quay lại</a>
+                                                {{-- <div class="col-3">
                                                            
                                                         </div> --}}
                                             </div>
