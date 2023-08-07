@@ -22,7 +22,6 @@
 
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
-
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/vendor.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
@@ -113,7 +112,7 @@
 
                                     </li>
                                     <li class="has-children">
-                                        <a class="{{ Request::routeIs('services') | Request::routeIs('') ? 'active' : '' }}"
+                                        <a class="{{ Request::routeIs('dich-vu.index') | Request::routeIs('dich-vu.create') ? 'active' : '' }}"
                                             href="#">Dịch vụ</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('dich-vu.index') }}">Các dịch vụ</a></li>
@@ -125,8 +124,8 @@
                                             href="{{ route('bai-viet.index') }}">Blog</a>
                                     </li>
 
-                                    <li><a href="{{ route('about') }}">Về chúng tôi</a></li>
-                                    <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                                    <li><a class="{{ Request::routeIs('about') | Request::routeIs('') ? 'active' : '' }}" href="{{ route('about') }}">Về chúng tôi</a></li>
+                                    <li><a class="{{ Request::routeIs('contact') | Request::routeIs('') ? 'active' : '' }}" href="{{ route('contact') }}">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>

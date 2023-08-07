@@ -90,10 +90,10 @@ class ResetPasswordController extends Controller
                         }
                         
                     } else {
-                        return back()->withErrors(['password' => 'Mật khẩu mới không được trùng với mật khẩu cũ']);
+                        return back()->withErrors(['error' => 'Mật khẩu mới không được trùng với mật khẩu cũ']);
                     }
                 } else {
-                    return back()->withErrors(['email' => 'Email này đã được đăng ký bằng tài khoản mạng xã hội']);
+                    return back()->withErrors(['error' => 'Email này đã được đăng ký bằng tài khoản mạng xã hội']);
                 }
 
             }

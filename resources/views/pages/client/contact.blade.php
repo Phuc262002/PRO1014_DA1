@@ -1,5 +1,7 @@
 @extends('layouts.client.master')
-
+@section('title')
+    Pets Care - Liên hệ
+@endsection
 @section('content')
     <!-- Breadcrumb Area Start -->
 

@@ -28,7 +28,7 @@
                 <div class="col-md-6 pe-lg-5 p-r-15 m-b-30" data-aos="fade-up" data-aos-duration="1000">
                     <!-- About Thumb Start -->
                     <div class="about-thumb">
-                        <img class="fit-image" src="assets/images/about/1.png" alt="About Image">
+                        <img class="fit-image" src="{{asset('assets/images/banner/8.png')}}" alt="About Image">
                     </div>
                     <!-- About Thumb End -->
                 </div>
@@ -36,16 +36,11 @@
                     <!-- About Content Start -->
                     <div class="about-content">
                         <h2 class="title">Giới Thiệu</h2>
-                        <p>Phòng khám thú y mở cửa 24/24 tại TP.HCM Petcare sẽ hỗ trợ bạn chăm sóc thú cưng, trong những
-                            trường hợp cấp bách cần điều trị xử lý kịp thời. Nếu bạn không thể đưa thú cưng tới phòng khám
-                            được, chúng tôi có dịch vụ chăm sóc thú cưng tại nhà. Bất kì khi nào bạn cần thì hãy gọi ngay
-                            cho chúng thôi theo số hotline 093123424 (trực 24/24) để được hỗ trợ nhanh nhất.</p>
+                        <p>Phòng khám thú y mở cửa 24/24 tại TP.HCM. Petscare sẽ hỗ trợ bạn chăm sóc thú cưng, trong những trường hợp cấp bách cần điều trị xử lý kịp thời. Nếu bạn không thể đưa thú cưng tới phòng khám được, chúng tôi có dịch vụ chăm sóc thú cưng tại nhà. Bất kì khi nào bạn cần thì hãy gọi ngay cho chúng thôi theo số hotline 0123456789 (trực 24/24) để được hỗ trợ nhanh nhất.</p>
                         <ul class="about-content-list">
-                            <li><span><i class="ti-angle-double-right"></i></span> Có nhiều đoạn biến thể</li>
-                            <li><span><i class="ti-angle-double-right"></i></span> Trái ngược với niềm tin phổ biến không
-                                chỉ đơn giản là</li>
-                            <li><span><i class="ti-angle-double-right"></i></span> Nhưng tôi phải giải thích cho bạn làm thế
-                                nào tất cả những điều này</li>
+                            <li><span><i class="ti-angle-double-right"></i></span> Địa chỉ cửa hàng: Công viên phần mềm Quang Trung, phường Tân Chánh Hiệp, quận 12, TP HCM</li>
+                            <li><span><i class="ti-angle-double-right"></i></span> Điện thoại: 0123456789</li>
+                            <li><span><i class="ti-angle-double-right"></i></span> Email: petscare.hospital@gmail.com</li>
                         </ul>
                         <a href="{{ route('contact') }}" class="btn btn-primary btn-hover-dark">Liên hệ với chúng tôi</a>
                     </div>
@@ -105,7 +100,7 @@
                                 <div class="swiper-slide">
                                     <!-- Testimonial Thumb Start -->
                                     <div class="testimonial-thumb text-center">
-                                        <img src="https://lh3.googleusercontent.com/a/AAcHTtdXTtZeeIVJFtOaoPbgtmjoVgk04Kjec2mw_iDWPcKv1A=s96-c" alt="Testimonial Image">
+                                        <img src="https://lh3.googleusercontent.com/a/AAcHTtdXTtZeeIVJFtOaoPbgtmjoVgk04Kjec2mw_iDWPcKv1A" alt="Testimonial Image">
                                         <h3 class="thumb-title">Nguyen Thi Nam (FE FPL HCM)</h3>
                                         <h6 class="thumb-subtitle">Khách hàng</h6>
                                     </div>
@@ -116,8 +111,8 @@
                                 <div class="swiper-slide">
                                     <!-- Testimonial Thumb Start -->
                                     <div class="testimonial-thumb text-center">
-                                        <img src="{{asset('assets/images/member_avatar/3.png')}}" alt="Testimonial Image">
-                                        <h3 class="thumb-title">Ton That An Khuong (FPL HCM)</h3>
+                                        <img src="https://lh3.googleusercontent.com/a/AAcHTtdLDtqDu9LfUKUR7Fv5gZR5R9Z2O6h--I1_hskD57fjzQ" alt="Testimonial Image">
+                                        <h3 class="thumb-title">Nguyễn Thị Thanh Xuân (FPL HCM)</h3>
                                         <h6 class="thumb-subtitle">Khách hàng</h6>
                                     </div>
                                     <!-- Testimonial Thumb End -->

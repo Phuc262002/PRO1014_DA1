@@ -52,8 +52,8 @@
                                                     <h6><span class="text-muted fw-normal">Email: </span><span
                                                             id="email">petscare@gmail.com</span></h6>
                                                     <h6><span class="text-muted fw-normal">Website:</span> <a
-                                                            href="https://themesbrand.com/" class="link-primary"
-                                                            target="_blank" id="website">www.petscare.com</a></h6>
+                                                            href="https://thegioinoithat.website/" class="link-primary"
+                                                            target="_blank" id="website">www.thegioinoithat.com</a></h6>
                                                     <h6 class="mb-0"><span class="text-muted fw-normal">Liên hệ:
                                                         </span><span id="contact-no"> +(84) 081 234 6789</span></h6>
                                                 </div>
