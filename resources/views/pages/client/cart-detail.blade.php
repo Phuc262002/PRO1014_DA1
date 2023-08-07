@@ -33,7 +33,8 @@
                             <!-- My Account Tab Menu Start -->
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài khoản</a>
+                                    <a href="{{ route('thong-tin-ca-nhan.index') }}"><i class="fa fa-user"></i> Tài
+                                        khoản</a>
                                     <a href="{{ route('don-hang-ca-nhan.index') }}"><i class="fa fa-cart-arrow-down"></i>
                                         Đơn hàng</a>
                                     <a href="{{ route('dich-vu-ca-nhan.index') }}"><i class="fa-solid fa-shield-dog"></i>
@@ -61,7 +62,39 @@
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade show active" id="orders" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3 class="title">Đơn hàng</h3>
+                                            <div class="row">
+                                                <div class="col-xxl-9 col-sm-4">
+                                                    <h3 class="title">Đơn hàng</h3>
+                                                </div>
+                                                <div class="col-xxl-3 col-sm-4">
+                                                    <div class="input-light">
+                                                        <form id="form_filter" action="{{ route('don-hang-ca-nhan.index') }}">
+                                                            <select class="form-control" data-choices
+                                                                data-choices-search-false name="status" id="idStatus"
+                                                                onchange="inputFilter()">
+                                                                <option {{ $status == 'ALL' ? 'selected' : '' }}
+                                                                    value="ALL" selected>Tất cả đơn hàng</option>
+                                                                <option {{ $status == 'COMPLETED' ? 'selected' : '' }}
+                                                                    value="COMPLETED">Đơn hàng hoàn thành</option>
+                                                                <option {{ $status == 'ACCEPTED' ? 'selected' : '' }}
+                                                                    value="ACCEPTED">Đơn hàng chấp nhận</option>
+                                                                <option {{ $status == 'CANCELED' ? 'selected' : '' }}
+                                                                    value="CANCELED">Đơn hàng hủy</option>
+                                                                <option {{ $status == 'PENDING' ? 'selected' : '' }}
+                                                                    value="PENDING">
+                                                                    Chờ thanh toán</option>
+                                                                <option {{ $status == 'HOLDING' ? 'selected' : '' }}
+                                                                    value="HOLDING">
+                                                                    Đơn hàng tạm giữ</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+
+
+                                            </div>
+
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
@@ -78,16 +111,18 @@
                                                     <tbody>
                                                         @foreach ($order as $item)
                                                             <tr>
-                                                                <td>{{$item->order_hash_id}}</td>
-                                                                <td>{{$item->created_at}}</td>
-                                                                <td>{{count($item->order_detail)}}</td>
+                                                                <td>{{ $item->order_hash_id }}</td>
+                                                                <td>{{ $item->created_at }}</td>
+                                                                <td>{{ count($item->order_detail) }}</td>
                                                                 {{-- <td>{{$item->coupon != null ? $item->coupon->coupon_hash_id.' - '.number_format($item->coupon->discount) : ''}}</td> --}}
-                                                                <td>{{number_format($item->total)}}</td>
-                                                                <td>{{$item->status}}</td>
-                                                                <td><a href="{{ route('hoa-don.index') }}?bill_id={{$item->order_hash_id}}"
-                                                                        class="btn btn btn-primary btn-hover-dark rounded-4">Hóa đơn</a>
+                                                                <td>{{ number_format($item->total) }}</td>
+                                                                <td>{{ $item->status }}</td>
+                                                                <td><a href="{{ route('hoa-don.index') }}?bill_id={{ $item->order_hash_id }}"
+                                                                        class="btn btn btn-primary btn-hover-dark rounded-4">Hóa
+                                                                        đơn</a>
                                                                     <a href="{{ route('don-hang-ca-nhan.bill_id', ['bill_id' => $item->order_hash_id]) }}"
-                                                                        class="btn btn btn-primary btn-hover-dark rounded-4">Chi tiết hóa đơn</a>
+                                                                        class="btn btn btn-primary btn-hover-dark rounded-4">Chi
+                                                                        tiết hóa đơn</a>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -120,5 +155,11 @@
     <!-- Footer Section End -->
 
     <!-- Modal Start  -->
-    
+@endsection
+@section('js')
+    <script>
+        function inputFilter() {
+            $('#form_filter').submit();
+        }
+    </script>
 @endsection
