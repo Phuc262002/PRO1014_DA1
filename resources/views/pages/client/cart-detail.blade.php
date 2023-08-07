@@ -68,7 +68,8 @@
                                                 </div>
                                                 <div class="col-xxl-3 col-sm-4">
                                                     <div class="input-light">
-                                                        <form id="form_filter" action="{{ route('don-hang-ca-nhan.index') }}">
+                                                        <form id="form_filter"
+                                                            action="{{ route('don-hang-ca-nhan.index') }}">
                                                             <select class="form-control" data-choices
                                                                 data-choices-search-false name="status" id="idStatus"
                                                                 onchange="inputFilter()">
@@ -114,9 +115,23 @@
                                                                 <td>{{ $item->order_hash_id }}</td>
                                                                 <td>{{ $item->created_at }}</td>
                                                                 <td>{{ count($item->order_detail) }}</td>
-                                                                {{-- <td>{{$item->coupon != null ? $item->coupon->coupon_hash_id.' - '.number_format($item->coupon->discount) : ''}}</td> --}}
+
                                                                 <td>{{ number_format($item->total) }}</td>
-                                                                <td>{{ $item->status }}</td>
+                                                                {{-- <td>{{ $item->status }}</td> --}}
+                                                                <td>
+                                                                    @if ($item->status == 'COMPLETED')
+                                                                        Đơn hoàn thành
+                                                                    @elseif ($item->status == 'ACCEPTED')
+                                                                        Đơn chấp nhận
+                                                                    @elseif ($item->status == 'CANCELED')
+                                                                        Đơn bị hủy
+                                                                    @elseif ($item->status == 'PENDING')
+                                                                        Đơn chờ thanh toán
+                                                                    @elseif ($item->status == 'HOLDING')
+                                                                        Đơn tạm giữ
+                                                                    @endif
+
+                                                                </td>
                                                                 <td><a href="{{ route('hoa-don.index') }}?bill_id={{ $item->order_hash_id }}"
                                                                         class="btn btn btn-primary btn-hover-dark rounded-4">Hóa
                                                                         đơn</a>
