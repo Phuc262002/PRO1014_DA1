@@ -84,15 +84,15 @@
                                                     <p class="text-muted mb-2 text-uppercase fw-semibold">Trạng thái</p>
                                                     <span class="badges">
                                                         <span class="sale">
-                                                            @if ($item->status == 'COMPLETED')
+                                                            @if ($order->status == 'COMPLETED')
                                                                 Đơn hoàn thành
-                                                            @elseif ($item->status == 'ACCEPTED')
+                                                            @elseif ($order->status == 'ACCEPTED')
                                                                 Đơn chấp nhận
-                                                            @elseif ($item->status == 'CANCELED')
+                                                            @elseif ($order->status == 'CANCELED')
                                                                 Đơn bị hủy
-                                                            @elseif ($item->status == 'PENDING')
+                                                            @elseif ($order->status == 'PENDING')
                                                                 Đơn chờ thanh toán
-                                                            @elseif ($item->status == 'HOLDING')
+                                                            @elseif ($order->status == 'HOLDING')
                                                                 Đơn tạm giữ
                                                             @endif
                                                         </span>
