@@ -1,4 +1,7 @@
 @extends('layouts.client.master')
+@section('title')
+    Pets Care - Đặt lịch chăm sóc thú cưng
+@endsection
 <link rel="stylesheet" href="{{ asset('assets/css/book-services/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/book-services/style.css') }}">
 
