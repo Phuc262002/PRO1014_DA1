@@ -21,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('throttle:60,1')->apiResource('products', ProductController::class)->only('show');
-Route::middleware('throttle:60,1')->apiResource('coupons', CouponController::class)->only('index');
+Route::middleware('throttle:20,1')->apiResource('products', ProductController::class)->only('show');
+Route::middleware('throttle:10,1')->apiResource('coupons', CouponController::class)->only('index');
 

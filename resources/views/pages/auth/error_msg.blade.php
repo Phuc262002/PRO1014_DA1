@@ -23,7 +23,7 @@
                     <div class="col-lg-12">
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
-                                <a href="index.html" class="d-inline-block auth-logo">
+                                <a href="{{ route('home') }}" class="d-inline-block auth-logo">
                                     <img src="{{ asset('assets/images/logo/logo.png') }}" alt="" height="200">
                                 </a>
                             </div>
@@ -45,8 +45,7 @@
                                     <h4>Rất tiếc !</h4>
                                     <p class="text-muted mx-4">Liên kết này đã hết hạn.</p>
                                     <div class="mt-4">
-                                        <a href="{{ route('login') }}" class="btn btn-danger w-100">Quay lại trang đăng
-                                            nhập</a>
+                                        <a href="{{ route('login') }}" class="btn btn-danger w-100">Quay lại trang chủ</a>
                                     </div>
                                 </div>
                             </div>

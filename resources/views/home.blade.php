@@ -18,7 +18,7 @@
                                 <img class="mb-5" src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo" width="100"/>
                                 <h5 class="sub-title">{{ $item->title }}</h5>
                                 <p class="ms-0">{!! $item->introduction !!}</p>
-                                <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary">Mua ngay</a>
+                                <a href="{{ route('san-pham.index') }}" class="btn btn-dark btn-hover-primary rounded">Mua ngay</a>
                             </div>
                         </div>
                     </div>

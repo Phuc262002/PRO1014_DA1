@@ -35,6 +35,15 @@
 <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
 
+<!-- particles js -->
+<script src="{{ asset('assets/admin/libs/particles.js/particles.js') }}"></script>
+<!-- particles app js -->
+<script src="{{ asset('assets/admin/js/pages/particles.app.js') }}"></script>
+<!-- validation init -->
+<script src="{{ asset('assets/admin/js/pages/form-validation.init.js') }}"></script>
+<!-- password create init -->
+<script src="{{ asset('assets/admin/js/pages/passowrd-create.init.js') }}"></script>
+
 <!--Main JS-->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/js/toast.js') }}"></script>

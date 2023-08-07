@@ -308,6 +308,16 @@
          });
      }
 
+     function redirectCheckout() {
+         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+         if (cartItems.length == 0) {
+             Error('Chưa có sản phẩm trong giỏ hàng.')
+             return;
+         } else {
+             window.location.href = "{{ route('thanh-toan.index') }}";
+         }
+     }
+
      function addCart(id) {
          $.ajax({
              url: '{{ route('home') }}/api/products/' + id,
@@ -359,6 +369,9 @@
      function addCartQuality(id) {
          let quantity = $('#quantyCart_' + id).val();
          if (quantity < 1) {
+             Error('Số lượng phải là số và lớn hơn 0');
+             return;
+         } else if (isNaN(quantity)) {
              Error('Số lượng phải là số và lớn hơn 0');
              return;
          }

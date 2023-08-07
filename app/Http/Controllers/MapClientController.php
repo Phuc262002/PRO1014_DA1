@@ -136,6 +136,7 @@ class MapClientController extends Controller
             'address.max' => 'Địa chỉ không dài quá 255 kí tự',
             'phone.required' => 'Số điện thoại không được để trống',
             'phone.max' => 'Số điện thoại không dài quá 15 kí tự',
+            'phone.regex' => 'Số điện thoại không đúng định dạng',
         ]);
 
         if ($validator->fails()) {
@@ -188,7 +189,7 @@ class MapClientController extends Controller
                 return redirect()->route('dia-chi.index')->with('error', "Xóa thông tin địa chỉ thất bại.");
             }
         } catch (\Exception $e) {
-            return redirect()->route('dia-chi.index')->with('error', "Đã xảy ra lỗi: " . $e->getMessage());
+            return redirect()->route('dia-chi.index')->with('error', "Không thể xóa địa chỉ này. Bạn vui lòng thay đổi thông tin địa chỉ hoặc tạo địa chỉ mới.");
         }
 
     }

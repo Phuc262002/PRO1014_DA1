@@ -321,7 +321,11 @@
       var $button = $(this);
       var oldValue = $button.parent().find('input').val();
       if ($button.hasClass('inc')) {
-        var newVal = parseFloat(oldValue) + 1;
+        if(isNaN(oldValue)) {
+          var newVal = + 1;
+        } else {
+          var newVal = parseFloat(oldValue) + 1;
+        }
       } else {
         // Don't allow decrementing below zero
         if (oldValue > 1) {

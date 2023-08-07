@@ -124,7 +124,7 @@
                         <!-- Cart Calculate Items End -->
 
                         <!-- Cart Checktout Button Start -->
-                        <a href="{{ route('thanh-toan.index') }}" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận
+                        <a onclick="redirectCheckout()" class="btn btn btn-gray-deep btn-hover-primary m-t-30">Xác nhận
                             thanh
                             toán</a>
                         <!-- Cart Checktout Button End -->

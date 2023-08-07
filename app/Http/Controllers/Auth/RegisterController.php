@@ -33,7 +33,7 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
             'email' => 'required|email',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|regex:/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[A-Za-z\d]{8,}$/',
             'password_confirmation' => 'required|required_with:password|same:password'
         ],[
             'name.required' => 'Vui lòng nhập tên.',
