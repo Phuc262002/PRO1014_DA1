@@ -70,7 +70,8 @@
 
                         <!-- Cart Button left Side Start -->
                         <div class="cart-btn-lef-side m-b-20">
-                            <a href="{{ route('san-pham.index') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục mua
+                            <a href="{{ route('san-pham.index') }}" class="btn btn btn-gray-deep btn-hover-primary">Tiếp tục
+                                mua
                                 hàng</a>
                         </div>
                         <!-- Cart Button left Side End -->
@@ -218,7 +219,11 @@
 
                 },
                 error: function(error) {
-                    console.log(error);
+                    if (error.status == 429) {
+                        Error('Ban đang ấn quá nhanh, vui lòng thử lại sau 1 phút.');
+                    } else {
+                        Error('Thêm sản phẩm thất bại');
+                    }
                 }
             });
         }
@@ -246,7 +251,7 @@
                     const newCartItems = cartItems.map(item => {
                         if (item.id === id) {
                             if ($(event).val() > 0) {
-                                if($(event).val() > response.data.in_stock){
+                                if ($(event).val() > response.data.in_stock) {
                                     item.quantity = response.data.in_stock;
                                     Error('Số lượng sản phẩm trong kho không đủ');
                                 } else {
@@ -265,7 +270,11 @@
 
                 },
                 error: function(error) {
-                    console.log(error);
+                    if (error.status == 429) {
+                        Error('Ban đang ấn quá nhanh, vui lòng thử lại sau 1 phút.');
+                    } else {
+                        Error('Thêm sản phẩm thất bại');
+                    }
                 }
             });
 
