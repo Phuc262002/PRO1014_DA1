@@ -156,7 +156,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
                                             <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                Dịch vụ
+                                                Dịch vụ đã đặt
                                             </p>
                                         </div>
                                         <div class="flex-shrink-0">
@@ -188,7 +188,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header border-0 align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Doanh thu</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Doanh thu sản phẩm đã bán</h4>
                                     {{-- <div>
                                                 <button type="button" class="btn btn-soft-secondary btn-sm shadow-none">
                                                     ALL
