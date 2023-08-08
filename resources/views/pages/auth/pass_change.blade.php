@@ -68,7 +68,7 @@
                                             </div>
                                         </div>
                                         <input type="hidden" name="token" value="{{ $token }}">
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label class="form-label" for="password-input">Mật khẩu<span
                                                     class="text-danger">*</span></label>
                                             <div class="position-relative auth-pass-inputgroup">
@@ -99,6 +99,42 @@
                                                     class="btn btn-link position-absolute end-0 top-0 text-decoration-none shadow-none text-muted password-addon"
                                                     type="button" id="confirm-password-input"><i
                                                         class="ri-eye-fill align-middle"></i></button>
+                                            </div>
+                                        </div> --}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="password-input">Mật khẩu <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="position-relative auth-pass-inputgroup">
+                                                <input type="password" name="password"
+                                                    class="form-control pe-5 password-input" onpaste="return false"
+                                                    placeholder="Nhập mật khẩu" id="password-input"
+                                                    aria-describedby="passwordInput"
+                                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                <button
+                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none shadow-none text-muted password-addon"
+                                                    type="button" id="password-addon"><i
+                                                        class="ri-eye-fill align-middle"></i></button>
+                                                <div class="invalid-feedback">
+                                                    Hãy nhập mật khẩu của bạn.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="password-input1">Nhập lại mật khẩu <span
+                                                    class="text-danger">*</span></label>
+                                            <div class="position-relative auth-pass-inputgroup">
+                                                <input type="password" name="password_confirmation"
+                                                    class="form-control pe-5 password-input" onpaste="return false"
+                                                    placeholder="Nhập mật khẩu" id="password-input1"
+                                                    aria-describedby="passwordInput"
+                                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                <button
+                                                    class="btn btn-link position-absolute end-0 top-0 text-decoration-none shadow-none text-muted password-addon"
+                                                    type="button" id="password-addon"><i
+                                                        class="ri-eye-fill align-middle"></i></button>
+                                                <div class="invalid-feedback">
+                                                    Hãy nhập lại mật khẩu của bạn.
+                                                </div>
                                             </div>
                                         </div>
 
