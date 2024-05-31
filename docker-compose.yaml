@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  petscare:
+    image: petscare
+    build: .
+    container_name: petscare
+    restart: always
+    environment:
+      - PORT=5000
+    ports:
+      - '5000:5000'
